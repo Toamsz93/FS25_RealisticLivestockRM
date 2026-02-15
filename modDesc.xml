@@ -27,6 +27,7 @@ v0.6.1.0-dev:
 - Fix server crash when client inseminates cow with straw (AnimalInseminationEvent)
 - Fix stream corruption in AI auto-insemination event (AIAnimalInseminationEvent)
 - Fix pregnancy event silently failing to match animals on client (AnimalPregnancyEvent)
+- Fix dewars bought mid-game not syncing to connected clients in multiplayer (SemenBuyEvent)
 - Fix client-side error when buying semen in multiplayer (SemenBuyEvent)
 - Fix disease treatment toggle not syncing to server in multiplayer (DiseaseDialog)
 - Fix settings dependency check using undefined variable (RL_BroadcastSettingsEvent)
