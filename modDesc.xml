@@ -33,6 +33,7 @@ v0.6.1.0-dev:
 - Fix client-side error when buying semen in multiplayer (SemenBuyEvent)
 - Fix disease treatment toggle not syncing to server in multiplayer (DiseaseDialog)
 - Fix settings dependency check using undefined variable (RL_BroadcastSettingsEvent)
+- Fixed error spam when dismounting horse outside pen in multiplayer
 - Fix black screen when multiplayer client tries to ride a horse
 - Fix multiplayer client unable to clean horses
 

@@ -67,28 +67,30 @@ function RealisticLivestock_AnimalCluster:showInfo(superFunc, box)
 
     box:addLine(g_i18n:getText("infohud_health"), string.format("%d %%", self.health))
 
-    if self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.gender ~= nil and self.gender == "female" and self.age >= 12 then
-        local lactatingAnimals = self.lactatingAnimals
-        if lactatingAnimals ~= nil then box:addLine("Lactating animals", string.format("%d", lactatingAnimals)) end
-    end
-
-    if self.gender ~= nil and self.gender == "female" and subType.supportsReproduction then
-
-        box:addLine(g_i18n:getText("infohud_reproduction"), string.format("%d %%", self.reproduction))
-
-        local healthFactor = self:getHealthFactor()
-        local text = "Yes"
-
-        if self.age < subType.reproductionMinAgeMonth then
-            text = "No (too young)"
-        elseif not RealisticLivestock.hasMaleAnimalInPen(self.clusterSystem.owner.spec_husbandryAnimals, name) and self.reproduction < 100 / subType.reproductionDurationMonth then
-            text = "No (no suitable male animal)"
-        elseif healthFactor < subType.reproductionMinHealth then
-            text = "No (too unhealthy)"
+    if self.clusterSystem ~= nil and self.clusterSystem.owner ~= nil then
+        if self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.gender ~= nil and self.gender == "female" and self.age >= 12 then
+            local lactatingAnimals = self.lactatingAnimals
+            if lactatingAnimals ~= nil then box:addLine("Lactating animals", string.format("%d", lactatingAnimals)) end
         end
 
-        box:addLine("Can reproduce", text)
+        if self.gender ~= nil and self.gender == "female" and subType.supportsReproduction then
 
+            box:addLine(g_i18n:getText("infohud_reproduction"), string.format("%d %%", self.reproduction))
+
+            local healthFactor = self:getHealthFactor()
+            local text = "Yes"
+
+            if self.age < subType.reproductionMinAgeMonth then
+                text = "No (too young)"
+            elseif not RealisticLivestock.hasMaleAnimalInPen(self.clusterSystem.owner.spec_husbandryAnimals, name) and self.reproduction < 100 / subType.reproductionDurationMonth then
+                text = "No (no suitable male animal)"
+            elseif healthFactor < subType.reproductionMinHealth then
+                text = "No (too unhealthy)"
+            end
+
+            box:addLine("Can reproduce", text)
+
+        end
     end
 
 end
@@ -96,6 +98,8 @@ end
 AnimalCluster.showInfo = Utils.overwrittenFunction(AnimalCluster.showInfo, RealisticLivestock_AnimalCluster.showInfo)
 
 function RealisticLivestock_AnimalCluster:addInfos(infos)
+
+    if self.clusterSystem == nil or self.clusterSystem.owner == nil then return end
 
     if self.gender ~= nil and self.gender == "female" and self.lactatingAnimals ~= nil and self.age > 12 and self.clusterSystem.owner.spec_husbandryMilk ~= nil then
 
