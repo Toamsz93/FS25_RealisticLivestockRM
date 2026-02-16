@@ -3424,7 +3424,7 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 
     if self.age < self:getSubType().reproductionMinAgeMonth then return false, g_i18n:getText("rl_insemination_young") end
 
-    if self.monthsSinceLastBirth <= 2 then return false, g_i18n:getText("rl_insemination_recovering") end
+    if self.isParent and self.monthsSinceLastBirth <= 2 then return false, g_i18n:getText("rl_insemination_recovering") end
 
     if string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId) == self.fatherId then return false, g_i18n:getText("rl_insemination_father") end
 

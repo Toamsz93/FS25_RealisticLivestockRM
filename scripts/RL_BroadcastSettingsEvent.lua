@@ -94,9 +94,10 @@ function RL_BroadcastSettingsEvent:run(connection)
 
         if setting.dynamicTooltip and setting.element ~= nil then setting.element.elements[1]:setText(g_i18n:getText("rl_settings_" .. self.setting .. "_tooltip_" .. setting.state)) end
 
+		Log:trace("SettingsEvent:run dep check setting.state=%s", tostring(setting.state))
 		for _, s in pairs(RLSettings.SETTINGS) do
 			if s.dependancy and s.dependancy.name == self.setting and s.element ~= nil then
-				s.element:setDisabled(s.dependancy.state ~= state)
+				s.element:setDisabled(s.dependancy.state ~= setting.state)
 			end
 		end
 

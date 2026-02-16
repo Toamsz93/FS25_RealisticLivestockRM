@@ -17,45 +17,11 @@ Main changes from the original mod:
 - Improved genetic inheritance with natural variation - offspring can now exceed or fall below parent trait values.
 
 
-## Changelog
+## Known Issues
 
-v0.6.0.0:
-- Add user guides and factsheets
-- Add optional daily summary mode for message log to reduce noise on large farms (new setting: Message Log Summaries)
-- Added "Reset AI Animals" button to settings to regenerate the AI straw catalog with new randomly generated animals
-- Fix potential milk production loss that could occur when birth errors were silently caught
-- Fix potential game freeze when selling animals with an active filter
-- Fix potential mod errors blocking crop growth and other periodic game updates
-- Fix texture warning for LED panel mask map
-- Add Danish translation update and Chinese translation (community contributions)
+- **Multiplayer: Dewars (AI semen canisters) cannot be picked up by clients.** The dewar interaction menu works (taking straws), but physically picking up and moving dewars does not work for connected clients. Works in singleplayer.
 
-v0.5.0.0:
-- Randomize father selection during breeding - eligible males are now chosen randomly instead of always the first one
-- Improve genetic inheritance with natural variation - offspring can now exceed or fall below parent trait values
-- Fix wrong text shown for straw in monitor menu
-- Detect conflicting mods (e.g., MoreVisualAnimals) and show a unified conflict dialog at startup
-- Add Italian translation (community contribution by @FirenzeIT)
-
-v0.4.2.0:
-- Fix multiplayer sync issues when subTypeIndex differs between server/client (PR by killemth)
-- Add fallback for days per month calculation during early load (PR by killemth)
-- Refactor subType resolution into helper function with logging
-
-v0.4.1.0:
-- Fix crash caused by invalid animal root node in some cases.
-- Fix death message count for auto-sold newborns
-- Fix wrong text for when females can reproduce
-
-v0.4.0.0:
-- Remove Font Library dependency by inlining the required functionality directly in the mod.
-- Refactor file loading and source folder.
-- Update mod icon.
-
-v0.3.0.0:
-- Add Highland Bulls based on Renfordt's PR in 389 Arrow-kb's original mod.
-
-v0.2.0.0:
-- Migrate savegames from Arrow-kb's Realistic Livestock to RitterMod version. To avoid conflits with original mod and other forks of it, this mod uses a different mod ID. Therefore, when you load a savegame that used the original Realistic Livestock mod, you will be prompted to migrate the data to this mod.
+## [Changelog](CHANGELOG.md)
 
 ## License
 This mod is released under GPL-3 license. See the [LICENSE](LICENSE) file for details.

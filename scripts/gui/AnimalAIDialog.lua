@@ -25,13 +25,13 @@ function AnimalAIDialog.createFromExistingGui(gui)
 end
 
 
-function AnimalAIDialog.show(farmId, animalTypeIndex, animal)
+function AnimalAIDialog.show(object, farmId, animalTypeIndex, animal)
 
     if AnimalAIDialog.INSTANCE == nil then AnimalAIDialog.register() end
 
     local dialog = AnimalAIDialog.INSTANCE
 
-    dialog.farmId, dialog.animalTypeIndex, dialog.animal = farmId, animalTypeIndex, animal
+    dialog.object, dialog.farmId, dialog.animalTypeIndex, dialog.animal = object, farmId, animalTypeIndex, animal
 
     dialog:updateDewars()
 
@@ -61,6 +61,7 @@ function AnimalAIDialog:onClickOk()
 
             dewar:changeStraws(-1)
             self.animal:setInsemination(dewar.animal)
+            AIAnimalInseminationEvent.sendEvent(self.object, { { animal = self.animal, dewar = uniqueId } })
             break
 
         end

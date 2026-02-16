@@ -60,21 +60,27 @@ function DiseaseDialog:onClickOk()
 
     if disease == nil or disease.type.treatment == nil or disease.cured then return end
 
-    disease.beingTreated = not disease.beingTreated
+    local newState = not disease.beingTreated
+    local husbandry = self.animal.clusterSystem.owner
 
-    if not disease.beingTreated then
+    -- Send network event (server broadcasts, client sends to server)
+    Log:trace("DiseaseDialog:onClickOk sending event disease=%s treatment=%s", disease.type.title, tostring(newState))
+    DiseaseTreatmentToggleEvent.sendEvent(husbandry, self.animal, disease.type.title, newState)
+
+    -- Local UI feedback (immediate)
+    disease.beingTreated = newState
+    for _, aDisease in pairs(self.animal.diseases) do
+        if aDisease.type.title == disease.type.title then
+            aDisease.beingTreated = newState
+            break
+        end
+    end
+
+    -- Messages (keep existing logic)
+    if not newState then
         self.animal:addMessage("DISEASE_TREATMENT_STOP", { disease.type.name })
     else
         self.animal:addMessage("DISEASE_TREATMENT_" .. (disease.treatmentDuration > 0 and "RESUME" or "START"), { disease.type.name, string.format(g_i18n:getText("rl_ui_feePerMonth"), g_i18n:formatMoney(disease.type.treatment.cost, 2, true, true)) })
-    end
-    
-    for _, aDisease in pairs(self.animal.diseases) do
-
-        if aDisease.type.title == disease.type.title then
-            aDisease.beingTreated = disease.beingTreated
-            break
-        end
-
     end
 
     self:onClickListItem(self.diseaseList.selectedIndex)

@@ -1426,7 +1426,7 @@ function AnimalScreen:onClickArtificialInsemination()
 
     if animal == nil then return end
 
-    AnimalAIDialog.show(g_localPlayer.farmId, animal.animalTypeIndex, animal)
+    AnimalAIDialog.show(self.husbandry, g_localPlayer.farmId, animal.animalTypeIndex, animal)
 
 end
 

@@ -9,6 +9,9 @@
 
 local modDirectory = g_currentModDirectory
 
+-- SECTION 0: Logging
+source(modDirectory .. "scripts/rmlib/RmLogging.lua")
+
 -- SECTION 1: Font Library
 source(modDirectory .. "scripts/fontlib/RmFontCharacter.lua")
 source(modDirectory .. "scripts/fontlib/RmFontManager.lua")
@@ -69,6 +72,7 @@ source(modDirectory .. "scripts/animals/shop/RealisticLivestock_AnimalItemStock.
 source(modDirectory .. "scripts/events/DewarManagerStateEvent.lua")
 source(modDirectory .. "scripts/events/HusbandryMessageStateEvent.lua")
 source(modDirectory .. "scripts/events/ReturnStrawEvent.lua")
+source(modDirectory .. "scripts/events/DiseaseTreatmentToggleEvent.lua")
 
 -- SECTION 10: Farms
 source(modDirectory .. "scripts/farms/FarmManager.lua")

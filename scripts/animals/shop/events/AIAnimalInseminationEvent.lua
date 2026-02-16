@@ -54,7 +54,8 @@ function AIAnimalInseminationEvent:writeStream(streamId, connection)
 	for _, item in pairs(self.items) do
 		
 		item.animal:writeStreamIdentifiers(streamId, connection)
-		streamWriteString(item.dewar)
+		streamWriteString(streamId, item.dewar)
+		Log:trace("AIInseminationEvent:writeStream dewar=%s", tostring(item.dewar))
 
 	end
 
@@ -87,6 +88,7 @@ function AIAnimalInseminationEvent:run(connection)
 					
 						animal:setInsemination(dewar.animal)
 						dewar:changeStraws(-1)
+						Log:trace("AIInseminationEvent:run inseminated %s dewar=%s", tostring(identifiers.uniqueId), tostring(item.dewar))
 
 						break
 
@@ -102,4 +104,13 @@ function AIAnimalInseminationEvent:run(connection)
 
 	end
 
+end
+
+
+function AIAnimalInseminationEvent.sendEvent(object, items)
+    if g_server ~= nil then
+        g_server:broadcastEvent(AIAnimalInseminationEvent.new(object, items))
+    else
+        g_client:getServerConnection():sendEvent(AIAnimalInseminationEvent.new(object, items))
+    end
 end

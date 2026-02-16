@@ -32,21 +32,23 @@ function AnimalInseminationEvent:readStream(streamId, connection)
 	
 	self.semen = { ["genetics"] = {} }
 
-	semen.country = streamReadUInt8(streamId)
-	semen.farmId = streamReadString(streamId)
-	semen.uniqueId = streamReadString(streamId)
-	semen.name = streamReadString(streamId)
-	semen.typeIndex = streamReadUInt8(streamId)
-	semen.subTypeIndex = streamReadUInt8(streamId)
-	semen.success = streamReadFloat32(streamId)
+	self.semen.country = streamReadUInt8(streamId)
+	self.semen.farmId = streamReadString(streamId)
+	self.semen.uniqueId = streamReadString(streamId)
+	self.semen.name = streamReadString(streamId)
+	self.semen.typeIndex = streamReadUInt8(streamId)
+	self.semen.subTypeIndex = streamReadUInt8(streamId)
+	self.semen.success = streamReadFloat32(streamId)
 
-	semen.genetics.metabolism = streamReadFloat32(streamId)
-	semen.genetics.fertility = streamReadFloat32(streamId)
-	semen.genetics.health = streamReadFloat32(streamId)
-	semen.genetics.quality = streamReadFloat32(streamId)
-	semen.genetics.productivity = streamReadFloat32(streamId)
+	self.semen.genetics.metabolism = streamReadFloat32(streamId)
+	self.semen.genetics.fertility = streamReadFloat32(streamId)
+	self.semen.genetics.health = streamReadFloat32(streamId)
+	self.semen.genetics.quality = streamReadFloat32(streamId)
+	self.semen.genetics.productivity = streamReadFloat32(streamId)
 
-	if semen.genetics.productivity < 0 then semen.genetics.productivity = nil end
+	if self.semen.genetics.productivity < 0 then self.semen.genetics.productivity = nil end
+
+	Log:trace("InseminationEvent:readStream semen.country=%s", tostring(self.semen.country))
 
 	self:run(connection)
 
@@ -87,6 +89,7 @@ function AnimalInseminationEvent:run(connection)
 		if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 					
 			animal:setInsemination(self.semen)
+			Log:trace("InseminationEvent:run applied to %s", tostring(identifiers.uniqueId))
 			break
 
 		end

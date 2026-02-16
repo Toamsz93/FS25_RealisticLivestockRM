@@ -112,9 +112,11 @@ function AnimalPregnancyEvent:run(connection)
         animals = self.object:getClusterSystem().animals
     end
 
+    Log:trace("PregnancyEvent:run uniqueId=%s", tostring(identifiers.uniqueId))
+
     for _, animal in pairs(animals) do
 
-        if animal.uniqueId == identifiers.unique and animal.farmId == identifiers.farmId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
+        if animal.uniqueId == identifiers.uniqueId and animal.farmId == identifiers.farmId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
             animal.isPregnant = true
             animal.pregnancy = self.pregnancy
@@ -122,6 +124,7 @@ function AnimalPregnancyEvent:run(connection)
             animal.reproduction = 0
 
             animal:changeReproduction(animal:getReproductionDelta())
+            Log:trace("PregnancyEvent:run applied pregnancy to %s", tostring(animal.uniqueId))
 
             return
 
