@@ -34,7 +34,12 @@ function RealisticLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
     g_animalScreen.isTrailerFarm = husbandry ~= nil and vehicle ~= nil
     g_animalScreen.filters = nil
     g_animalScreen.filteredItems = nil
-    
+
+    -- Add RL-specific actions to NAV_ACTIONS before opening so the GUI framework registers them
+    for _, action in ipairs(RealisticLivestock_AnimalScreen.NAV_ACTIONS) do
+        table.insert(Gui.NAV_ACTIONS, action)
+    end
+
 	g_animalScreen:setController(husbandry, vehicle, isDealer)
 	g_gui:showGui("AnimalScreen")
 
@@ -43,18 +48,30 @@ end
 AnimalScreen.show = RealisticLivestock_AnimalScreen.show
 
 
--- Register custom InputActions in Gui.NAV_ACTIONS so button profiles work.
--- NOTE: RL_MARK and RL_CASTRATE are NOT registered here — their buttons reuse
--- the built-in MENU_EXTRA_1 (X) and MENU_EXTRA_2 (C) profiles instead. Custom
--- actions sharing the same key as a built-in NAV_ACTION get silently blocked.
--- Mark/Castrate are only visible on Info screen where Buy/Sell (same keys) are
--- hidden, so no conflict.
-if Gui ~= nil and Gui.NAV_ACTIONS ~= nil then
-    table.insert(Gui.NAV_ACTIONS, InputAction.RL_MONITOR)
-    table.insert(Gui.NAV_ACTIONS, InputAction.RL_AI)
-    table.insert(Gui.NAV_ACTIONS, InputAction.RL_DISEASES)
-    table.insert(Gui.NAV_ACTIONS, InputAction.RL_SELECT)
+-- Actions needed in Gui.NAV_ACTIONS for AnimalScreen button profiles (M, I, D, A keys).
+-- Added dynamically in show(), removed in onClose() to avoid polluting other screens
+-- (RL_SELECT on KEY_a was stealing the A key from map scrolling in InGameMenuMapFrame).
+-- NOTE: RL_MARK/RL_CASTRATE reuse built-in MENU_EXTRA_1/MENU_EXTRA_2 profiles instead.
+RealisticLivestock_AnimalScreen.NAV_ACTIONS = {
+    InputAction.RL_MONITOR,
+    InputAction.RL_AI,
+    InputAction.RL_DISEASES,
+    InputAction.RL_SELECT,
+}
+
+
+function RealisticLivestock_AnimalScreen:onAnimalScreenClose()
+    for _, action in ipairs(RealisticLivestock_AnimalScreen.NAV_ACTIONS) do
+        for i = #Gui.NAV_ACTIONS, 1, -1 do
+            if Gui.NAV_ACTIONS[i] == action then
+                table.remove(Gui.NAV_ACTIONS, i)
+                break
+            end
+        end
+    end
 end
+
+AnimalScreen.onClose = Utils.appendedFunction(AnimalScreen.onClose, RealisticLivestock_AnimalScreen.onAnimalScreenClose)
 
 
 function RealisticLivestock_AnimalScreen:setController(_, husbandry, vehicle, isDealer)
