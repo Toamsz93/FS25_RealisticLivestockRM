@@ -1,30 +1,57 @@
 > [!NOTE]
 > My version of the awesome [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb).
+> Proudly cooperating with [FS25_EnhancedLivestock](https://github.com/renfordt/FS25_EnhancedLivestock) mod by [Renfordt](https://github.com/renfordt).
 
 # FS25 Realistic Livestock - Ritter version
-This is a modified version of the [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb) who has decided to stop all development of his mods.
 
-The current goal of this version is to keep the core parts of the mod working for my use, and do the occasional fix or improvement that I feel is needed. 
+Replaces FS25's simple animal clusters with individually tracked animals - each with unique genetics, breeding, diseases, and production traits. A maintained version of Arrow-kb's [Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod.
 
-Feel free to use it as you see fit, but please understand that this mod is way less ambitious than the original.
+Every animal is tracked separately with its own identity, genetic makeup, health status, and production output. Genetics are inherited through breeding, diseases can spread and require treatment, and production is driven by each animal's individual traits.
 
-**[User Documentation](https://rittermod.github.io/FS25_RealisticLivestockRM/)** — Guides and per-species factsheets covering genetics, breeding, diseases, production, and settings.
+This is a maintained version of the original mod by Arrow-kb, who has discontinued development. The goal is to keep the mod working, fix bugs, and make improvements where needed. While less ambitious in scope than the original roadmap, this version focuses on stability and reliability.
 
-Main changes from the original mod:
-- Automatically migrate savegame data from Arrow-kb's Realistic Livestock to this version.
-- Added Highland Bulls based on Renfordt's PR 389 in Arrow-kb's original mod.
-- Removed Font Library dependency by inlining the required functionality directly in the mod.
-- Improved genetic inheritance with natural variation - offspring can now exceed or fall below parent trait values.
+**[User Documentation](https://rittermod.github.io/FS25_RealisticLivestockRM/)** - Guides and per-species factsheets covering genetics, breeding, diseases, production, and settings.
 
+## Features
+
+- Individual animal tracking with unique identity (farm ID, unique ID, birthday)
+- Genetics system with heritable traits that affect production output
+- Breeding and reproduction with pregnancy mechanics and genetic inheritance
+- AI insemination system with semen dewars
+- Disease simulation with infection, treatment, and immunity
+- Animal monitoring to track individual animals over time
+- Weight system tied to genetics and feeding
+- Animal marking and castration
+- Daily summary mode for message log
+- In-game help pages covering monitors, pregnancy, production, weight, and genetics
+- Highland cattle bull support
+- Multiplayer support (server-authoritative)
+
+## Notes
+
+- Based on Arrow-kb's Realistic Livestock mod (v1.2.0.5), released under GPL-3 license
+- Savegame data from Arrow-kb's original version is automatically migrated on first load
+- Font Library mod is no longer required (functionality has been inlined)
+- Incompatible with FS25_EnhancedLivestock and FS25_MoreVisualAnimals (use FS25_MoreVisualAnimalsRM instead)
+
+## Installation
+
+Place `FS25_RealisticLivestockRM.zip` in your mods folder.
+
+**Migrating from Arrow-kb's version:** Remove `FS25_RealisticLivestock.zip` and `FS25_FontLibrary.zip`. Back up your savegame first, then load it - data migrates automatically.
 
 ## Known Issues
 
 - **Multiplayer: Dewars (AI semen canisters) cannot be picked up by clients.** The dewar interaction menu works (taking straws), but physically picking up and moving dewars does not work for connected clients. Works in singleplayer.
 
-## [Changelog](CHANGELOG.md)
+## Changelog
+See the [CHANGELOG](CHANGELOG.md) for a detailed list of changes, fixes, and improvements in this version.
 
 ## License
 This mod is released under GPL-3 license. See the [LICENSE](LICENSE) file for details.
+
+
+
 
 # About reuse, modification and building upon the original Realistic Livestock mod by Arrow-kb
 
@@ -41,7 +68,7 @@ The original Realistic Livestock mod by Arrow-kb is released under GPL-3 license
 
 This means that **anyone can use, and build upon, any modification I make** in this Ritter version of the Realistic Livestock mod **without any prior consent** or similar **from me, as long as they too comply with the GPL-3 license terms**, attibute me for the changes I have made AND release their modified code/mod under the same GPL-3 license for any changes/additions they have made.
 
-It **also means** that **anyone, including me, can reuse and build opon any changes made by others** to the mod **without any prior consent** or similar **from the authors of those modifications** since their changes to the mod are also licensed under the same GPL-3. 
+It **also means** that **anyone, including me, can reuse and build opon any changes made by others** to the mod **without any prior consent** or similar **from the authors of those modifications** since their changes to the mod are also licensed under the same GPL-3.
 
 **Nobody can say, "No, this is my code, you can not reuse it".** The GPL-3 license ensures that the code/mod and any mod built on it will always remain free and open for anyone to use, modify, and distribute under the same GPL-3 license terms. There might at some point a discussion about when is a mod no longer a "mod built on the original mod" but that is way over my paygrade.
 

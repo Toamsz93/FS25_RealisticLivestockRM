@@ -1,4 +1,4 @@
-# Realistic Livestock RM — Overview
+# Realistic Livestock RM - Overview
 
 Realistic Livestock RM transforms the animal system in Farming Simulator 25. Instead of anonymous clusters, every animal is a unique individual with its own genetics, health history, and lifecycle.
 
@@ -16,13 +16,13 @@ Each animal you buy or breed is tracked individually. They have a name tag, a bi
 
 Every animal is born with five genetic traits rated from Extremely Low to Extremely High:
 
-- **Health** — Disease resistance and longevity
-- **Fertility** — Breeding success rate
-- **Productivity** — Milk, egg, and wool output (cows, sheep, chickens only)
-- **Quality** — Sell price and meat value
-- **Metabolism** — Food consumption and weight gain
+- **Health** - Disease resistance and longevity
+- **Fertility** - Breeding success rate
+- **Productivity** - Milk, egg, and wool output (cows, sheep, chickens only)
+- **Quality** - Sell price and meat value
+- **Metabolism** - Food consumption and weight gain
 
-Offspring inherit traits from their parents, so selective breeding pays off over time. Most animals you encounter will be average, but occasionally you'll find an exceptional one — or a dud.
+Offspring inherit traits from their parents, so selective breeding pays off over time. Most animals you encounter will be average, but occasionally you'll find an exceptional one - or a dud.
 
 See the [Genetics Guide](guide-genetics.md) for the full rating scale and breeding tips.
 
@@ -38,7 +38,7 @@ Reproduction requires a male and female of the same species in the same pen. Eac
 | Horses | 11 months | 1 foal |
 | Chickens | 2 months | 1-12 chicks |
 
-Males and females have different fertility windows — boars retire from breeding at just 4 years while sows can breed until 8 years. Cows lactate for 10 months after giving birth, during which they produce milk but need more food and water.
+Males and females have different fertility windows - boars retire from breeding at just 4 years while sows can breed until 8 years. Cows lactate for 10 months after giving birth, during which they produce milk but need more food and water.
 
 **Artificial Insemination** is available through the livestock menu if you don't want to keep a male.
 
@@ -64,9 +64,9 @@ See the [Disease Guide](guide-diseases.md) for prevention and treatment strategi
 
 Animals can die from three causes:
 
-- **Old age** — Each species has a natural lifespan (chickens ~5-8 years, horses ~25-30 years)
-- **Low health** — Unhealthy animals face increasing death risk
-- **Accidents** — Random events affected by weather conditions
+- **Old age** - Each species has a natural lifespan (chickens ~5-8 years, horses ~25-30 years)
+- **Low health** - Unhealthy animals face increasing death risk
+- **Accidents** - Random events affected by weather conditions
 
 Death mechanics can be fully disabled or adjusted in the mod settings.
 
@@ -87,11 +87,11 @@ See the [Settings Reference](reference-settings.md) for all options.
 
 The mod adds a comprehensive livestock menu with several tabs:
 
-- **Animal overview** — Browse individual animals with their stats, genetics, and health
-- **Herdsman** — Set up automation rules for your herds
-- **Artificial insemination** — Breed without keeping males
-- **Message log** — Track births, deaths, diseases, and other events
-- **CSV export** — Export detailed data for analysis
+- **Animal overview** - Browse individual animals with their stats, genetics, and health
+- **Herdsman** - Set up automation rules for your herds
+- **Artificial insemination** - Breed without keeping males
+- **Message log** - Track births, deaths, diseases, and other events
+- **CSV export** - Export detailed data for analysis
 
 ---
 
@@ -99,15 +99,15 @@ The mod adds a comprehensive livestock menu with several tabs:
 
 Each species has a detailed factsheet with breed comparisons, production ranges, and pricing:
 
-- [Cattle Factsheet](factsheet-cattle.md) — 7 breeds from dairy Holsteins to beef Angus
-- [Pigs Factsheet](factsheet-pigs.md) — 3 breeds with massive litter sizes
-- [Sheep & Goats Factsheet](factsheet-sheep.md) — 4 sheep breeds + goats
-- [Horses Factsheet](factsheet-horses.md) — 8 colour variants
-- [Chickens Factsheet](factsheet-chickens.md) — Hens and roosters
+- [Cattle Factsheet](factsheet-cattle.md) - 7 breeds from dairy Holsteins to beef Angus
+- [Pigs Factsheet](factsheet-pigs.md) - 3 breeds with massive litter sizes
+- [Sheep & Goats Factsheet](factsheet-sheep.md) - 4 sheep breeds + goats
+- [Horses Factsheet](factsheet-horses.md) - 8 colour variants
+- [Chickens Factsheet](factsheet-chickens.md) - Hens and roosters
 
 ## Guides
 
-- [Genetics Guide](guide-genetics.md) — Trait ratings, breeding strategy, the CVM dilemma
-- [Disease Guide](guide-diseases.md) — Prevention, treatment, and immunity
-- [Breeding Guide](guide-breeding.md) — Fertility windows, offspring tables, lactation
-- [Settings Reference](reference-settings.md) — Every configurable option explained
+- [Genetics Guide](guide-genetics.md) - Trait ratings, breeding strategy, the CVM dilemma
+- [Disease Guide](guide-diseases.md) - Prevention, treatment, and immunity
+- [Breeding Guide](guide-breeding.md) - Fertility windows, offspring tables, lactation
+- [Settings Reference](reference-settings.md) - Every configurable option explained

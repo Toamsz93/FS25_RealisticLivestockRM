@@ -283,9 +283,7 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 					sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
 					local state = MathUtil.round(sliderPosX / stepSize) + 1
 
-					--if state ~= self.leftState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state < self.leftState)) then
-					if state ~= self.leftState then
-						--print(string.format("left: %s, %s, %s", tostring(state ~= self.leftState), tostring(self.leftState == self.rightState), tostring(state < self.leftState)))
+						if state ~= self.leftState then
 
 						self.leftSliderMousePosX = self.leftSliderMousePosX + stepSize * (state - self.leftState)
 						self.leftState = state
@@ -319,9 +317,7 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 					sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
 					local state = MathUtil.round(sliderPosX / stepSize) + 1
 
-					--if state ~= self.rightState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state > self.rightState)) then
-					if state ~= self.rightState then
-						--print(string.format("right: %s, %s, %s", tostring(state ~= self.rightState), tostring(self.leftState == self.rightState), tostring(state > self.rightState)))
+						if state ~= self.rightState then
 
 						self.rightSliderMousePosX = self.rightSliderMousePosX + stepSize * (state - self.rightState)
 						self.rightState = state

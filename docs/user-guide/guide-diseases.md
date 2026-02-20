@@ -22,12 +22,12 @@ Realistic Livestock RM includes five diseases that can infect, spread between, a
 
 **Affects:** Cows, Sheep, Goats (lactating females only)
 
-Mastitis is an udder infection that stops all milk and wool production. It only affects animals that are currently lactating — non-lactating animals cannot contract it.
+Mastitis is an udder infection that stops all milk and wool production. It only affects animals that are currently lactating - non-lactating animals cannot contract it.
 
 | Parameter | Value |
 |-----------|-------|
-| Spread | Slow — occasional transmission to nearby animals |
-| Fatality | None — never kills |
+| Spread | Slow - occasional transmission to nearby animals |
+| Fatality | None - never kills |
 | Treatment | $200, cured in 1 month |
 | Natural recovery | 3 months without treatment |
 | Immunity after recovery | 12 months |
@@ -43,27 +43,27 @@ Mastitis is an udder infection that stops all milk and wool production. It only 
 
 - Treat immediately ($200) to restore production in 1 month vs waiting 3 months for natural recovery
 - After recovery, the animal is immune for 12 months
-- Only lactating animals can get it — dry cows and males are safe
-- In a large dairy herd, keep treatment funds available — mastitis is common
+- Only lactating animals can get it - dry cows and males are safe
+- In a large dairy herd, keep treatment funds available - mastitis is common
 
 ---
 
 ## CVM (Complex Vertebral Malformation)
 
-**Affects:** Cattle only (genetic — not contagious)
+**Affects:** Cattle only (genetic - not contagious)
 
-CVM is a recessive genetic disease. It doesn't spread between animals — it's inherited from parents. CVM-affected calves almost always die within the first month of life.
+CVM is a recessive genetic disease. It doesn't spread between animals - it's inherited from parents. CVM-affected calves almost always die within the first month of life.
 
 | Parameter | Value |
 |-----------|-------|
-| Spread | None — inherited genetically |
+| Spread | None - inherited genetically |
 | Fatality | Almost always fatal in affected calves (within first month) |
 | Treatment | None |
 | Carrier chance from dealer | Rare (about 1 in 200 cattle purchased) |
 
 ### Carrier Cows: The Trade-Off
 
-CVM carriers appear healthy and suffer no ill effects. In fact, **CVM carrier cows produce substantially more milk** than non-carriers. This makes them extremely valuable for dairy — but also risky for breeding.
+CVM carriers appear healthy and suffer no ill effects. In fact, **CVM carrier cows produce substantially more milk** than non-carriers. This makes them extremely valuable for dairy - but also risky for breeding.
 
 | Breeding Combination | Result |
 |---------------------|--------|
@@ -74,7 +74,7 @@ CVM carriers appear healthy and suffer no ill effects. In fact, **CVM carrier co
 ### Management Tips
 
 - Check all new cattle purchases for CVM carrier status
-- Carrier cows are excellent milk producers — keep them, but breed carefully
+- Carrier cows are excellent milk producers - keep them, but breed carefully
 - Never breed two carriers together unless you accept ~25% calf mortality
 - Breed carriers with confirmed non-carriers for safe milk bonus
 - CVM status is visible in the animal's disease panel
@@ -89,10 +89,10 @@ Foot & Mouth is the most widespread disease, affecting three species. It's moder
 
 | Parameter | Value |
 |-----------|-------|
-| Spread | Moderate — noticeable risk to nearby animals |
+| Spread | Moderate - noticeable risk to nearby animals |
 | Fatality | High initially, decreasing as the animal builds resistance |
 | Treatment | $250, cured in 3 months |
-| Natural recovery | None — requires treatment |
+| Natural recovery | None - requires treatment |
 | Immunity after recovery | 24 months |
 
 ### Impact on Production
@@ -115,10 +115,10 @@ Foot & Mouth is the most widespread disease, affecting three species. It's moder
 
 ### Management Tips
 
-- Treat as soon as possible — 3 months is a long treatment but necessary
+- Treat as soon as possible - 3 months is a long treatment but necessary
 - No natural recovery means untreated animals stay sick indefinitely
-- Milk drops severely — devastating for dairy operations
-- Sell price is greatly reduced — selling infected animals is a significant loss
+- Milk drops severely - devastating for dairy operations
+- Sell price is greatly reduced - selling infected animals is a significant loss
 - 24-month immunity after recovery provides long-term protection
 - Can spread across cows, sheep, and pigs in adjacent pens (same husbandry)
 
@@ -128,11 +128,11 @@ Foot & Mouth is the most widespread disease, affecting three species. It's moder
 
 **Affects:** Pigs only
 
-PED is devastating to young piglets — almost always fatal in newborns. Older pigs survive more easily, making this the most age-dependent disease in the mod.
+PED is devastating to young piglets - almost always fatal in newborns. Older pigs survive more easily, making this the most age-dependent disease in the mod.
 
 | Parameter | Value |
 |-----------|-------|
-| Spread | Moderate — spreads to nearby pigs |
+| Spread | Moderate - spreads to nearby pigs |
 | Fatality | Almost always fatal in newborns, rarely fatal in older pigs |
 | Treatment | $150, cured in 1 month |
 | Natural recovery | 3 months without treatment |
@@ -152,7 +152,7 @@ PED is devastating to young piglets — almost always fatal in newborns. Older p
 |-------------------|------------|
 | Newborn (0 mo) | **Almost always fatal** |
 | 1 month old | Moderate risk |
-| 2+ months | Very low — adults survive easily |
+| 2+ months | Very low - adults survive easily |
 
 *PED is almost exclusively fatal in newborn piglets. Adult pigs survive easily.*
 
@@ -162,10 +162,10 @@ With pig litters of 11–16 piglets, a PED outbreak in a maternity pen can kill 
 
 ### Management Tips
 
-- Treatment is cheap ($150) and fast (1 month) — treat immediately
+- Treatment is cheap ($150) and fast (1 month) - treat immediately
 - Natural recovery takes 3 months, during which piglets continue dying
 - Consider separating pregnant sows from infected animals
-- Adult pigs are essentially immune to PED fatality — focus protection on newborns
+- Adult pigs are essentially immune to PED fatality - focus protection on newborns
 - If PED keeps recurring, consider the diseases toggle in settings
 
 ---
@@ -178,7 +178,7 @@ Avian Flu is the fastest-spreading disease and has **no treatment**. Infected ch
 
 | Parameter | Value |
 |-----------|-------|
-| Spread | **Fast** — can infect multiple birds quickly |
+| Spread | **Fast** - can infect multiple birds quickly |
 | Fatality | Very high initially, decreasing for survivors |
 | Treatment | **None available** |
 | Natural recovery | 1 month |
@@ -195,21 +195,21 @@ Avian Flu is the fastest-spreading disease and has **no treatment**. Infected ch
 
 | Time Infected | Death Risk |
 |--------------|------------|
-| Just infected | **Very high — most birds die** |
+| Just infected | **Very high - most birds die** |
 | After 1–2 months | High |
 | 3+ months (survivors) | Moderate but ongoing |
 
 ### Why Avian Flu Is Dangerous
 
-- **No treatment** — you can only wait for natural recovery (1 month)
-- **Fast spread** — in a large pen, multiple birds get infected each month
-- **Very high initial fatality** — most infected chickens die before recovering
-- **Complete egg loss** — surviving infected chickens produce zero eggs
+- **No treatment** - you can only wait for natural recovery (1 month)
+- **Fast spread** - in a large pen, multiple birds get infected each month
+- **Very high initial fatality** - most infected chickens die before recovering
+- **Complete egg loss** - surviving infected chickens produce zero eggs
 - Even survivors lose a month of egg production while sick
 
 ### Management Tips
 
-- There is no treatment — prevention is the only strategy
+- There is no treatment - prevention is the only strategy
 - Sell infected birds quickly to limit spread and recover some value
 - Keep smaller flocks in separate pens to limit outbreak damage
 - Survivors gain 24-month immunity, creating a resistant flock over time

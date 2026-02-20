@@ -13,7 +13,7 @@ All Realistic Livestock RM settings are accessible from the mod settings menu in
 | **Death Enabled** | On | Off / On | Toggles all death mechanics (old age, low health, accidents). When off, animals live indefinitely. |
 | **Accidents Chance** | 100% | 0% – 200% (10% steps) | Scales the probability of random accident deaths. 0% disables accidents entirely. 200% doubles the chance. Only available when Death is enabled. |
 
-*With death disabled, animals never die from any cause — but diseases can still make them sick if diseases are enabled.*
+*With death disabled, animals never die from any cause - but diseases can still make them sick if diseases are enabled.*
 
 ---
 
@@ -32,8 +32,8 @@ All Realistic Livestock RM settings are accessible from the mod settings menu in
 | Setting | Default | Options | Description |
 |---------|---------|---------|-------------|
 | **Max Dealer Animals** | 50 | 20 – 200 (10 steps) | Maximum number of animals per species available in the animal dealer. Higher values give more choice when buying. |
-| **Reset Dealer** | — | Button | Restocks the dealer with a fresh set of randomised animals. Use this if you want different genetics or breeds available. |
-| **Reset AI Animals** | — | Button | Refreshes the artificial insemination animal pool. Use this if the current AI pool has poor genetics. |
+| **Reset Dealer** | - | Button | Restocks the dealer with a fresh set of randomised animals. Use this if you want different genetics or breeds available. |
+| **Reset AI Animals** | - | Button | Refreshes the artificial insemination animal pool. Use this if the current AI pool has poor genetics. |
 
 ---
 
@@ -41,8 +41,8 @@ All Realistic Livestock RM settings are accessible from the mod settings menu in
 
 | Setting | Default | Options | Description |
 |---------|---------|---------|-------------|
-| **Tag Colour** | — | Button | Opens the ear tag colour picker. Customise the colour of animal identification tags. |
-| **Export CSV** | — | Button | Exports all animal data to a CSV file. Useful for tracking herd statistics in a spreadsheet. |
+| **Tag Colour** | - | Button | Opens the ear tag colour picker. Customise the colour of animal identification tags. |
+| **Export CSV** | - | Button | Exports all animal data to a CSV file. Useful for tracking herd statistics in a spreadsheet. |
 
 ---
 
@@ -73,7 +73,7 @@ All Realistic Livestock RM settings are accessible from the mod settings menu in
 | Setting | Default | Options | Description |
 |---------|---------|---------|-------------|
 | **Custom Animals** | Off | Off / On | Enables loading a custom animals.xml file instead of the default. Allows modifying animal stats, production curves, prices, etc. **Requires game restart to take effect.** Not available in multiplayer. |
-| **Animals XML** | — | Button | Opens a file picker to select the path to your custom animals.xml. Only available when Custom Animals is enabled. |
+| **Animals XML** | - | Button | Opens a file picker to select the path to your custom animals.xml. Only available when Custom Animals is enabled. |
 
 *Custom animals is for advanced users who want to tweak animal statistics. The default animals.xml is located in the mod's xml/ folder and can be used as a template.*
 

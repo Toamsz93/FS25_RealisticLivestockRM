@@ -204,7 +204,7 @@ RLMessage = {
 		["title"] = "aiManager",
 		["importance"] = 3
 	},
-	-- Daily summary message types (RIT-165)
+	-- Daily summary message types
 	["DAILY_BIRTHS_SUMMARY"] = {
 		["text"] = "dailyBirthsSummary",
 		["title"] = "pregnancy",

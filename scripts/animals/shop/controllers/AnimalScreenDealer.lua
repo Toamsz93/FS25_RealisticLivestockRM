@@ -103,14 +103,6 @@ function RL_AnimalScreenDealer:initSourceItems(_)
 	end
 
 
-	--for i = #self.sourceAnimalTypes, 1, -1 do
-
-		--local animalType = self.sourceAnimalTypes[i]
-
-		--if not animalTypes[animalType.typeIndex] then table.remove(self.sourceAnimalTypes, i) end
-
-	--end
-
 	for index, animalType in pairs(self.sourceAnimalTypes) do
 
 		local animals = animalSystem:getSaleAnimalsByTypeIndex(animalType.typeIndex)
@@ -160,8 +152,6 @@ function RL_AnimalScreenDealer:applySource(_, animalTypeIndex, animalIndex)
 		self.errorCallback(g_i18n:getText(error.text))
 		return false
 	end
-    
-	--self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.BUYING))
 
     local animal = item.animal or item.cluster
 
@@ -170,14 +160,6 @@ function RL_AnimalScreenDealer:applySource(_, animalTypeIndex, animalIndex)
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.BUYING))
     g_messageCenter:subscribe(AnimalBuyEvent, self.onAnimalBought, self)
 	g_client:getServerConnection():sendEvent(AnimalBuyEvent.new(husbandry, self.sourceAnimals, price, transportationFee))
-
-    --husbandry:getClusterSystem():addCluster(animal)
-    --g_currentMission:addMoney(price + transportationFee, ownerFarmId, MoneyType.NEW_ANIMALS_COST, true, true)
-    
-    --g_currentMission.animalSystem:removeSaleAnimal(animalTypeIndex, animal.birthday.country, animal.farmId, animal.uniqueId)
-    --table.remove(self.sourceItems[animalTypeIndex], animalIndex)
-
-    --self.sourceActionFinished(nil, "Animal bought successfully")
 
     return true
 
@@ -217,8 +199,6 @@ function RL_AnimalScreenDealer:applyTarget(_, animalTypeIndex, animalIndex)
 		self.errorCallback(g_i18n:getText(error.text))
 		return false
 	end
-    
-	--self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.BUYING))
 
     local animal = item.animal or item.cluster
     husbandry:getClusterSystem():removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
@@ -300,12 +280,9 @@ function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
     self.sourceAnimals = {}
 
     local husbandry = self.husbandry
-    local clusterSystem = husbandry:getClusterSystem()
     local ownerFarmId = husbandry:getOwnerFarmId()
 
     local sourceItems = self.sourceItems[animalTypeIndex]
-    --local indexesToRemove = {}
-    --local indexesToReturn = {}
     local totalPrice = 0
     local totalTransportPrice = 0
     local totalBoughtAnimals = 0
@@ -328,25 +305,10 @@ function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
             totalTransportPrice = totalTransportPrice + transportationFee
 
             table.insert(self.sourceAnimals, animal)
-            
-            --clusterSystem:addCluster(animal)
-            --g_currentMission.animalSystem:removeSaleAnimal(animalTypeIndex, animal.birthday.country, animal.farmId, animal.uniqueId)
-            --table.insert(indexesToRemove, item)
-            --table.insert(indexesToReturn, item)
 
         end
 
     end
-
-    --table.sort(indexesToRemove)
-
-    --for i = #indexesToRemove, 1, -1 do table.remove(sourceItems, indexesToRemove[i]) end
-
-    --self.sourceItems[animalTypeIndex] = sourceItems
-
-    --g_currentMission:addMoney(totalPrice, ownerFarmId, MoneyType.NEW_ANIMALS_COST, true, true)
-
-    --self.sourceBulkActionFinished(nil, string.format(g_i18n:getText("rl_ui_buyBulkResult"), totalBoughtAnimals, g_i18n:formatMoney(math.abs(totalPrice), 2, true, true)), indexesToReturn)
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.BUYING))
     g_messageCenter:subscribe(AnimalBuyEvent, self.onAnimalBought, self)
@@ -362,12 +324,8 @@ function AnimalScreenDealer:applyTargetBulk(animalTypeIndex, items)
     self.targetAnimals = {}
 
     local husbandry = self.husbandry
-    local clusterSystem = husbandry:getClusterSystem()
-    local ownerFarmId = husbandry:getOwnerFarmId()
 
     local targetItems = self.targetItems
-    --local indexesToRemove = {}
-    --local indexesToReturn = {}
     local totalPrice = 0
     local totalTransportPrice = 0
     local totalSoldAnimals = 0
@@ -390,25 +348,10 @@ function AnimalScreenDealer:applyTargetBulk(animalTypeIndex, items)
             totalTransportPrice = totalTransportPrice + transportationFee
 
             table.insert(self.targetAnimals, animal)
-            
-            --clusterSystem:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
-
-            --table.insert(indexesToRemove, item)
-            --table.insert(indexesToReturn, item)
 
         end
 
     end
-
-    --table.sort(indexesToRemove)
-
-    --for i = #indexesToRemove, 1, -1 do table.remove(targetItems, indexesToRemove[i]) end
-
-    --self.targetItems = targetItems
-
-    --g_currentMission:addMoney(totalPrice, ownerFarmId, MoneyType.SOLD_ANIMALS, true, true)
-
-    --self.targetBulkActionFinished(nil, string.format(g_i18n:getText("rl_ui_sellBulkResult"), totalSoldAnimals, g_i18n:formatMoney(math.abs(totalPrice), 2, true, true)), indexesToReturn)
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.SELLING))
     g_messageCenter:subscribe(AnimalSellEvent, self.onAnimalSold, self)

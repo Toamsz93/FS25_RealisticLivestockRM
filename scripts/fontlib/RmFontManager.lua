@@ -242,7 +242,7 @@ function RmFontManager:loadFont(xmlFile, key, directory)
 
     self.fonts[language][id] = font
 
-    print(string.format("RLRM FontLib - Loaded font '%s' (%s) as %s", name, id, language:upper()))
+    RmLogging.getLogger("RLRM"):info("FontLib - Loaded font '%s' (%s) as %s", name, id, language:upper())
 
     return id, name
 
@@ -372,7 +372,7 @@ function RmFontManager:create3DLinkedText(parent, x, y, z, rx, ry, rz, size, tex
 
     local font = self:getFont(fontName)
     if font == nil then
-        print("RLRM FontLib WARNING: Font not found: " .. tostring(fontName))
+        RmLogging.getLogger("RLRM"):warning("FontLib - Font not found: %s", tostring(fontName))
         return node
     end
 

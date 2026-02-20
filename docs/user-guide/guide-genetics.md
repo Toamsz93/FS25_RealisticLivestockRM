@@ -16,7 +16,7 @@ Every animal in Realistic Livestock RM is born with a unique set of genetic trai
 | **Quality** | Meat | Sell price and meat value | All animals |
 | **Metabolism** | Metabolism | Food consumption and weight gain | All animals |
 
-> **Productivity** is species-specific: it shows as "Milk" for cows, "Wool" for sheep, and "Eggs" for chickens. Pigs and horses don't have this trait — they have no special production output.
+> **Productivity** is species-specific: it shows as "Milk" for cows, "Wool" for sheep, and "Eggs" for chickens. Pigs and horses don't have this trait - they have no special production output.
 
 > **Metabolism** is double-edged: high metabolism means faster weight gain but also higher food costs. Low metabolism means cheaper to feed but slower growth.
 
@@ -44,9 +44,9 @@ Fertility has one additional rating:
 
 | Rating | Meaning |
 |--------|---------|
-| **Infertile** | Animal can never breed (extremely rare — about 1 in 1,000) |
+| **Infertile** | Animal can never breed (extremely rare - about 1 in 1,000) |
 
-*Infertile animals can still produce milk/wool/eggs — they just can't reproduce.*
+*Infertile animals can still produce milk/wool/eggs - they just can't reproduce.*
 
 ---
 
@@ -56,7 +56,7 @@ Fertility has one additional rating:
 
 - Affects how quickly health recovers or deteriorates
 - Higher health genetics = more resistant to disease effects
-- Animals below 80% health face monthly death risk — good health genetics help stay above this threshold
+- Animals below 80% health face monthly death risk - good health genetics help stay above this threshold
 - **Impact:** Survival and longevity
 
 ### Fertility
@@ -66,14 +66,14 @@ Fertility has one additional rating:
 - Extremely rare chance of being born completely infertile (about 1 in 1,000)
 - **Impact:** Breeding success rate
 
-### Productivity — Cows, Sheep, Goats, Chickens
+### Productivity - Cows, Sheep, Goats, Chickens
 
 - Directly scales production output (milk, wool, eggs, goat milk)
 - An animal with Extremely High productivity produces many times more than one with Extremely Low
 - The large production ranges shown in each factsheet are primarily driven by this trait
 - **Impact:** The single biggest factor in milk, wool, and egg output
 
-*Pigs and horses don't have productivity — they have no special production output.*
+*Pigs and horses don't have productivity - they have no special production output.*
 
 ### Quality / Meat
 
@@ -108,7 +108,7 @@ Most animals are average. The distribution follows a bell curve:
 
 ### Dealer Animals
 
-Animals purchased from the dealer have randomised genetics. Most will be average, but you might occasionally find an exceptional animal — or a terrible one. Check genetics before buying when possible.
+Animals purchased from the dealer have randomised genetics. Most will be average, but you might occasionally find an exceptional animal - or a terrible one. Check genetics before buying when possible.
 
 ---
 
@@ -142,7 +142,7 @@ CVM (Complex Vertebral Malformation) is a genetic disease unique to cattle. It f
 
 ### The Trade-Off
 
-**CVM carrier cows produce substantially more milk than normal.** This makes them extremely valuable for dairy operations — but breeding two carriers together risks producing affected calves that will almost certainly die.
+**CVM carrier cows produce substantially more milk than normal.** This makes them extremely valuable for dairy operations - but breeding two carriers together risks producing affected calves that will almost certainly die.
 
 | Strategy | Benefit | Risk |
 |----------|---------|------|

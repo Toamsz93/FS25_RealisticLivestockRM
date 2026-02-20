@@ -2,8 +2,7 @@ RmSafeUtils = {}
 
 --- Wraps a function body in xpcall with traceback logging.
 --- Use for outer protection of entire callback handlers.
---- Prevents errors from propagating up and killing the FS25 event dispatch chain
---- (MessageCenter and SpecializationUtil have no pcall protection).
+--- Prevents errors from propagating up and breaking the FS25 event dispatch chain.
 ---@param context string  identifier for error messages (e.g. "onDayChanged")
 ---@param fn function     the function body to protect
 ---@return boolean ok

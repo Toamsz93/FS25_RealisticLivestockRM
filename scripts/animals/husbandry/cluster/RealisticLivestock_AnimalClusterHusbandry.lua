@@ -269,9 +269,6 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
     end
 
-    --print(string.format("RealisticLivestock: %d visual animals loaded out of %d total animals for husbandry (%d max)", visualAnimalCount, #animals, RealisticLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES))
-
-
     i = 1
 
 
@@ -296,7 +293,6 @@ function RealisticLivestock_AnimalClusterHusbandry:updateVisuals(superFunc, remo
 
 
 
-    --self.animalIdToCluster = newAnimalMapping
     self.animalIdToVisualAnimalIndex = newAnimalIdToVisualAnimalIndex
     self:getPlaceable().spec_husbandryAnimals.clusterSystem:updateIdMapping()
     self.nextUpdateClusters = nil
@@ -363,7 +359,6 @@ function RealisticLivestock_AnimalClusterHusbandry:getClusterByAnimalId(superFun
         for animalId, animal in pairs(animalIds) do
 
             if animal.id == id then
-                --return animal
             end
 
         end

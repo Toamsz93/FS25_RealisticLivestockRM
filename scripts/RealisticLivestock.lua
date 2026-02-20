@@ -265,7 +265,7 @@ FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
 
 
 function RealisticLivestock.loadMap()
-    Log = RmLogging.getLogger("RL")
+    Log = RmLogging.getLogger("RLRM")
     Log:setLevel(RmLogging.LOG_LEVEL.INFO)
     RmLogging.registerConsoleCommands()
 
@@ -562,50 +562,37 @@ function RealisticLivestock:updateReproduction(spec, cluster, numNewAnimals, fre
             end
         end
 
-        print("parent #" .. (i + 1) .. ": " .. childNum .. " children")
         totalOffspring = totalOffspring + childNum
 
         if parentDied == true then
             RealisticLivestock.KillAnimals(spec, cluster, 1)
-            print("animal died in childbirth")
         end
     end
 
     local animalTypeText = ""
 
-    print(" --- ")
     if animalType == AnimalType.PIG then
         animalTypeText = "piglets"
         if totalOffspring == 1 then animalTypeText = "piglet" end
-        print("PIGS")
     elseif cluster.subType == "COW_WATERBUFFALO" then
         animalTypeText = "buffalos"
         if totalOffspring == 1 then animalTypeText = "buffalo" end
-        print("WATER BUFFALOS")
     elseif animalType == AnimalType.COW then
         animalTypeText = "calves"
         if totalOffspring == 1 then animalTypeText = "calf" end
-        print("CATTLE")
     elseif cluster.subType == "GOAT" then
         animalTypeText = "goats"
         if totalOffspring == 1 then animalTypeText = "goat" end
-        print("GOATS")
     elseif animalType == AnimalType.SHEEP then
         animalTypeText = "lambs"
         if totalOffspring == 1 then animalTypeText = "lamb" end
-        print("SHEEP")
     elseif animalType == AnimalType.HORSE then
         animalTypeText = "foals"
         if totalOffspring == 1 then animalTypeText = "foal" end
-        print("HORSES")
     elseif animalType == AnimalType.CHICKEN then
         animalTypeText = "chicks"
         if totalOffspring == 1 then animalTypeText = "chick" end
-        print("CHICKEN")
     end
-    print(totalParents .. " total parents")
-    print(totalOffspring .. " total offspring")
-    print(lactatingAnimals .. " lactating animals")
 
     cluster.lactatingAnimals = lactatingAnimals
 
@@ -642,7 +629,6 @@ function RealisticLivestock:updateReproduction(spec, cluster, numNewAnimals, fre
             farm:changeBalance(totalAnimalPrice, MoneyType.SOLD_ANIMALS)
         end
 
-        print(animalsToSell .. " for £" .. animalPrice .. " each.")
     end
 
     if totalOffspring >= 1 then
@@ -974,7 +960,6 @@ function RealisticLivestock.CalculateRandomMonthlyAnimalDeaths(spec, cluster, is
                 farm:changeBalance(totalAnimalPrice, MoneyType.SOLD_ANIMALS)
             end
 
-            print(numAnimalsToDispose .. " for £" .. animalPrice .. " each.")
         end
 
         local animalTypeText = ""
@@ -1128,34 +1113,19 @@ function RealisticLivestock.onPeriodChanged(self, func)
     end
 end
 
---PlaceableHusbandryAnimals.onPeriodChanged = Utils.overwrittenFunction(PlaceableHusbandryAnimals.onPeriodChanged, RealisticLivestock.onPeriodChanged)
-
-
 function RealisticLivestock:updateInfo(superFunc, infoTable)
-    --superFunc(self, infoTable)
 
     local spec = self.spec_husbandryAnimals
-    --local health = 0
-    --local numAnimals = 0
     local lactatingAnimals = 0
     local clusters = spec.clusterSystem:getClusters()
     local numClusters = #clusters
     if numClusters > 0 then
         for _, cluster in ipairs(clusters) do
-            --health = health + cluster.health
-            --numAnimals = numAnimals + cluster.numAnimals
             if spec.animalTypeIndex == AnimalType.COW and cluster.isLactating ~= nil and cluster.isLactating then
                 lactatingAnimals = lactatingAnimals + cluster.numAnimals
             end
         end
-
-        --health = health / numClusters
     end
-
-    --spec.infoNumAnimals.text = string.format("%d", numAnimals)
-    --spec.infoHealth.text = string.format("%d %%", health)
-    --table.insert(infoTable, spec.infoNumAnimals)
-    --table.insert(infoTable, spec.infoHealth)
 
     local milkSpec = self.spec_husbandryMilk
 
@@ -1167,8 +1137,6 @@ function RealisticLivestock:updateInfo(superFunc, infoTable)
         table.insert(infoTable, spec.infoLactatingAnimals)
     end
 end
-
---PlaceableHusbandryAnimals.updateInfo = Utils.appendedFunction(PlaceableHusbandryAnimals.updateInfo, RealisticLivestock.updateInfo)
 
 
 function RealisticLivestock.addAnimals(self, superFunc, subTypeIndex, numAnimals, age)
@@ -1203,8 +1171,6 @@ function RealisticLivestock.addAnimals(self, superFunc, subTypeIndex, numAnimals
         end
     end
 end
-
---PlaceableHusbandryAnimals.addAnimals = Utils.overwrittenFunction(PlaceableHusbandryAnimals.addAnimals, RealisticLivestock.addAnimals)
 
 
 -- Saving and Loading

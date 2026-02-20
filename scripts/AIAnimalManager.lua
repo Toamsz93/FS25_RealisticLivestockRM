@@ -908,16 +908,6 @@ function InGameMenuStatisticsFrame:updateViewHandTools()
 		local aValue = a.columns[sortByColumnHandTools].value
 		local bValue = b.columns[sortByColumnHandTools].value
 
-		print("a")
-
-		DebugUtil.printTableRecursively(a.columns[sortByColumnHandTools], " - ", 0, 1)
-
-		print("b")
-
-		DebugUtil.printTableRecursively(b.columns[sortByColumnHandTools], " - ", 0, 1)
-
-		print("------------")
-
 		if aValue == bValue then
 
 			aValue = a.columns[InGameMenuStatisticsFrame.COLUMN_NAME].value

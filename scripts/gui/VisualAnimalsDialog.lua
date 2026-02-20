@@ -21,7 +21,6 @@ function VisualAnimalsDialog.show()
         local recommendedAnimals = (profile == GS_PROFILE_VERY_LOW and 8) or (profile == GS_PROFILE_LOW and 10) or (profile == GS_PROFILE_MEDIUM and 16) or (profile == GS_PROFILE_HIGH and 20) or (profile == GS_PROFILE_VERY_HIGH and 25) or (profile == GS_PROFILE_ULTRA and 25) or 8
         local maxHusbandries = RealisticLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES
 
-        --local currentMaxAnimals = recommendedAnimals * maxHusbandries
         local currentMaxAnimals = 1 * maxHusbandries
         local maxAnimals = recommendedAnimals * 8
 

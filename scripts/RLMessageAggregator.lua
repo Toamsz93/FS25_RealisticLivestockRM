@@ -3,7 +3,7 @@
     Message aggregation system for consolidating noisy individual messages
     (births, deaths, sales, purchases) into daily summaries per husbandry.
 
-    Part of RIT-165: Message Log Consolidation
+    Message Log Consolidation
     Author: Ritter
 ]]
 

@@ -17,6 +17,8 @@
     - ItemSystem.loadItemsFromXML: Patches items.xml in memory (first call only)
 ]]
 
+local Log = RmLogging.getLogger("RLRM")
+
 RmItemSystemMigration = {}
 
 local OLD_MOD_NAME = "FS25_RealisticLivestock"
@@ -50,7 +52,7 @@ local function updateInMemoryHandToolsXml(xmlFile)
         if filename ~= nil and string.find(filename, OLD_MOD_DIR, 1, true) ~= nil then
             local newFilename = string.gsub(filename, OLD_MOD_DIR, NEW_MOD_DIR)
             xmlFile:setString(key .. "#filename", newFilename)
-            print("RmItemSystemMigration: [handTools] Patched filename: " .. filename .. " -> " .. newFilename)
+            Log:info("ItemMigration: [handTools] Patched filename: %s -> %s", filename, newFilename)
             patchedCount = patchedCount + 1
         end
 
@@ -86,7 +88,7 @@ local function updateInMemoryItemsXml(xmlFile)
         local modName = xmlFile:getString(key .. "#modName")
         if modName == OLD_MOD_NAME then
             xmlFile:setString(key .. "#modName", NEW_MOD_NAME)
-            print("RmItemSystemMigration: [items] Patched modName: " .. OLD_MOD_NAME .. " -> " .. NEW_MOD_NAME .. " for " .. key)
+            Log:info("ItemMigration: [items] Patched modName: %s -> %s for %s", OLD_MOD_NAME, NEW_MOD_NAME, key)
             itemPatched = true
         end
 
@@ -95,7 +97,7 @@ local function updateInMemoryItemsXml(xmlFile)
         if className ~= nil and string.find(className, oldClassPrefix, 1, true) == 1 then
             local newClassName = newClassPrefix .. string.sub(className, #oldClassPrefix + 1)
             xmlFile:setString(key .. "#className", newClassName)
-            print("RmItemSystemMigration: [items] Patched className: " .. className .. " -> " .. newClassName .. " for " .. key)
+            Log:info("ItemMigration: [items] Patched className: %s -> %s for %s", className, newClassName, key)
             itemPatched = true
         end
 
@@ -122,13 +124,13 @@ function RmItemSystemMigration.loadHandToolsPrepend(handToolSystem, xmlFileOrFil
         return
     end
 
-    print("RmItemSystemMigration: HandToolSystem:loadFromXMLFile prepend called")
+    Log:info("ItemMigration: HandToolSystem:loadFromXMLFile prepend called")
 
     -- Extract XMLFile object if it's a table
     local xmlFileObj = nil
     if xmlFileOrFilename ~= nil and type(xmlFileOrFilename) == "table" and xmlFileOrFilename.getFilename ~= nil then
         xmlFileObj = xmlFileOrFilename
-        print("RmItemSystemMigration: Got XMLFile object for handTools.xml: " .. tostring(xmlFileObj:getFilename()))
+        Log:info("ItemMigration: Got XMLFile object for handTools.xml: %s", tostring(xmlFileObj:getFilename()))
     end
 
     -- Patch the in-memory XMLFile
@@ -137,10 +139,10 @@ function RmItemSystemMigration.loadHandToolsPrepend(handToolSystem, xmlFileOrFil
         handToolsXmlPatched = true
 
         if patchedCount > 0 then
-            print(string.format("RmItemSystemMigration: Patched %d hand tools in memory (no disk write)", patchedCount))
+            Log:info("ItemMigration: Patched %d hand tools in memory (no disk write)", patchedCount)
             g_rmPendingMigration = true
         else
-            print("RmItemSystemMigration: No hand tools needed patching")
+            Log:info("ItemMigration: No hand tools needed patching")
         end
     end
 end
@@ -157,7 +159,7 @@ function RmItemSystemMigration.loadItemsFromXMLPrepend(itemSystem, xmlFile, key)
         return
     end
 
-    print("RmItemSystemMigration: ItemSystem:loadItemsFromXML prepend called (first time)")
+    Log:info("ItemMigration: ItemSystem:loadItemsFromXML prepend called (first time)")
 
     -- Patch the in-memory XMLFile
     if xmlFile ~= nil and type(xmlFile) == "table" then
@@ -165,10 +167,10 @@ function RmItemSystemMigration.loadItemsFromXMLPrepend(itemSystem, xmlFile, key)
         itemsXmlPatched = true
 
         if patchedCount > 0 then
-            print(string.format("RmItemSystemMigration: Patched %d items in memory (no disk write)", patchedCount))
+            Log:info("ItemMigration: Patched %d items in memory (no disk write)", patchedCount)
             g_rmPendingMigration = true
         else
-            print("RmItemSystemMigration: No items needed patching")
+            Log:info("ItemMigration: No items needed patching")
         end
     end
 end
@@ -179,9 +181,9 @@ if HandToolSystem ~= nil and HandToolSystem.loadFromXMLFile ~= nil then
         HandToolSystem.loadFromXMLFile,
         RmItemSystemMigration.loadHandToolsPrepend
     )
-    print("RmItemSystemMigration: Hook registered for HandToolSystem.loadFromXMLFile")
+    Log:info("ItemMigration: Hook registered for HandToolSystem.loadFromXMLFile")
 else
-    print("RmItemSystemMigration: WARNING - HandToolSystem.loadFromXMLFile not found!")
+    Log:warning("ItemMigration: HandToolSystem.loadFromXMLFile not found!")
 end
 
 -- Hook into ItemSystem.loadItemsFromXML - patches items.xml in memory
@@ -190,7 +192,7 @@ if ItemSystem ~= nil and ItemSystem.loadItemsFromXML ~= nil then
         ItemSystem.loadItemsFromXML,
         RmItemSystemMigration.loadItemsFromXMLPrepend
     )
-    print("RmItemSystemMigration: Hook registered for ItemSystem.loadItemsFromXML")
+    Log:info("ItemMigration: Hook registered for ItemSystem.loadItemsFromXML")
 else
-    print("RmItemSystemMigration: WARNING - ItemSystem.loadItemsFromXML not found!")
+    Log:warning("ItemMigration: ItemSystem.loadItemsFromXML not found!")
 end

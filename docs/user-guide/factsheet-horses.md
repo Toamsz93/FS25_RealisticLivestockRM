@@ -1,6 +1,6 @@
 # Horses Factsheet
 
-Horses are the longest-lived and most valuable animals in Realistic Livestock RM. They produce no milk, wool, or eggs — their value comes from sell price, which is uniquely influenced by riding, fitness, and cleanliness. All 8 colour variants have identical stats, so colour is purely cosmetic.
+Horses are the longest-lived and most valuable animals in Realistic Livestock RM. They produce no milk, wool, or eggs - their value comes from sell price, which is uniquely influenced by riding, fitness, and cleanliness. All 8 colour variants have identical stats, so colour is purely cosmetic.
 
 > **Note:** This documentation was generated with AI assistance and may contain inaccuracies. If you spot an error, please [open an issue](https://github.com/rittermod/FS25_RealisticLivestockRM/issues).
 
@@ -22,7 +22,7 @@ All horse breeds share identical stats. The only difference is appearance:
 | **Buy Price (adult)** | $5,000 | $6,000 |
 | **Sell Price (peak)** | $2,000 – $10,000+ | $2,500 – $12,000+ |
 
-*Stallions are heavier and sell for more than mares. Sell price varies enormously based on health, riding, fitness, and cleanliness — a well-maintained horse is worth several times more than a neglected one.*
+*Stallions are heavier and sell for more than mares. Sell price varies enormously based on health, riding, fitness, and cleanliness - a well-maintained horse is worth several times more than a neglected one.*
 
 ---
 
@@ -44,7 +44,7 @@ Horse sell prices use a unique system heavily influenced by the animal's conditi
 
 | Factor | Importance | What It Means |
 |--------|------------|---------------|
-| **Health** | Most important | Keep horses healthy — this is the biggest factor |
+| **Health** | Most important | Keep horses healthy - this is the biggest factor |
 | **Riding** | Very important | Ride your horses regularly for higher value |
 | **Fitness** | Important | Exercise improves value |
 | **Dirt** | Penalty | Dirty horses lose value |
@@ -86,7 +86,7 @@ All breeds and both genders consume the same amount.
 
 ## Output
 
-Horses produce **manure only** — no milk, wool, or eggs.
+Horses produce **manure only** - no milk, wool, or eggs.
 
 | Age | Manure (both genders) |
 |-----|----------------------|
@@ -159,6 +159,6 @@ Horses have a very long fertile period but fertility declines gradually:
 
 3. **Long-term investment.** With 11-month gestation and single foals, horse breeding is slow but foals are very valuable. One healthy, well-ridden horse at 60 months can sell for well above $5,000.
 
-4. **Colour is cosmetic.** Don't pay extra for a specific colour — all 8 variants have identical stats. Pick whichever you like.
+4. **Colour is cosmetic.** Don't pay extra for a specific colour - all 8 variants have identical stats. Pick whichever you like.
 
 5. **Stallions hold value longer.** Stallions can breed until 25 years and their sell price peaks later. They're worth keeping longer than mares.

@@ -1,10 +1,8 @@
 RL_HandToolHorseBrush = {}
 
 
--- Fix MP cleaning: base game sets targetedClusterId = cluster.id, but RL's
--- visual-system ID (e.g. "1-3") can differ between server and client.
--- Set stable "farmId uniqueId" on animal.id BEFORE returning so base game's
--- onUpdate uses the stable ID for targetedClusterId and AnimalCleanEvent.
+-- Fix MP cleaning: RL's animal IDs can differ between server and client.
+-- Set a stable "farmId uniqueId" on animal.id so MP clean events resolve correctly.
 
 function RL_HandToolHorseBrush:getHusbandryAndClusterFromNode(superFunc, node)
 

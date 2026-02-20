@@ -1,6 +1,6 @@
 # Chickens Factsheet
 
-Chickens are the cheapest and shortest-lived animals in Realistic Livestock RM. Hens produce eggs without needing a rooster, but hatching chicks requires one. There's only one breed — the key difference is between hens (egg layers) and roosters (breeding enablers, no eggs).
+Chickens are the cheapest and shortest-lived animals in Realistic Livestock RM. Hens produce eggs without needing a rooster, but hatching chicks requires one. There's only one breed - the key difference is between hens (egg layers) and roosters (breeding enablers, no eggs).
 
 > **Note:** This documentation was generated with AI assistance and may contain inaccuracies. If you spot an error, please [open an issue](https://github.com/rittermod/FS25_RealisticLivestockRM/issues).
 
@@ -13,17 +13,17 @@ Chickens are the cheapest and shortest-lived animals in Realistic Livestock RM. 
 | **Target Weight** | 3.25 kg | 4.25 kg |
 | **Max Weight** | 4.5 kg | 5.5 kg |
 | **Birth Weight** | 0.04 kg | 0.045 kg |
-| **Egg Range (peak)** | **1 – 9 eggs/day** | — |
+| **Egg Range (peak)** | **1 – 9 eggs/day** | - |
 | **Buy Price (adult)** | $30 | $30 |
 | **Sell Price (adult)** | $1 – $45 | $1 – $45 |
 
-*Roosters are heavier but eat noticeably less food than hens at adult age. Sell prices vary with genetics and health but chickens are always low-value — their worth is in egg production.*
+*Roosters are heavier but eat noticeably less food than hens at adult age. Sell prices vary with genetics and health but chickens are always low-value - their worth is in egg production.*
 
 ---
 
 ## Egg Production (Hens Only)
 
-Hens lay eggs regardless of whether a rooster is present — a rooster is only needed for hatching chicks. Egg production follows an age-based curve.
+Hens lay eggs regardless of whether a rooster is present - a rooster is only needed for hatching chicks. Egg production follows an age-based curve.
 
 ### Egg Output Range (eggs/day)
 
@@ -46,7 +46,7 @@ xychart-beta
     line [1, 5, 5, 5, 5, 3, 0]
 ```
 
-*Chart shows average genetics — individual hens will vary above and below this line.*
+*Chart shows average genetics - individual hens will vary above and below this line.*
 
 ---
 
@@ -59,7 +59,7 @@ Chicken prices are low and identical for hens and roosters:
 | Newborn | $3 | $2 |
 | Adult (36 mo) | $30 | $25 |
 
-*Actual sell prices vary — well-bred healthy chickens sell for more, while sick birds sell for less. Even at peak value chickens are worth very little. Their value is in egg production.*
+*Actual sell prices vary - well-bred healthy chickens sell for more, while sick birds sell for less. Even at peak value chickens are worth very little. Their value is in egg production.*
 
 ### What Affects Sell Price
 
@@ -115,7 +115,7 @@ Chickens can produce large broods, but the chance of no offspring is always sign
 | 12–24 mo | Common | Uncommon | Most likely | Possible |
 | 24–48 mo | Frequent | Uncommon | Less likely | Rare |
 | 48–84 mo | Very common | Rare | Rare | Very rare |
-| 84–120 mo | Almost always | Very rare | Very rare | — |
+| 84–120 mo | Almost always | Very rare | Very rare | - |
 
 *Unlike other animals, hens never die during hatching. The most common successful brood is 5–7 chicks.*
 
@@ -129,7 +129,7 @@ Chickens can produce large broods, but the chance of no offspring is always sign
 | Old age deaths begin | 60 months (5 years) |
 | Maximum lifespan | ~96 months (8 years) |
 
-*Chickens have the shortest lifespan. Old age deaths can begin while hens are still laying eggs. Breeding success drops sharply with age — old hens rarely hatch chicks. Death can be toggled off in settings.*
+*Chickens have the shortest lifespan. Old age deaths can begin while hens are still laying eggs. Breeding success drops sharply with age - old hens rarely hatch chicks. Death can be toggled off in settings.*
 
 ---
 
@@ -153,4 +153,4 @@ Chickens can produce large broods, but the chance of no offspring is always sign
 
 4. **Cheap but productive.** At $3 per chick and up to 9 eggs/day at peak, chickens have the best return-on-investment for small farms. The initial cost is negligible.
 
-5. **Short lifespan warning.** Chickens can start dying of old age at just 5 years — while they're still laying. Sell older hens before they die to recover whatever small value they have.
+5. **Short lifespan warning.** Chickens can start dying of old age at just 5 years - while they're still laying. Sell older hens before they die to recover whatever small value they have.

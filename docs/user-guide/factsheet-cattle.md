@@ -18,7 +18,7 @@ Cattle are the most diverse livestock in Realistic Livestock RM, with 7 breeds r
 | **Limousin** | Beef | 630 / 675 kg | 30 – 320 L/day | Highest |
 | **Water Buffalo** | Special | 425 / 500 kg | 5 – 70 L/day | Low |
 
-*Target weights shown as cow / bull. Milk range shows the full span from poor to excellent genetics. All cows produce milk when lactating — beef breeds just produce less.*
+*Target weights shown as cow / bull. Milk range shows the full span from poor to excellent genetics. All cows produce milk when lactating - beef breeds just produce less.*
 
 > **Breed-locking:** Water Buffalo bulls can only breed with Water Buffalo cows. All other bull breeds can breed with any non-Water-Buffalo cow.
 
@@ -42,7 +42,7 @@ Cows produce milk **only while lactating** (10 months after giving birth). Non-l
 
 *Genetics and lactation phase cause large variation between individual animals. Most cows produce somewhere in the middle of these ranges. CVM carrier cows produce even more than the upper range.*
 
-*Water Buffalo milk stays flat regardless of age — very low output compared to other breeds.*
+*Water Buffalo milk stays flat regardless of age - very low output compared to other breeds.*
 
 ```mermaid
 %%{init: {"themeVariables": {"xyChart": {"plotColorPalette": "#2e7d32"}}}}%%
@@ -53,7 +53,7 @@ xychart-beta
     line [180, 218, 255, 207, 158, 110]
 ```
 
-*Chart shows Swiss Brown as a representative mid-range breed with average genetics. Holstein produces more, beef breeds produce less — see the table above for per-breed ranges.*
+*Chart shows Swiss Brown as a representative mid-range breed with average genetics. Holstein produces more, beef breeds produce less - see the table above for per-breed ranges.*
 
 ---
 
@@ -80,7 +80,7 @@ Bulls consistently sell for more than cows at all ages. Beef breeds (Angus, Limo
 | **Water Buffalo** | Cow | 150 | 1,500 | 1,500 | 1,000 |
 | | Bull | 200 | 1,750 | 2,000 | 1,250 |
 
-*These are typical prices for an average, healthy animal. Actual prices vary widely — well-bred healthy animals sell for significantly more, while sick or poor-quality animals can sell for far less.*
+*These are typical prices for an average, healthy animal. Actual prices vary widely - well-bred healthy animals sell for significantly more, while sick or poor-quality animals can sell for far less.*
 
 ### What Affects Sell Price
 
@@ -114,7 +114,7 @@ Bulls consistently sell for more than cows at all ages. Beef breeds (Angus, Limo
 
 ## Food & Water Consumption by Breed
 
-Genetics significantly affect how much each animal eats — some are naturally much more efficient than others. Lactating cows eat considerably more, and the Food Scale setting also adjusts consumption.
+Genetics significantly affect how much each animal eats - some are naturally much more efficient than others. Lactating cows eat considerably more, and the Food Scale setting also adjusts consumption.
 
 ### Food Consumption Range (L/day)
 
@@ -235,7 +235,7 @@ All cattle breeds share the same reproduction rules:
 
 ## Tips
 
-1. **Dairy farming:** Holstein cows produce the most milk by far. Keep them breeding regularly — non-lactating cows produce zero milk.
+1. **Dairy farming:** Holstein cows produce the most milk by far. Keep them breeding regularly - non-lactating cows produce zero milk.
 
 2. **Beef farming:** Limousin and Angus sell for the highest prices. Highland cattle retain good value even in old age, making them lower-maintenance for long-term herds.
 

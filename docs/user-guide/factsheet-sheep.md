@@ -33,7 +33,7 @@ Sheep and goats share a husbandry but have different production types. Sheep pro
 
 ## Wool Production (Sheep Only)
 
-Both ewes and rams produce wool — identical output per breed. **Wool is only produced when temperature is 12°C or above** (warm weather shearing season). In winter, wool output drops to zero.
+Both ewes and rams produce wool - identical output per breed. **Wool is only produced when temperature is 12°C or above** (warm weather shearing season). In winter, wool output drops to zero.
 
 ### Wool Output Range (units/day, warm weather)
 
@@ -50,7 +50,7 @@ Both ewes and rams produce wool — identical output per breed. **Wool is only p
 
 ## Goat Milk Production
 
-Goats produce milk **only while lactating** (10 months after giving birth). Goat milk is a separate product from cow milk (GOATMILK fill type — requires compatible storage).
+Goats produce milk **only while lactating** (10 months after giving birth). Goat milk is a separate product from cow milk (GOATMILK fill type - requires compatible storage).
 
 ### Goat Milk Output Range (L/day, lactating)
 
@@ -83,7 +83,7 @@ Sheep and goat prices peak at 36 months and stay at that level for older animals
 | **Goat** | Doe | 100 | 1,000 |
 | | Ram Goat | 150 | 1,500 |
 
-*These are typical prices for an average, healthy animal. Actual prices vary widely — well-bred healthy animals sell for significantly more, while sick or poor-quality animals can sell for far less.*
+*These are typical prices for an average, healthy animal. Actual prices vary widely - well-bred healthy animals sell for significantly more, while sick or poor-quality animals can sell for far less.*
 
 ### What Affects Sell Price
 
@@ -110,7 +110,7 @@ Sheep and goat prices peak at 36 months and stay at that level for older animals
 
 ## Food & Water by Breed
 
-Genetics significantly affect how much each animal eats — some are naturally much more efficient than others. Lactating females eat considerably more, and the Food Scale setting also adjusts consumption.
+Genetics significantly affect how much each animal eats - some are naturally much more efficient than others. Lactating females eat considerably more, and the Food Scale setting also adjusts consumption.
 
 ### Food Consumption Range (L/day)
 
@@ -173,7 +173,7 @@ Genetics significantly affect how much each animal eats — some are naturally m
 | Gestation | 5 months | 5 months |
 | Min health to breed | 75% | 75% |
 
-> **Note:** Rams stop breeding at 72 months — earlier than the ewe's fertile period (120 months). Replace your rams regularly!
+> **Note:** Rams stop breeding at 72 months - earlier than the ewe's fertile period (120 months). Replace your rams regularly!
 
 ### Offspring per Birth (Sheep)
 
@@ -190,7 +190,7 @@ Sheep have a high rate of twins, especially at prime age. First-time mothers usu
 
 ### Offspring per Birth (Goat)
 
-Goats follow the same offspring pattern as sheep — twins become common at prime age.
+Goats follow the same offspring pattern as sheep - twins become common at prime age.
 
 | Doe Age | Singles | Twins | Triplets |
 |---------|---------|-------|----------|
@@ -237,4 +237,4 @@ Goats follow the same offspring pattern as sheep — twins become common at prim
 
 4. **Seasonal wool.** Wool only produces in warm weather (12°C+). In cold climates with long winters, wool income will be seasonal. Plan accordingly.
 
-5. **Short lifespan.** Sheep can start dying of old age at 10 years — right when they stop breeding. Sell ageing sheep before they die of old age to recover value.
+5. **Short lifespan.** Sheep can start dying of old age at 10 years - right when they stop breeding. Sell ageing sheep before they die of old age to recover value.

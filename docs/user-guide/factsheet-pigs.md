@@ -1,6 +1,6 @@
 # Pigs Factsheet
 
-Pigs are the most prolific breeders in Realistic Livestock RM, with litters of up to 16 piglets. They produce no special outputs (just manure), so their value comes entirely from selling offspring. The three breeds differ significantly in price — Berkshire commands a premium while Black Pied is the budget option.
+Pigs are the most prolific breeders in Realistic Livestock RM, with litters of up to 16 piglets. They produce no special outputs (just manure), so their value comes entirely from selling offspring. The three breeds differ significantly in price - Berkshire commands a premium while Black Pied is the budget option.
 
 > **Note:** This documentation was generated with AI assistance and may contain inaccuracies. If you spot an error, please [open an issue](https://github.com/rittermod/FS25_RealisticLivestockRM/issues).
 
@@ -33,7 +33,7 @@ Pig prices peak at 24 months and stay at that level for older animals (unlike ca
 | **Black Pied** | Sow | 35 | 375 | 1,200 |
 | | Boar | 45 | 450 | 1,500 |
 
-*These are typical prices for an average, healthy animal. Actual prices vary widely — well-bred healthy animals sell for significantly more, while sick or poor-quality animals can sell for far less.*
+*These are typical prices for an average, healthy animal. Actual prices vary widely - well-bred healthy animals sell for significantly more, while sick or poor-quality animals can sell for far less.*
 
 ### What Affects Sell Price
 
@@ -57,7 +57,7 @@ Pig prices peak at 24 months and stay at that level for older animals (unlike ca
 
 ## Food & Water by Breed
 
-Genetics significantly affect how much each animal eats — some are naturally much more efficient than others. Lactating sows eat considerably more, and the Food Scale setting also adjusts consumption.
+Genetics significantly affect how much each animal eats - some are naturally much more efficient than others. Lactating sows eat considerably more, and the Food Scale setting also adjusts consumption.
 
 ### Food Consumption Range (L/day)
 
@@ -130,7 +130,7 @@ Pig litters are the largest of any animal. Healthy sows at prime age almost alwa
 
 ## Output
 
-Pigs produce only manure and liquid manure — no milk, wool, or eggs. Their value is entirely in selling the animals.
+Pigs produce only manure and liquid manure - no milk, wool, or eggs. Their value is entirely in selling the animals.
 
 | Breed | Manure (adult) | Liquid Manure (adult) |
 |-------|---------------|----------------------|
@@ -170,7 +170,7 @@ Pigs produce only manure and liquid manure — no milk, wool, or eggs. Their val
 
 1. **Breeding is the business model.** With litters of 11–16 piglets every 4 months, a healthy sow can produce many piglets per year. Sell the excess for profit.
 
-2. **Replace boars early.** Boars stop breeding at just 4 years — half the sow's fertile period. Buy young boars regularly or use artificial insemination.
+2. **Replace boars early.** Boars stop breeding at just 4 years - half the sow's fertile period. Buy young boars regularly or use artificial insemination.
 
 3. **Berkshire for profit, Black Pied for volume.** Berkshire piglets sell for noticeably more but eat more. Black Pied are cheaper to maintain for large-scale operations.
 

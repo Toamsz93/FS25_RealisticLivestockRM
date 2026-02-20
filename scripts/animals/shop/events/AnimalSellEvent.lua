@@ -82,17 +82,6 @@ function AnimalSellEvent:run(connection)
 	local userId = g_currentMission.userManager:getUniqueUserIdByConnection(connection)
 	local farmId = g_farmManager:getFarmForUniqueUserId(userId).farmId
 
-	--for _, animal in pairs(self.animals) do
-
-		--local errorCode = AnimalSellEvent.validate(self.object, animal.subTypeIndex, animal.age, 1, self.price, self.transportPrice, farmId)
-
-		--if errorCode ~= nil then
-			--connection:sendEvent(AnimalSellEvent.newServerToClient(errorCode))
-			--return
-		--end
-	
-	--end
-
 	local clusterSystem = self.object:getClusterSystem()
 
 	for i, identifier in pairs(self.animals) do

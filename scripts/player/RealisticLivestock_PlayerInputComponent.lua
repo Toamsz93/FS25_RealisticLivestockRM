@@ -168,10 +168,8 @@ function AnimalCleanEvent:run(connection)
 end
 
 
--- Fix MP horse riding: Rideable:onWriteStream writes cluster via
--- RL Animal:writeStream (huge payload), but Rideable:onReadStream creates
--- AnimalClusterHorse and reads via AnimalClusterHorse:readStream (tiny payload).
--- Stream misalignment causes playerToEnter to never be read on the client.
+-- Fix MP horse riding: RL Animal's stream format differs from the
+-- AnimalClusterHorse format that the client expects when reading.
 -- Override to write/read cluster in AnimalClusterHorse-compatible format.
 
 function Rideable:onWriteStream(streamId, connection)
@@ -202,8 +200,8 @@ function Rideable:onWriteStream(streamId, connection)
     end
 end
 
--- Also fix update stream: server writes via RL Animal (no writeUpdateStream method),
--- but client reads via AnimalClusterHorse:readUpdateStream (expects fitness/riding/dirt).
+-- Also fix update stream: RL Animal has no writeUpdateStream method,
+-- so provide one matching the AnimalClusterHorse format the client expects.
 
 function Rideable:onWriteUpdateStream(streamId, connection, _)
     local spec = self.spec_rideable

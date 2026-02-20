@@ -36,11 +36,7 @@ end
 
 
 function HandToolAIStraw.prerequisitesPresent()
-
-	print("Loaded handTool: HandToolAIStraw")
-
 	return true
-
 end
 
 

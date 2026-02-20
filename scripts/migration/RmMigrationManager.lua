@@ -21,6 +21,8 @@
     checking whether new files (rm_RlSettings.xml) exist.
 ]]
 
+local Log = RmLogging.getLogger("RLRM")
+
 RmMigrationManager = {}
 
 local RmMigrationManager_mt = Class(RmMigrationManager)
@@ -90,10 +92,10 @@ end
           g_modIsLoaded contains only mods that are actually enabled and loaded
 ]]
 function RmMigrationManager:checkModConflict()
-    print("RmMigrationManager: Checking for mod conflicts...")
+    Log:info("Checking for mod conflicts...")
 
     if g_modIsLoaded == nil then
-        print("RmMigrationManager: g_modIsLoaded is nil!")
+        Log:warning("g_modIsLoaded is nil!")
         return false
     end
 
@@ -112,13 +114,13 @@ function RmMigrationManager:checkModConflict()
     end
 
     if #found > 0 then
-        print("RmMigrationManager: Conflicting mods found: " .. table.concat(found, ", "))
+        Log:warning("Conflicting mods found: %s", table.concat(found, ", "))
         self.conflictingMods = found
         g_rmMigrationConflict = true
         return true
     end
 
-    print("RmMigrationManager: No conflicts detected")
+    Log:info("No mod conflicts detected")
     return false
 end
 
@@ -129,14 +131,14 @@ end
     shows its version dialog.
 ]]
 function RmMigrationManager:showConflictDialog()
-    print("RmMigrationManager: showConflictDialog called, scheduling dialog...")
+    Log:info("Scheduling conflict dialog...")
 
     -- Use a short delay to ensure the game has fully entered gameplay state
     -- before showing the dialog. This ensures the dialog properly overlays
     -- on top of the gameplay screen rather than getting lost during the
     -- loading-to-gameplay transition.
     Timer.createOneshot(100, function()
-        print("RmMigrationManager: Timer fired, showing conflict dialog now")
+        Log:info("Showing conflict dialog")
 
         local title = g_i18n:getText("rm_rl_conflict_title")
         local modList = ""
@@ -146,7 +148,7 @@ function RmMigrationManager:showConflictDialog()
         local message = string.format(g_i18n:getText("rm_rl_mod_conflict_message"), modList)
 
         InfoDialog.show(title .. "\n\n" .. message, function()
-            print("RmMigrationManager: User acknowledged conflict, restarting game")
+            Log:info("User acknowledged conflict, restarting game")
             -- Restart the game so user can disable the conflicting mod(s)
             doRestart(false, "")
         end, self)
@@ -306,16 +308,16 @@ end
     Uses a short timer delay for consistency with showConflictDialog.
 ]]
 function RmMigrationManager:showMigrationDialog()
-    print("RmMigrationManager: showMigrationDialog called, scheduling dialog...")
+    Log:info("Scheduling migration dialog...")
 
     Timer.createOneshot(100, function()
-        print("RmMigrationManager: Timer fired, showing migration dialog now")
+        Log:info("Showing migration dialog")
 
         if RmMigrationDialog ~= nil and RmMigrationDialog.show ~= nil then
             local files = self:getOldDataFiles()
             RmMigrationDialog.show(files)
         else
-            print("RmMigrationManager: ERROR - RmMigrationDialog not available")
+            Log:error("RmMigrationDialog not available")
         end
     end)
 end

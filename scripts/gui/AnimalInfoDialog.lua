@@ -396,8 +396,6 @@ function AnimalInfoDialog:updateContent(farmId, uniqueId, useChildren)
                 if self.children == nil or #self.children <= 1 then break end
             end
 
-            --if parent ~= nil then break end
-
             if (self.children == nil or #self.children <= 1) and #foundAnimals >= 1 then
                 parent = foundAnimals[1]
                 break
@@ -406,16 +404,6 @@ function AnimalInfoDialog:updateContent(farmId, uniqueId, useChildren)
         end
 
         if parent == nil then
-            --if self.children ~= nil and #self.children > 1 and self.childrenSelector:getState() < #self.children then
-                --local index = self.childrenSelector:getState() + 1
-                --self.childrenSelector:setState(index)
-                --self:updateContent(self.children[index].farmId, self.children[index].uniqueId)
-            --else
-                --InfoDialog.INSTANCE:setText("Could not find animal")
-                --g_gui:showDialog("InfoDialog")
-                --return false
-            --end
-
             if self.children ~= nil and #self.children > 1 and #foundAnimals >= 1 then
 
                 local index = self.childrenSelector:getState()

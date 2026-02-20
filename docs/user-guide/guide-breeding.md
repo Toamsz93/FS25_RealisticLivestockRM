@@ -114,7 +114,7 @@ Chickens have large but unreliable hatches. The chance of no offspring is always
 | 12–24 mo | Common | Uncommon | Most likely | Possible |
 | 24–48 mo | Frequent | Uncommon | Less likely | Rare |
 | 48–84 mo | Very common | Rare | Rare | Very rare |
-| 84+ mo | Almost always | Very rare | Very rare | — |
+| 84+ mo | Almost always | Very rare | Very rare | - |
 
 *Unlike other animals, hens never die during hatching.*
 
@@ -154,7 +154,7 @@ xychart-beta
     line [0, 60, 95, 100, 90, 75, 60, 45, 30, 15, 0]
 ```
 
-*Chart shows the typical shape of the lactation curve. Actual litres depend on breed and genetics — see the cattle factsheet for specific ranges.*
+*Chart shows the typical shape of the lactation curve. Actual litres depend on breed and genetics - see the cattle factsheet for specific ranges.*
 
 ---
 
@@ -206,7 +206,7 @@ Plan your breeding based on gestation periods:
 | Horses | Month 0 | Month 11 | ~Month 12 |
 | Chickens | Month 0 | Month 2 | ~Month 3 |
 
-*Cows have the longest cycle — roughly one calf per year at best. Pigs can produce 2–3 litters per year, making them the fastest-reproducing large animal.*
+*Cows have the longest cycle - roughly one calf per year at best. Pigs can produce 2–3 litters per year, making them the fastest-reproducing large animal.*
 
 ---
 

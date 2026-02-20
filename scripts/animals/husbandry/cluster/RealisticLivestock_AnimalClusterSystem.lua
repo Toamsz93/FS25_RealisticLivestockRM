@@ -98,12 +98,6 @@ function RealisticLivestock_AnimalClusterSystem:saveToXMLFile(superFunc, xmlFile
     end
 
     for i, animal in pairs(self.animals) do
-        --local animalKey = string.format("%s.animal(%d)", key, i - 1)
-        --local subType = g_currentMission.animalSystem:getSubTypeByIndex(cluster.subTypeIndex)
-
-        --xmlFile:setString(animalKey .. "#subType", subType.name)
-        --cluster:saveToXMLFile(xmlFile, animalKey, usedModNames)
-
         local animalKey = string.format("%s.animal(%d)", key, i - 1)
         animal:saveToXMLFile(xmlFile, animalKey)
 
@@ -320,8 +314,6 @@ AnimalClusterSystem.removeCluster = Utils.overwrittenFunction(AnimalClusterSyste
 
 function RealisticLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
-    --assert(self.isServer, "AnimalClusterSystem:updateClusters is a server function")
-
     local isDirty = false
     local removedClusterIndices = {}
 
@@ -375,8 +367,6 @@ function RealisticLivestock_AnimalClusterSystem:updateClusters(superFunc)
             animal.isDirty = false
         end
 
-        --if animal:getNumAnimals() <= 0 and not animal.isDead and not animal.isSold then animal.numAnimals = 1 end
-
         if self.clustersToRemove[animal] ~= nil or (animal.beingRidden ~= nil and animal.beingRidden) or animal:getNumAnimals() == 0 or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" then table.insert(removedClusterIndices, animalIndex) end
     end
 
@@ -387,11 +377,6 @@ function RealisticLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
         self:removeCluster(animalIndexToRemove)
     end
-
-    --if isDirty then
-       -- g_server:broadcastEvent(AnimalClusterUpdateEvent.new(self.owner, self.animals), true)
-        --g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
-    --end
 
     self.clustersToAdd = {}
     self.clustersToRemove = {}

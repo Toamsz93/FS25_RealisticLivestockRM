@@ -13,7 +13,6 @@ function RealisticLivestock_InGameMenuAnimalsFrame:displayCluster(superFunc, ani
         if visual ~= nil then
 
             local subType = animal:getSubType()
-            --local fillTypeTitle = g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)
 
             local name = animal:getName()
             name = name ~= "" and (" (" .. name .. ")") or ""

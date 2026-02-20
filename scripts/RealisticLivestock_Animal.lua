@@ -457,13 +457,6 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
     
 
 
-    --local impregnatedById = xmlFile:getString(key .. ".impregnatedBy#uniqueId", nil)
-    --local impregnatedByMetabolism = xmlFile:getFloat(key .. ".impregnatedBy#metabolism", nil)
-    --local impregnatedByMeatQuality = xmlFile:getFloat(key .. ".impregnatedBy#quality", nil)
-    --local impregnatedByProductivity = xmlFile:getFloat(key .. ".impregnatedBy#productivity", nil)
-    --local impregnatedByHealth = xmlFile:getFloat(key .. ".impregnatedBy#health", nil)
-    --local impregnatedByFertility = xmlFile:getFloat(key .. ".impregnatedBy#fertility", nil)
-
     local impregnatedBy
 
     if xmlFile:hasProperty(key .. ".impregnatedBy") then
@@ -480,12 +473,6 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
     end
 
 
-    --local metabolism = xmlFile:getFloat(key .. ".genetics#metabolism", nil)
-    --local productivity = xmlFile:getFloat(key .. ".genetics#productivity", nil)
-    --local quality = xmlFile:getFloat(key .. ".genetics#quality", nil)
-    --local healthGenetics = xmlFile:getFloat(key .. ".genetics#health", nil)
-    --local fertility = xmlFile:getFloat(key .. ".genetics#fertility", nil)
-    
     local genetics
 
     if xmlFile:hasProperty(key .. ".genetics") then
@@ -544,7 +531,6 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 
 
     local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination)
-    --local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
     animal:setBirthday(birthday)
     
@@ -1203,18 +1189,7 @@ function Animal:clone()
 
     local impregnatedBy = self.impregnatedBy or nil
     
-    --local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, impregnatedBy ~= nil and impregnatedBy.uniqueId or nil, self.pos or nil, self.name or nil, self.dirt or nil, self.fitness or nil, self.riding or nil, self.farmId, self.weight, self.metabolism, impregnatedBy ~= nil and impregnatedBy.metabolism or nil, impregnatedBy ~= nil and impregnatedBy.productivity or nil, self.genetics.productivity or nil, self.genetics.quality, impregnatedBy ~= nil and impregnatedBy.quality or nil, impregnatedBy ~= nil and impregnatedBy.health or nil, impregnatedBy ~= nil and impregnatedBy.fertility or nil, self.genetics.health, self.genetics.fertility, self.variation, self.children)
     local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor, self.isCastrated, self.diseases, self.recentlyBoughtByAI, self.marks, self.insemination)
-
-    --if self.impregnatedBy ~= nil then
-        --newAnimal.impregnatedBy = {
-            --uniqueId = self.impregnatedBy.uniqueId,
-            --metabolism = self.impregnatedBy.metabolism,
-            --quality = self.impregnatedBy.quality,
-            --health = self.impregnatedBy.health,
-            --fertility = self.impregnatedBy.fertility
-        --}
-    --end
 
     newAnimal:setBirthday(self.birthday)
     
@@ -2069,7 +2044,6 @@ function Animal:changeReproduction(delta)
     self.reproduction = math.clamp(math.floor(self.reproduction + math.max(delta, 1)), 0, 100)
 
     if math.abs(self.reproduction - old) > 0 then
-        --self:setDirty()
     end
 
 end

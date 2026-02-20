@@ -29,8 +29,6 @@ AnimalScreen.DEWAR_QUANTITIES = {
 
 function RealisticLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
 
-    --if husbandry == nil and vehicle == nil then return end
-
     g_animalScreen.isTrailerFarm = husbandry ~= nil and vehicle ~= nil
     g_animalScreen.filters = nil
     g_animalScreen.filteredItems = nil
@@ -75,8 +73,6 @@ AnimalScreen.onClose = Utils.appendedFunction(AnimalScreen.onClose, RealisticLiv
 
 
 function RealisticLivestock_AnimalScreen:setController(_, husbandry, vehicle, isDealer)
-
-    --if husbandry ~= nil then self.tabLogButton:setImageSlice(nil, "realistic_livestock.messages" .. (husbandry:getHasUnreadRLMessages() and "_new" or "")) end
 
     self.isTrailer = husbandry == nil and vehicle ~= nil and not isDealer
     self.isDirectFarm = husbandry ~= nil and vehicle == nil
@@ -1543,10 +1539,6 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
     if not g_gui.currentlyReloading then
 
-        --if isSourceSelected == nil then
-            --local _ = self.isSourceSelected
-        --end
-
         local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
         local item
         self.buttonCastrate:setVisible(false)
@@ -1782,7 +1774,6 @@ function RealisticLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelect
 
 
             self.infoBox:setVisible(not self.isInfoMode)
-            --self.numAnimalsBox:setVisible(not self.isInfoMode)
             self.parentBox:setVisible(self.isInfoMode and not self.isBuyMode)
             self.buttonRename:setVisible(self.isInfoMode)
 
@@ -1844,7 +1835,6 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, state)
 
     self.detailsContainer:setVisible(hasAnimals)
     self.infoBox:setVisible(not self.isInfoMode)
-    --self.numAnimalsBox:setVisible(not self.isInfoMode)
     self.numAnimalsBox:setVisible(false)
     self.parentBox:setVisible(self.isInfoMode)
     self.geneticsBox:setVisible(self.isInfoMode)
@@ -1895,7 +1885,6 @@ AnimalScreen.updateScreen = Utils.overwrittenFunction(AnimalScreen.updateScreen,
 function RealisticLivestock_AnimalScreen:setMaxNumAnimals()
 
     self.infoBox:setVisible(not self.isInfoMode)
-    --self.numAnimalsBox:setVisible(not self.isInfoMode)
     self.numAnimalsBox:setVisible(false)
     self.parentBox:setVisible(self.isInfoMode and not self.isBuyMode)
     self.geneticsBox:setVisible(self.isInfoMode)
@@ -1906,7 +1895,7 @@ end
 AnimalScreen.setMaxNumAnimals = Utils.appendedFunction(AnimalScreen.setMaxNumAnimals, RealisticLivestock_AnimalScreen.setMaxNumAnimals)
 
 
--- Always hide the base game's buttonSelect — we use buttonRLSelect instead
+-- Always hide the base game's buttonSelect - we use buttonRLSelect instead
 function RealisticLivestock_AnimalScreen:hideBaseGameSelect()
     self.buttonSelect:setVisible(false)
 end

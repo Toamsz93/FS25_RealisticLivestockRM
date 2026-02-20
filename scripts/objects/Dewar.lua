@@ -48,8 +48,6 @@ end
 
 function Dewar:register(position, rotation, animal, quantity)
 
-	--if self.isServer then Dewar:superClass().register(self, true) end
-
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
 	self.mass = 0.1
@@ -82,12 +80,6 @@ function Dewar:register(position, rotation, animal, quantity)
 
 	self:updateStrawVisuals()
 	self:updateAnimalVisuals()
-
-	--if g_server ~= nil then
-		--g_server:addObject(self, string.format("dewar_%s", self.uniqueId))
-	--elseif g_client ~= nil then
-		--g_client:addObject(self, string.format("dewar_%s", self.uniqueId))
-	--end
 
 end
 

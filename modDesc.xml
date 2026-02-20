@@ -1,70 +1,60 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>0.7.0.0-dev</version>
+    <version>1.0.0.0</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
     </title>
     <description>
         <en>
-            <![CDATA[ This is a modified version of the FS25 Realistic Livestock mod by Arrow-kb who has decided to stop all development of his mods.
+            <![CDATA[Replaces FS25's simple animal clusters with individually tracked animals - each with unique genetics, breeding, diseases, and production traits. A maintained version of Arrow-kb's Realistic Livestock mod.
 
-The current goal of this version is to keep the core parts of the mod working for my use, and do the occasional fix or improvement that I feel is needed. 
+Every animal is tracked separately with its own identity, genetic makeup, health status, and production output. Genetics are inherited through breeding, diseases can spread and require treatment, and production is driven by each animal's individual traits.
 
-Feel free to use it as you see fit, but please understand that this mod is way less ambitious than the original. 
+This is a maintained version of the original Realistic Livestock mod by Arrow-kb, who has discontinued development. The goal is to keep the mod working, fix bugs, and make improvements where needed.
 
-Main changes from the original mod:
-- Automatically migrate savegame data from Arrow-kb's Realistic Livestock to this version.
-- Added Highland Bulls based on Renfordt's PR 389 in Arrow-kb's original mod.
-- Removed Font Library dependency by inlining the required functionality directly in the mod.
-- Improved genetic inheritance with natural variation - offspring can now exceed or fall below parent trait values.
+Notes:
+- Based on Arrow-kb's Realistic Livestock mod (v1.2.0.5), released under GPL-3 license
+- Savegame data from Arrow-kb's original version is automatically migrated on first load
+- Font Library mod is no longer required
+- Incompatible with FS25_EnhancedLivestock and FS25_MoreVisualAnimals
 
-Source code, issue tracker and docs: https://github.com/rittermod/FS25_RealisticLivestockRM
-Documentation: https://rittermod.github.io/FS25_RealisticLivestockRM/
+Documentation: https://rittermod.github.io/FS25_RealisticLivestockRM
+Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivestockRM
 
 Changelog
 
-v0.7.0.0-dev:
-- Add "Manage Animals" (R) button to in-game animal menu for easier management
-- Add "Select" (A) to check/uncheck selection boxes in buy and sell
-- Disable insemination button when female is ineligible (pregnant, too young, recovering)
-- Show "Removing..." state on monitor button when removal is pending
-- Fix keybinding collisions in AnimalScreen — each action now has a unique key (D=Diseases, C=Castrate, M=Monitor, I=Insemination, X=Mark)
-- Fix Mother/Father/Children info buttons intercepting Mark/Castrate keypresses — now mouse-only
-- Fix insemination button showing on male animals
-- Fix monitor visual not disappearing when removing monitor from animal
-- Fix batch "Remove All Monitors" button not reflecting pending removal state
-- Fix milk/wool/goat milk info not showing on dedicated server clients (RIT-218)
-- Protect GUI setup with pcall for dedicated server safety
+v1.0.0.0:
+- Added "Manage Animals" (R) button to in-game animal menu for quick access
+- Added "Select" (A) action to check/uncheck selection boxes in buy and sell dialogs
+- Insemination button now disabled when female is ineligible (pregnant, too young, recovering)
+- Monitor button now shows "Removing..." state when removal is pending
+- Fixed keybinding collisions - each action now has a unique key
+- Fixed info buttons intercepting Mark/Castrate keypresses - now mouse-only
+- Fixed insemination button incorrectly showing on male animals
+- Fixed monitor visual not disappearing when removing monitor
+- Fixed milk/wool/goat milk info not showing on dedicated server clients
 
 v0.6.1.0:
-- Fix AI dialog insemination not syncing in multiplayer (AnimalAIDialog)
-- Fix AI dialog insemination blocked for cows that never gave birth (missing isParent guard)
-- Fix server crash when client inseminates cow with straw (AnimalInseminationEvent)
-- Fix stream corruption in AI auto-insemination event (AIAnimalInseminationEvent)
-- Fix pregnancy event silently failing to match animals on client (AnimalPregnancyEvent)
-- Fix dewars bought mid-game not syncing to connected clients in multiplayer (SemenBuyEvent)
-- Fix client-side error when buying semen in multiplayer (SemenBuyEvent)
-- Fix disease treatment toggle not syncing to server in multiplayer (DiseaseDialog)
-- Fix settings dependency check using undefined variable (RL_BroadcastSettingsEvent)
-- Fixed error spam when dismounting horse outside pen in multiplayer
-- Fix black screen when multiplayer client tries to ride a horse
-- Fix multiplayer client unable to clean horses
+- Fixed 12 multiplayer sync and stability bugs including insemination, semen buying, disease treatment, horse riding, and horse cleaning
 
 ]]>
         </en>
         <it>
-            <![CDATA[ Questa è una versione modificata del mod FS25 Realistic Livestock di Arrow-kb, che ha deciso di interrompere completamente lo sviluppo dei suoi mod.
+            <![CDATA[Sostituisce i semplici gruppi di animali di FS25 con animali tracciati individualmente, ognuno con genetica, allevamento, malattie e tratti produttivi unici. Una versione mantenuta del mod Realistic Livestock di Arrow-kb.
 
-L'obiettivo attuale di questa versione è mantenere funzionanti le parti principali del mod per il mio utilizzo personale, e applicare occasionalmente correzioni o miglioramenti quando lo ritengo necessario.
+Ogni animale è tracciato separatamente con la propria identità, corredo genetico, stato di salute e produzione. La genetica viene ereditata attraverso l'allevamento, le malattie possono diffondersi e richiedere trattamento, e la produzione è determinata dai tratti individuali di ciascun animale.
 
-Sentiti libero di usarlo come preferisci, ma tieni presente che questo mod è molto meno ambizioso dell'originale.
+Questa è una versione mantenuta del mod originale Realistic Livestock di Arrow-kb, che ha interrotto lo sviluppo. L'obiettivo è mantenere il mod funzionante, correggere bug e apportare miglioramenti dove necessario.
 
-Modifiche principali rispetto al mod originale:
-- Migrazione automatica dei dati di salvataggio dal Realistic Livestock di Arrow-kb a questa versione.
-- Aggiunti i tori Highland basati sulla PR 389 di Renfordt nel mod originale di Arrow-kb.
-- Rimossa la dipendenza da Font Library integrando direttamente nel mod le funzionalità necessarie.
-- Migliorata l'ereditarietà genetica con variazione naturale - la prole può ora superare o scendere sotto i valori dei tratti dei genitori.
+Note:
+- Basato sul mod Realistic Livestock di Arrow-kb (v1.2.0.5), rilasciato sotto licenza GPL-3
+- I dati di salvataggio dalla versione originale di Arrow-kb vengono migrati automaticamente al primo caricamento
+- Il mod Font Library non è più necessario
+- Incompatibile con FS25_EnhancedLivestock e FS25_MoreVisualAnimals
+
+Documentazione: https://rittermod.github.io/FS25_RealisticLivestockRM
+Codice sorgente e segnalazione problemi: https://github.com/rittermod/FS25_RealisticLivestockRM
 
 ]]>
         </it>
