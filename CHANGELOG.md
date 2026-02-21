@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.1.0-dev:
+- Fix animals disappearing when moved to non-husbandry targets (e.g. EPP butcher production points)
+- Fix bulk move ("C move selected") ignoring trailer/husbandry capacity limits
+
 ## v1.0.0.0:
 - Add "Manage Animals" (R) button to in-game animal menu for easier management
 - Add "Select" (A) to check/uncheck selection boxes in buy and sell
