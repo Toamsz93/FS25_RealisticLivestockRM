@@ -87,13 +87,12 @@ function AnimalMoveEvent:run(connection)
 	end
 
 	local clusterSystemSource = self.sourceObject:getClusterSystem()
-	local clusterSystemTarget = self.targetObject:getClusterSystem()
 
 	for _, animal in pairs(self.animals) do
 
 		clusterSystemSource:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
 		animal.id, animal.idFull = nil, nil
-		clusterSystemTarget:addCluster(animal)
+		self.targetObject:addCluster(animal)
 
 	end
 
@@ -109,11 +108,13 @@ function AnimalMoveEvent:run(connection)
 		husbandry, trailer = self.targetObject, self.sourceObject
 	end
 
-	if #self.animals == 1 then
-        husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_SINLGE", self.moveType), nil, { trailer:getName() })
-    elseif #self.animals > 0 then
-        husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_MULTIPLE", self.moveType), nil, { #self.animals, trailer:getName() })
-    end
+	if husbandry.addRLMessage ~= nil then
+		if #self.animals == 1 then
+			husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_SINLGE", self.moveType), nil, { trailer:getName() })
+		elseif #self.animals > 0 then
+			husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_MULTIPLE", self.moveType), nil, { #self.animals, trailer:getName() })
+		end
+	end
 
 end
 
