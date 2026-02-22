@@ -40,20 +40,20 @@ v1.0.0.0:
 ]]>
         </en>
         <it>
-            <![CDATA[Sostituisce i semplici gruppi di animali di FS25 con animali tracciati individualmente, ognuno con genetica, allevamento, malattie e tratti produttivi unici. Una versione mantenuta del mod Realistic Livestock di Arrow-kb.
+            <![CDATA[Sostituisce i semplici cluster di animali di FS25 con animali individualmente tracciati, ciascuno con genetica unica, allevamento, malattie e tratti produttivi. Una versione mantenuta del mod Realistic Livestock di Arrow-kb.
 
-Ogni animale è tracciato separatamente con la propria identità, corredo genetico, stato di salute e produzione. La genetica viene ereditata attraverso l'allevamento, le malattie possono diffondersi e richiedere trattamento, e la produzione è determinata dai tratti individuali di ciascun animale.
+Ogni animale viene monitorato separatamente con la propria identità, composizione genetica, stato di salute e produzione. La genetica si trasmette tramite riproduzione, le malattie possono diffondersi richiedendo trattamenti, e la produzione dipende dai tratti individuali di ciascun animale.
 
 Questa è una versione mantenuta del mod originale Realistic Livestock di Arrow-kb, che ha interrotto lo sviluppo. L'obiettivo è mantenere il mod funzionante, correggere bug e apportare miglioramenti dove necessario.
 
 Note:
 - Basato sul mod Realistic Livestock di Arrow-kb (v1.2.0.5), rilasciato sotto licenza GPL-3
-- I dati di salvataggio dalla versione originale di Arrow-kb vengono migrati automaticamente al primo caricamento
-- Il mod Font Library non è più necessario
+- I dati di salvataggio della versione originale di Arrow-kb vengono migrati automaticamente al primo caricamento
+- Il mod Font Library non è più richiesto
 - Incompatibile con FS25_EnhancedLivestock e FS25_MoreVisualAnimals
 
 Documentazione: https://rittermod.github.io/FS25_RealisticLivestockRM
-Codice sorgente e segnalazione problemi: https://github.com/rittermod/FS25_RealisticLivestockRM
+Codice sorgente e tracciamento issue: https://github.com/rittermod/FS25_RealisticLivestockRM
 
 ]]>
         </it>
