@@ -1,7 +1,7 @@
 # Changelog
 
 ## v1.0.1.1:
-- Fixed compability with Hof Bergmann's subtype filter for animal pens
+- Fixed compatibility with Hof Bergmann's subtype filter for animal pens
 
 ## v1.0.1.0:
 - Add Hof Bergmann map support - exotic animals (ducks, geese, cats, rabbits) now support full breeding and reproduction
