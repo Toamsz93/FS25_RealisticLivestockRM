@@ -203,6 +203,7 @@ end
 function RealisticLivestock_PlaceableHusbandryAnimals:onLoad()
 
     self.spec_husbandryAnimals.aiAnimalManager = AIAnimalManager.new(self, self.isServer)
+    RLMapBridge.onHusbandryLoad(self)
 
 end
 

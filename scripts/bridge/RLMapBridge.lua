@@ -684,3 +684,53 @@ function RLMapBridge.getMaxFertilityAge(subTypeName)
 
     return RLMapBridge.maxFertilityAgeByGroup[group]
 end
+
+
+--- Check if a specific map bridge is active.
+---@param mapModName string Mod name (e.g. "FS25_HofBergmann")
+---@return boolean
+function RLMapBridge.isMapActive(mapModName)
+    for _, bridge in ipairs(RLMapBridge.activeBridges) do
+        if bridge.modName == mapModName then return true end
+    end
+    return false
+end
+
+
+--- Called from PlaceableHusbandryAnimals.onLoad to apply map-specific husbandry compat fixes.
+--- Currently handles Hof Bergmann's subtype filter (allowedSubTypeIndices).
+--- If more maps need compat fixes, consider refactoring to a per-bridge callback system
+--- (e.g. sourcing mod_support/<modName>/compat.lua).
+---@param placeable table PlaceableHusbandryAnimals instance
+function RLMapBridge.onHusbandryLoad(placeable)
+    if not RLMapBridge.isMapActive("FS25_HofBergmann") then return end
+
+    local spec = placeable.spec_husbandryAnimals
+    if spec == nil or spec.allowedSubTypeIndices == nil then return end
+
+    -- HB's HB_HusbandrySubtypeFilter whitelists specific subtypes (e.g. COW_SWISS_BROWN)
+    -- but doesn't know about RL's male variants (e.g. BULL_SWISS_BROWN).
+    -- Expand the whitelist to include breed siblings.
+    local animalSystem = g_currentMission.animalSystem
+    local toAdd = {}
+
+    for allowedIdx, _ in pairs(spec.allowedSubTypeIndices) do
+        local subType = animalSystem:getSubTypeByIndex(allowedIdx)
+        if subType ~= nil then
+            local animalType = animalSystem:getTypeByIndex(subType.typeIndex)
+            if animalType ~= nil and animalType.breeds ~= nil and animalType.breeds[subType.breed] ~= nil then
+                for _, sibling in ipairs(animalType.breeds[subType.breed]) do
+                    if not spec.allowedSubTypeIndices[sibling.subTypeIndex] then
+                        toAdd[sibling.subTypeIndex] = sibling.name
+                    end
+                end
+            end
+        end
+    end
+
+    for idx, name in pairs(toAdd) do
+        spec.allowedSubTypeIndices[idx] = true
+        Log:info("MapBridge: HB compat - added '%s' (idx=%d) as breed sibling for '%s'",
+            name, idx, placeable:getName())
+    end
+end

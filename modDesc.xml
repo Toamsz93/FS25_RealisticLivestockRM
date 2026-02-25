@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>1.0.1.0</version>
+    <version>1.0.1.1</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -23,6 +23,9 @@ Documentation: https://rittermod.github.io/FS25_RealisticLivestockRM
 Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivestockRM
 
 Changelog
+
+v1.0.1.1:
+- Fixed compability with Hof Bergmann's subtype filter for animal pens
 
 v1.0.1.0:
 - Added Hof Bergmann map support - exotic animals (ducks, geese, cats, rabbits) now support full breeding and reproduction
