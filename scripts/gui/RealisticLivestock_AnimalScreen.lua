@@ -1204,6 +1204,7 @@ function RealisticLivestock_AnimalScreen:onClickBuyMode(a, b)
     self.isLogMode = false
     self.isHerdsmanMode = false
     self.isAIMode = false
+    self.isBuyMode = true
 
     self.selectedItems = {}
     self.pendingBulkTransaction = nil
@@ -1213,7 +1214,7 @@ function RealisticLivestock_AnimalScreen:onClickBuyMode(a, b)
     self.buttonToggleSelectAll:setVisible(true)
     self.buttonRLSelect:setVisible(true)
     self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
-    self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("rl_ui_moveSelected") or g_i18n:getText("rl_ui_buySelected"))
+    self:updateBuySelectedButtonText()
     self.buttonCastrate:setVisible(false)
     self.buttonDeleteMessage:setVisible(false)
     self.buttonDiseases:setVisible(false)
@@ -1244,6 +1245,7 @@ function RealisticLivestock_AnimalScreen:onClickSellMode(a, b)
     self.isLogMode = false
     self.isHerdsmanMode = false
     self.isAIMode = false
+    self.isBuyMode = false
 
     self.selectedItems = {}
     self.pendingBulkTransaction = nil
@@ -1253,7 +1255,7 @@ function RealisticLivestock_AnimalScreen:onClickSellMode(a, b)
     self.buttonToggleSelectAll:setVisible(true)
     self.buttonRLSelect:setVisible(true)
     self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
-    self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("rl_ui_moveSelected") or g_i18n:getText("rl_ui_sellSelected"))
+    self:updateBuySelectedButtonText()
     self.buttonCastrate:setVisible(false)
     self.buttonDeleteMessage:setVisible(false)
     self.buttonDiseases:setVisible(false)
@@ -2269,6 +2271,8 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
                         self.buttonToggleSelectAll:setText(selectNoneText)
                     end
 
+                    self:updateBuySelectedButtonText()
+
                 end
 
             end
@@ -2395,6 +2399,7 @@ function AnimalScreen:buySelected(clickYes)
     self.controller:applySourceBulk(self.pendingBulkTransaction.animalTypeIndex, self.pendingBulkTransaction.items)
 
     self.selectedItems = {}
+    self:updateBuySelectedButtonText()
 
 end
 
@@ -2406,6 +2411,7 @@ function AnimalScreen:sellSelected(clickYes)
     self.controller:applyTargetBulk(self.pendingBulkTransaction.animalTypeIndex, self.pendingBulkTransaction.items)
 
     self.selectedItems = {}
+    self:updateBuySelectedButtonText()
 
 end
 
@@ -2424,6 +2430,7 @@ function AnimalScreen:onApplyFilters(filters, filteredItems)
     self.filters = filters
     self.filteredItems = filteredItems
     self.selectedItems = {}
+    self:updateBuySelectedButtonText()
     self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
     self.sourceList:reloadData(true)
 
@@ -2648,6 +2655,7 @@ function AnimalScreen:onClickRLSelect()
         end
     end
     self.buttonToggleSelectAll:setText(hasSelection and g_i18n:getText("rl_ui_selectNone") or g_i18n:getText("rl_ui_selectAll"))
+    self:updateBuySelectedButtonText()
 
     self.sourceList:reloadData()
 
@@ -2690,6 +2698,7 @@ function AnimalScreen:onClickToggleSelectAll()
 
 
     self.buttonToggleSelectAll:setText(selectAll and g_i18n:getText("rl_ui_selectNone") or g_i18n:getText("rl_ui_selectAll"))
+    self:updateBuySelectedButtonText()
     self.sourceList:reloadData()
 
 end
@@ -2711,6 +2720,34 @@ function RealisticLivestock_AnimalScreen:setSelectionState(superFunc, state) -- 
 end
 
 AnimalScreen.setSelectionState = Utils.overwrittenFunction(AnimalScreen.setSelectionState, RealisticLivestock_AnimalScreen.setSelectionState)
+
+
+function AnimalScreen:getSelectedCount()
+    local count = 0
+    for _, selected in pairs(self.selectedItems) do
+        if selected then
+            count = count + 1
+        end
+    end
+    return count
+end
+
+
+function AnimalScreen:updateBuySelectedButtonText()
+    local baseText
+    if self.isTrailerFarm then
+        baseText = g_i18n:getText("rl_ui_moveSelected")
+    elseif self.isBuyMode then
+        baseText = g_i18n:getText("rl_ui_buySelected")
+    else
+        baseText = g_i18n:getText("rl_ui_sellSelected")
+    end
+    local count = self:getSelectedCount()
+    if count > 0 then
+        baseText = baseText .. " (" .. count .. ")"
+    end
+    self.buttonBuySelected:setText(baseText)
+end
 
 
 function AnimalScreen:onClickInfoPrompt() end

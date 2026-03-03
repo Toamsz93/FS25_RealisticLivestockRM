@@ -3,6 +3,7 @@
 ## v1.0.2.0-dev:
 - Added genetics display in animal names (average score, or full breakdown per trait)
 - Added sort by genetics option for animal lists
+- Added selection count on bulk action buttons
 
 ## v1.0.1.1:
 - Fixed compatibility with Hof Bergmann's subtype filter for animal pens
