@@ -57,6 +57,7 @@ source(modDirectory .. "scripts/animals/shop/controllers/AnimalScreenDealerFarm.
 source(modDirectory .. "scripts/animals/shop/controllers/AnimalScreenDealerTrailer.lua")
 source(modDirectory .. "scripts/animals/shop/controllers/AnimalScreenTrailer.lua")
 source(modDirectory .. "scripts/animals/shop/controllers/AnimalScreenTrailerFarm.lua")
+source(modDirectory .. "scripts/animals/shop/controllers/AnimalScreenMoveFarm.lua")
 
 -- SECTION 7: Animal Shop - Events
 source(modDirectory .. "scripts/animals/shop/events/AIAnimalBuyEvent.lua")
@@ -105,6 +106,7 @@ source(modDirectory .. "scripts/gui/NameInputDialog.lua")
 source(modDirectory .. "scripts/gui/RealisticLivestockFrame.lua")
 source(modDirectory .. "scripts/gui/AnimalAIDialog.lua")
 source(modDirectory .. "scripts/gui/AnimalFilterDialog.lua")
+source(modDirectory .. "scripts/gui/AnimalMoveDestinationDialog.lua")
 source(modDirectory .. "scripts/gui/AnimalInfoDialog.lua")
 source(modDirectory .. "scripts/gui/DiseaseDialog.lua")
 source(modDirectory .. "scripts/gui/EarTagColourPickerDialog.lua")

@@ -131,6 +131,24 @@ function RealisticLivestock_AnimalScreen:setController(_, husbandry, vehicle, is
 
     self.tabLog:setVisible(self.isDirectFarm)
     self.tabHerdsman:setVisible(self.isDirectFarm)
+    self.tabMove:setVisible(self.isDirectFarm)
+
+    -- Set move tab icon at runtime — XML iconSliceId doesn't resolve mod textures
+    -- on hardcoded Button elements (only works for gui.* namespace icons).
+    -- Runtime setImageSlice() goes through g_overlayManager:getSliceInfoById()
+    -- which properly resolves mod-registered texture configs.
+    self.tabMoveButton:setImageSlice(nil, "rlExtra.move_animal")
+
+    -- Move controller (direct farm only, separate from sell controller)
+    if self.isDirectFarm then
+        self.moveController = AnimalScreenMoveFarm.new(husbandry)
+        self.moveController:initTargetItems()
+        self.moveController:setAnimalsChangedCallback(self.onMoveAnimalsChanged, self)
+        self.moveController:setActionTypeCallback(self.onActionTypeChanged, self)
+        self.moveController:setErrorCallback(self.onError, self)
+    else
+        self.moveController = nil
+    end
 
 	self.controller = controller
 	self.controller:setAnimalsChangedCallback(self.onAnimalsChanged, self)
@@ -413,6 +431,7 @@ function AnimalScreen:onClickAIMode()
     self.isBuyMode = false
     self.isLogMode = false
     self.isHerdsmanMode = false
+    self.isMoveMode = false
     self.isAIMode = true
 
     self.buttonBuySelected:setVisible(false)
@@ -441,6 +460,7 @@ function AnimalScreen:onClickAIMode()
 
     self.tabBuy:setSelected(false)
     self.tabSell:setSelected(false)
+    self.tabMove:setSelected(false)
     self.tabInfo:setSelected(false)
     self.tabLog:setSelected(false)
     self.tabHerdsman:setSelected(false)
@@ -683,6 +703,7 @@ function AnimalScreen:onClickLogMode()
     self.isBuyMode = false
     self.isLogMode = true
     self.isHerdsmanMode = false
+    self.isMoveMode = false
     self.isAIMode = false
 
     self.buttonBuySelected:setVisible(false)
@@ -711,6 +732,7 @@ function AnimalScreen:onClickLogMode()
 
     self.tabBuy:setSelected(false)
     self.tabSell:setSelected(false)
+    self.tabMove:setSelected(false)
     self.tabInfo:setSelected(false)
     self.tabLog:setSelected(true)
     self.tabHerdsman:setSelected(false)
@@ -750,6 +772,9 @@ function AnimalScreen:onClickHerdsmanMode()
     self.isLogMode = false
     self.isHerdsmanMode = true
     self.isAIMode = false
+    self.isMoveMode = false
+
+    self.tabMove:setSelected(false)
 
     self.buttonBuySelected:setVisible(false)
     self.buttonToggleSelectAll:setVisible(false)
@@ -1204,6 +1229,7 @@ function RealisticLivestock_AnimalScreen:onClickBuyMode(a, b)
     self.isLogMode = false
     self.isHerdsmanMode = false
     self.isAIMode = false
+    self.isMoveMode = false
     self.isBuyMode = true
 
     self.selectedItems = {}
@@ -1245,6 +1271,7 @@ function RealisticLivestock_AnimalScreen:onClickSellMode(a, b)
     self.isLogMode = false
     self.isHerdsmanMode = false
     self.isAIMode = false
+    self.isMoveMode = false
     self.isBuyMode = false
 
     self.selectedItems = {}
@@ -1278,12 +1305,73 @@ end
 AnimalScreen.onClickSellMode = Utils.prependedFunction(AnimalScreen.onClickSellMode, RealisticLivestock_AnimalScreen.onClickSellMode)
 
 
+function AnimalScreen:onClickMoveMode()
 
+    RealisticLivestock_AnimalScreen.ensureInitialized(self)
+
+    self.isInfoMode = false
+    self.isLogMode = false
+    self.isHerdsmanMode = false
+    self.isAIMode = false
+    self.isBuyMode = false
+    self.isMoveMode = true
+
+    self.selectedItems = {}
+    self.pendingBulkTransaction = nil
+    self.filters = nil
+    self.filteredItems = nil
+
+    -- Reinit move controller items to stay in sync
+    if self.moveController ~= nil then
+        self.moveController:initTargetItems()
+    end
+
+    self.buttonToggleSelectAll:setVisible(true)
+    self.buttonRLSelect:setVisible(true)
+    self.buttonToggleSelectAll:setText(g_i18n:getText("rl_ui_selectAll"))
+    self:updateBuySelectedButtonText()
+    self.buttonCastrate:setVisible(false)
+    self.buttonDeleteMessage:setVisible(false)
+    self.buttonDiseases:setVisible(false)
+    self.buttonFilters:setVisible(true)
+    self.buttonApplyHerdsmanSettings:setVisible(false)
+    self.buttonBuyAI:setVisible(false)
+    self.buttonFavourite:setVisible(false)
+
+    self.logContainer:setVisible(false)
+    self.herdsmanContainer:setVisible(false)
+    self.aiContainer:setVisible(false)
+    self.sourceBoxBg:setVisible(true)
+    self.tabListContainer:setVisible(true)
+    self.mainContentContainer:setVisible(true)
+
+    self:initSubcategories()
+    self.sourceList:setSelectedItem(1, 1, nil, true)
+    self.sourceSelector:setState(1, true)
+    self.isAutoUpdatingList = true
+    self:updateScreen()
+    self.isAutoUpdatingList = false
+    self:setSelectionState(AnimalScreen.SELECTION_SOURCE, true)
+
+    self.buttonsPanel:invalidateLayout()
+
+    Log:trace("onClickMoveMode: activated")
+end
+
+
+-- Page navigation cycle: Buy → Sell → Move → Info → AI → Log → Herdsman → Buy
 function RealisticLivestock_AnimalScreen:onPageNext(superFunc)
     if self.isBuyMode then
         self:onClickSellMode()
-    elseif not self.isInfoMode and not self.isLogMode and not self.isHerdsmanMode and not self.isAIMode then
+    elseif self.isMoveMode then
         self:onClickInfoMode()
+    elseif not self.isInfoMode and not self.isLogMode and not self.isHerdsmanMode and not self.isAIMode then
+        -- Sell mode: go to Move if direct farm, otherwise skip to Info
+        if self.isDirectFarm then
+            self:onClickMoveMode()
+        else
+            self:onClickInfoMode()
+        end
     elseif self.isInfoMode then
         self:onClickAIMode()
     elseif self.isAIMode then
@@ -1298,6 +1386,7 @@ end
 AnimalScreen.onPageNext = Utils.overwrittenFunction(AnimalScreen.onPageNext, RealisticLivestock_AnimalScreen.onPageNext)
 
 
+-- Page navigation reverse: Buy ← Sell ← Move ← Info ← AI ← Log ← Herdsman ← Buy
 function RealisticLivestock_AnimalScreen:onPagePrevious(superFunc)
     if self.isBuyMode then
         self:onClickHerdsmanMode()
@@ -1307,10 +1396,18 @@ function RealisticLivestock_AnimalScreen:onPagePrevious(superFunc)
         self:onClickAIMode()
     elseif self.isAIMode then
         self:onClickInfoMode()
-    elseif not self.isInfoMode then
-        self:onClickBuyMode()
-    else
+    elseif self.isInfoMode then
+        -- Info: go back to Move if direct farm, otherwise Sell
+        if self.isDirectFarm then
+            self:onClickMoveMode()
+        else
+            self:onClickSellMode()
+        end
+    elseif self.isMoveMode then
         self:onClickSellMode()
+    else
+        -- Sell mode
+        self:onClickBuyMode()
     end
 end
 
@@ -1466,6 +1563,7 @@ function RealisticLivestock_AnimalScreen:onClickInfoMode(a, b)
     self.isLogMode = false
     self.isHerdsmanMode = false
     self.isAIMode = false
+    self.isMoveMode = false
 
     self.buttonToggleSelectAll:setVisible(false)
     self.buttonSelect:setVisible(false)
@@ -1898,6 +1996,11 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, state)
     self.buttonBuy:setVisible(not self.isInfoMode and self.isBuyMode)
     self.buttonSell:setDisabled(self.isInfoMode or self.isBuyMode)
     self.buttonSell:setVisible(not self.isInfoMode and not self.isBuyMode)
+    if self.isMoveMode then
+        self.buttonSell:setText(g_i18n:getText("rl_ui_moveSingle"))
+    else
+        self.buttonSell:setText(g_i18n:getText("button_sell"))
+    end
     self.buttonRename:setVisible(self.isInfoMode)
     self.buttonMonitor:setVisible(self.isInfoMode)
     self.buttonArtificialInsemination:setVisible(self.isInfoMode)
@@ -1908,7 +2011,8 @@ function RealisticLivestock_AnimalScreen:updateScreen(superFunc, state)
     end
 
     self.tabBuy:setSelected(self.isBuyMode and not self.isInfoMode)
-    self.tabSell:setSelected(not self.isBuyMode and not self.isInfoMode and not self.isLogMode and not self.isHerdsmanMode)
+    self.tabSell:setSelected(not self.isBuyMode and not self.isMoveMode and not self.isInfoMode and not self.isLogMode and not self.isHerdsmanMode)
+    self.tabMove:setSelected(self.isMoveMode)
     self.tabInfo:setSelected(not self.isBuyMode and self.isInfoMode)
     self.tabLog:setSelected(self.isLogMode)
     self.tabHerdsman:setSelected(self.isHerdsmanMode)
@@ -2336,9 +2440,40 @@ function AnimalScreen:onClickBuySelected()
 
     RealisticLivestock_AnimalScreen.ensureInitialized(self)
 
+    local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+
+    -- Move mode: destination dialog flow instead of buy/sell
+    if self.isMoveMode then
+        local itemsToProcess = {}
+        for animalIndex, isSelected in pairs(self.selectedItems) do
+            if isSelected then
+                table.insert(itemsToProcess, animalIndex)
+            end
+        end
+
+        if #itemsToProcess == 0 then return end
+
+        self.pendingMoveItems = itemsToProcess
+        self.pendingMoveAnimalTypeIndex = animalTypeIndex
+        self.pendingMoveSingle = false
+
+        -- Get subTypeIndex from first selected animal
+        local items = self.moveController:getTargetItems()
+        local firstAnimal = items[itemsToProcess[1]]
+        if firstAnimal == nil then return end
+        local animalObj = firstAnimal.animal or firstAnimal.cluster
+        if animalObj == nil then return end
+
+        local farmId = self.husbandry:getOwnerFarmId()
+        local entries = AnimalScreenMoveFarm.getValidDestinations(self.husbandry, farmId, animalObj.subTypeIndex)
+        AnimalMoveDestinationDialog.show(self.onMoveDestinationSelected, self, entries)
+
+        Log:trace("onClickBuySelected(move): %d items, %d destinations", #itemsToProcess, #entries)
+        return
+    end
+
     local itemsToProcess = {}
     local money = 0
-    local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
 
     for animalIndex, isSelected in pairs(self.selectedItems) do
         if isSelected then
@@ -2413,6 +2548,155 @@ function AnimalScreen:sellSelected(clickYes)
     self.selectedItems = {}
     self:updateBuySelectedButtonText()
 
+end
+
+
+function AnimalScreen:onMoveDestinationSelected(entry)
+    if entry == nil then
+        Log:trace("onMoveDestinationSelected: cancelled")
+        self.pendingMoveItems = nil
+        return
+    end
+
+    Log:trace("onMoveDestinationSelected: dest='%s' (%d/%d)",
+        entry.name, entry.currentCount, entry.maxCount)
+
+    local items = self.moveController:getTargetItems()
+    local animals = {}
+
+    for _, animalIndex in ipairs(self.pendingMoveItems) do
+        local item = items[animalIndex]
+        if item ~= nil then
+            table.insert(animals, item.animal or item.cluster)
+        end
+    end
+
+    if #animals == 0 then
+        Log:debug("onMoveDestinationSelected: no animals resolved from pending items")
+        self.pendingMoveItems = nil
+        return
+    end
+
+    local validationResult = AnimalScreenMoveFarm.buildMoveValidationResult(
+        animals, entry, self.pendingMoveAnimalTypeIndex)
+
+    -- Count rejections by reason
+    local ageTooYoung, ageTooOld, noCapacity = 0, 0, 0
+    for _, r in ipairs(validationResult.rejected) do
+        if r.reason == "AGE_TOO_YOUNG" then ageTooYoung = ageTooYoung + 1
+        elseif r.reason == "AGE_TOO_OLD" then ageTooOld = ageTooOld + 1
+        elseif r.reason == "NO_CAPACITY" then noCapacity = noCapacity + 1
+        end
+    end
+
+    -- All rejected: show reason and abort
+    if #validationResult.valid == 0 then
+        local lines = { g_i18n:getText("rl_ui_moveAllRejected") }
+
+        if ageTooYoung + ageTooOld > 0 and entry.minAge ~= nil and entry.maxAge ~= nil then
+            table.insert(lines, string.format(g_i18n:getText("rl_ui_moveRejectedAge"),
+                ageTooYoung + ageTooOld, entry.minAge, entry.maxAge))
+        end
+        if noCapacity > 0 then
+            table.insert(lines, string.format(g_i18n:getText("rl_ui_moveRejectedCapacity"), noCapacity))
+        end
+
+        InfoDialog.show(table.concat(lines, "\n"))
+        Log:debug("onMoveDestinationSelected: all %d animals rejected", #validationResult.rejected)
+        self.pendingMoveItems = nil
+        return
+    end
+
+    self.pendingMoveDestination = entry.placeable
+    self.pendingMoveValidAnimals = validationResult.valid
+
+    -- Build confirmation text
+    local confirmLines = {}
+    table.insert(confirmLines, string.format(g_i18n:getText("rl_ui_moveValidSummary"), #validationResult.valid))
+
+    if #validationResult.rejected > 0 then
+        if ageTooYoung + ageTooOld > 0 and entry.minAge ~= nil and entry.maxAge ~= nil then
+            table.insert(confirmLines, string.format(g_i18n:getText("rl_ui_moveRejectedAge"),
+                ageTooYoung + ageTooOld, entry.minAge, entry.maxAge))
+        end
+        if noCapacity > 0 then
+            table.insert(confirmLines, string.format(g_i18n:getText("rl_ui_moveRejectedCapacity"), noCapacity))
+        end
+    end
+
+    local confirmText = table.concat(confirmLines, "\n")
+    YesNoDialog.show(self.onMoveConfirmed, self, confirmText, g_i18n:getText("rl_ui_moveBulkConfirmTitle"))
+
+    Log:trace("onMoveDestinationSelected: showing confirm — %d valid, %d rejected",
+        #validationResult.valid, #validationResult.rejected)
+end
+
+
+--- Callback when move controller's animals change (after move event completes).
+--- Unlike the base game's onAnimalsChanged (which refreshes sell mode state), this
+--- only refreshes the move controller and source list to avoid mode conflicts.
+function AnimalScreen:onMoveAnimalsChanged()
+    Log:trace("onMoveAnimalsChanged: refreshing move controller and source list")
+
+    if self.moveController ~= nil then
+        self.moveController:initTargetItems()
+    end
+
+    -- Also refresh the sell controller's items so they stay in sync
+    if self.controller ~= nil and self.controller.initTargetItems ~= nil then
+        self.controller:initTargetItems()
+        RL_AnimalScreenBase.sortItems(self.controller)
+    end
+
+    self.filteredItems = nil
+    self.sourceList:reloadData()
+
+    Log:trace("onMoveAnimalsChanged: refresh complete")
+end
+
+
+function AnimalScreen:onMoveConfirmed(clickYes)
+    Log:debug("onMoveConfirmed: clickYes=%s", tostring(clickYes))
+
+    if not clickYes then
+        self.pendingMoveItems = nil
+        self.pendingMoveDestination = nil
+        self.pendingMoveValidAnimals = nil
+        return
+    end
+
+    if self.pendingMoveValidAnimals == nil or self.pendingMoveDestination == nil then
+        Log:debug("onMoveConfirmed: pendingMoveValidAnimals=%s pendingMoveDestination=%s",
+            tostring(self.pendingMoveValidAnimals), tostring(self.pendingMoveDestination))
+        return
+    end
+
+    Log:debug("onMoveConfirmed: moving %d animals to '%s' (typeIndex=%d)",
+        #self.pendingMoveValidAnimals,
+        tostring(self.pendingMoveDestination:getName()),
+        self.pendingMoveAnimalTypeIndex)
+
+    if #self.pendingMoveValidAnimals == 1 then
+        Log:trace("onMoveConfirmed: calling applyMoveTarget (single)")
+        self.moveController:applyMoveTarget(
+            self.pendingMoveAnimalTypeIndex,
+            self.pendingMoveValidAnimals[1],
+            self.pendingMoveDestination)
+    else
+        Log:trace("onMoveConfirmed: calling applyMoveTargetBulk (%d animals)", #self.pendingMoveValidAnimals)
+        self.moveController:applyMoveTargetBulk(
+            self.pendingMoveAnimalTypeIndex,
+            self.pendingMoveValidAnimals,
+            self.pendingMoveDestination)
+    end
+
+    Log:trace("onMoveConfirmed: move dispatched, resetting state")
+    self.selectedItems = {}
+    self:updateBuySelectedButtonText()
+
+    self.pendingMoveItems = nil
+    self.pendingMoveDestination = nil
+    self.pendingMoveValidAnimals = nil
 end
 
 
@@ -2523,6 +2807,27 @@ function RealisticLivestock_AnimalScreen:onClickSell()
         animalIndex = self.sourceList.selectedIndex
     else
         animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
+    end
+
+    if self.isMoveMode then
+        local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+        local items = self.moveController:getTargetItems()
+        local animal = items[animalIndex]
+        if animal == nil then return true end
+
+        local animalObj = animal.animal or animal.cluster
+        if animalObj == nil then return true end
+
+        self.pendingMoveItems = { animalIndex }
+        self.pendingMoveAnimalTypeIndex = animalTypeIndex
+        self.pendingMoveSingle = true
+
+        local farmId = self.husbandry:getOwnerFarmId()
+        local entries = AnimalScreenMoveFarm.getValidDestinations(self.husbandry, farmId, animalObj.subTypeIndex)
+        AnimalMoveDestinationDialog.show(self.onMoveDestinationSelected, self, entries)
+
+        Log:trace("onClickSell(move): single animal index=%d, %d destinations", animalIndex, #entries)
+        return true
     end
 
 	local confirmationText = self.controller:getApplyTargetConfirmationText(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
@@ -2713,6 +3018,12 @@ function RealisticLivestock_AnimalScreen:setSelectionState(superFunc, state) -- 
     self.buttonBuy:setVisible(self.isBuyMode and hasItems)
     self.buttonSell:setVisible(not self.isBuyMode and not self.isInfoMode and hasItems)
 
+    -- Base game superFunc sets buttonSell text from controller:getTargetActionText()
+    -- which returns "Sell". Override to "Move" when in move mode.
+    if self.isMoveMode then
+        self.buttonSell:setText(g_i18n:getText("rl_ui_moveSingle"))
+    end
+
 	self.buttonsPanel:invalidateLayout()
 
     return returnValue
@@ -2735,7 +3046,7 @@ end
 
 function AnimalScreen:updateBuySelectedButtonText()
     local baseText
-    if self.isTrailerFarm then
+    if self.isTrailerFarm or self.isMoveMode then
         baseText = g_i18n:getText("rl_ui_moveSelected")
     elseif self.isBuyMode then
         baseText = g_i18n:getText("rl_ui_buySelected")

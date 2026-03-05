@@ -531,6 +531,11 @@
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
+		<GuiElement profile="fs25_tabListItem" id="tabMove">
+			<Button profile="rl_animalTabListItemButtonMove" onClick="onClickMoveMode" id="tabMoveButton"/>
+			<Bitmap profile="fs25_tabListItemSeparator"/>
+			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
+		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabInfo">
 			<Button profile="rl_animalTabListItemButton" onClick="onClickInfoMode" iconSliceId="gui.dialogType_info"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
@@ -895,6 +900,10 @@
 		</Profile>
 		<Profile name="rl_animalTabListItemButtonMessages" extends="rl_animalTabListItemButton">
 			<iconSize value="40px 40px"/>
+		</Profile>
+		<Profile name="rl_animalTabListItemButtonMove" extends="fs25_tabListItemButton">
+			<iconSize value="80px 80px"/>
+			<iconTextOffset value="-16px -16px"/>
 		</Profile>
 		<Profile name="rl_animalScreenAnimalIcon" extends="baseReference" with="anchorTopCenter">
 			<size value="340px 340px"/>

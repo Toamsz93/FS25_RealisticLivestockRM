@@ -31,8 +31,9 @@ v1.0.2.0:
 - Added genetics display in animal names (average score, or full breakdown per trait)
 - Added sort by genetics option for animal lists
 - Added selection count on bulk action buttons
-- Fixed move messages in husbandry message log
+- Fixed move messages in husbandry message log (were silently failing due to incorrect message keys)
 - Fixed move messages showing wrong direction (to/from was swapped)
+- Fixed typo in move message ("1 animals" → "1 animal")
 
 v1.0.1.1:
 - Fixed compatibility with Hof Bergmann's subtype filter for animal pens

@@ -83,6 +83,7 @@ function RealisticLivestock_FSBaseMission:onStartMission()
     NameInputDialog.register()
     EarTagColourPickerDialog.register()
     AnimalFilterDialog.register()
+    AnimalMoveDestinationDialog.register()
     RmMigrationDialog.register()
 
     -- Handle migration conflict or pending migration (server only)

@@ -157,6 +157,19 @@
 		<text name="rl_ui_buyBulkResult" text="%s dieren gekocht voor %s" tag="format"/>
 		<text name="rl_ui_sellBulkResult" text="%s dieren verkocht voor %s" tag="format"/>
 		<text name="rl_ui_moveBulkResult" text="%s dieren verplaatst" tag="format"/>
+		<text name="rl_ui_moveTab" text="Move"/>
+		<text name="rl_ui_moveSingle" text="Move"/>
+		<text name="rl_ui_moveSelectDestination" text="Select Destination"/>
+		<text name="rl_ui_moveNoDestinations" text="No destinations available for this animal type."/>
+		<text name="rl_ui_moveEPPAgeFormat" text="ages %d-%d mo" tag="format"/>/
+		<text name="rl_ui_moveValidSummary" text="%d animal(s) will be moved" tag="format"/>
+		<text name="rl_ui_moveRejectedAge" text="%d animal(s) skipped: does not meet age requirement (%d-%d months)" tag="format"/>
+		<text name="rl_ui_moveRejectedCapacity" text="%d animal(s) skipped: not enough space at destination" tag="format"/>
+		<text name="rl_ui_moveAllRejected" text="No animals can be moved to this destination."/>
+		<text name="rl_ui_moveBulkConfirmTitle" text="Move Animals"/>
+		<text name="rl_ui_moveErrorNoPermission" text="You don't have permission to move animals here."/>
+		<text name="rl_ui_moveErrorNotSupported" text="This destination doesn't support this animal type."/>
+		<text name="rl_ui_moveErrorNoSpace" text="Not enough space at the destination."/>/
 
 		<text name="rl_ui_monitor" text="Monitor"/>
 		<text name="rl_ui_monitorSubscriptions" text="Monitor abonnement"/>

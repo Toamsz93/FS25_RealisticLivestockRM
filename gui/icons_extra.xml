@@ -1,0 +1,9 @@
+<texture>
+	<meta>
+		<filename>icons_extra.dds</filename>
+		<size width="1024" height="1024"/>
+	</meta>
+	<slices>
+		<slice id="move_animal" uvs="0px 0px 256px 256px"/>
+	</slices>
+</texture>
