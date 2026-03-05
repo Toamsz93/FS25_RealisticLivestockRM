@@ -99,7 +99,7 @@ function TripleOptionElement:setElementsByName()
     end
 
     if self.sliderElement == nil then
-        Logging.warning("TripleOptionElement: could not find a slider element for element with profile " .. self.profile)
+        Log:warning("TripleOptionElement: could not find a slider element for element with profile %s", self.profile)
     end
 
     self.leftButtonElement:setSelected(true)
@@ -198,7 +198,7 @@ end
 function TripleOptionElement:setTexts(texts)
 
     if #texts ~= 3 then
-        Logging.warning("TripleOptionElement: called setTexts() with invalid number of texts, triple option requires exactly 3 texts")
+        Log:warning("TripleOptionElement: called setTexts() with invalid number of texts, triple option requires exactly 3 texts")
         printCallstack()
     end
 
@@ -273,7 +273,7 @@ end
 function TripleOptionElement:setState(state, forceEvent, skipAnimation)
 
     if state ~= TripleOptionElement.STATE_LEFT and state ~= TripleOptionElement.STATE_MIDDLE and state ~= TripleOptionElement.STATE_RIGHT then
-        Logging.warning("TripleOptionElement: invalid state input " .. state .. ", only 1, 2 and 3 allowed")
+        Log:warning("TripleOptionElement: invalid state input %s, only 1, 2 and 3 allowed", tostring(state))
         return
     end
 

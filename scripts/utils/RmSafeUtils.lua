@@ -11,7 +11,7 @@ function RmSafeUtils.safeCall(context, fn)
         return tostring(e) .. "\n" .. debug.traceback("", 2)
     end)
     if not ok then
-        Logging.error("RealisticLivestock: Error in %s: %s", context, tostring(err))
+        Log:error("Error in %s: %s", context, tostring(err))
     end
     return ok
 end
@@ -30,7 +30,7 @@ function RmSafeUtils.safeAnimalCall(animal, context, fn, defaults)
     if results[1] then
         return unpack(results, 2)
     else
-        Logging.error("RealisticLivestock: Error in %s for animal '%s': %s",
+        Log:error("Error in %s for animal '%s': %s",
             context, tostring(animal.uniqueId or "unknown"), tostring(results[2]))
         if defaults then return unpack(defaults) end
     end

@@ -124,7 +124,7 @@ function RealisticLivestock_FSBaseMission:onStartMission()
         realisticLivestockFrame:initialize()
     end)
     if not guiOk then
-        Logging.warning("RealisticLivestock: GUI setup failed (expected on dedicated server): %s", tostring(guiErr))
+        Log:warning("GUI setup failed (expected on dedicated server): %s", tostring(guiErr))
     end
 
 end

@@ -16,13 +16,13 @@ function Animal.resolveSubType(subTypeIndex, subTypeName)
         if mappedIndex ~= nil then
             subTypeIndex = mappedIndex
             subType = animalSystem:getSubTypeByIndex(subTypeIndex)
-            Logging.info("RealisticLivestock: Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
+            Log:info("Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
         end
     end
 
     -- Final fallback to index 1
     if subType == nil then
-        Logging.warning("RealisticLivestock: subTypeIndex %d not found, falling back to 1", subTypeIndex)
+        Log:warning("subTypeIndex %d not found, falling back to 1", subTypeIndex)
         subTypeIndex = 1
         subType = animalSystem:getSubTypeByIndex(subTypeIndex)
     end
