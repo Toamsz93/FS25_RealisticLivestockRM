@@ -158,3 +158,12 @@ source(modDirectory .. "scripts/RLMessage.lua")
 source(modDirectory .. "scripts/RLMessageAggregator.lua")
 source(modDirectory .. "scripts/RLSettings.lua")
 source(modDirectory .. "scripts/RL_BroadcastSettingsEvent.lua")
+
+-- =============================================================================
+-- TESTING (conditional - delete tests/ folder for production)
+-- =============================================================================
+
+local testRunnerPath = modDirectory .. "scripts/tests/RLTestRunner.lua"
+if fileExists(testRunnerPath) then
+    source(testRunnerPath)
+end

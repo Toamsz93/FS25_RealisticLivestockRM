@@ -263,6 +263,12 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onDayChanged()
 
         for _, animal in ipairs(animals) do
 
+            if self.isServer and RealisticLivestock.testAnimalPrefix ~= nil then
+                if not string.startsWith(animal.uniqueId, RealisticLivestock.testAnimalPrefix) then
+                    continue
+                end
+            end
+
             if animal.monthsSinceLastBirth == nil then
                 animal.monthsSinceLastBirth = 0
             end
@@ -347,6 +353,11 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onPeriodChanged(_)
             local totalTreatmentCost = 0
 
             for _, animal in pairs(animals) do
+                if RealisticLivestock.testAnimalPrefix ~= nil then
+                    if not string.startsWith(animal.uniqueId, RealisticLivestock.testAnimalPrefix) then
+                        continue
+                    end
+                end
                 local treatmentCost = RmSafeUtils.safeAnimalCall(animal, "onPeriodChanged", function()
                     return animal:onPeriodChanged()
                 end, {0})
@@ -355,7 +366,9 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onPeriodChanged(_)
 
             if totalTreatmentCost > 0 then g_currentMission:addMoneyChange(totalTreatmentCost, self.spec_husbandryAnimals:getOwnerFarmId(), MoneyType.MEDICINE, true) end
 
-            g_diseaseManager:calculateTransmission(animals)
+            if RealisticLivestock.testAnimalPrefix == nil then
+                g_diseaseManager:calculateTransmission(animals)
+            end
 
         end
 
