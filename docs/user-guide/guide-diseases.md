@@ -90,7 +90,7 @@ Foot & Mouth is the most widespread disease, affecting three species. It's moder
 | Parameter | Value |
 |-----------|-------|
 | Spread | Moderate - noticeable risk to nearby animals |
-| Fatality | High initially, decreasing as the animal builds resistance |
+| Fatality | Moderate initially, decreasing as the animal builds resistance |
 | Treatment | $250, cured in 3 months |
 | Natural recovery | None - requires treatment |
 | Immunity after recovery | 24 months |
@@ -107,8 +107,8 @@ Foot & Mouth is the most widespread disease, affecting three species. It's moder
 
 | Time Infected | Death Risk |
 |--------------|------------|
-| Just infected | High |
-| After several months | Moderate, declining |
+| Just infected | Moderate |
+| After several months | Low, declining |
 | Long-term survivors | Low but ongoing |
 
 *Fatality decreases the longer the animal survives, but without treatment, chronic infection keeps draining production.*
@@ -143,7 +143,7 @@ PED is devastating to young piglets - almost always fatal in newborns. Older pig
 | Impact | Effect |
 |--------|--------|
 | Liquid manure | **Drastically increased** (diarrhea symptom) |
-| Manure | Greatly reduced |
+| Manure | Severely reduced |
 | Sell price | Significant reduction |
 
 ### Fatality by Age
@@ -179,7 +179,7 @@ Avian Flu is the fastest-spreading disease and has **no treatment**. Infected ch
 | Parameter | Value |
 |-----------|-------|
 | Spread | **Fast** - can infect multiple birds quickly |
-| Fatality | Very high initially, decreasing for survivors |
+| Fatality | High initially, decreasing for survivors |
 | Treatment | **None available** |
 | Natural recovery | 1 month |
 | Immunity after recovery | 24 months |
@@ -195,7 +195,7 @@ Avian Flu is the fastest-spreading disease and has **no treatment**. Infected ch
 
 | Time Infected | Death Risk |
 |--------------|------------|
-| Just infected | **Very high - most birds die** |
+| Just infected | **High - many birds die** |
 | After 1–2 months | High |
 | 3+ months (survivors) | Moderate but ongoing |
 
@@ -203,7 +203,7 @@ Avian Flu is the fastest-spreading disease and has **no treatment**. Infected ch
 
 - **No treatment** - you can only wait for natural recovery (1 month)
 - **Fast spread** - in a large pen, multiple birds get infected each month
-- **Very high initial fatality** - most infected chickens die before recovering
+- **High initial fatality** - many infected chickens die before recovering
 - **Complete egg loss** - surviving infected chickens produce zero eggs
 - Even survivors lose a month of egg production while sick
 

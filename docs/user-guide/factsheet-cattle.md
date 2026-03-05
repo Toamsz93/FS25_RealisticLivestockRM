@@ -14,11 +14,11 @@ Cattle are the most diverse livestock in Realistic Livestock RM, with 7 breeds r
 | **Hereford** | Dual | 675 / 750 kg | 55 – 600 L/day | Above average |
 | **Swiss Brown** | Dual | 650 / 850 kg | 50 – 580 L/day | Above average |
 | **Angus** | Beef | 700 / 900 kg | 30 – 365 L/day | High |
-| **Highland** | Beef | 725 / 950 kg | 30 – 365 L/day | High, retains value in old age |
+| **Highland** *(DLC)* | Beef | 725 / 950 kg | 30 – 365 L/day | High, retains value in old age |
 | **Limousin** | Beef | 630 / 675 kg | 30 – 320 L/day | Highest |
 | **Water Buffalo** | Special | 425 / 500 kg | 5 – 70 L/day | Low |
 
-*Target weights shown as cow / bull. Milk range shows the full span from poor to excellent genetics. All cows produce milk when lactating - beef breeds just produce less.*
+*Target weights shown as cow / bull. Milk range shows the full span from poor to excellent genetics. All cows produce milk when lactating - beef breeds just produce less. Highland cattle require the Highlands & Fishing Pack DLC.*
 
 > **Breed-locking:** Water Buffalo bulls can only breed with Water Buffalo cows. All other bull breeds can breed with any non-Water-Buffalo cow.
 
@@ -30,7 +30,7 @@ Cows produce milk **only while lactating** (10 months after giving birth). Non-l
 
 ### Milk Output Range (L/day, lactating cow)
 
-| Breed | 12 mo | 36 mo (peak) | 72 mo |
+| Breed | 12 mo | 36 mo (peak) | 120 mo |
 |-------|-------|--------------|-------|
 | **Holstein** | 40 – 445 | **65 – 750** | 35 – 410 |
 | **Hereford** | 40 – 435 | **55 – 600** | 25 – 285 |
@@ -42,15 +42,15 @@ Cows produce milk **only while lactating** (10 months after giving birth). Non-l
 
 *Genetics and lactation phase cause large variation between individual animals. Most cows produce somewhere in the middle of these ranges. CVM carrier cows produce even more than the upper range.*
 
-*Water Buffalo milk stays flat regardless of age - very low output compared to other breeds.*
+*Water Buffalo produce **buffalo milk** (a separate product from regular milk) with very low output that stays flat regardless of age.*
 
 ```mermaid
 %%{init: {"themeVariables": {"xyChart": {"plotColorPalette": "#2e7d32"}}}}%%
 xychart-beta
     title "Swiss Brown Milk Output (average genetics, lactating)"
-    x-axis "Age (months)" [12, 24, 36, 48, 60, 72]
+    x-axis "Age (months)" [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
     y-axis "Litres / day" 0 --> 300
-    line [180, 218, 255, 207, 158, 110]
+    line [180, 218, 255, 255, 255, 255, 225, 195, 158, 110]
 ```
 
 *Chart shows Swiss Brown as a representative mid-range breed with average genetics. Holstein produces more, beef breeds produce less - see the table above for per-breed ranges.*
@@ -122,14 +122,14 @@ Genetics significantly affect how much each animal eats - some are naturally muc
 |-------|---|---------|-----------------|
 | **Swiss Brown** | Cow | 25 – 175 | 85 – 600 |
 | | Bull | 25 – 175 | 90 – 620 |
-| **Holstein** | Cow | 25 – 160 | 85 – 580 |
-| | Bull | 25 – 160 | 85 – 595 |
+| **Holstein** | Cow | 23 – 158 | 83 – 578 |
+| | Bull | 23 – 158 | 85 – 595 |
 | **Angus** | Cow | 20 – 140 | 110 – 770 |
 | | Bull | 20 – 140 | 115 – 790 |
 | **Limousin** | Cow | 20 – 150 | 120 – 840 |
 | | Bull | 20 – 150 | 125 – 860 |
-| **Hereford** | Cow | 15 – 115 | 95 – 665 |
-| | Bull | 20 – 125 | 105 – 735 |
+| **Hereford** | Cow | 16 – 114 | 95 – 665 |
+| | Bull | 18 – 123 | 105 – 735 |
 | **Highland** | Cow | 20 – 140 | 140 – 960 |
 | | Bull | 20 – 140 | 145 – 1,005 |
 | **Water Buffalo** | Cow | 10 – 70 | 90 – 615 |
@@ -150,6 +150,20 @@ Genetics significantly affect how much each animal eats - some are naturally muc
 | **Water Buffalo** | 20 → 140 | 20 → 140 |
 
 *Lactating cows drink considerably more water than usual.*
+
+### Straw Consumption (L/day, newborn → adult)
+
+| Breed | Cow | Bull |
+|-------|-----|------|
+| **Swiss Brown** | 10 → 95 | 10 → 95 |
+| **Holstein** | 10 → 95 | 10 → 95 |
+| **Angus** | 15 → 130 | 15 → 130 |
+| **Limousin** | 15 → 130 | 15 → 130 |
+| **Hereford** | 15 → 130 | 15 → 130 |
+| **Highland** | 15 → 130 | 15 → 130 |
+| **Water Buffalo** | 10 → 95 | 10 → 95 |
+
+*Straw is not affected by genetics or lactation. Beef breeds use more straw than dairy breeds.*
 
 ---
 

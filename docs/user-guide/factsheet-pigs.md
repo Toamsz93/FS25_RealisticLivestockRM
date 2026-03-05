@@ -55,6 +55,20 @@ Pig prices peak at 24 months and stay at that level for older animals (unlike ca
 
 ---
 
+## Output
+
+Pigs produce only manure and liquid manure - no milk, wool, or eggs. Their value is entirely in selling the animals.
+
+| Breed | Manure (adult) | Liquid Manure (adult) |
+|-------|---------------|----------------------|
+| **Berkshire** | 50 / 55 | 91 / 95 |
+| **Landrace** | 45 / 48 | 85 / 88 |
+| **Black Pied** | 40 / 44 | 79 / 83 |
+
+*Values shown as sow / boar.*
+
+---
+
 ## Food & Water by Breed
 
 Genetics significantly affect how much each animal eats - some are naturally much more efficient than others. Lactating sows eat considerably more, and the Food Scale setting also adjusts consumption.
@@ -63,12 +77,12 @@ Genetics significantly affect how much each animal eats - some are naturally muc
 
 | Breed | | Newborn | 24 mo (adult) |
 |-------|---|---------|---------------|
-| **Berkshire** | Sow | 5 – 30 | 30 – 210 |
-| | Boar | 5 – 35 | 30 – 230 |
-| **Landrace** | Sow | 4 – 25 | 25 – 175 |
-| | Boar | 4 – 25 | 25 – 195 |
-| **Black Pied** | Sow | 3 – 21 | 23 – 160 |
-| | Boar | 4 – 25 | 24 – 170 |
+| **Berkshire** | Sow | 5 – 32 | 30 – 210 |
+| | Boar | 5 – 35 | 33 – 228 |
+| **Landrace** | Sow | 4 – 26 | 25 – 175 |
+| | Boar | 4 – 26 | 28 – 193 |
+| **Black Pied** | Sow | 3 – 21 | 23 – 161 |
+| | Boar | 4 – 26 | 24 – 168 |
 
 *Berkshire pigs eat the most. Black Pied are the most efficient to feed. Ranges show the span from the most efficient to the hungriest animals. Most animals eat near the middle of these ranges.*
 
@@ -90,10 +104,10 @@ Genetics significantly affect how much each animal eats - some are naturally muc
 |-------|---|-------|--------|---------|
 | **Berkshire** | Sow | 1.6 kg | 140 kg | 1,050 kg |
 | | Boar | 1.7 kg | 180 kg | 1,200 kg |
-| **Landrace** | Sow | 1.4 kg | 165 kg | 1,050 kg |
+| **Landrace** | Sow | 1.36 kg | 165 kg | 1,050 kg |
 | | Boar | 1.4 kg | 205 kg | 1,200 kg |
-| **Black Pied** | Sow | 1.7 kg | 180 kg | 1,050 kg |
-| | Boar | 1.8 kg | 250 kg | 1,200 kg |
+| **Black Pied** | Sow | 1.65 kg | 180 kg | 1,050 kg |
+| | Boar | 1.75 kg | 250 kg | 1,200 kg |
 
 *Black Pied boars have the highest target weight at 250 kg. Higher metabolism animals reach target weight faster but eat more. Castrated pigs gain weight faster than intact males.*
 
@@ -116,29 +130,15 @@ Genetics significantly affect how much each animal eats - some are naturally muc
 
 Pig litters are the largest of any animal. Healthy sows at prime age almost always produce offspring:
 
-| Sow Age | Chance of No Birth | Typical Litter | Large Litter |
-|---------|-------------------|----------------|--------------|
-| 6–12 mo (young) | Low | 11–13 piglets | 14–16 possible |
-| 13–36 mo (prime) | Very low | 11–13 piglets | 14–16 possible |
-| 37–60 mo | Low–moderate | 11–13 piglets | 14–16 possible |
-| 61–80 mo | Moderate | 11–13 piglets | Fewer |
-| 81–96 mo (old) | High | Small litters | Rare |
+| Sow Age | Chance of No Birth | Small (1–6) | Medium (7–10) | Typical (11–13) | Large (14–16) |
+|---------|-------------------|-------------|---------------|-----------------|---------------|
+| 6–12 mo (young) | Low | Rare | Uncommon | Most likely | Possible |
+| 13–36 mo (prime) | Very low | Rare | Uncommon | Most likely | Possible |
+| 37–60 mo | Low–moderate | Rare | Uncommon | Most likely | Possible |
+| 61–80 mo | Moderate | Uncommon | Possible | Most likely | Less likely |
+| 81–96 mo (old) | High | Possible | Possible | Less likely | Rare |
 
-*Most litters are 11–13 piglets. Very large litters of 14–16 are possible but less common. Low health significantly reduces litter sizes and increases the risk of the sow dying during birth.*
-
----
-
-## Output
-
-Pigs produce only manure and liquid manure - no milk, wool, or eggs. Their value is entirely in selling the animals.
-
-| Breed | Manure (adult) | Liquid Manure (adult) |
-|-------|---------------|----------------------|
-| **Berkshire** | 50 / 55 | 91 / 95 |
-| **Landrace** | 45 / 48 | 85 / 88 |
-| **Black Pied** | 40 / 44 | 79 / 83 |
-
-*Values shown as sow / boar.*
+*Most litters are 11–13 piglets. Very large litters of 14–16 are possible but less common. Older sows may produce smaller litters of 1–10 piglets. Low health significantly reduces litter sizes and increases the risk of the sow dying during birth.*
 
 ---
 

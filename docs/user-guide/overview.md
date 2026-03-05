@@ -18,7 +18,7 @@ Every animal is born with five genetic traits rated from Extremely Low to Extrem
 
 - **Health** - Disease resistance and longevity
 - **Fertility** - Breeding success rate
-- **Productivity** - Milk, egg, and wool output (cows, sheep, chickens only)
+- **Productivity** - Milk, egg, and wool output (cows, sheep, goats, chickens only)
 - **Quality** - Sell price and meat value
 - **Metabolism** - Food consumption and weight gain
 
@@ -87,6 +87,7 @@ Almost everything can be tuned to your preference:
 - Adjust accident and disease probability
 - Control dealer stock size
 - Customise ear tag colours
+- Display genetics values in animal names (short or detailed format)
 - Export animal data to CSV
 - Choose between individual event messages or daily summaries
 

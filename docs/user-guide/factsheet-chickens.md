@@ -71,7 +71,7 @@ Chicken prices are low and identical for hens and roosters:
 
 ---
 
-## Food & Water
+## Food & Straw
 
 ### Food Consumption Range (L/day)
 
@@ -83,13 +83,15 @@ Chicken prices are low and identical for hens and roosters:
 
 *Roosters eat noticeably less than hens at adult age. Ranges show the span from the most efficient to the hungriest birds.*
 
-### Water & Straw (L/day)
+### Straw Consumption (L/day)
 
-| Age | Water (both) | Straw (both) |
-|-----|-------------|-------------|
-| Newborn | 0 | 1 |
-| 6 mo | 3 | 3 |
-| 18+ mo | 4–5 | 3 |
+| Age | Straw (both) |
+|-----|-------------|
+| Newborn | 1 |
+| 6 mo | 3 |
+| 12+ mo | 7 |
+
+*Chickens have no water input. Straw is not affected by genetics.*
 
 ---
 
@@ -109,15 +111,15 @@ Chicken prices are low and identical for hens and roosters:
 
 Chickens can produce large broods, but the chance of no offspring is always significant:
 
-| Hen Age | No Hatch | Small Brood (1–5) | Typical Brood (5–7) | Large Brood (7–12) |
-|---------|----------|-------------------|--------------------|--------------------|
+| Hen Age | No Hatch | Small Brood (1–5) | Medium Brood (5–7) | Large Brood (7–12) |
+|---------|----------|-------------------|--------------------|---------------------|
 | 6–12 mo | Common | Uncommon | Most likely | Possible |
-| 12–24 mo | Common | Uncommon | Most likely | Possible |
-| 24–48 mo | Frequent | Uncommon | Less likely | Rare |
-| 48–84 mo | Very common | Rare | Rare | Very rare |
-| 84–120 mo | Almost always | Very rare | Very rare | - |
+| 12–24 mo | Common | Rare | Most likely | Possible |
+| 24–48 mo | Frequent | - | Most likely | Possible |
+| 48–84 mo | Very common | - | Uncommon | Rare |
+| 84–120 mo | Almost always | - | Very rare | Very rare |
 
-*Unlike other animals, hens never die during hatching. The most common successful brood is 5–7 chicks.*
+*Unlike other animals, hens never die during hatching. The most common successful brood is 5–7 chicks. At older ages, small broods become impossible - hens that do hatch tend to produce medium or larger broods.*
 
 ---
 

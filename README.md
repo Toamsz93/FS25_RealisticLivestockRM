@@ -17,6 +17,7 @@ This is a maintained version of the original mod by Arrow-kb, who has discontinu
 
 - Individual animal tracking with unique identity (farm ID, unique ID, birthday)
 - Genetics system with heritable traits that affect production output
+- Genetics display in animal names with configurable detail level (average score or full trait breakdown)
 - Breeding and reproduction with pregnancy mechanics and genetic inheritance
 - AI insemination system with semen dewars
 - Disease simulation with infection, treatment, and immunity

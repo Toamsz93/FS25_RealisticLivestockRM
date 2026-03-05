@@ -68,6 +68,18 @@ All Realistic Livestock RM settings are accessible from the mod settings menu in
 
 ---
 
+## Genetics Display
+
+| Setting | Default | Options | Description |
+|---------|---------|---------|-------------|
+| **Genetics Display** | Off | Off / Short / Long | Shows numeric genetics values in animal names. "Short" shows average genetics as a single number (e.g., `[72]`). "Long" shows the average plus individual trait scores (e.g., `[72-68:75:80:65:70]`). |
+| **Genetics Position** | Prefix | Prefix / Postfix | Controls where genetics values appear in the animal's name. "Prefix" places them before the name, "Postfix" places them after. Only available when Genetics Display is not Off. |
+| **Sort by Genetics** | Off | Off / On | When enabled, animals in the animal list are sorted by average genetics (highest first) instead of the default type and age sorting. |
+
+*The genetics tag format for Long mode is `[avg-metabolism:health:fertility:quality:productivity]` (productivity only shown for species that have it). Values are scaled 0–99.*
+
+---
+
 ## Custom Animals
 
 | Setting | Default | Options | Description |
@@ -86,6 +98,7 @@ Some settings depend on others being enabled:
 ```
 Death Enabled → Accidents Chance (only when Death is On)
 Diseases Enabled → Disease Chance (only when Diseases are On)
+Genetics Display → Genetics Position (only when Display is not Off)
 Custom Animals → Animals XML (only when Custom Animals is On)
 ```
 

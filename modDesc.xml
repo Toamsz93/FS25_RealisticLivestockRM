@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>1.0.2.0-dev</version>
+    <version>1.0.2.0</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -24,10 +24,12 @@ Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivest
 
 Changelog
 
-v1.0.2.0-dev:
+v1.0.2.0:
 - Added genetics display in animal names (average score, or full breakdown per trait)
 - Added sort by genetics option for animal lists
 - Added selection count on bulk action buttons
+- Fixed move messages in husbandry message log
+- Fixed move messages showing wrong direction (to/from was swapped)
 
 v1.0.1.1:
 - Fixed compatibility with Hof Bergmann's subtype filter for animal pens

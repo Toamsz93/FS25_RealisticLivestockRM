@@ -62,6 +62,17 @@ A well-maintained horse (healthy, ridden, fit, clean) with good genetics can sel
 
 ---
 
+## Output
+
+Horses produce **manure only** - no milk, wool, or eggs.
+
+| Age | Manure (both genders) |
+|-----|----------------------|
+| Newborn | 20 |
+| 18+ mo | 200 |
+
+---
+
 ## Food & Water
 
 All breeds and both genders consume the same amount.
@@ -81,17 +92,6 @@ All breeds and both genders consume the same amount.
 |-----|-------|-------|
 | Newborn | 10 | 5 |
 | 18+ mo (adult) | 50 | 80 |
-
----
-
-## Output
-
-Horses produce **manure only** - no milk, wool, or eggs.
-
-| Age | Manure (both genders) |
-|-----|----------------------|
-| Newborn | 20 |
-| 18+ mo | 200 |
 
 ---
 

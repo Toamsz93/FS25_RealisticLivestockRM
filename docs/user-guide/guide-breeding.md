@@ -28,7 +28,7 @@ For reproduction to occur, ALL of the following must be true:
 | **Sheep** | 8 months | 5 months | **72 months (6 yr)** | 5 months | 120 months (10 yr) |
 | **Goats** | 16 months | 5 months | 72 months (6 yr) | 5 months | 120 months (10 yr) |
 | **Horses** | 22 months | 36 months | 300 months (25 yr) | 11 months | 264 months (22 yr) |
-| **Chickens** | 6 months | 6 months | No limit | 2 months | Declines with age |
+| **Chickens** | 6 months | 6 months | No limit | 2 months | 120 months (10 yr) |
 
 > **Critical insight:** Males retire from breeding much earlier than females in some species! Boars stop at 4 years while sows breed until 8. Rams stop at 6 years while ewes breed until 10. Plan male replacements early.
 
@@ -69,15 +69,15 @@ Cattle usually produce single calves. Twins and triplets are rare.
 
 Pigs produce the largest litters. Healthy sows at prime age almost always deliver.
 
-| Sow Age | Chance of No Birth | Typical Litter | Large Litter |
-|---------|-------------------|----------------|--------------|
-| 6–12 mo (young) | Low | 11–13 piglets | 14–16 possible |
-| 13–36 mo (prime) | Very low | 11–13 piglets | 14–16 possible |
-| 37–60 mo | Low–moderate | 11–13 piglets | 14–16 possible |
-| 61–80 mo | Moderate | 11–13 piglets | Fewer |
-| 81–96 mo (old) | High | Small litters | Rare |
+| Sow Age | Chance of No Birth | Small (1–6) | Medium (7–10) | Typical (11–13) | Large (14–16) |
+|---------|-------------------|-------------|---------------|-----------------|---------------|
+| 6–12 mo (young) | Low | Rare | Uncommon | Most likely | Possible |
+| 13–36 mo (prime) | Very low | Rare | Uncommon | Most likely | Possible |
+| 37–60 mo | Low–moderate | Rare | Uncommon | Most likely | Possible |
+| 61–80 mo | Moderate | Uncommon | Possible | Most likely | Less likely |
+| 81–96 mo (old) | High | Possible | Possible | Less likely | Rare |
 
-*Most pig litters are 11–13 piglets. Low health significantly reduces litter size.*
+*Most pig litters are 11–13 piglets. Older sows may produce smaller litters of 1–10 piglets. Low health significantly reduces litter size.*
 
 ### Sheep & Goats
 
@@ -108,13 +108,13 @@ Horses almost always produce a single foal.
 
 Chickens have large but unreliable hatches. The chance of no offspring is always significant.
 
-| Hen Age | No Hatch | Small Brood (1–5) | Typical Brood (5–7) | Large Brood (7–12) |
-|---------|----------|-------------------|--------------------|--------------------|
+| Hen Age | No Hatch | Small Brood (1–5) | Medium Brood (5–7) | Large Brood (7–12) |
+|---------|----------|-------------------|--------------------|---------------------|
 | 6–12 mo | Common | Uncommon | Most likely | Possible |
-| 12–24 mo | Common | Uncommon | Most likely | Possible |
-| 24–48 mo | Frequent | Uncommon | Less likely | Rare |
-| 48–84 mo | Very common | Rare | Rare | Very rare |
-| 84+ mo | Almost always | Very rare | Very rare | - |
+| 12–24 mo | Common | Rare | Most likely | Possible |
+| 24–48 mo | Frequent | - | Most likely | Possible |
+| 48–84 mo | Very common | - | Uncommon | Rare |
+| 84–120 mo | Almost always | - | Very rare | Very rare |
 
 *Unlike other animals, hens never die during hatching.*
 
@@ -150,11 +150,11 @@ Milk output varies within the lactation period:
 xychart-beta
     title "Lactation Curve"
     x-axis "Months After Birth" [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    y-axis "Milk Output (%)" 0 --> 100
-    line [0, 60, 95, 100, 90, 75, 60, 45, 30, 15, 0]
+    y-axis "Milk Output (% of peak)" 0 --> 100
+    line [62, 74, 87, 100, 97, 92, 87, 82, 77, 72, 0]
 ```
 
-*Chart shows the typical shape of the lactation curve. Actual litres depend on breed and genetics - see the cattle factsheet for specific ranges.*
+*Chart shows the lactation factor as a percentage of peak output (month 3). Production starts at ~62% of peak at birth and declines gradually, dropping to zero at month 10. Actual litres depend on breed and genetics - see the cattle factsheet for specific ranges.*
 
 ---
 
@@ -170,6 +170,12 @@ Breeding is not without risk. Low health significantly increases complications:
 | Below 60% | High risk, mother may die during birth |
 
 *If the mother dies during birth, offspring may still survive. Low health also reduces the chance of multiple offspring.*
+
+### Freemartin Effect (Cattle Only)
+
+When a cow gives birth to twins where one is male and one is female, the female calf has a **97% chance of being infertile** (a "freemartin"). This is a real biological phenomenon. The male twin is unaffected.
+
+*Freemartins can still be raised for milk or sold, but they will never breed. This only affects mixed-sex cattle twins - same-sex twins are not affected.*
 
 ---
 
@@ -206,6 +212,7 @@ Plan your breeding based on gestation periods:
 | Cattle | Month 0 | Month 10 | ~Month 12 (after lactation) |
 | Pigs | Month 0 | Month 4 | ~Month 5 |
 | Sheep | Month 0 | Month 5 | ~Month 6 |
+| Goats | Month 0 | Month 5 | ~Month 6 |
 | Horses | Month 0 | Month 11 | ~Month 12 |
 | Chickens | Month 0 | Month 2 | ~Month 3 |
 
