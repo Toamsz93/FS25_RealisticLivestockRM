@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.0.0-dev:
+- Internal refactoring for code quality and testability (no user-facing changes)
+
 ## v1.0.2.0:
 - Added genetics display in animal names (average score, or full breakdown per trait)
 - Added sort by genetics option for animal lists
