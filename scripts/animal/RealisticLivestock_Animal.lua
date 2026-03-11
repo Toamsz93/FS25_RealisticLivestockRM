@@ -627,9 +627,7 @@ function Animal:saveToXMLFile(xmlFile, key)
     if self.name ~= nil and self.name ~= "" then xmlFile:setString(key .. "#name", self.name) end
     
     if self.animalTypeIndex == AnimalType.HORSE then
-        xmlFile:setFloat(key .. "#dirt", self.dirt)
-        xmlFile:setFloat(key .. "#fitness", self.fitness)
-        xmlFile:setFloat(key .. "#riding", self.riding)
+        AnimalHorse.saveHorseFields(self, xmlFile, key)
     end
 
     xmlFile:setSortedTable(key .. ".children.child", self.children, function (index, child)
@@ -1205,12 +1203,41 @@ end
 
 function Animal:clone()
 
-    local impregnatedBy = self.impregnatedBy or nil
-    
-    local newAnimal = self.new(self.age, self.health, self.monthsSinceLastBirth, self.gender, self.subTypeIndex, self.reproduction, self.isParent, self.isPregnant, self.isLactating, self.clusterSystem, self.uniqueId, self.motherId, self.fatherId, self.pos, self.name, self.dirt, self.fitness, self.riding, self.farmId, self.weight, self.genetics, self.impregnatedBy, self.variation, self.children, self.monitor, self.isCastrated, self.diseases, self.recentlyBoughtByAI, self.marks, self.insemination)
+    local newAnimal = Animal.new({
+        age = self.age,
+        health = self.health,
+        monthsSinceLastBirth = self.monthsSinceLastBirth,
+        gender = self.gender,
+        subTypeIndex = self.subTypeIndex,
+        reproduction = self.reproduction,
+        isParent = self.isParent,
+        isPregnant = self.isPregnant,
+        isLactating = self.isLactating,
+        clusterSystem = self.clusterSystem,
+        uniqueId = self.uniqueId,
+        motherId = self.motherId,
+        fatherId = self.fatherId,
+        pos = self.pos,
+        name = self.name,
+        dirt = self.dirt,
+        fitness = self.fitness,
+        riding = self.riding,
+        farmId = self.farmId,
+        weight = self.weight,
+        genetics = self.genetics,
+        impregnatedBy = self.impregnatedBy,
+        variation = self.variation,
+        children = self.children,
+        monitor = self.monitor,
+        isCastrated = self.isCastrated,
+        diseases = self.diseases,
+        recentlyBoughtByAI = self.recentlyBoughtByAI,
+        marks = self.marks,
+        insemination = self.insemination,
+    })
 
     newAnimal:setBirthday(self.birthday)
-    
+
     if self.pregnancy ~= nil then newAnimal.pregnancy = self.pregnancy end
 
     return newAnimal
@@ -1499,57 +1526,7 @@ function Animal:addInfos(infos)
 
 
     if self.animalTypeIndex == AnimalType.HORSE then
-
-        if self.infoFitness == nil then
-                self.infoFitness = {
-                    text = "",
-                    title = g_i18n:getText("ui_horseFitness")
-                }
-        end
-
-        local fitness = self:getFitnessFactor()
-
-        self.infoFitness.value = fitness
-        self.infoFitness.ratio = fitness
-        self.infoFitness.valueText = string.format("%d %%", g_i18n:formatNumber(fitness * 100, 0))
-
-        table.insert(infos, self.infoFitness)
-
-
-        if self.infoRiding == nil then
-                self.infoRiding = {
-                    text = "",
-                    title = g_i18n:getText("ui_horseDailyRiding")
-                }
-        end
-
-        local riding = self:getRidingFactor()
-
-        self.infoRiding.value = riding
-        self.infoRiding.ratio = riding
-        self.infoRiding.valueText = string.format("%d %%", g_i18n:formatNumber(riding * 100, 0))
-
-        table.insert(infos, self.infoRiding)
-
-
-        if Platform.gameplay.needHorseCleaning then
-
-            if self.infoCleanliness == nil then
-                self.infoCleanliness = {
-                    text = "",
-                    title = g_i18n:getText("statistic_cleanliness")
-                }
-            end
-
-            local cleanliness = 1 - self:getDirtFactor()
-
-            self.infoCleanliness.value = cleanliness
-            self.infoCleanliness.ratio = cleanliness
-            self.infoCleanliness.valueText = string.format("%d %%", g_i18n:formatNumber(cleanliness * 100, 0))
-
-            table.insert(infos, self.infoCleanliness)
-
-        end
+        AnimalHorse.addHorseInfos(self, infos)
     end
 
 
@@ -1584,9 +1561,7 @@ function Animal:showInfo(box)
 
 
     if string.contains(self.subType, "HORSE", true) or string.contains(self.subType, "STALLION", true) then
-        box:addLine(g_i18n:getText("infohud_riding"), string.format("%d%%", self.riding))
-        box:addLine(g_i18n:getText("infohud_fitness"), string.format("%d%%", self.fitness))
-        if Platform.gameplay.needHorseCleaning then box:addLine(g_i18n:getText("statistic_cleanliness"), string.format("%d%%", 100 - self.dirt)) end
+        AnimalHorse.showHorseHudInfo(self, box)
     end
 
     if self.gender ~= nil and self.gender == "female" and subType.supportsReproduction then
@@ -2203,23 +2178,7 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 
 
     if self.animalTypeIndex == AnimalType.HORSE and not isSaleAnimal then
-
-        local ridingFactor = self:getRidingFactor()
-	    local ridingThresholdFactor = self:getSubType().ridingThresholdFactor
-	    local factor, delta
-
-	    if ridingThresholdFactor < ridingFactor then
-		    factor = (ridingFactor - ridingThresholdFactor) / (1 - ridingThresholdFactor)
-		    delta = 25
-	    else
-		    factor = ridingFactor / ridingThresholdFactor - 1
-		    delta = 10
-	    end
-
-	    self:changeFitness(delta * factor * g_currentMission.environment.timeAdjustment)
-	    self:resetRiding()
-	    self:changeDirt(10)
-    
+        AnimalHorse.processRidingUpdate(self)
     end
 
 
@@ -3023,63 +2982,19 @@ end
 
 
 -- ##################################
-
 --             HORSES
-
+-- (implementations in AnimalHorse.lua)
 -- ##################################
 
-
-
-function Animal:getHealthChangeFactor(foodFactor)
-    local fitnessFactor = self:getFitnessFactor()
-
-    if not Platform.gameplay.needHorseCleaning then
-        return 0.6 * foodFactor + 0.4 * fitnessFactor
-    end
-
-    local dirtFactor = 1 - self:getDirtFactor()
-    return 0.5 * foodFactor + 0.4 * fitnessFactor + 0.1 * dirtFactor
-end
-
-
-function Animal:getFitnessFactor()
-    return self.fitness / 100
-end
-
-
-function Animal:changeFitness(delta)
-    self.fitness = math.clamp(math.floor(self.fitness + delta), 0, 100)
-end
-
-
-function Animal:getRidingFactor()
-    return self.riding / 100
-end
-
-
-function Animal:setRiding(riding)
-    self.riding = riding
-end
-
-
-function Animal:resetRiding()
-    self.riding = 0
-end
-
-
-function Animal:changeRiding(delta)
-    self.riding = math.clamp(math.floor(self.riding + delta), 0, 100)
-end
-
-
-function Animal:getDirtFactor()
-    return self.dirt / 100
-end
-
-
-function Animal:changeDirt(delta)
-    self.dirt = math.clamp(math.floor(self.dirt + delta), 0, 100)
-end
+function Animal:getHealthChangeFactor(foodFactor) return AnimalHorse.getHealthChangeFactor(self, foodFactor) end
+function Animal:getFitnessFactor() return AnimalHorse.getFitnessFactor(self) end
+function Animal:changeFitness(delta) AnimalHorse.changeFitness(self, delta) end
+function Animal:getRidingFactor() return AnimalHorse.getRidingFactor(self) end
+function Animal:setRiding(riding) AnimalHorse.setRiding(self, riding) end
+function Animal:resetRiding() AnimalHorse.resetRiding(self) end
+function Animal:changeRiding(delta) AnimalHorse.changeRiding(self, delta) end
+function Animal:getDirtFactor() return AnimalHorse.getDirtFactor(self) end
+function Animal:changeDirt(delta) AnimalHorse.changeDirt(self, delta) end
 
 
 function Animal:getSellPrice()
@@ -3102,16 +3017,14 @@ function Animal:getSellPrice()
     for _, disease in pairs(self.diseases) do sellPrice = disease:modifyValue(sellPrice) end
 
     if self.animalTypeIndex == AnimalType.HORSE then
-        return math.max(sellPrice * meatFactor * weightFactor * (0.3 + 0.5 * self:getHealthFactor() + 0.3 * self:getRidingFactor() + 0.2 * self:getFitnessFactor() - 0.2 * self:getDirtFactor()), sellPrice * 0.05)
+        return AnimalHorse.getHorseSellPrice(self, sellPrice, meatFactor, weightFactor)
     end
 
     return math.max(sellPrice * 0.6 + (sellPrice * 0.4 * weightFactor * (0.75 * self:getHealthFactor())) + sellPrice * (self.isLactating and 0.15 or 0) + sellPrice * (self.isPregnant and 0.25 or 0), sellPrice * 0.05)
 end
 
 
-function Animal:getDailyRidingTime()
-    return 300000
-end
+function Animal:getDailyRidingTime() return AnimalHorse.getDailyRidingTime(self) end
 
 
 function Animal:getNumberOfImpregnatableFemalesForMale()
