@@ -651,11 +651,11 @@ function AIAnimalManager:onDayChanged()
 			end
 		else
 			if numCastrated == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
-				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_SINGLE" })
+				self.husbandry:addRLMessage("AI_MANAGER_CASTRATED_SINGLE")
+				table.insert(messages, { ["id"] = "AI_MANAGER_CASTRATED_SINGLE" })
 			elseif numCastrated > 0 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
-				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_MULTIPLE", ["args"] = { numCastrated } })
+				self.husbandry:addRLMessage("AI_MANAGER_CASTRATED_MULTIPLE", nil, { numCastrated })
+				table.insert(messages, { ["id"] = "AI_MANAGER_CASTRATED_MULTIPLE", ["args"] = { numCastrated } })
 			end
 		end
 
@@ -755,7 +755,7 @@ function AIAnimalManager:onDayChanged()
 		local qualityMin, qualityMax = ai.quality.min / 100, ai.quality.max / 100
 		local fertilityMin, fertilityMax = ai.fertility.min / 100, ai.fertility.max / 100
 		local healthMin, healthMax = ai.health.min / 100, ai.health.max / 100
-		local metabolismMin, metabolismMax = ai.metabolism.min / 100, sell.metabolism.max / 100
+		local metabolismMin, metabolismMax = ai.metabolism.min / 100, ai.metabolism.max / 100
 		local productivityMin, productivityMax = ai.productivity.min / 100, ai.productivity.max / 100
 
 		for _, animal in pairs(animals) do

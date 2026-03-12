@@ -2027,6 +2027,8 @@ end
 
 function Animal:getCanReproduce()
 
+    if self.gender ~= "female" then return false end
+
     if self.isPregnant or self.pregnancy ~= nil then return true end
 
     local subType = self:getSubType()
