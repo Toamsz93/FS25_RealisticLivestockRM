@@ -269,7 +269,7 @@ function Animal.new(config)
     self.fitness = cfg.fitness or 0
     self.riding = cfg.riding or 0
     if name == "" then name = nil end
-    self.name = name or ((string.contains(self.subType, "HORSE", true) or string.contains(self.subType, "STALLION", true)) and g_currentMission.animalNameSystem:getRandomName(self.gender) or nil)
+    self.name = name or (self:isHorse() and g_currentMission.animalNameSystem:getRandomName(self.gender) or nil)
 
 
     self.pos = cfg.pos or nil
@@ -626,7 +626,7 @@ function Animal:saveToXMLFile(xmlFile, key)
 
     if self.name ~= nil and self.name ~= "" then xmlFile:setString(key .. "#name", self.name) end
     
-    if self.animalTypeIndex == AnimalType.HORSE then
+    if self:isHorse() then
         AnimalHorse.saveHorseFields(self, xmlFile, key)
     end
 
@@ -1525,7 +1525,7 @@ function Animal:addInfos(infos)
     end
 
 
-    if self.animalTypeIndex == AnimalType.HORSE then
+    if self:isHorse() then
         AnimalHorse.addHorseInfos(self, infos)
     end
 
@@ -1560,7 +1560,7 @@ function Animal:showInfo(box)
     box:addLine(g_i18n:getText("rl_ui_gender"), self.gender == "male" and g_i18n:getText("rl_ui_male") or g_i18n:getText("rl_ui_female"))
 
 
-    if string.contains(self.subType, "HORSE", true) or string.contains(self.subType, "STALLION", true) then
+    if self:isHorse() then
         AnimalHorse.showHorseHudInfo(self, box)
     end
 
@@ -2179,7 +2179,7 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
     local childrenSoldAmount = 0
 
 
-    if self.animalTypeIndex == AnimalType.HORSE and not isSaleAnimal then
+    if self:isHorse() and not isSaleAnimal then
         AnimalHorse.processRidingUpdate(self)
     end
 
@@ -2988,6 +2988,10 @@ end
 -- (implementations in AnimalHorse.lua)
 -- ##################################
 
+--- Canonical horse type check. Use this instead of string-matching self.subType.
+--- @return boolean true if this animal is a horse (any subtype: HORSE, STALLION, etc.)
+function Animal:isHorse() return self.animalTypeIndex == AnimalType.HORSE end
+
 function Animal:getHealthChangeFactor(foodFactor) return AnimalHorse.getHealthChangeFactor(self, foodFactor) end
 function Animal:getFitnessFactor() return AnimalHorse.getFitnessFactor(self) end
 function Animal:changeFitness(delta) AnimalHorse.changeFitness(self, delta) end
@@ -3018,7 +3022,7 @@ function Animal:getSellPrice()
 
     for _, disease in pairs(self.diseases) do sellPrice = disease:modifyValue(sellPrice) end
 
-    if self.animalTypeIndex == AnimalType.HORSE then
+    if self:isHorse() then
         return AnimalHorse.getHorseSellPrice(self, sellPrice, meatFactor, weightFactor)
     end
 

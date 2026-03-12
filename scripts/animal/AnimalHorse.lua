@@ -215,8 +215,8 @@ function AnimalHorse.addHorseInfos(animal, infos)
 end
 
 --- Add horse-specific HUD info lines (riding, fitness, cleanliness).
---- Called from Animal:showInfo when subType contains HORSE or STALLION.
---- @param animal table Animal instance (HORSE/STALLION type)
+--- Called from Animal:showInfo when animal:isHorse() is true.
+--- @param animal table Animal instance (HORSE type)
 --- @param box table HUD info box
 function AnimalHorse.showHorseHudInfo(animal, box)
     box:addLine(g_i18n:getText("infohud_riding"), string.format("%d%%", animal.riding))
