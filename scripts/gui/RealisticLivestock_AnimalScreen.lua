@@ -340,8 +340,12 @@ function AnimalScreen:onClickMessageSortButton(button)
 
 	table.sort(self.messages[self.currentMessagePage], function(a, b)
 
-        local aTarget = a[target] or RLMessage[a.id][target]
-        local bTarget = b[target] or RLMessage[b.id][target]
+        local aBase = RLMessage[a.id]
+        local bBase = RLMessage[b.id]
+        local aTarget = a[target] or (aBase and aBase[target])
+        local bTarget = b[target] or (bBase and bBase[target])
+
+        if aTarget == nil or bTarget == nil then return aTarget ~= nil end
 
 		if sorter then return aTarget > bTarget end
 
@@ -2111,7 +2115,7 @@ function RealisticLivestock_AnimalScreen:getNumberOfItemsInSection(superFunc, li
 
     if list == self.aiList then return #self.aiAnimals[self.aiAnimalTypeIndex] end
 
-    if self.isLogMode then return #self.messages[self.currentMessagePage] end
+    if self.isLogMode and list == self.husbandryList then return #self.messages[self.currentMessagePage] end
 
     if self.filteredItems == nil or not self.isOpen then return superFunc(self, list) end
 
@@ -2210,6 +2214,15 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
         if message == nil then return end
 
         local baseMessage = RLMessage[message.id]
+
+        if baseMessage == nil then
+            Log:warning("Unknown message id '%s' (date=%s) — skipping render", tostring(message.id), tostring(message.date))
+            cell:getAttribute("message"):setText("Unknown: " .. tostring(message.id))
+            cell:getAttribute("type"):setText("?")
+            cell:getAttribute("date"):setText(message.date or "")
+            cell:getAttribute("animal"):setText(message.animal or "N/A")
+            return
+        end
 
         local text, argI = string.split(g_i18n:getText("rl_message_" .. baseMessage.text), " "), 1
 

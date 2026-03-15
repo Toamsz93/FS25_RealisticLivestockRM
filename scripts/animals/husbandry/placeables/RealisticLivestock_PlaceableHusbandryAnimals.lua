@@ -176,7 +176,11 @@ function RealisticLivestock_PlaceableHusbandryAnimals:loadFromXMLFile(xmlFile, k
 
         end)
         
-        self:addRLMessage(id, animal, args, date, uniqueId, true)
+        if RLMessage[id] == nil then
+            Log:warning("Discarding unknown message id '%s' from savegame (date=%s)", tostring(id), tostring(date))
+        else
+            self:addRLMessage(id, animal, args, date, uniqueId, true)
+        end
     
     end)
 

@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>1.1.0.1</version>
+    <version>1.1.0.2</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -23,6 +23,10 @@ Documentation: https://rittermod.github.io/FS25_RealisticLivestockRM
 Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivestockRM
 
 Changelog
+
+v1.1.0.2:
+- Fixed crash on Messages tab caused by unrecognized message IDs from older dev versions
+- Invalid messages are now discarded on savegame load and handled gracefully in the UI
 
 v1.1.0.1:
 - Fixed crash when moving animals between pens (nil subtraction on visual animal count)
