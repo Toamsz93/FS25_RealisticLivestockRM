@@ -35,7 +35,51 @@ local function sortRawAnimals(a, b)
 end
 
 
+--- Resolve the animal object at the list's current selection indices.
+--- Must be called while husbandrySubTypes/subTypeIndexToClusters still hold the
+--- data that matches the list's selectedSectionIndex/selectedIndex.
+local function getSelectedAnimal(frame)
+    local list = frame.list
+    local section = list.selectedSectionIndex
+    local index = list.selectedIndex
+    if section == nil or index == nil then return nil end
+
+    local subTypes = frame.husbandrySubTypes
+    if subTypes == nil or subTypes[section] == nil then return nil end
+
+    local subType = subTypes[section]
+    local animals = frame.subTypeIndexToClusters[subType]
+    if animals == nil or animals[index] == nil then return nil end
+
+    return animals[index]
+end
+
+
+--- Find an animal's (section, index) position in the current sorted data.
+local function findAnimalPosition(frame, animal)
+    if animal == nil then return nil, nil end
+
+    for sectionIdx, subType in ipairs(frame.husbandrySubTypes) do
+        local animals = frame.subTypeIndexToClusters[subType]
+        if animals ~= nil then
+            for animalIdx, candidate in ipairs(animals) do
+                if RLAnimalUtil.compare(candidate, animal) then
+                    return sectionIdx, animalIdx
+                end
+            end
+        end
+    end
+
+    return nil, nil
+end
+
+
 function RealisticLivestock_InGameMenuAnimalsFrame:reloadList(superFunc)
+    -- Save selected animal BEFORE superFunc rebuilds data in base order.
+    -- After superFunc, the numeric selection index still points at the old
+    -- position but a different animal may now occupy that slot.
+    local selectedAnimal = getSelectedAnimal(self)
+
     superFunc(self)
 
     if self.husbandrySubTypes == nil or #self.husbandrySubTypes == 0 then return end
@@ -49,6 +93,16 @@ function RealisticLivestock_InGameMenuAnimalsFrame:reloadList(superFunc)
         if animals ~= nil and #animals > 1 then
             table.sort(animals, sortRawAnimals)
         end
+    end
+
+    -- Pre-set list selection indices to the saved animal's new position BEFORE
+    -- reloadData(). The list picks up these indices during reload, so we avoid
+    -- a post-reload correction call and its scroll/selection-change side effects.
+    local newSection, newIndex = findAnimalPosition(self, selectedAnimal)
+    if newSection ~= nil then
+        self.list.selectedSectionIndex = newSection
+        self.list.selectedIndex = newIndex
+        Log:trace("AnimalsFrame: pre-set selection to section %d index %d", newSection, newIndex)
     end
 
     self.list:reloadData()

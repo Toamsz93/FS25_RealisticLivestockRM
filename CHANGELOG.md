@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.0.3:
+- Fixed selected animal jumping to a different animal in the in-game animal menu
+
 ## v1.1.0.2:
 - Fixed crash on Messages tab caused by unrecognized message IDs from older dev versions
 - Invalid messages are now discarded on savegame load and handled gracefully in the UI
