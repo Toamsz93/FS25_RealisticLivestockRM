@@ -10,7 +10,7 @@
 
     NOTE: Serialization (writeStream/readStream) and XML load (loadFromXMLFile) remain
     in Animal.lua. dirt/fitness/riding are initialized in the constructor and
-    serialized unconditionally for ALL animal types — they are part of the MP protocol
+    serialized unconditionally for ALL animal types - they are part of the MP protocol
     and must not be changed without a protocol version bump.
 ]]
 
@@ -27,7 +27,7 @@ local Log = RmLogging.getLogger("RLRM")
 --- @param animal table Animal instance
 --- @param foodFactor number Food factor (0.0-1.0)
 --- @return number healthChangeFactor Weighted factor combining food, fitness, and dirt
--- NOTE: Currently unused — defined but no callers found. Candidate for removal.
+-- NOTE: Currently unused - defined but no callers found. Candidate for removal.
 function AnimalHorse.getHealthChangeFactor(animal, foodFactor)
     local fitnessFactor = AnimalHorse.getFitnessFactor(animal)
 
@@ -100,7 +100,6 @@ end
 function AnimalHorse.getDailyRidingTime(animal)
     return 300000
 end
-
 
 -- =============================================================================
 -- EXTRACTED CONDITIONAL BLOCKS

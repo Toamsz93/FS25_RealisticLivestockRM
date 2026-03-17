@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.1.1.0:
+- Added version-aware map support: detects installed map version and loads the matching configuration
+- Added warning dialog when an untested map version is detected (with link to report issues)
+- Added breed and visual override support for map-based animal subtypes
+- Fixed division-by-zero risk in horse riding fitness calculation at boundary threshold values
+- Fixed horse riding value not being clamped (could accept values outside 0-100 range)
+- Fixed male animals could theoretically become pregnant (missing gender guard in reproduction check)
+- Fixed AI herdsman castrate notifications showing "marked for castrating" instead of "castrated" when in execute mode
+- Fixed AI herdsman state tracking error after auto-buying animals
+
 ## v1.1.0.3:
 - Fixed selected animal jumping to a different animal in the in-game animal menu
 

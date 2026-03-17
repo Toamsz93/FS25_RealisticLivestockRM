@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>1.1.1.0-dev</version>
+    <version>1.1.1.0</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -24,6 +24,16 @@ Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivest
 
 Changelog
 
+v1.1.1.0:
+- Added version-aware map support: detects installed map version and loads the matching configuration
+- Added warning dialog when an untested map version is detected (with link to report issues)
+- Added breed and visual override support for map-based animal subtypes
+- Fixed division-by-zero risk in horse riding fitness calculation at boundary threshold values
+- Fixed horse riding value not being clamped (could accept values outside 0-100 range)
+- Fixed male animals could theoretically become pregnant (missing gender guard in reproduction check)
+- Fixed AI herdsman castrate notifications showing "marked for castrating" instead of "castrated" when in execute mode
+- Fixed AI herdsman state tracking error after auto-buying animals
+
 v1.1.0.3:
 - Fixed selected animal jumping to a different animal in the in-game animal menu
 
@@ -39,15 +49,6 @@ v1.1.0.0:
 - Added custom icons for all Animal Screen tabs
 - Hidden castration tab in herdsman screen for chickens (not applicable)
 - Fixed visual glitch in herdsman screen when enabling castration
-- Internal refactoring for code quality and testability
-
-v1.0.2.0:
-- Added genetics display in animal names (average score, or full breakdown per trait)
-- Added sort by genetics option for animal lists
-- Added selection count on bulk action buttons
-- Fixed move messages in husbandry message log (were silently failing due to incorrect message keys)
-- Fixed move messages showing wrong direction (to/from was swapped)
-- Fixed typo in move message ("1 animals" → "1 animal")
 
 ]]>
         </en>

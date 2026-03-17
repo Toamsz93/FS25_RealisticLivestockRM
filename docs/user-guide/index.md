@@ -39,7 +39,11 @@ If a conflicting mod is detected, the game will show a warning dialog at startup
 
 ### Map Support
 
+The mod automatically detects supported maps and their installed version, loading the matching configuration for exotic animals.
+
 - **Hof Bergmann** - Exotic animals (ducks, geese, cats, rabbits) fully supported with breeding and reproduction
+
+If a map updates to an untested version, you'll see a warning at game start - you're encouraged to report any issues.
 
 ### Mod Compatibility
 

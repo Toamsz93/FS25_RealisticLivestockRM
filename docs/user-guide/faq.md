@@ -103,6 +103,11 @@ This is for advanced users comfortable with editing XML files. The animals will 
 
 When a map includes its own animal types, the mod can add built-in support with full breeding and reproduction. **Hof Bergmann** is the first example - its exotic animals (ducks, geese, cats, rabbits) are fully supported since v1.0.1.0.
 
+Since v1.1.1.0, the mod uses **version-aware map support**. It detects which version of a supported map you have installed and loads the matching configuration automatically. This means:
+
+- **Tested version** - Everything works seamlessly. No action needed.
+- **Untested version** (e.g., the map author released an update before the mod was updated) - You'll see a warning dialog when the game starts. The warning includes a link to report problems so support can be added for the new version.
+
 If you're playing a map with custom animals that aren't supported yet, [open an issue](https://github.com/rittermod/FS25_RealisticLivestockRM/issues) and it can be considered.
 
 ### A note on unauthorized breed packs

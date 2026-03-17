@@ -122,7 +122,12 @@ Press **R** in the animal menu to open the animal screen. It has seven tabs:
 
 ### Map & Mod Support
 
+The mod includes built-in support for third-party maps that add exotic animal types. When you load a supported map, the mod automatically detects the installed map version and loads the matching configuration for full breeding and reproduction.
+
 - **Hof Bergmann** - Exotic animals (ducks, geese, cats, rabbits) are fully supported with breeding and reproduction
+
+If a map updates to a version that hasn't been tested yet, you'll see a warning dialog when the game starts. The dialog includes a link to report any problems.
+
 - **Extended Production Point (EPP)** - Basic support for moving animals to EPP butchers
 
 *Looking for more breeds or animal types? See the [FAQ](faq.md#can-you-add-more-breeds-or-animal-types) for what's possible.*
