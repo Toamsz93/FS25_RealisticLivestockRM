@@ -710,6 +710,7 @@
 		<text name="rm_rl_migration_continue" text="Continue"/>
 		<text name="rm_rl_migration_quit" text="Quit"/>
 
+		<text name="rl_bridge_version_unknown" text="Realistic Livestock: %s version %s has not been tested with version %s of Realistic Livestock. Using config '%s'. If you experience issues with exotic animals, please report them at %s."/>
 
 	</texts>
 </l10n>

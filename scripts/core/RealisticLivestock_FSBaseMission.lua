@@ -99,6 +99,17 @@ function RealisticLivestock_FSBaseMission:onStartMission()
         end
     end
 
+    -- Show bridge version warning dialog (non-blocking) if an untested map version was detected.
+    -- Uses Timer delay to ensure game has fully transitioned to gameplay state before showing
+    -- (same pattern as migration dialogs - dialog gets lost without the delay).
+    if RLMapBridge.pendingVersionWarning ~= nil and g_dedicatedServer == nil then
+        local warningText = RLMapBridge.pendingVersionWarning
+        RLMapBridge.pendingVersionWarning = nil
+        Timer.createOneshot(100, function()
+            InfoDialog.show(warningText)
+        end)
+    end
+
     RLSettings.applyDefaultSettings()
     RLMessageAggregator.initialize()
 
