@@ -9,6 +9,7 @@
 - Fixed male animals could theoretically become pregnant (missing gender guard in reproduction check)
 - Fixed AI herdsman castrate notifications showing "marked for castrating" instead of "castrated" when in execute mode
 - Fixed AI herdsman state tracking error after auto-buying animals
+- Fixed BUM ID branding on cows showing all zeros and overlapping text
 
 ## v1.1.0.3:
 - Fixed selected animal jumping to a different animal in the in-game animal menu

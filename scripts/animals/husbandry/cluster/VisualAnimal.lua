@@ -88,14 +88,13 @@ function VisualAnimal:setBumId()
 
 	if self.nodes.bumId == nil then return end
 
-    local uniqueId = self.animal.uniqueId
+	local uniqueId = self.animal.uniqueId
 
-	self.texts.bumId = {
-		["uniqueId"] = {
-			["top"] = RealisticLivestock.create3DLinkedText(self.nodes.bumId, 0, -0.006, 0, 0, 0, 0, 0.05, string.sub(uniqueId, 3, 4)),
-			["bottom"] = RealisticLivestock.create3DLinkedText(self.nodes.bumId, 0, -0.012, 0, 0, 0, 0, 0.05, string.sub(uniqueId, 5, 6))
-		}
-	}
+	for i = 0, 3 do
+		local child = getChildAt(self.nodes.bumId, i)
+		local digit = tonumber(string.sub(uniqueId, 3 + i, 3 + i)) or 0
+		setShaderParameter(child, "playScale", digit, 0, 64, 1, false)
+	end
 
 end
 
