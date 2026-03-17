@@ -97,6 +97,9 @@ source(modDirectory .. "scripts/animal/BreedingMath.lua")
 -- SECTION 11c: Horse Logic (delegate module, sourced before Animal.lua)
 source(modDirectory .. "scripts/animal/AnimalHorse.lua")
 
+-- SECTION 11d: Reproduction Logic (delegate module, sourced before Animal.lua)
+source(modDirectory .. "scripts/animal/AnimalReproduction.lua")
+
 -- SECTION 12: GUI Elements
 source(modDirectory .. "scripts/gui/elements/DoubleOptionSliderElement.lua")
 source(modDirectory .. "scripts/gui/elements/RenderElement.lua")
