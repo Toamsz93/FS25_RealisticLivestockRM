@@ -166,9 +166,27 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
         local configFilename = Utils.getFilename(rawConfigFilename, directory)
         local animalType
 
-		if self.nameToTypeIndex[name] ~= nil then
+        local isExistingType = self.nameToTypeIndex[name] ~= nil
+
+		if isExistingType then
 
 			animalType = self.nameToType[name]
+
+			-- Skip base game/DLC reloads — RLRM's Phase 1 config is the superset
+			-- (e.g. COW bundles 21 models including DLC Highland, base game only has 18).
+			-- Only clear+reload for map mod overrides (non-dataS configs).
+			-- ASSUMES: RLRM bundles configs for ALL base game + DLC animal types.
+			-- If a new DLC adds animals, RLRM must update its bundled configs to include them.
+			if string.startsWith(configFilename, "dataS") then
+				Log:trace("loadAnimals: skipping base game reload for existing type '%s' (keeping %d animals)",
+					name, #animalType.animals)
+				continue
+			end
+
+			Log:debug("loadAnimals: reloading existing type '%s' — clearing %d animals, config '%s' -> '%s'",
+				name, #animalType.animals, tostring(animalType.configFilename), tostring(configFilename))
+			animalType.animals = {}
+			animalType.configFilename = configFilename
 
         else
 
@@ -285,8 +303,41 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 		end
 
 		if self:loadAnimalConfig(animalType, directory, configFilename) then
+			Log:trace("loadAnimals: '%s' — animals after loadAnimalConfig=%d", name, #animalType.animals)
 
 		    if self:loadSubTypes(animalType, xmlFile, key, directory) then
+
+                --- Re-link visual.visualAnimal references for ALL subtypes of reloaded type.
+                --- After clearing and reloading animalType.animals, existing subtypes' visual
+                --- references point to stale objects. Re-link using their original visualAnimalIndex.
+                --- Visual stage definitions (minAge thresholds) are preserved from RLRM's Phase 1.
+                if isExistingType then
+                    for _, subTypeIndex in ipairs(animalType.subTypes) do
+                        local subType = self.subTypes[subTypeIndex]
+                        if subType ~= nil and subType.visuals ~= nil then
+                            Log:trace("loadAnimals: re-linking visuals for subType '%s'", subType.name)
+                            for _, visual in pairs(subType.visuals) do
+                                if visual.visualAnimalIndex ~= nil and animalType.animals[visual.visualAnimalIndex] ~= nil then
+                                    visual.visualAnimal = animalType.animals[visual.visualAnimalIndex]
+                                    -- Re-apply texture filtering if present
+                                    if visual.textureIndexes ~= nil then
+                                        local filteredAnimal = table.clone(visual.visualAnimal, 10)
+                                        filteredAnimal.variations = {}
+                                        for _, textureIndex in pairs(visual.textureIndexes) do
+                                            table.insert(filteredAnimal.variations, visual.visualAnimal.variations[textureIndex])
+                                        end
+                                        if #filteredAnimal.variations > 0 then
+                                            visual.visualAnimal = filteredAnimal
+                                        end
+                                    end
+                                else
+                                    Log:warning("loadAnimals: subType '%s' visual has invalid index %s after reload",
+                                        subType.name, tostring(visual.visualAnimalIndex))
+                                end
+                            end
+                        end
+                    end
+                end
 
 			    if self.nameToType[name] == nil then
 
@@ -386,7 +437,11 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
 
 		    local name = rawName:upper()
 
-		    if self.nameToSubTypeIndex[name] ~= nil then continue end
+		    if self.nameToSubTypeIndex[name] ~= nil then
+				Log:trace("loadSubTypes: skipping existing subType '%s' (index=%d) for type '%s'",
+					name, self.nameToSubTypeIndex[name], animalType.name)
+				continue
+			end
 
 		    local fillTypeName = xmlFile:getString(subTypeKey .. "#fillTypeName")
 		    local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
@@ -435,6 +490,14 @@ AnimalSystem.loadSubTypes = Utils.overwrittenFunction(AnimalSystem.loadSubTypes,
 function RealisticLivestock_AnimalSystem:loadSubType(superFunc, animalType, subType, xmlFile, key, directory)
 
     local returnValue = superFunc(self, animalType, subType, xmlFile, key, directory)
+
+    -- Log visual indices for debugging RLRM-96
+    if subType.visuals ~= nil then
+        for vi, visual in pairs(subType.visuals) do
+            Log:trace("loadSubType: '%s' visual[%d] minAge=%s visualAnimalIndex=%s",
+                subType.name, vi, tostring(visual.minAge), tostring(visual.visualAnimalIndex))
+        end
+    end
 
     local height, radius = animalType.navMeshAgentAttributes.height, animalType.navMeshAgentAttributes.radius
 
