@@ -191,6 +191,280 @@
         </subType>
     </animal>
 
+    <!-- ALPACA: 4 per-color male subtypes + breed overrides on existing females -->
+    <!-- Real alpacas: 60-90 kg male, 55-65 kg female -->
+    <!-- Cross-color breeding: all ALPACA subtypes share breed="ALPACA" -->
+    <animal type="ALPACA">
+        <!-- Override: set breed on existing females for breeding group compatibility -->
+        <subType subType="ALPACA_WHITE" breed="ALPACA"/>
+        <subType subType="ALPACA_BROWN" breed="ALPACA"/>
+        <subType subType="ALPACA_BLACK" breed="ALPACA"/>
+        <subType subType="ALPACA_GREY" breed="ALPACA"/>
+
+        <!-- New: ALPACA_WHITE_MALE -->
+        <subType subType="ALPACA_WHITE_MALE" fillTypeName="ALPACA_WHITE_MALE" gender="male" breed="ALPACA"
+                 minWeight="5.0" targetWeight="75.0" maxWeight="90.0">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungWhite.png"
+                        name="$l10n_rl_bridge_alpacaWhiteMaleYoung" canBeBought="false">
+                    <description>$l10n_rl_bridge_alpacaWhiteMaleYoungDesc</description>
+                </visual>
+                <visual minAge="3" visualAnimalIndex="1"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungWhite.png"
+                        name="$l10n_rl_bridge_alpacaWhiteMaleYoung" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaWhiteMaleYoungDesc</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="2"
+                        image="character/animals/domesticated/alpaca/store_alpacaWhite.png"
+                        name="$l10n_rl_bridge_alpacaWhiteMaleAdult" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaWhiteMaleAdultDesc</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false" minAgeMonth="8"/>
+            <buyPrice>
+                <key ageMonth="0" value="3000"/>
+                <key ageMonth="3" value="3000"/>
+                <key ageMonth="8" value="6000"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="2500"/>
+                <key ageMonth="3" value="2500"/>
+                <key ageMonth="8" value="5000"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="20"/>
+                <key ageMonth="3" value="20"/>
+                <key ageMonth="8" value="50"/>
+            </transportPrice>
+            <input>
+                <food>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="50"/>
+                </food>
+                <straw>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="20"/>
+                </straw>
+                <water>
+                    <key ageMonth="0" value="2"/>
+                    <key ageMonth="3" value="2"/>
+                    <key ageMonth="8" value="20"/>
+                </water>
+            </input>
+        </subType>
+
+        <!-- New: ALPACA_BROWN_MALE -->
+        <subType subType="ALPACA_BROWN_MALE" fillTypeName="ALPACA_BROWN_MALE" gender="male" breed="ALPACA"
+                 minWeight="5.0" targetWeight="75.0" maxWeight="90.0">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="3"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungBrown.png"
+                        name="$l10n_rl_bridge_alpacaBrownMaleYoung" canBeBought="false">
+                    <description>$l10n_rl_bridge_alpacaBrownMaleYoungDesc</description>
+                </visual>
+                <visual minAge="3" visualAnimalIndex="3"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungBrown.png"
+                        name="$l10n_rl_bridge_alpacaBrownMaleYoung" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaBrownMaleYoungDesc</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="4"
+                        image="character/animals/domesticated/alpaca/store_alpacaBrown.png"
+                        name="$l10n_rl_bridge_alpacaBrownMaleAdult" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaBrownMaleAdultDesc</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false" minAgeMonth="8"/>
+            <buyPrice>
+                <key ageMonth="0" value="3000"/>
+                <key ageMonth="3" value="3000"/>
+                <key ageMonth="8" value="6000"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="2500"/>
+                <key ageMonth="3" value="2500"/>
+                <key ageMonth="8" value="5000"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="20"/>
+                <key ageMonth="3" value="20"/>
+                <key ageMonth="8" value="50"/>
+            </transportPrice>
+            <input>
+                <food>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="50"/>
+                </food>
+                <straw>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="20"/>
+                </straw>
+                <water>
+                    <key ageMonth="0" value="2"/>
+                    <key ageMonth="3" value="2"/>
+                    <key ageMonth="8" value="20"/>
+                </water>
+            </input>
+        </subType>
+
+        <!-- New: ALPACA_BLACK_MALE -->
+        <subType subType="ALPACA_BLACK_MALE" fillTypeName="ALPACA_BLACK_MALE" gender="male" breed="ALPACA"
+                 minWeight="5.0" targetWeight="75.0" maxWeight="90.0">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="5"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungBlack.png"
+                        name="$l10n_rl_bridge_alpacaBlackMaleYoung" canBeBought="false">
+                    <description>$l10n_rl_bridge_alpacaBlackMaleYoungDesc</description>
+                </visual>
+                <visual minAge="3" visualAnimalIndex="5"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungBlack.png"
+                        name="$l10n_rl_bridge_alpacaBlackMaleYoung" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaBlackMaleYoungDesc</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="6"
+                        image="character/animals/domesticated/alpaca/store_alpacaBlack.png"
+                        name="$l10n_rl_bridge_alpacaBlackMaleAdult" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaBlackMaleAdultDesc</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false" minAgeMonth="8"/>
+            <buyPrice>
+                <key ageMonth="0" value="3000"/>
+                <key ageMonth="3" value="3000"/>
+                <key ageMonth="8" value="6000"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="2500"/>
+                <key ageMonth="3" value="2500"/>
+                <key ageMonth="8" value="5000"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="20"/>
+                <key ageMonth="3" value="20"/>
+                <key ageMonth="8" value="50"/>
+            </transportPrice>
+            <input>
+                <food>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="50"/>
+                </food>
+                <straw>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="20"/>
+                </straw>
+                <water>
+                    <key ageMonth="0" value="2"/>
+                    <key ageMonth="3" value="2"/>
+                    <key ageMonth="8" value="20"/>
+                </water>
+            </input>
+        </subType>
+
+        <!-- New: ALPACA_GREY_MALE -->
+        <subType subType="ALPACA_GREY_MALE" fillTypeName="ALPACA_GREY_MALE" gender="male" breed="ALPACA"
+                 minWeight="5.0" targetWeight="75.0" maxWeight="90.0">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="7"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungGrey.png"
+                        name="$l10n_rl_bridge_alpacaGreyMaleYoung" canBeBought="false">
+                    <description>$l10n_rl_bridge_alpacaGreyMaleYoungDesc</description>
+                </visual>
+                <visual minAge="3" visualAnimalIndex="7"
+                        image="character/animals/domesticated/alpaca/store_alpacaYoungGrey.png"
+                        name="$l10n_rl_bridge_alpacaGreyMaleYoung" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaGreyMaleYoungDesc</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="8"
+                        image="character/animals/domesticated/alpaca/store_alpacaGrey.png"
+                        name="$l10n_rl_bridge_alpacaGreyMaleAdult" canBeBought="true">
+                    <description>$l10n_rl_bridge_alpacaGreyMaleAdultDesc</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false" minAgeMonth="8"/>
+            <buyPrice>
+                <key ageMonth="0" value="3000"/>
+                <key ageMonth="3" value="3000"/>
+                <key ageMonth="8" value="6000"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="2500"/>
+                <key ageMonth="3" value="2500"/>
+                <key ageMonth="8" value="5000"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="20"/>
+                <key ageMonth="3" value="20"/>
+                <key ageMonth="8" value="50"/>
+            </transportPrice>
+            <input>
+                <food>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="50"/>
+                </food>
+                <straw>
+                    <key ageMonth="0" value="5"/>
+                    <key ageMonth="3" value="5"/>
+                    <key ageMonth="8" value="20"/>
+                </straw>
+                <water>
+                    <key ageMonth="0" value="2"/>
+                    <key ageMonth="3" value="2"/>
+                    <key ageMonth="8" value="20"/>
+                </water>
+            </input>
+        </subType>
+    </animal>
+
+    <!-- QUAIL: new male subtype -->
+    <!-- Real quail: 120-180g male, slightly smaller than female -->
+    <animal type="QUAIL">
+        <!-- Override: set breed on existing female for breeding group compatibility -->
+        <subType subType="QUAIL" breed="QUAIL"/>
+
+        <!-- New: QUAIL_MALE -->
+        <subType subType="QUAIL_MALE" fillTypeName="QUAIL_MALE" gender="male" breed="QUAIL"
+                 minWeight="0.05" targetWeight="0.15" maxWeight="0.2">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1"
+                        image="character/animals/domesticated/chicken/store_quail.png"
+                        name="$l10n_rl_bridge_quailMaleYoung" canBeBought="false">
+                    <description>$l10n_rl_bridge_quailMaleYoungDesc</description>
+                </visual>
+                <visual minAge="6" visualAnimalIndex="1"
+                        image="character/animals/domesticated/chicken/store_quail.png"
+                        name="$l10n_rl_bridge_quailMaleAdult" canBeBought="true">
+                    <description>$l10n_rl_bridge_quailMaleAdultDesc</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false" minAgeMonth="6"/>
+            <buyPrice>
+                <key ageMonth="0" value="6"/>
+                <key ageMonth="6" value="12"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="5"/>
+                <key ageMonth="6" value="25"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="1"/>
+                <key ageMonth="6" value="5"/>
+            </transportPrice>
+            <input>
+                <food>
+                    <key ageMonth="0" value="2"/>
+                    <key ageMonth="6" value="2"/>
+                </food>
+            </input>
+        </subType>
+    </animal>
+
     <!--
         Breeding groups: subtypes in the same group can ONLY breed with each other.
         Subtypes not in any group follow base game rules.
@@ -200,6 +474,20 @@
         <group name="DUCK" maxFertilityAge="36">
             <subType name="DUCK"/>
             <subType name="DUCK_MALE"/>
+        </group>
+        <group name="ALPACA" maxFertilityAge="180">
+            <subType name="ALPACA_WHITE"/>
+            <subType name="ALPACA_WHITE_MALE"/>
+            <subType name="ALPACA_BROWN"/>
+            <subType name="ALPACA_BROWN_MALE"/>
+            <subType name="ALPACA_BLACK"/>
+            <subType name="ALPACA_BLACK_MALE"/>
+            <subType name="ALPACA_GREY"/>
+            <subType name="ALPACA_GREY_MALE"/>
+        </group>
+        <group name="QUAIL" maxFertilityAge="24">
+            <subType name="QUAIL"/>
+            <subType name="QUAIL_MALE"/>
         </group>
     </breedingGroups>
 

@@ -21,5 +21,35 @@
 			<image hud="$dataS/menu/hud/fillTypes/hud_fill_chicken.png"/>
 		</fillType>
 
+		<fillType name="ALPACA_WHITE_MALE" title="$l10n_fillType_alpaca_white_male" showOnPriceTable="false">
+			<physics massPerLiter="75.0" maxPhysicalSurfaceAngle="0"/>
+			<economy pricePerLiter="5500"/>
+			<image hud="$dataS/menu/hud/fillTypes/hud_fill_chicken.png"/>
+		</fillType>
+
+		<fillType name="ALPACA_BROWN_MALE" title="$l10n_fillType_alpaca_brown_male" showOnPriceTable="false">
+			<physics massPerLiter="75.0" maxPhysicalSurfaceAngle="0"/>
+			<economy pricePerLiter="5500"/>
+			<image hud="$dataS/menu/hud/fillTypes/hud_fill_chicken.png"/>
+		</fillType>
+
+		<fillType name="ALPACA_BLACK_MALE" title="$l10n_fillType_alpaca_black_male" showOnPriceTable="false">
+			<physics massPerLiter="75.0" maxPhysicalSurfaceAngle="0"/>
+			<economy pricePerLiter="5500"/>
+			<image hud="$dataS/menu/hud/fillTypes/hud_fill_chicken.png"/>
+		</fillType>
+
+		<fillType name="ALPACA_GREY_MALE" title="$l10n_fillType_alpaca_grey_male" showOnPriceTable="false">
+			<physics massPerLiter="75.0" maxPhysicalSurfaceAngle="0"/>
+			<economy pricePerLiter="5500"/>
+			<image hud="$dataS/menu/hud/fillTypes/hud_fill_chicken.png"/>
+		</fillType>
+
+		<fillType name="QUAIL_MALE" title="$l10n_fillType_quail_male" showOnPriceTable="false">
+			<physics massPerLiter="0.15" maxPhysicalSurfaceAngle="0"/>
+			<economy pricePerLiter="10"/>
+			<image hud="$dataS/menu/hud/fillTypes/hud_fill_chicken.png"/>
+		</fillType>
+
 	</fillTypes>
 </map>

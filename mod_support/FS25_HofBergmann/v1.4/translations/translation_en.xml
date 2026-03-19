@@ -21,5 +21,40 @@
 		<text name="rl_bridge_tomcatAdult" text="Tomcat"/>
 		<text name="rl_bridge_tomcatKittenDesc" text="A young male cat."/>
 		<text name="rl_bridge_tomcatAdultDesc" text="An adult tomcat. Tomcats that are healthy and older than 8 months can reproduce."/>
+
+		<!-- ALPACA male fill types -->
+		<text name="fillType_alpaca_white_male" text="White Male Alpaca"/>
+		<text name="fillType_alpaca_brown_male" text="Brown Male Alpaca"/>
+		<text name="fillType_alpaca_black_male" text="Black Male Alpaca"/>
+		<text name="fillType_alpaca_grey_male" text="Grey Male Alpaca"/>
+
+		<!-- ALPACA male visual names and descriptions -->
+		<text name="rl_bridge_alpacaWhiteMaleYoung" text="Young White Male Alpaca"/>
+		<text name="rl_bridge_alpacaWhiteMaleAdult" text="White Male Alpaca"/>
+		<text name="rl_bridge_alpacaWhiteMaleYoungDesc" text="A young male white alpaca."/>
+		<text name="rl_bridge_alpacaWhiteMaleAdultDesc" text="An adult white male alpaca. Males that are healthy and older than 8 months can reproduce."/>
+
+		<text name="rl_bridge_alpacaBrownMaleYoung" text="Young Brown Male Alpaca"/>
+		<text name="rl_bridge_alpacaBrownMaleAdult" text="Brown Male Alpaca"/>
+		<text name="rl_bridge_alpacaBrownMaleYoungDesc" text="A young male brown alpaca."/>
+		<text name="rl_bridge_alpacaBrownMaleAdultDesc" text="An adult brown male alpaca. Males that are healthy and older than 8 months can reproduce."/>
+
+		<text name="rl_bridge_alpacaBlackMaleYoung" text="Young Black Male Alpaca"/>
+		<text name="rl_bridge_alpacaBlackMaleAdult" text="Black Male Alpaca"/>
+		<text name="rl_bridge_alpacaBlackMaleYoungDesc" text="A young male black alpaca."/>
+		<text name="rl_bridge_alpacaBlackMaleAdultDesc" text="An adult black male alpaca. Males that are healthy and older than 8 months can reproduce."/>
+
+		<text name="rl_bridge_alpacaGreyMaleYoung" text="Young Grey Male Alpaca"/>
+		<text name="rl_bridge_alpacaGreyMaleAdult" text="Grey Male Alpaca"/>
+		<text name="rl_bridge_alpacaGreyMaleYoungDesc" text="A young male grey alpaca."/>
+		<text name="rl_bridge_alpacaGreyMaleAdultDesc" text="An adult grey male alpaca. Males that are healthy and older than 8 months can reproduce."/>
+
+		<!-- QUAIL male -->
+		<text name="fillType_quail_male" text="Male Quail"/>
+
+		<text name="rl_bridge_quailMaleYoung" text="Young Male Quail"/>
+		<text name="rl_bridge_quailMaleAdult" text="Male Quail"/>
+		<text name="rl_bridge_quailMaleYoungDesc" text="A young male quail."/>
+		<text name="rl_bridge_quailMaleAdultDesc" text="An adult male quail. Males that are healthy and older than 6 months can reproduce."/>
 	</texts>
 </l10n>
