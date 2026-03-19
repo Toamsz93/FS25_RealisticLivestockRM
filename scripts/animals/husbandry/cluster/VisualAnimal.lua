@@ -4,6 +4,25 @@ VisualAnimal = {}
 local VisualAnimal_mt = Class(VisualAnimal)
 
 
+--- Safely resolve a pipe-separated node path (e.g. "0|0|0|1|0") against a root node.
+--- Returns the resolved node, or nil if any step in the path has insufficient children.
+--- Unlike I3DUtil.indexToObject, this does NOT log errors on invalid paths.
+local function safeIndexToObject(root, path)
+    if root == nil or root == 0 or path == nil then return nil end
+
+    local node = root
+    for indexStr in path:gmatch("[^|]+") do
+        local childIndex = tonumber(indexStr)
+        if childIndex == nil or childIndex >= getNumOfChildren(node) then
+            return nil
+        end
+        node = getChildAt(node, childIndex)
+    end
+
+    return node
+end
+
+
 function VisualAnimal.new(animal, husbandryId, animalId)
 
 	local self = setmetatable({}, VisualAnimal_mt)
@@ -49,12 +68,12 @@ function VisualAnimal:load()
 
 	local visualData = g_currentMission.animalSystem:getVisualByAge(self.animal.subTypeIndex, self.animal.age)
 
-	if visualData.monitor ~= nil then nodes.monitor = I3DUtil.indexToObject(nodes.root, visualData.monitor) end
-	if visualData.noseRing ~= nil then nodes.noseRing = I3DUtil.indexToObject(nodes.root, visualData.noseRing) end
-	if visualData.bumId ~= nil then nodes.bumId = I3DUtil.indexToObject(nodes.root, visualData.bumId) end
-	if visualData.marker ~= nil then nodes.marker = I3DUtil.indexToObject(nodes.root, visualData.marker) end
-	if visualData.earTagLeft ~= nil then nodes.earTagLeft = I3DUtil.indexToObject(nodes.root, visualData.earTagLeft) end
-	if visualData.earTagRight ~= nil then nodes.earTagRight = I3DUtil.indexToObject(nodes.root, visualData.earTagRight) end
+	if visualData.monitor ~= nil then nodes.monitor = safeIndexToObject(nodes.root, visualData.monitor) end
+	if visualData.noseRing ~= nil then nodes.noseRing = safeIndexToObject(nodes.root, visualData.noseRing) end
+	if visualData.bumId ~= nil then nodes.bumId = safeIndexToObject(nodes.root, visualData.bumId) end
+	if visualData.marker ~= nil then nodes.marker = safeIndexToObject(nodes.root, visualData.marker) end
+	if visualData.earTagLeft ~= nil then nodes.earTagLeft = safeIndexToObject(nodes.root, visualData.earTagLeft) end
+	if visualData.earTagRight ~= nil then nodes.earTagRight = safeIndexToObject(nodes.root, visualData.earTagRight) end
 
 	self:setMonitor()
 	self:setNoseRing()
