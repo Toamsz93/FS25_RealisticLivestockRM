@@ -80,7 +80,13 @@ function RealisticLivestock_InGameMenuAnimalsFrame:reloadList(superFunc)
     -- position but a different animal may now occupy that slot.
     local selectedAnimal = getSelectedAnimal(self)
 
+    -- Prevent superFunc from calling reloadData() with unsorted data.
+    -- The base game's reloadList() seems to call list:reloadData() internally,
+    -- which would scroll and fire selection events based on wrong order.
+    local origReloadData = self.list.reloadData
+    self.list.reloadData = function() end
     superFunc(self)
+    self.list.reloadData = origReloadData
 
     if self.husbandrySubTypes == nil or #self.husbandrySubTypes == 0 then return end
 
@@ -105,7 +111,10 @@ function RealisticLivestock_InGameMenuAnimalsFrame:reloadList(superFunc)
         Log:trace("AnimalsFrame: pre-set selection to section %d index %d", newSection, newIndex)
     end
 
+    -- Suppress click sound during reload.
+    self.list.soundDisabled = true
     self.list:reloadData()
+    self.list.soundDisabled = false
 
     Log:debug("AnimalsFrame: reloadList sorted %d subTypes", #self.husbandrySubTypes)
 end
@@ -117,16 +126,13 @@ InGameMenuAnimalsFrame.reloadList = Utils.overwrittenFunction(
 
 
 function RealisticLivestock_InGameMenuAnimalsFrame:displayCluster(superFunc, animal, husbandry)
-
     if g_currentMission.isRunning or Platform.isMobile then
-
         local animalSystem = g_currentMission.animalSystem
         local subTypeIndex = animal:getSubTypeIndex()
         local age = animal:getAge()
         local visual = animalSystem:getVisualByAge(subTypeIndex, age)
 
         if visual ~= nil then
-
             local subType = animal:getSubType()
 
             local name = animal:getName()
@@ -142,7 +148,6 @@ function RealisticLivestock_InGameMenuAnimalsFrame:displayCluster(superFunc, ani
             local animalInfo = husbandry:getAnimalInfos(animal)
 
             for a, b in ipairs(self.infoRow) do
-
                 local row = animalInfo[a]
                 b:setVisible(row ~= nil)
 
@@ -152,24 +157,20 @@ function RealisticLivestock_InGameMenuAnimalsFrame:displayCluster(superFunc, ani
                     self.infoValue[a]:setText(valueText)
                     self:setStatusBarValue(self.infoStatusBar[a], row.ratio, row.invertedBar, row.disabled)
                 end
-
             end
 
             local description = husbandry:getAnimalDescription(animal)
             self.detailDescriptionText:setText(description)
-
         end
-
     end
-
 end
 
-InGameMenuAnimalsFrame.displayCluster = Utils.overwrittenFunction(InGameMenuAnimalsFrame.displayCluster, RealisticLivestock_InGameMenuAnimalsFrame.displayCluster)
+InGameMenuAnimalsFrame.displayCluster = Utils.overwrittenFunction(InGameMenuAnimalsFrame.displayCluster,
+    RealisticLivestock_InGameMenuAnimalsFrame.displayCluster)
 
 
 
 function RealisticLivestock_InGameMenuAnimalsFrame:populateCellForItemInSection(_, subTypeIndex, animalIndex, cell)
-
     local subType = self.husbandrySubTypes[subTypeIndex]
     local animal = self.subTypeIndexToClusters[subType][animalIndex]
 
@@ -178,10 +179,11 @@ function RealisticLivestock_InGameMenuAnimalsFrame:populateCellForItemInSection(
         cell:getAttribute("name"):setText(RL_AnimalScreenBase.formatDisplayName(baseName, animal))
         cell:getAttribute("count"):setVisible(false)
     end
-
 end
 
-InGameMenuAnimalsFrame.populateCellForItemInSection = Utils.appendedFunction(InGameMenuAnimalsFrame.populateCellForItemInSection, RealisticLivestock_InGameMenuAnimalsFrame.populateCellForItemInSection)
+InGameMenuAnimalsFrame.populateCellForItemInSection = Utils.appendedFunction(
+InGameMenuAnimalsFrame.populateCellForItemInSection,
+    RealisticLivestock_InGameMenuAnimalsFrame.populateCellForItemInSection)
 
 
 -- Add RL_OPEN_ANIMAL_SCREEN to NAV_ACTIONS only while the animals frame is active,
