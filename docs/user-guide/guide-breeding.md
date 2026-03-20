@@ -48,7 +48,53 @@ Most males can breed with any female of their species, with two important except
 | All Stallions | Any horse colour |
 | All Roosters | Any hen |
 
-*Cross-breeding between different breeds of the same species is allowed (e.g., Angus bull × Holstein cow), except for breed-locked types.*
+*Cross-breeding between different breeds of the same species is allowed (e.g., Angus bull × Holstein cow), except for breed-locked types. See [Offspring Breed](#offspring-breed) below for what breed the offspring will be.*
+
+---
+
+## Offspring Breed
+
+When two different breeds produce offspring, each baby independently has a **50/50 chance** of inheriting either parent's breed. There is no visual blending — the offspring will look exactly like one parent's breed or the other.
+
+| Breeding Pair | Possible Offspring |
+|---------------|-------------------|
+| Angus bull × Holstein cow | Each calf: 50% Angus, 50% Holstein |
+| Highland bull × Hereford cow | Each calf: 50% Highland, 50% Hereford |
+| Landrace boar × Berkshire sow | Each piglet: 50% Landrace, 50% Berkshire |
+| Suffolk ram × Schwarzkopf ewe | Each lamb: 50% Suffolk, 50% Schwarzkopf |
+
+*Same-breed parents always produce same-breed offspring.*
+
+### Litters and Twins
+
+Each offspring rolls its breed independently. A Berkshire sow bred by a Landrace boar could produce a mixed litter — some piglets are Landrace, others are Berkshire. The same applies to sheep twins or cattle twins: each baby gets its own 50/50 roll.
+
+**Example:** A Berkshire sow produces a litter of 12 piglets sired by a Landrace boar. On average, about 6 will be Berkshire and 6 will be Landrace — but any specific litter might skew 8/4 or even 10/2 by chance, just like flipping a coin 12 times won't always give exactly 6 heads.
+
+### Artificial Insemination
+
+When using artificial insemination, offspring **always inherit the mother's breed**. The AI semen system doesn't carry breed information from a specific sire, so all offspring will be the same breed as their mother.
+
+If breed consistency matters to you, AI is a reliable way to ensure it.
+
+### Breed vs Genetics
+
+Don't confuse breed inheritance with genetic trait inheritance — they work differently:
+
+| Aspect | How It Works |
+|--------|-------------|
+| **Breed** (appearance) | 50/50 coin flip — one parent's breed or the other, no blending |
+| **Genetics** (traits) | Always blended from both parents, regardless of breed outcome |
+
+A Holstein calf from an Angus bull × Holstein cow cross inherits its Holstein appearance, but its productivity, health, fertility, and other genetic traits are still a blend of both the Angus father and the Holstein mother. The same applies in reverse for an Angus calf from the same pairing.
+
+*In other words: cross-breeding doesn't affect genetic inheritance. Your offspring's traits are always influenced by both parents — only the visual breed is one-or-the-other.*
+
+### Practical Tips
+
+1. **Want breed-pure offspring?** Use same-breed parents, or use artificial insemination.
+2. **Cross-breeding for genetics?** If the best bull in your pen is a different breed, the offspring will still inherit his genetic traits — they'll just look like one breed or the other.
+3. **Selling cross-bred litters?** Breed affects sell price (e.g., Berkshire pigs sell for more than Black Pied). In a mixed litter, each piglet's value depends on which breed it inherited.
 
 ---
 

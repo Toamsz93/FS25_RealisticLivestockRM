@@ -70,6 +70,59 @@ For the curious, here's the real science behind the simulation:
 
 ---
 
+## What breed will my cross-bred offspring be?
+
+**Short answer:** Each offspring independently has a 50/50 chance of being either parent's breed. There's no visual blending — the calf, piglet, or lamb will look exactly like one parent's breed or the other.
+
+### How it works
+
+When a male and female of different breeds produce offspring, the mod flips a coin for each baby:
+
+```mermaid
+flowchart TD
+    A["Offspring born"] --> B{"Artificial\ninsemination?"}
+    B -->|Yes| C["Always mother's breed"]
+    B -->|No| D{"Coin flip\n(per offspring)"}
+    D -->|50%| E["Father's breed"]
+    D -->|50%| F["Mother's breed"]
+```
+
+Each offspring in a litter or set of twins rolls independently, so siblings from the same birth can be different breeds. A Berkshire sow bred by a Landrace boar might produce a litter with a mix of Berkshire and Landrace piglets.
+
+### Artificial insemination is different
+
+When using artificial insemination (AI), offspring **always** inherit the mother's breed. The AI system doesn't carry breed-specific sire information, so there's no coin flip — it defaults to the mother's breed every time.
+
+If you want all offspring to match a specific breed, AI gives you that control.
+
+### Breed is not the same as genetics
+
+This is the most common point of confusion. Breed determines **appearance** — what the animal looks like. Genetics determine **traits** — productivity, health, fertility, quality, and metabolism.
+
+When cross-breeding:
+
+- **Breed:** One parent or the other (coin flip)
+- **Genetic traits:** Always a blend of both parents
+
+So an Angus calf born from an Angus bull × Holstein cow pairing will *look* Angus, but its milk productivity, health genetics, and other traits are still influenced by the Holstein mother. The breed coin flip doesn't affect genetic inheritance at all.
+
+### What about breed-locked animals?
+
+Water Buffalo and Goats can only breed within their own breed (see [Breed Restrictions](guide-breeding.md#breed-restrictions)), so the question of offspring breed doesn't arise — both parents are always the same breed.
+
+### Quick reference
+
+| Scenario | Offspring Breed |
+|----------|----------------|
+| Same-breed parents | Always that breed |
+| Different breeds, natural mating | 50% chance of either breed (per offspring) |
+| Different breeds, AI | Always mother's breed |
+| Breed-locked types | Always same breed (can only breed within breed) |
+
+See the [Breeding Guide](guide-breeding.md#offspring-breed) for examples and practical tips.
+
+---
+
 ## Can you add more breeds or animal types?
 
 **Short answer:** Ritter focuses on game mechanics, not 3D modelling, so new breeds created from scratch are unlikely. However, there are ways to get additional breeds working - and maps that include their own animals can be supported.
