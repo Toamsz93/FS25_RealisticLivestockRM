@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>1.1.2.0-dev.3</version>
+    <version>1.1.2.0-dev.8</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -23,6 +23,15 @@ Documentation: https://rittermod.github.io/FS25_RealisticLivestockRM
 Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivestockRM
 
 Changelog
+
+v1.1.2.0-dev:
+- Fixed: Animal list scroll position jumping every 5 seconds in the ESC menu animals tab
+- Fixed: Click sound playing every 5 seconds while viewing animal list
+- Fixed: Crash when husbandry doesn't register a pallet or milk fillType that its animals produce (e.g. EGG on modded maps)
+- Fixed: Animal model accumulation when maps redefine existing animal types (e.g. CHICKEN growing from 3 to 9 models)
+- Fixed: Base game reloads no longer clobber RLRM's superset animal configs (preserves DLC models and visual stages)
+- Fixed: Random death money compensation (33% sell price) now correctly reaches farm balance
+- Internal refactoring: split Animal.lua into focused modules (reproduction, health, persistence, serialization)
 
 v1.1.1.0:
 - Added version-aware map support: detects installed map version and loads the matching configuration

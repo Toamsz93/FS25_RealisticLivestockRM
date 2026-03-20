@@ -491,7 +491,7 @@ function RealisticLivestock_AnimalSystem:loadSubType(superFunc, animalType, subT
 
     local returnValue = superFunc(self, animalType, subType, xmlFile, key, directory)
 
-    -- Log visual indices for debugging RLRM-96
+    -- Log visual indices for debugging
     if subType.visuals ~= nil then
         for vi, visual in pairs(subType.visuals) do
             Log:trace("loadSubType: '%s' visual[%d] minAge=%s visualAnimalIndex=%s",

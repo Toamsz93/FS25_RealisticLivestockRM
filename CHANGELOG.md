@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.2.0-dev:
+- Fixed: Animal list scroll position jumping every 5 seconds in the ESC menu animals tab
+- Fixed: Click sound playing every 5 seconds while viewing animal list
+- Fixed: Crash when husbandry doesn't register a pallet or milk fillType that its animals produce (e.g. EGG on modded maps)
+- Fixed: Animal model accumulation when maps redefine existing animal types (e.g. CHICKEN growing from 3 to 9 models)
+- Fixed: Base game reloads no longer clobber RLRM's superset animal configs (preserves DLC models and visual stages)
+- Fixed: Random death money compensation (33% sell price) now correctly reaches farm balance
+- Internal refactoring: split Animal.lua into focused modules (reproduction, health, persistence, serialization)
+
 ## v1.1.1.0:
 - Added version-aware map support: detects installed map version and loads the matching configuration
 - Added warning dialog when an untested map version is detected (with link to report issues)

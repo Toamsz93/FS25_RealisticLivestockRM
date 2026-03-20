@@ -11,7 +11,7 @@
 
     NOTE: Serialization (writeStream/readStream), constructor (Animal.new),
     clone(), and all state fields remain in Animal.lua. writeStream/readStream
-    is MP protocol and version-locked (RLRM-76 scope).
+    is MP protocol and version-locked (serialization scope).
 ]]
 
 AnimalPersistence = {}
