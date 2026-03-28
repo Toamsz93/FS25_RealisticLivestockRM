@@ -41,7 +41,7 @@ If a conflicting mod is detected, the game will show a warning dialog at startup
 
 The mod automatically detects supported maps and their installed version, loading the matching configuration for exotic animals.
 
-- **Hof Bergmann** - Exotic animals (ducks, geese, cats, rabbits) fully supported with breeding and reproduction
+- **[Hof Bergmann](map-hof-bergmann.md)** - Ducks, geese, cats, rabbits, alpacas, and quail fully supported with breeding, genetics, and reproduction
 
 If a map updates to an untested version, you'll see a warning at game start - you're encouraged to report any issues.
 
@@ -72,6 +72,10 @@ In-depth explanations of the mod's core systems:
 - [Genetics](guide-genetics.md) - How traits work, inheritance, and the CVM gene
 - [Breeding & Reproduction](guide-breeding.md) - Breeding requirements, gestation, lactation, and complications
 - [Diseases](guide-diseases.md) - How diseases spread, treatment, immunity, and prevention
+
+### Map Support
+
+- [Hof Bergmann](map-hof-bergmann.md) - Exotic animals, supported versions, and known limitations
 
 ### FAQ
 

@@ -154,9 +154,9 @@ This is for advanced users comfortable with editing XML files. The animals will 
 
 ### Map-based animals
 
-When a map includes its own animal types, the mod can add built-in support with full breeding and reproduction. **Hof Bergmann** is the first example - its exotic animals (ducks, geese, cats, rabbits) are fully supported since v1.0.1.0.
+When a map includes its own animal types, the mod can add built-in support with full breeding and reproduction. **[Hof Bergmann](map-hof-bergmann.md)** is the first example - its exotic animals (ducks, geese, cats, rabbits, alpacas, and quail) are fully supported.
 
-Since v1.1.1.0, the mod uses **version-aware map support**. It detects which version of a supported map you have installed and loads the matching configuration automatically. This means:
+The mod uses **version-aware map support**. It detects which version of a supported map you have installed and loads the matching configuration automatically. This means:
 
 - **Tested version** - Everything works seamlessly. No action needed.
 - **Untested version** (e.g., the map author released an update before the mod was updated) - You'll see a warning dialog when the game starts. The warning includes a link to report problems so support can be added for the new version.
@@ -168,3 +168,53 @@ If you're playing a map with custom animals that aren't supported yet, [open an 
 Some breed packs floating around online are stolen copies of other mods with minor texture swaps. These are not supported and may cause conflicts. Stick to breed packs from known sources like the official [Farming Simulator mod hub](https://www.farming-simulator.com/mods.php?title=fs2025).
 
 If a good, proper animal package gains traction in the community, adding built-in support is something Ritter would consider.
+
+---
+
+## Why don't Hof Bergmann pasture bulls breed like cattle?
+
+**Short answer:** Hof Bergmann's pasture bulls are a completely different animal type from cattle. The game engine doesn't allow animals of different types to breed with each other, and this isn't something the mod can work around.
+
+### The technical reason
+
+In FS25, every animal belongs to an **animal type** — COW, PIG, SHEEP, CHICKEN, and so on. Breeding only works between animals of the same type. RLRM's cattle bulls (Holstein Bull, Angus Bull, etc.) are all subtypes of the **COW** type, which is why they can breed with cows.
+
+Hof Bergmann adds a separate **BULL** animal type for its decorative pasture bulls. As far as the game engine is concerned, a BULL-type animal and a COW-type animal are as different as a cow and a chicken. They have separate husbandries, separate slot systems, and no mechanism to interact.
+
+```mermaid
+flowchart LR
+    subgraph COW["COW Type (shared husbandry)"]
+        direction TB
+        HC["Holstein Cow"] ---|"can breed"| HB["Holstein Bull"]
+        AC["Angus Cow"] ---|"can breed"| AB["Angus Bull"]
+        HC --- AB
+        AC --- HB
+
+    end
+    subgraph BULL["BULL Type (separate husbandry)"]
+        PB["Pasture Bull"]
+    end
+    COW -.-x|"different types\ncannot interact"| BULL
+```
+
+### Why it can't be fixed in the mod
+
+There are two theoretical approaches, neither of which is practical:
+
+1. **Merge HB's BULL into the COW type** - This would require changing how the map assigns animals to husbandry buildings, pastures, and slot systems. That's a map-level change, not something a script mod can do.
+
+2. **Cross-type breeding** - Letting animals of different types breed with each other would require a fundamentally new system in the game engine. FS25 simply doesn't support it.
+
+### "Can't you just use the pasture bull models?"
+
+This is a natural question. The base game doesn't include separate bull 3D models — RLRM's breeding bulls (Holstein Bull, Angus Bull, etc.) reuse the female cow models, so visually they look the same as cows. Meanwhile, HB's pasture bulls have their own distinct bull visuals, which is exactly what you'd want on your breeding bulls.
+
+Unfortunately, each animal type loads its own set of 3D models from the map's configuration — the COW type has one model pool, the BULL type has a completely separate one. To use HB's bull models on COW-type animals, you'd have to rebuild the map's entire animal model loading infrastructure from a script mod and apply it on top. This is extremely brittle: any map update can shift model indices, causing wrong or missing visuals. It's not a reliable approach for a mod that needs to work across map versions.
+
+### What you still get
+
+The pasture bull still gets the full RLRM individual tracking treatment — it has a unique name, genetics, and identity. It just can't participate in the cattle breeding cycle.
+
+If you want bulls that breed with your cows, use the cattle bulls available in the cow husbandry (Holstein Bull, Angus Bull, etc.) — those are COW-type animals and work normally with the breeding system.
+
+For the full picture of what Hof Bergmann support includes, see [Hof Bergmann Map Support](map-hof-bergmann.md).

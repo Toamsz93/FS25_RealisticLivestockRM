@@ -124,7 +124,7 @@ Press **R** in the animal menu to open the animal screen. It has seven tabs:
 
 The mod includes built-in support for third-party maps that add exotic animal types. When you load a supported map, the mod automatically detects the installed map version and loads the matching configuration for full breeding and reproduction.
 
-- **Hof Bergmann** - Exotic animals (ducks, geese, cats, rabbits) are fully supported with breeding and reproduction
+- **[Hof Bergmann](map-hof-bergmann.md)** - Ducks, geese, cats, rabbits, alpacas, and quail fully supported with breeding, genetics, and reproduction. See the [dedicated page](map-hof-bergmann.md) for supported versions and known limitations (pasture bulls, dogs).
 
 If a map updates to a version that hasn't been tested yet, you'll see a warning dialog when the game starts. The dialog includes a link to report any problems.
 
@@ -149,5 +149,6 @@ Each species has a detailed factsheet with breed comparisons, production ranges,
 - [Genetics Guide](guide-genetics.md) - Trait ratings, breeding strategy, the CVM dilemma
 - [Disease Guide](guide-diseases.md) - Prevention, treatment, and immunity
 - [Breeding Guide](guide-breeding.md) - Fertility windows, offspring tables, lactation
+- [Hof Bergmann Map Support](map-hof-bergmann.md) - Exotic animals, supported versions, known limitations
 - [Settings Reference](reference-settings.md) - Every configurable option explained
 - [FAQ](faq.md) - Common questions about genetics inheritance, breeding, and more
