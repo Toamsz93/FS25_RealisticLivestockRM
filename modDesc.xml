@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>1.1.2.0-hb14b.2</version>
+    <version>1.1.2.0-dev.11</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -25,6 +25,9 @@ Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivest
 Changelog
 
 v1.1.2.0-dev:
+- Added Hof Bergmann 1.4 support with alpacas, quail, corrected chicken visuals, and Beta1/Beta2 version detection
+- Added cross-color alpaca breeding (any male color can breed with any female color)
+- Added user documentation page for Hof Bergmann map support (exotic animals, known limitations, FAQ)
 - Added: Exiting the RL animal screen returns to ingame menu animals tab when opened from there (instead of exiting to gameplay)
 - Added: RL animal screen opens on the Info tab by default when entered from ingame menu animals tab
 - Fixed: Animal list scroll position jumping every 5 seconds in the ESC menu animals tab
@@ -33,6 +36,8 @@ v1.1.2.0-dev:
 - Fixed: Animal model accumulation when maps redefine existing animal types (e.g. CHICKEN growing from 3 to 9 models)
 - Fixed: Base game reloads no longer clobber RLRM's superset animal configs (preserves DLC models and visual stages)
 - Fixed: Random death money compensation (33% sell price) now correctly reaches farm balance
+- Fixed: Bridge animal descriptions showing "Missing" in animal info dialog
+- Fixed: Pig ear tag errors on Hof Bergmann maps (silently skipped when model skeleton doesn't match)
 - Internal refactoring: split Animal.lua into focused modules (reproduction, health, persistence, serialization)
 
 v1.1.1.0:
