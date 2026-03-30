@@ -125,32 +125,29 @@ See the [Breeding Guide](guide-breeding.md#offspring-breed) for examples and pra
 
 ## Can you add more breeds or animal types?
 
-**Short answer:** Ritter focuses on game mechanics, not 3D modelling, so new breeds created from scratch are unlikely. However, there are ways to get additional breeds working - and maps that include their own animals can be supported.
+**Short answer:** Yes — the mod supports **[Animal Packs](guide-animal-packs.md)**, third-party mods that can add new breeds or adjust animal balance. Modders can create packs that range from simple balance tweaks to full breed additions with custom visuals.
 
-### Why the mod doesn't include new breeds
+### Animal Packs
+
+Animal packs are the recommended way to add breeds or customise animal properties. A pack is a standard FS25 mod that RLRM discovers and loads automatically — just enable it alongside the main mod. No manual XML editing required.
+
+Packs can:
+
+- **Add new breeds** with custom 3D models, textures, and store images
+- **Adjust balance** on existing breeds — prices, food consumption, production rates, reproduction timing
+
+See [Animal Packs](guide-animal-packs.md) for how to install and use them, or [Creating Animal Packs](guide-creating-packs.md) if you're a modder interested in making your own.
+
+### Why the mod doesn't include new breeds itself
 
 Creating animal breeds requires 3D models, textures, and animations - a completely different skill set from the scripting and game mechanics this mod focuses on. The mod works with whatever breeds the base game and DLCs provide (currently 7 cattle breeds, 3 pig breeds, 5 sheep/goat breeds, 8 horse colour variants, and chickens).
 
-### It's not just about the visuals
-
-Each breed in Realistic Livestock has detailed configuration in `animals.xml`: food consumption curves by age, production rates at different life stages, target weights, sell prices, breeding parameters, and more. Simply plugging in a third-party animal model without this tuning means the animal won't behave realistically - it would use generic default values, losing much of what makes the mod interesting.
-
-In other words, adding a breed properly is a two-part job:
+Each breed in Realistic Livestock has detailed configuration: food consumption curves by age, production rates at different life stages, target weights, sell prices, breeding parameters, and more. Adding a breed properly is a two-part job:
 
 1. **The 3D model** - visual appearance, textures, animations (modelling skill)
 2. **The simulation data** - realistic food, production, pricing, and breeding curves (XML configuration)
 
-Ritter can do part 2 but not part 1. Without a proper 3D model to work with, there's nothing to configure.
-
-### Third-party animal packages (advanced)
-
-The [FS25 Animal Package - Vanilla Edition](https://www.farming-simulator.com/mod.php?mod_id=333997&title=fs2025) is a proper third-party animal package with additional breeds. It can work with Realistic Livestock, but requires manual XML configuration:
-
-1. Merge the animal package's breed definitions into a single `animals.xml`
-2. Use the mod's [Custom Animals](reference-settings.md#custom-animals) setting to load your custom file
-3. See [Arrow-kb's compatibility guide](https://github.com/Arrow-kb/FS25_RealisticLivestock/discussions/335) for detailed setup instructions
-
-This is for advanced users comfortable with editing XML files. The animals will work but may not have fully tuned realistic characteristics unless you configure the production and consumption values yourself.
+Ritter can do part 2 but not part 1. The animal pack system makes it possible for modellers to handle part 1 while RLRM handles the integration.
 
 ### Map-based animals
 
@@ -163,11 +160,15 @@ The mod uses **version-aware map support**. It detects which version of a suppor
 
 If you're playing a map with custom animals that aren't supported yet, [open an issue](https://github.com/rittermod/FS25_RealisticLivestockRM/issues) and it can be considered.
 
+### Legacy: Custom Animals setting
+
+Before the pack system existed, the only way to add breeds was by manually merging XML files and loading them through the [Custom Animals](reference-settings.md#custom-animals) setting. This approach still works for singleplayer but has limitations — it requires manual XML editing, doesn't work in multiplayer, and replaces all animal definitions rather than layering on top.
+
+If you previously used this method, consider migrating to an animal pack instead.
+
 ### A note on unauthorized breed packs
 
 Some breed packs floating around online are stolen copies of other mods with minor texture swaps. These are not supported and may cause conflicts. Stick to breed packs from known sources like the official [Farming Simulator mod hub](https://www.farming-simulator.com/mods.php?title=fs2025).
-
-If a good, proper animal package gains traction in the community, adding built-in support is something Ritter would consider.
 
 ---
 

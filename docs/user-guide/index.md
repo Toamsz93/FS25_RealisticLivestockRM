@@ -48,8 +48,7 @@ If a map updates to an untested version, you'll see a warning at game start - yo
 ### Mod Compatibility
 
 - **FS25_ExtendedProductionPoint (EPP)** - Basic support for butchers using the EPP mod
-
-*Looking for more breeds or animal types? See the [FAQ](faq.md#can-you-add-more-breeds-or-animal-types).*
+- **Animal Packs** - Third-party mods can add new breeds or adjust animal balance. See [Animal Packs](guide-animal-packs.md).
 
 ## Documentation
 
@@ -76,6 +75,11 @@ In-depth explanations of the mod's core systems:
 ### Map Support
 
 - [Hof Bergmann](map-hof-bergmann.md) - Exotic animals, supported versions, and known limitations
+
+### Customization
+
+- [Animal Packs](guide-animal-packs.md) - Third-party packs for new breeds and balance adjustments
+- [Creating Packs](guide-creating-packs.md) - Technical reference for pack creators
 
 ### FAQ
 

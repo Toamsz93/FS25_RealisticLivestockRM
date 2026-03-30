@@ -41,7 +41,7 @@ RLMapBridge.maxFertilityAgeByGroup = {}
 
 --- Parse a version string into a structured version object with numeric tuple and optional suffix.
 --- Handles version strings with suffixes separated by space or dash (e.g. "1.4.0.0 Beta1", "1.4.0.0-RC1").
---- Dot-separated suffixes (e.g. "1.4.0.0.beta1") are NOT handled — "beta1" has no leading digits and
+--- Dot-separated suffixes (e.g. "1.4.0.0.beta1") are NOT handled  - "beta1" has no leading digits and
 --- is treated as malformed.
 --- @param versionStr string|nil Version string (e.g. "1.3.0.1" or "1.4.0.0 Beta1")
 --- @return table|nil version { tuple = {numbers}, suffix = string|nil }, or nil if input is nil/malformed
@@ -68,7 +68,7 @@ function RLMapBridge.parseVersion(versionStr)
                     trail, part, versionStr)
                 break  -- Suffix must be in the last component; stop processing
             else
-                -- No leading digits or no separator — malformed
+                -- No leading digits or no separator  - malformed
                 Log:debug("MapBridge: Non-numeric version component '%s' in '%s'", part, versionStr)
                 return nil
             end
@@ -104,7 +104,7 @@ function RLMapBridge.compareVersions(a, b)
         end
     end
 
-    -- Tuples equal — compare suffixes
+    -- Tuples equal  - compare suffixes
     -- nil (release) > any suffix (pre-release)
     if aSuffix == bSuffix then
         return 0
@@ -463,7 +463,142 @@ function RLMapBridge.loadBridgeFillTypes()
         end
     end
 
+    -- Phase 2: Scan for animal pack mods (rlrm_pack.xml)
+    RLMapBridge.scanAnimalPacks()
+
     Log:info("MapBridge: Fill type scan complete. %d bridge(s) activated.", #RLMapBridge.activeBridges)
+end
+
+
+--- Scan loaded mods for RLRM animal packs (rlrm_pack.xml descriptor).
+--- Animal packs are standalone FS25 mods that provide additional animal data
+--- (subtypes, fill types, translations, model configs) loaded additively by the bridge.
+--- Unlike map bridges, packs have no version resolution  - they are always "current".
+---
+--- Packs can range from full breed packs (new subtypes + models + fill types) to simple
+--- property overrides (custom prices, food consumption, production values). A property
+--- override pack needs only a modDesc.xml, rlrm_pack.xml, and an animals.xml with the
+--- properties to change  - no Lua, models, or fill types required.
+---
+--- Packs are loaded in alphabetical order by mod name. If multiple packs override the same
+--- property on the same subtype, the last one (alphabetically) wins. Users can control
+--- priority via naming (e.g. FS25_RLRM_ZZ_MyOverrides runs after FS25_RLRM_CowBreeds).
+function RLMapBridge.scanAnimalPacks()
+    Log:info("MapBridge: Scanning for animal packs...")
+
+    -- Sort mod names for deterministic load order (if multiple packs override
+    -- the same property, alphabetically last mod name wins  - predictable and reproducible)
+    local sortedModNames = {}
+    for loadedModName, _ in pairs(g_modIsLoaded) do
+        table.insert(sortedModNames, loadedModName)
+    end
+    table.sort(sortedModNames)
+
+    for _, loadedModName in ipairs(sortedModNames) do
+        local packModDir = g_modNameToDirectory[loadedModName]
+        if packModDir == nil then
+            -- Skip mods without a directory (shouldn't happen but guard defensively)
+        elseif loadedModName == modName then
+            -- Skip RLRM itself
+        else
+            local packXmlPath = packModDir .. "rlrm_pack.xml"
+            if fileExists(packXmlPath) then
+                local xmlFile = XMLFile.loadIfExists("RLAnimalPack", packXmlPath)
+                if xmlFile ~= nil then
+                    local packName = xmlFile:getString("rlrmPack#name", loadedModName)
+                    local packAuthor = xmlFile:getString("rlrmPack#author", "")
+                    local packVersion = xmlFile:getString("rlrmPack#version", "")
+
+                    local animalsPath = xmlFile:getString("rlrmPack.animals#path")
+                    local fillTypesPath = xmlFile:getString("rlrmPack.fillTypes#path")
+                    local translationsPrefix = xmlFile:getString("rlrmPack.translations#prefix")
+
+                    xmlFile:delete()
+
+                    Log:info("MapBridge: Animal pack '%s' v%s by %s DETECTED (%s)",
+                        packName, packVersion, packAuthor, loadedModName)
+
+                    -- Build bridge entry compatible with existing loading functions
+                    local bridge = {
+                        modName = loadedModName,
+                        name = packName,
+                        isPack = true,
+                        packModDir = packModDir,
+                        packAnimalsPath = animalsPath,
+                        packFillTypesPath = fillTypesPath,
+                        packTranslationsPrefix = translationsPrefix,
+                        -- Set resolvedConfigPath to packModDir so bridge loading functions
+                        -- can build paths relative to the pack's root
+                        resolvedConfigPath = ""
+                    }
+
+                    -- Load translations before fill types ($l10n_ keys need to resolve)
+                    if translationsPrefix ~= nil then
+                        RLMapBridge.loadPackTranslations(bridge)
+                    end
+
+                    -- Load fill types
+                    if fillTypesPath ~= nil then
+                        local fullFillTypesPath = packModDir .. fillTypesPath
+                        Log:debug("MapBridge: Pack fill types path: '%s'", fullFillTypesPath)
+
+                        local xml = loadXMLFile("packFillTypes", fullFillTypesPath)
+                        if xml ~= nil then
+                            g_fillTypeManager:loadFillTypes(xml, packModDir, false, modName)
+                            Log:info("MapBridge: Fill types loaded successfully for pack '%s'", packName)
+                        else
+                            Log:warning("MapBridge: Failed to load fill types XML at '%s'", fullFillTypesPath)
+                        end
+                    end
+
+                    table.insert(RLMapBridge.activeBridges, bridge)
+                    Log:info("MapBridge: Animal pack '%s' activated", packName)
+                else
+                    Log:warning("MapBridge: Found rlrm_pack.xml for '%s' but failed to parse", loadedModName)
+                end
+            end
+        end
+    end
+end
+
+
+--- Load translations for an animal pack.
+--- Uses the pack's translations prefix (e.g. "translations/translation") to find language files.
+--- Translations are written to the GLOBAL I18N table (same as map bridge translations).
+---@param bridge table Bridge entry with isPack=true
+function RLMapBridge.loadPackTranslations(bridge)
+    local prefix = bridge.packModDir .. bridge.packTranslationsPrefix
+
+    local xmlFile = nil
+    for _, lang in ipairs({ g_languageShort, "en", "de" }) do
+        local path = prefix .. "_" .. lang .. ".xml"
+        if fileExists(path) then
+            xmlFile = XMLFile.load("packL10n", path)
+            if xmlFile ~= nil then
+                Log:info("MapBridge: Loading pack translations for '%s' (lang=%s)", bridge.name, lang)
+                break
+            end
+        end
+    end
+
+    if xmlFile == nil then
+        Log:warning("MapBridge: No translation files found for pack '%s'", bridge.name)
+        return
+    end
+
+    local count = 0
+    for _, key in xmlFile:iterator("l10n.texts.text") do
+        local name = xmlFile:getString(key .. "#name")
+        local text = xmlFile:getString(key .. "#text")
+
+        if name ~= nil and text ~= nil then
+            _G.g_i18n.texts[name] = text
+            count = count + 1
+        end
+    end
+
+    xmlFile:delete()
+    Log:info("MapBridge: Loaded %d pack translation(s) for '%s'", count, bridge.name)
 end
 
 
@@ -480,14 +615,30 @@ function RLMapBridge.loadBridgeAnimals(animalSystem)
     for _, bridge in ipairs(RLMapBridge.activeBridges) do
         Log:info("MapBridge: Loading bridge animals for '%s'...", bridge.name)
 
-        -- Resolve the map mod's directory for image path resolution
-        local mapModDir = g_modNameToDirectory[bridge.modName]
-        if mapModDir == nil then
-            Log:warning("MapBridge: Could not resolve mod directory for '%s', using RLRM directory", bridge.modName)
-            mapModDir = modDirectory
+        -- Resolve mod directory and animals path depending on bridge type
+        local mapModDir, animalsPath
+
+        if bridge.isPack then
+            -- Animal pack: files in pack mod's directory, animals path from descriptor
+            mapModDir = bridge.packModDir
+            if bridge.packAnimalsPath ~= nil then
+                animalsPath = bridge.packModDir .. bridge.packAnimalsPath
+            end
+        else
+            -- Map bridge: files in RLRM's mod_support directory, map mod dir for images
+            mapModDir = g_modNameToDirectory[bridge.modName]
+            if mapModDir == nil then
+                Log:warning("MapBridge: Could not resolve mod directory for '%s', using RLRM directory", bridge.modName)
+                mapModDir = modDirectory
+            end
+            animalsPath = modDirectory .. bridge.resolvedConfigPath .. "animals.xml"
         end
 
-        local animalsPath = modDirectory .. bridge.resolvedConfigPath .. "animals.xml"
+        if animalsPath == nil then
+            Log:info("MapBridge: No animals path for '%s', skipping animal loading", bridge.name)
+            continue
+        end
+
         Log:debug("MapBridge: Animals path: '%s', image base dir: '%s'", animalsPath, mapModDir)
 
         local xmlFile = XMLFile.load("bridgeAnimals", animalsPath)
@@ -497,6 +648,13 @@ function RLMapBridge.loadBridgeAnimals(animalSystem)
         else
             -- Apply config overrides BEFORE loading subtypes so C++ has correct model configs
             RLMapBridge.loadConfigOverrides(animalSystem, xmlFile, mapModDir, bridge.name)
+
+            -- Reload Lua-side model data if configOverride changed the config path,
+            -- then re-link existing subtypes' visual references to the new model objects.
+            RLMapBridge.reloadModelsAfterConfigOverride(animalSystem, xmlFile, mapModDir, bridge.name)
+
+            -- Register breed display names and marker colours before loading subtypes
+            RLMapBridge.loadBreedMetadata(xmlFile, bridge.name)
 
             local subtypesAdded = 0
             local subtypesSkipped = 0
@@ -555,6 +713,55 @@ function RLMapBridge.loadBridgeAnimals(animalSystem)
             Log:info("MapBridge: Bridge loading complete for '%s': %d subtypes added, %d type entries with no new subtypes",
                 bridge.name, subtypesAdded, subtypesSkipped)
         end
+    end
+end
+
+
+--- Load breed metadata from bridge XML.
+--- Registers breed display names and marker colours so the GUI can show them properly.
+--- Format: <breeds><breed name="CHAROLAIS" displayName="$l10n_breed_charolais" markerColour="0.9 0.8 0.6"/></breeds>
+---@param xmlFile table XMLFile handle
+---@param bridgeName string Human-readable bridge name for logging
+function RLMapBridge.loadBreedMetadata(xmlFile, bridgeName)
+    local count = 0
+
+    for _, key in xmlFile:iterator("animals.breeds.breed") do
+        local name = xmlFile:getString(key .. "#name")
+        if name == nil then
+            Log:warning("MapBridge: Breed metadata missing 'name' attribute, skipping")
+        else
+            name = name:upper()
+
+            local displayName = xmlFile:getString(key .. "#displayName")
+            if displayName ~= nil then
+                -- Resolve $l10n_ references from global I18N table (bridge/pack translations live there,
+                -- not in the mod proxy, so g_i18n:convertText won't find them)
+                if string.startsWith(displayName, "$l10n_") then
+                    local l10nKey = string.sub(displayName, 7)
+                    displayName = _G.g_i18n.texts[l10nKey] or displayName
+                end
+                AnimalSystem.BREED_TO_NAME[name] = displayName
+                Log:info("MapBridge: Registered breed '%s' displayName='%s'", name, displayName)
+            end
+
+            local markerColourStr = xmlFile:getString(key .. "#markerColour")
+            if markerColourStr ~= nil then
+                local parts = string.split(markerColourStr, " ")
+                if #parts >= 3 then
+                    local r = tonumber(parts[1]) or 1
+                    local g = tonumber(parts[2]) or 1
+                    local b = tonumber(parts[3]) or 1
+                    AnimalSystem.BREED_TO_MARKER_COLOUR[name] = { r, g, b }
+                    Log:info("MapBridge: Registered breed '%s' markerColour={%.2f, %.2f, %.2f}", name, r, g, b)
+                end
+            end
+
+            count = count + 1
+        end
+    end
+
+    if count > 0 then
+        Log:info("MapBridge: Loaded %d breed metadata entry/entries for '%s'", count, bridgeName)
     end
 end
 
@@ -638,6 +845,71 @@ function RLMapBridge.loadConfigOverrides(animalSystem, xmlFile, mapModDir, bridg
 
     if overrideCount > 0 then
         Log:info("MapBridge: Applied %d config override(s) for '%s'", overrideCount, bridgeName)
+    end
+end
+
+
+--- Reload Lua-side model data after a configOverride changed animalType.configFilename.
+--- The C++ engine reads configFilename directly, but the Lua side maintains a parallel
+--- animalType.animals[] array with variation data for texture selection.
+--- After replacing the config, this function:
+---   1. Clears and reloads animalType.animals from the new config
+---   2. Re-links existing subtypes' visual.visualAnimal references to the new model objects
+---
+--- Only processes animal types that have a configOverride in the bridge XML.
+---@param animalSystem table The AnimalSystem instance
+---@param xmlFile table XMLFile handle
+---@param mapModDir string Mod directory for resolving i3d paths in the config
+---@param bridgeName string Human-readable bridge name for logging
+function RLMapBridge.reloadModelsAfterConfigOverride(animalSystem, xmlFile, mapModDir, bridgeName)
+    for _, key in xmlFile:iterator("animals.configOverrides.override") do
+        local rawTypeName = xmlFile:getString(key .. "#type")
+        if rawTypeName == nil then continue end
+
+        local typeName = rawTypeName:upper()
+        local animalType = animalSystem.nameToType[typeName]
+        if animalType == nil then continue end
+
+        -- Clear and reload model data from the new config
+        local oldCount = #animalType.animals
+        animalType.animals = {}
+        animalSystem:loadAnimalConfig(animalType, mapModDir, animalType.configFilename)
+        local newCount = #animalType.animals
+
+        Log:info("MapBridge: Reloaded models for '%s': %d -> %d animals from '%s'",
+            typeName, oldCount, newCount, bridgeName)
+
+        -- Re-link existing subtypes' visual.visualAnimal references
+        for _, subTypeIndex in ipairs(animalType.subTypes) do
+            local subType = animalSystem.subTypes[subTypeIndex]
+            if subType ~= nil and subType.visuals ~= nil then
+                Log:trace("MapBridge: Re-linking visuals for subType '%s' (%d visual stages)",
+                    subType.name, #subType.visuals)
+                for _, visual in pairs(subType.visuals) do
+                    if visual.visualAnimalIndex ~= nil and animalType.animals[visual.visualAnimalIndex] ~= nil then
+                        visual.visualAnimal = animalType.animals[visual.visualAnimalIndex]
+                        -- Re-apply texture filtering if textureIndexes are set
+                        if visual.textureIndexes ~= nil then
+                            local filteredAnimal = table.clone(visual.visualAnimal, 10)
+                            filteredAnimal.variations = {}
+                            for _, textureIndex in pairs(visual.textureIndexes) do
+                                if visual.visualAnimal.variations[textureIndex] ~= nil then
+                                    table.insert(filteredAnimal.variations, visual.visualAnimal.variations[textureIndex])
+                                end
+                            end
+                            if #filteredAnimal.variations > 0 then
+                                visual.visualAnimal = filteredAnimal
+                                Log:trace("MapBridge: '%s' minAge=%d: re-filtered to %d variation(s) via textureIndexes",
+                                    subType.name, visual.minAge, #filteredAnimal.variations)
+                            end
+                        end
+                    else
+                        Log:warning("MapBridge: SubType '%s' visual has invalid index %s after model reload for '%s'",
+                            subType.name, tostring(visual.visualAnimalIndex), bridgeName)
+                    end
+                end
+            end
+        end
     end
 end
 
@@ -962,7 +1234,7 @@ function RLMapBridge.applySubTypeOverrides(subType, animalSystem, xmlFile, key, 
                 end
 
                 if matchedVisual == nil then
-                    -- No existing stage at this minAge — insert a new visual stage
+                    -- No existing stage at this minAge  - insert a new visual stage
                     local newIndex = xmlFile:getInt(visualKey .. "#visualAnimalIndex")
                     if newIndex == nil or animalType == nil then
                         Log:warning("MapBridge: Visual insert for '%s' minAge=%d missing visualAnimalIndex, skipping", subTypeName, minAge)
@@ -1022,6 +1294,33 @@ function RLMapBridge.applySubTypeOverrides(subType, animalSystem, xmlFile, key, 
                     local newCanBeBought = xmlFile:getBool(visualKey .. "#canBeBought")
                     if newCanBeBought ~= nil then
                         matchedVisual.store.canBeBought = newCanBeBought
+                    end
+
+                    -- textureIndexes override: restrict which texture variations this subtype uses
+                    if xmlFile:hasProperty(visualKey .. ".textureIndexes") then
+                        local newTextureIndexes = {}
+                        xmlFile:iterate(visualKey .. ".textureIndexes.value", function(_, tiKey)
+                            table.insert(newTextureIndexes, xmlFile:getInt(tiKey, 1))
+                        end)
+
+                        if #newTextureIndexes > 0 then
+                            matchedVisual.textureIndexes = newTextureIndexes
+
+                            -- Re-filter variations using the base (unfiltered) visual animal
+                            local baseAnimal = animalType ~= nil and animalType.animals[matchedVisual.visualAnimalIndex] or nil
+                            if baseAnimal ~= nil then
+                                local filteredAnimal = table.clone(baseAnimal, 10)
+                                filteredAnimal.variations = {}
+                                for _, textureIndex in pairs(newTextureIndexes) do
+                                    if baseAnimal.variations[textureIndex] ~= nil then
+                                        table.insert(filteredAnimal.variations, baseAnimal.variations[textureIndex])
+                                    end
+                                end
+                                if #filteredAnimal.variations > 0 then
+                                    matchedVisual.visualAnimal = filteredAnimal
+                                end
+                            end
+                        end
                     end
 
                     visualOverrides = visualOverrides + 1

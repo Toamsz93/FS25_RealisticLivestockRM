@@ -1,6 +1,7 @@
 # Changelog
 
 ## v1.1.2.0-dev:
+- Added animal pack system: third-party mods can add breeds, override animal properties, or provide custom balance
 - Added Hof Bergmann 1.4 support with alpacas, quail, corrected chicken visuals, and Beta1/Beta2 version detection
 - Added cross-color alpaca breeding (any male color can breed with any female color)
 - Added user documentation page for Hof Bergmann map support (exotic animals, known limitations, FAQ)
