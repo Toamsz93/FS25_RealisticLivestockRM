@@ -926,7 +926,7 @@ function RealisticLivestock.hasMaleAnimalInPen(spec, subT, female)
                 end
 
                 if eligible then
-                    Log:debug("hasMaleAnimalInPen: Found eligible male '%s' (age=%d, maxAge=%s) for female subType '%s'",
+                    Log:trace("hasMaleAnimalInPen: Found eligible male '%s' (age=%d, maxAge=%s) for female subType '%s'",
                         s.name, animal.age, tostring(bridgeMaxAge or "base"), subT)
                     return true
                 else
