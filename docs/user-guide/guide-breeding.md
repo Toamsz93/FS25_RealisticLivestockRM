@@ -32,6 +32,8 @@ For reproduction to occur, ALL of the following must be true:
 
 > **Critical insight:** Males retire from breeding much earlier than females in some species! Boars stop at 4 years while sows breed until 8. Rams stop at 6 years while ewes breed until 10. Plan male replacements early.
 
+> **Genetics matter:** A male's maximum breeding age is scaled by his fertility genetics. A bull with high fertility may breed well beyond 11 years, while one with poor fertility may retire much sooner. The ages above assume average genetics.
+
 ---
 
 ## Breed Restrictions
@@ -61,7 +63,7 @@ When two different breeds produce offspring, each baby independently has a **50/
 | Angus bull × Holstein cow | Each calf: 50% Angus, 50% Holstein |
 | Highland bull × Hereford cow | Each calf: 50% Highland, 50% Hereford |
 | Landrace boar × Berkshire sow | Each piglet: 50% Landrace, 50% Berkshire |
-| Suffolk ram × Schwarzkopf ewe | Each lamb: 50% Suffolk, 50% Schwarzkopf |
+| Landrace ram × Steinschaf ewe | Each lamb: 50% Landrace, 50% Steinschaf |
 
 *Same-breed parents always produce same-breed offspring.*
 

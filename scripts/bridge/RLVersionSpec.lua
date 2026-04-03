@@ -123,7 +123,7 @@ function RLVersionSpec.parseVersion(versionStr)
                 end
                 suffix = table.concat(remaining, ".")
             else
-                -- No leading digits — part + remaining parts are the suffix
+                -- No leading digits - part + remaining parts are the suffix
                 -- e.g., "beta1" from "1.4.0.0.beta1", or "b" from "1.4.0.0.b.1"
                 local remaining = {}
                 for j = i, #parts do
@@ -163,7 +163,7 @@ end
 --- @param b table Version object or plain tuple
 --- @return number result Negative if a < b, 0 if equal, positive if a > b
 function RLVersionSpec.compareVersions(a, b)
-    -- Extract tuple, suffix, and pre — supporting both formats
+    -- Extract tuple, suffix, and pre - supporting both formats
     local aTuple = a.tuple or a
     local aSuffix = a.tuple and a.suffix or nil
     local aPre = a.tuple and a.pre or nil
@@ -180,7 +180,7 @@ function RLVersionSpec.compareVersions(a, b)
         end
     end
 
-    -- Tuples equal — compare pre-release status
+    -- Tuples equal - compare pre-release status
     -- nil (release) > any suffix (pre-release)
     if aSuffix == nil and bSuffix == nil then
         return 0
@@ -190,7 +190,7 @@ function RLVersionSpec.compareVersions(a, b)
         return -1 -- a has suffix, b is release → a < b
     end
 
-    -- Both have suffixes — use normalized pre-release comparison when available
+    -- Both have suffixes - use normalized pre-release comparison when available
     if aPre ~= nil and bPre ~= nil then
         if aPre.typeOrder ~= bPre.typeOrder then
             return aPre.typeOrder - bPre.typeOrder

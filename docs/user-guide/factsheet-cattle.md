@@ -50,7 +50,7 @@ xychart-beta
     title "Swiss Brown Milk Output (average genetics, lactating)"
     x-axis "Age (months)" [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
     y-axis "Litres / day" 0 --> 300
-    line [180, 218, 255, 255, 255, 255, 225, 195, 158, 110]
+    line [180, 180, 255, 255, 255, 255, 219, 183, 146, 110]
 ```
 
 *Chart shows Swiss Brown as a representative mid-range breed with average genetics. Holstein produces more, beef breeds produce less - see the table above for per-breed ranges.*
@@ -89,9 +89,9 @@ Bulls consistently sell for more than cows at all ages. Beef breeds (Angus, Limo
 | Quality genetics | Better genetics → noticeably higher price |
 | Weight | Well-fed animals near target weight are worth more |
 | Health | Healthy animals sell for significantly more |
-| Lactating | Small price bonus |
+| Lactating | Moderate price bonus |
 | Pregnant | Moderate price bonus |
-| Castrated | Small price bonus |
+| Castrated | Moderate price bonus |
 | Diseases | Can substantially reduce price |
 
 ---

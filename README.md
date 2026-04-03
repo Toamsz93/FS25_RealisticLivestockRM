@@ -28,9 +28,18 @@ This is a maintained version of the original mod by Arrow-kb, who has discontinu
 - Daily summary mode for message log
 - In-game help pages covering monitors, pregnancy, production, weight, and genetics
 - Highland cattle bull support
-- Map support: Hof Bergmann (ducks, geese, cats, rabbits) with automatic version-aware compatibility
+- Animal pack system: third-party mods can add new breeds or adjust animal balance
+- Map support: Hof Bergmann (ducks, geese, cats, rabbits, alpacas, quail) with automatic version-aware compatibility
 - Simple support for butchers using Extended Production Point (EPP) mod
 - Multiplayer support (server-authoritative)
+
+## Supported Maps & Packs
+
+**Maps:**
+- [Hof Bergmann](https://www.lsfarming-mods.com/) — ducks, geese, cats, rabbits, alpacas, quail with full breeding support
+
+**Animal Packs:**
+- [Cow Breeds Pack for RLRM](https://github.com/ConGan98/FS25_CowBreedsRLRM) by ConGan98 — additional cattle breeds
 
 ## Notes
 

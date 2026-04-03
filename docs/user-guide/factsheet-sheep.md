@@ -92,7 +92,7 @@ Sheep and goat prices peak at 36 months and stay at that level for older animals
 | Quality genetics | Better genetics → noticeably higher price |
 | Weight | Well-fed animals near target weight are worth more |
 | Health | Healthy animals sell for significantly more |
-| Lactating | Small price bonus |
+| Lactating (goats only) | Moderate price bonus |
 | Pregnant | Moderate price bonus |
 | Diseases | Can substantially reduce price |
 

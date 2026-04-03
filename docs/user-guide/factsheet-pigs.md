@@ -42,8 +42,9 @@ Pig prices peak at 24 months and stay at that level for older animals (unlike ca
 | Quality genetics | Better genetics → noticeably higher price |
 | Weight | Well-fed animals near target weight are worth more |
 | Health | Healthy animals sell for significantly more |
-| Castrated | Small price bonus |
-| Foot & Mouth | Substantially reduces price |
+| Pregnant | Moderate price bonus |
+| Castrated | Moderate price bonus |
+| Diseases | Can substantially reduce price |
 
 ### Buy Prices
 
@@ -71,7 +72,7 @@ Pigs produce only manure and liquid manure - no milk, wool, or eggs. Their value
 
 ## Food & Water by Breed
 
-Genetics significantly affect how much each animal eats - some are naturally much more efficient than others. Lactating sows eat considerably more, and the Food Scale setting also adjusts consumption.
+Genetics significantly affect how much each animal eats - some are naturally much more efficient than others. The Food Scale setting also adjusts consumption.
 
 ### Food Consumption Range (L/day)
 
@@ -160,7 +161,7 @@ Pig litters are the largest of any animal. Healthy sows at prime age almost alwa
 | Disease | Spread | Fatal? | Treatment | Impact |
 |---------|--------|--------|-----------|--------|
 | **Foot & Mouth** | Moderately | Yes | Slow, moderate cost | Major price loss |
-| **PED** | Moderately | Yes, devastating to newborns | Quick, affordable | Increased manure output |
+| **PED** | Moderately | Yes, devastating to newborns | Quick, affordable | Severe diarrhea (liquid manure surge, solid manure drops) |
 
 > **PED warning:** Porcine Epidemic Diarrhea is extremely fatal in newborn piglets. In a large herd, a PED outbreak can wipe out an entire generation of offspring. Older pigs survive easily. See the [Disease Guide](guide-diseases.md).
 

@@ -24,7 +24,7 @@ local Log = RmLogging.getLogger("RLRM")
 -- =============================================================================
 
 --- Load an animal from XML save data.
---- Static function — creates and returns a new Animal from saved XML fields.
+--- Static function - creates and returns a new Animal from saved XML fields.
 --- Handles both legacy (int subType) and current (string subType) formats.
 --- Recursively loads pregnancy children via AnimalPersistence.loadFromXMLFile.
 --- @param xmlFile table XMLFile object

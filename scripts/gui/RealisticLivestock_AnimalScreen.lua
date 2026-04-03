@@ -43,7 +43,7 @@ function RealisticLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
 	g_animalScreen:setController(husbandry, vehicle, isDealer)
 	g_gui:showGui("AnimalScreen")
 
-	-- Reset flag — callers set this after show() if Esc should reopen InGameMenu
+	-- Reset flag - callers set this after show() if Esc should reopen InGameMenu
 	g_animalScreen.openedFromInGameMenu = false
 
 end
@@ -2239,7 +2239,7 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
         local baseMessage = RLMessage[message.id]
 
         if baseMessage == nil then
-            Log:warning("Unknown message id '%s' (date=%s) — skipping render", tostring(message.id), tostring(message.date))
+            Log:warning("Unknown message id '%s' (date=%s) - skipping render", tostring(message.id), tostring(message.date))
             cell:getAttribute("message"):setText("Unknown: " .. tostring(message.id))
             cell:getAttribute("type"):setText("?")
             cell:getAttribute("date"):setText(message.date or "")

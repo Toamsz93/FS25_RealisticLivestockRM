@@ -188,7 +188,7 @@ end
 
 
 --- Compute state hash for dirty-checking (network sync).
---- NOT an identity hash — encodes age + health + reproduction + subTypeIndex.
+--- NOT an identity hash - encodes age + health + reproduction + subTypeIndex.
 ---@param animal table Animal object with age, health, reproduction, subTypeIndex fields
 ---@return number hash State hash value
 function RLAnimalUtil.getHash(animal)

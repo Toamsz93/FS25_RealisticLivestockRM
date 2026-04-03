@@ -110,7 +110,7 @@ function AnimalScreenMoveFarm.getValidDestinations(sourceHusbandry, farmId, anim
             Log:trace("  husbandry: '%s' (%d/%d)", entry.name, currentCount, maxCount)
 
         elseif placeable.spec_extendedProductionPoint ~= nil then
-            -- EPP (butcher) — methods live on the production point, not the placeable
+            -- EPP (butcher) - methods live on the production point, not the placeable
             local eppSpec = placeable.spec_extendedProductionPoint
             local pp = eppSpec.productionPoint
 

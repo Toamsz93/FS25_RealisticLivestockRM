@@ -184,7 +184,7 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 				Log:trace("loadAnimals: skipping base game config reload for existing type '%s' (keeping %d models)",
 					name, #animalType.animals)
 
-				-- Still process map subtypes — map may define new subtypes for existing types
+				-- Still process map subtypes - map may define new subtypes for existing types
 				-- (e.g. COW_JERSEY on Witcombe) using RLRM's bundled model config
 				local beforeCount = #self.subTypes
 				self:loadSubTypes(animalType, xmlFile, key, directory)
@@ -1149,7 +1149,7 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
         monthsSinceLastBirth = math.random(0, viableReproductionMonths)
     end
 
-    -- RLRM-117: Guard against pregnancy for non-reproductive subtypes (e.g. BULL, DOG).
+    -- Guard against pregnancy for non-reproductive subtypes (e.g. BULL, DOG).
     -- Without this, gender auto-detection mismatches can create pregnant males.
     if subType.supportsReproduction and animalGender == "female" and age - subType.reproductionMinAgeMonth >= 0 and math.random() >= 0.95 then
         isPregnant = true
@@ -1238,7 +1238,7 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
             local gender = math.random() >= 0.5 and "male" or "female"
             local childSubTypeIndex = subTypeIndex + (gender == "male" and 1 or 0)
 
-            -- RLRM-116: Validate subtype index — the +1 arithmetic assumes adjacent
+            -- Validate subtype index - the +1 arithmetic assumes adjacent
             -- male/female subtypes, which fails for bridge-added exotic types.
             local candidateSubType = self:getSubTypeByIndex(childSubTypeIndex)
 

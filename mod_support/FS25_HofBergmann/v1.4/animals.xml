@@ -465,7 +465,7 @@
         </subType>
     </animal>
 
-    <!-- DUCKWILD: new male subtype (RLRM-116) -->
+    <!-- DUCKWILD: new male subtype -->
     <!-- Wild ducks use the same duck visual config as DUCK -->
     <animal type="DUCKWILD">
         <!-- Override: set breed on existing female for breeding group compatibility -->

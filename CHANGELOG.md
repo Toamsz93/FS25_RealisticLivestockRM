@@ -1,20 +1,25 @@
 # Changelog
 
-## v1.1.2.0-dev:
-- Added animal pack system: third-party mods can add breeds, override animal properties, or provide custom balance
-- Added Hof Bergmann 1.4 support with alpacas, quail, corrected chicken visuals, and Beta1/Beta2 version detection
+## v1.1.2.0
+- Added animal pack system: third-party mods can add breeds, override animal properties, or provide custom balance via rlrm_pack.xml
+- Added Hof Bergmann 1.4 support with alpacas, quail, corrected chicken visuals, and version detection
 - Added cross-color alpaca breeding (any male color can breed with any female color)
-- Added user documentation page for Hof Bergmann map support (exotic animals, known limitations, FAQ)
-- Added: Exiting the RL animal screen returns to ingame menu animals tab when opened from there (instead of exiting to gameplay)
+- Added user documentation for Hof Bergmann map support (exotic animals, known limitations, FAQ)
+- Added: Exiting the RL animal screen returns to ingame menu animals tab when opened from there
 - Added: RL animal screen opens on the Info tab by default when entered from ingame menu animals tab
 - Fixed: Animal list scroll position jumping every 5 seconds in the ESC menu animals tab
 - Fixed: Click sound playing every 5 seconds while viewing animal list
-- Fixed: Crash when husbandry doesn't register a pallet or milk fillType that its animals produce (e.g. EGG on modded maps)
-- Fixed: Animal model accumulation when maps redefine existing animal types (e.g. CHICKEN growing from 3 to 9 models)
-- Fixed: Base game reloads no longer clobber RLRM's superset animal configs (preserves DLC models and visual stages)
+- Fixed: Crash when husbandry doesn't register a pallet or milk fillType that its animals produce
+- Fixed: Animal model accumulation when maps redefine existing animal types
+- Fixed: Base game reloads no longer clobber RLRM's superset animal configs
 - Fixed: Random death money compensation (33% sell price) now correctly reaches farm balance
 - Fixed: Bridge animal descriptions showing "Missing" in animal info dialog
-- Fixed: Pig ear tag errors on Hof Bergmann maps (silently skipped when model skeleton doesn't match)
+- Fixed: Pig ear tag errors on Hof Bergmann maps
+- Fixed: Sale animals of non-reproductive subtypes (e.g. bulls, dogs) could incorrectly become pregnant
+- Fixed: Bridge animals' offspring could receive wrong breed when using non-standard subtype layout
+- Fixed: Map-defined subtypes for existing animal types not loading alongside base game configs
+- Improved Italian translation (community contribution)
+- Improved German translation (community contribution)
 - Internal refactoring: split Animal.lua into focused modules (reproduction, health, persistence, serialization)
 
 ## v1.1.1.0:

@@ -101,7 +101,7 @@ function RLMapBridge.resolveVersionConfig(mapVersion, configs)
     end
 
     -- Step 1: Exact match using raw version strings (not parsed tuples)
-    -- Exact matches take priority over range specs — a pre-release version explicitly listed
+    -- Exact matches take priority over range specs - a pre-release version explicitly listed
     -- in a config (e.g. "1.4.0.0 Beta1") should resolve there, not get caught by another
     -- config's range (e.g. ">=1.3.0.1,<1.4.0.0" would match Beta1 since Beta < release).
     if mapVersion ~= nil then
@@ -115,7 +115,7 @@ function RLMapBridge.resolveVersionConfig(mapVersion, configs)
         end
     end
 
-    -- Step 2: Version spec match — check configs with range specifiers
+    -- Step 2: Version spec match - check configs with range specifiers
     if mapVersion ~= nil then
         for _, cd in ipairs(configData) do
             for _, spec in ipairs(cd.versionSpecs) do

@@ -62,5 +62,10 @@ nav:
       - Genetics: guide-genetics.md
       - Breeding & Reproduction: guide-breeding.md
       - Diseases: guide-diseases.md
+      - Animal Packs: guide-animal-packs.md
+  - Maps:
+      - Hof Bergmann: map-hof-bergmann.md
+  - Customize:
+      - Creating Animal Packs: guide-creating-packs.md
   - FAQ: faq.md
   - Settings Reference: reference-settings.md
