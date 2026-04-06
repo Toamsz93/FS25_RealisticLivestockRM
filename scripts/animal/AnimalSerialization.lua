@@ -365,6 +365,14 @@ function AnimalSerialization.readStream(animal, streamId, connection)
         insemination.genetics.productivity = streamReadFloat32(streamId)
 
         if insemination.genetics.productivity == 0 then insemination.genetics.productivity = nil end
+
+        local animalSystem = g_currentMission.animalSystem
+        local st = animalSystem:getSubTypeByIndex(insemination.subTypeIndex)
+        Log:debug("readStream insemination: subTypeIndex=%d -> resolved=%s (name=%s)",
+            insemination.subTypeIndex, st and st.name or "nil", insemination.name or "?")
+        if st == nil then
+            Log:warning("readStream insemination: subTypeIndex=%d has no matching subtype", insemination.subTypeIndex)
+        end
     end
 
     animal.insemination = insemination

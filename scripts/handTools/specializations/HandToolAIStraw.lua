@@ -94,6 +94,20 @@ function HandToolAIStraw:onPostLoad(savegame)
 
 		self.animal = animal
 
+		local animalSystem = g_currentMission.animalSystem
+		local st = animalSystem:getSubTypeByIndex(animal.subTypeIndex)
+		Log:debug("AIStraw load: subTypeIndex=%d -> resolved name=%s (type=%s)",
+			animal.subTypeIndex, st and st.name or "nil",
+			st and (animalSystem.typeIndexToName[st.typeIndex] or "?") or "nil")
+		if st == nil then
+			Log:warning("AIStraw load: subTypeIndex=%d has no matching subtype - straw data may be from removed pack", animal.subTypeIndex)
+		elseif st.typeIndex ~= animal.typeIndex then
+			local savedTypeName = animalSystem.typeIndexToName[animal.typeIndex] or "nil"
+			local resolvedTypeName = animalSystem.typeIndexToName[st.typeIndex] or "nil"
+			Log:warning("AIStraw load: type mismatch! saved typeIndex=%d(%s) but subTypeIndex=%d resolves to typeIndex=%d(%s) - index may be stale",
+				animal.typeIndex, savedTypeName, animal.subTypeIndex, st.typeIndex, resolvedTypeName)
+		end
+
 	end
 
 end
@@ -172,6 +186,16 @@ function HandToolAIStraw:onReadStream(streamId, connection)
 	end
 
 	spec.animal = animal
+
+	if animal ~= nil then
+		local animalSystem = g_currentMission.animalSystem
+		local st = animalSystem:getSubTypeByIndex(animal.subTypeIndex)
+		Log:debug("AIStraw readStream: subTypeIndex=%d -> resolved name=%s",
+			animal.subTypeIndex, st and st.name or "nil")
+		if st == nil then
+			Log:warning("AIStraw readStream: subTypeIndex=%d has no matching subtype", animal.subTypeIndex)
+		end
+	end
 
 end
 

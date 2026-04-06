@@ -148,6 +148,19 @@ function Dewar:loadFromXMLFile(xmlFile, key)
 		
 		self.animal = animal
 
+		local animalSystem = g_currentMission.animalSystem
+		local st = animalSystem:getSubTypeByIndex(animal.subTypeIndex)
+		local resolvedTypeName = st and animalSystem.typeIndexToName[st.typeIndex] or "nil"
+		local savedTypeName = animalSystem.typeIndexToName[animal.typeIndex] or "nil"
+		Log:debug("Dewar load: saved typeIndex=%d subTypeIndex=%d -> resolved name=%s (type=%s)",
+			animal.typeIndex, animal.subTypeIndex, st and st.name or "nil", resolvedTypeName)
+		if st == nil then
+			Log:warning("Dewar load: subTypeIndex=%d has no matching subtype - semen data may be from removed pack", animal.subTypeIndex)
+		elseif st.typeIndex ~= animal.typeIndex then
+			Log:warning("Dewar load: type mismatch! saved typeIndex=%d(%s) but subTypeIndex=%d resolves to typeIndex=%d(%s) - index may be stale",
+				animal.typeIndex, savedTypeName, animal.subTypeIndex, st.typeIndex, resolvedTypeName)
+		end
+
 	end
 
 	self.isAddedToItemSystem = true

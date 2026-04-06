@@ -21,6 +21,16 @@ local function getDaysInMonth(month)
 end
 
 
+local function logSubTypeRegistry(self, label)
+    Log:debug("SubType registry after %s (%d subtypes):", label, #self.subTypes)
+    for i, st in ipairs(self.subTypes) do
+        local typeName = self.typeIndexToName[st.typeIndex] or "?"
+        Log:debug("  [%d]  %-28s type=%-8s(%d)  gender=%-6s  breed=%s",
+            i, st.name, typeName, st.typeIndex, st.gender or "?", st.breed or "?")
+    end
+end
+
+
 table.insert(FinanceStats.statNames, "monitorSubscriptions")
 FinanceStats.statNameToIndex["monitorSubscriptions"] = #FinanceStats.statNames
 
@@ -82,6 +92,7 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
     Log:info("AnimalSystem: Using animals XML path '%s'", path)
 
+    Log:info("AnimalSystem: === PHASE 1 START === RL bundled animals from '%s'", path)
     local xmlFile = XMLFile.load("animals", path)
 
     if xmlFile ~= nil then
@@ -95,6 +106,9 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
     end
 
+    Log:info("AnimalSystem: === PHASE 1 END === %d types, %d subtypes registered", #self.types, #self.subTypes)
+    logSubTypeRegistry(self, "Phase 1")
+
     self.customEnvironment = mission.customEnvironment
 
     local baseFilename = getXMLString(mapXml, "map.animals#filename")
@@ -105,14 +119,21 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
     elseif #self.types == 0 or not RLSettings.getOverrideVanillaAnimals() then
 
+        Log:info("AnimalSystem: === PHASE 2 START === map animals from '%s'", baseFilename)
 	    local baseXmlFile = XMLFile.load("animals", Utils.getFilename(baseFilename, baseDirectory))
 
 	    if baseXmlFile ~= nil then
-		
+
             self:loadAnimals(baseXmlFile, baseDirectory)
             baseXmlFile:delete()
 
 	    end
+
+        Log:info("AnimalSystem: === PHASE 2 END === %d types, %d subtypes after map animals", #self.types, #self.subTypes)
+
+    else
+
+        Log:info("AnimalSystem: === PHASE 2 SKIPPED === (OverrideVanillaAnimals=true)")
 
     end
 
@@ -122,7 +143,10 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
     -- (with customEnv = MAP, the engine only checks the map's mod texts and misses them)
     self.customEnvironment = modName
 
+    Log:info("AnimalSystem: === PHASE 3 START === bridge/pack loading (%d active bridges)", #RLMapBridge.activeBridges)
     RLMapBridge.loadBridgeAnimals(self)
+    Log:info("AnimalSystem: === PHASE 3 END === %d total subtypes after bridge loading", #self.subTypes)
+    logSubTypeRegistry(self, "Phase 3")
 
     Log:info("AnimalSystem: Loaded %s animals:", #self.types)
 
@@ -316,7 +340,9 @@ function RealisticLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
                 ["fertility"] = fertility,
                 ["breeds"] = {}
 		    }
-            
+
+            Log:debug("loadAnimals: new type '%s' (typeIndex=%d, config='%s')", name, animalType.typeIndex, configFilename)
+
 		end
 
 		if self:loadAnimalConfig(animalType, directory, configFilename) then
@@ -1271,12 +1297,24 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
                 end
             end
 
+            local resolvedSubType = self:getSubTypeByIndex(childSubTypeIndex)
+            local childBreed = resolvedSubType and resolvedSubType.breed or "?"
+            local childSubTypeName = resolvedSubType and resolvedSubType.name or "?"
+            Log:debug("createNewSaleAnimal child[%d]: gender=%s, parent=%s(idx=%d) breed=%s -> child=%s(idx=%d) breed=%s",
+                i, gender, subType.name, subTypeIndex, subType.breed or "?",
+                childSubTypeName, childSubTypeIndex, childBreed)
+
+            if childBreed ~= "?" and childBreed ~= (subType.breed or "") then
+                Log:warning("Sale animal breed switch: parent=%s child got %s (idx=%d %s)",
+                    subType.breed or "?", childBreed, childSubTypeIndex, childSubTypeName)
+            end
+
             local child = Animal.new({
                 age = -1, health = 100, gender = gender,
                 subTypeIndex = childSubTypeIndex,
                 motherId = animal:getIdentifiers()
             })
-                        
+
             local metabolism = math.random(minMetabolism * 100, maxMetabolism * 100) / 100
             local quality = math.random(minMeat * 100, maxMeat * 100) / 100
             local healthGenetics = math.random(minHealth * 100, maxHealth * 100) / 100

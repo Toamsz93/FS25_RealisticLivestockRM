@@ -433,6 +433,24 @@ function AnimalReproduction.createPregnancy(animal, childNum, month, year, fathe
                 subTypeIndex, gender, candidateSubType.name or "?")
         end
 
+        local resolvedSubType = animalSystem:getSubTypeByIndex(subTypeIndex)
+        local childBreed = resolvedSubType and resolvedSubType.breed or "?"
+        local childSubTypeName = resolvedSubType and resolvedSubType.name or "?"
+        local fatherBreed = father.animal and father.animal.breed or "?"
+        local fatherSubTypeName = father.animal and father.animal.subType or "?"
+        local fatherIdx = fatherSubTypeIndex or -1
+
+        Log:debug("createPregnancy child[%d]: gender=%s, mother=%s(idx=%d) breed=%s, father=%s(idx=%d) breed=%s -> child=%s(idx=%d) breed=%s",
+            i, gender,
+            animal.subType, animal.subTypeIndex, animal.breed or "?",
+            fatherSubTypeName, fatherIdx, fatherBreed,
+            childSubTypeName, subTypeIndex, childBreed)
+
+        -- Breed switch detection: warn if child breed differs from BOTH parents
+        if childBreed ~= "?" and childBreed ~= (animal.breed or "") and childBreed ~= fatherBreed then
+            Log:warning("Breed switch in offspring: mother=%s father=%s child got %s (idx=%d %s)",
+                animal.breed or "?", fatherBreed, childBreed, subTypeIndex, childSubTypeName)
+        end
 
         local child = Animal.new({
             age = -1, health = 100, gender = gender,
@@ -491,7 +509,10 @@ function AnimalReproduction.createPregnancy(animal, childNum, month, year, fathe
 
         for _, child in pairs(children) do
 
-            if child.gender == "female" and math.random() >= 0.03 then child.genetics.fertility = 0 end
+            if child.gender == "female" and math.random() >= 0.03 then
+                child.genetics.fertility = 0
+                Log:debug("createPregnancy: Freemartin condition applied to child %s (gender=%s, fertility set to 0)", child.uniqueId or "?", child.gender)
+            end
 
         end
 
@@ -752,6 +773,24 @@ function AnimalReproduction.reproduce(animal, spec, day, month, year, isSaleAnim
 
     end
 
+    -- Build scannable birth summary line
+    local fatherId = animal.impregnatedBy and animal.impregnatedBy.uniqueId or "?"
+    local fatherSubType = fatherFull and fatherFull.subType or "?"
+    local fatherIdx = fatherFull and fatherFull.subTypeIndex or -1
+    local fatherBreedName = fatherFull and fatherFull.breed or "?"
+
+    local childSummary = {}
+    for _, child in pairs(pregnancies) do
+        local genderChar = child.gender == "male" and "M" or "F"
+        table.insert(childSummary, string.format("%s(%s idx=%d/%s %s)",
+            child.uniqueId or "?", child.subType or "?", child.subTypeIndex or -1,
+            child.breed or "?", genderChar))
+    end
+
+    Log:info("BIRTH: mother=%s(%s idx=%d/%s) father=%s(%s idx=%d/%s) -> %d children [%s]",
+        animal.uniqueId or "?", animal.subType, animal.subTypeIndex, animal.breed or "?",
+        fatherId, fatherSubType, fatherIdx, fatherBreedName,
+        #pregnancies, table.concat(childSummary, ", "))
 
     if not isSaleAnimal then
 

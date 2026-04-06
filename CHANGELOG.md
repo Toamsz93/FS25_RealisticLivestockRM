@@ -6,6 +6,8 @@
 - HB14: Existing saves with duplicate IDs are automatically repaired on load
 - Fixed bulk buy silently failing when map husbandries reject animal breeds (e.g. Hereford in Hof Bergmann filtered pens)
 - Added pre-validation for bulk buy: shows which animals can't be purchased and why before confirming
+- Added diagnostic logging for animal loading, breeding, and pack compatibility troubleshooting
+- Added warnings when animals are lost due to removed packs or breed mismatches
 
 ## v1.1.2.0
 - Added animal pack system: third-party mods can add breeds, override animal properties, or provide custom balance via rlrm_pack.xml

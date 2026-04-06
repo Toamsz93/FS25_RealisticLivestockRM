@@ -1,5 +1,7 @@
 RealisticLivestock_LivestockTrailer = {}
 
+local Log = RmLogging.getLogger("RLRM")
+
 function RealisticLivestock_LivestockTrailer:addAnimals(superFunc, animals)
 
     for _, animal in pairs(animals) do
@@ -21,6 +23,11 @@ function RealisticLivestock_LivestockTrailer:addCluster(superFunc, cluster)
 
         for i=1, cluster.numAnimals do
             local subType = g_currentMission.animalSystem:getSubTypeByIndex(cluster.subTypeIndex)
+            if subType == nil then
+                Log:warning("Trailer expand: cluster subTypeIndex=%d has no matching subtype - will crash", cluster.subTypeIndex)
+            else
+                Log:debug("Trailer expand: cluster subTypeIndex=%d -> subType=%s gender=%s", cluster.subTypeIndex, subType.name, subType.gender or "?")
+            end
             local animal = Animal.new({
                 age = cluster.age,
                 health = cluster.health,

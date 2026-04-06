@@ -49,14 +49,21 @@ AnimalClusterSystem.getAnimals = RealisticLivestock_AnimalClusterSystem.getAnima
 
 function RealisticLivestock_AnimalClusterSystem:loadFromXMLFile(_, xmlFile, key)
 
+    Log:info("loadFromXMLFile: Loading animals from savegame (key=%s)", key)
     self.animals = {}
-
+    local loadedCount, droppedCount, format = 0, 0, "unknown"
 
 
     xmlFile:iterate(key .. ".RLAnimal", function(_, legacyKey)
-        
+        format = "legacy-RL"
         local animal = Animal.loadFromXMLFile(xmlFile, legacyKey, self, true)
-        if animal ~= nil then table.insert(self.animals, animal) end
+        if animal ~= nil then
+            table.insert(self.animals, animal)
+            loadedCount = loadedCount + 1
+        else
+            droppedCount = droppedCount + 1
+            Log:warning("loadFromXMLFile: Legacy RL animal dropped (key=%s) - subtype not in registry", legacyKey)
+        end
 
     end)
 
@@ -64,16 +71,27 @@ function RealisticLivestock_AnimalClusterSystem:loadFromXMLFile(_, xmlFile, key)
    xmlFile:iterate(key .. ".animal", function(_, animalKey)
 
         local numAnimals = xmlFile:getInt(animalKey .. "#numAnimals", 1)
+        if numAnimals > 1 then
+            Log:info("loadFromXMLFile: Vanilla cluster: numAnimals=%d from '%s'", numAnimals, animalKey)
+        end
+        format = numAnimals > 1 and "vanilla-cluster" or "current"
 
         for i = 1, numAnimals do
 
             local animal = Animal.loadFromXMLFile(xmlFile, animalKey, self)
-            if animal ~= nil then table.insert(self.animals, animal) end
+            if animal ~= nil then
+                table.insert(self.animals, animal)
+                loadedCount = loadedCount + 1
+            else
+                droppedCount = droppedCount + 1
+                Log:warning("loadFromXMLFile: Animal dropped (key=%s, i=%d) - subtype not in registry", animalKey, i)
+            end
 
         end
 
     end)
 
+    Log:info("loadFromXMLFile: Savegame load complete: %d animals loaded, %d dropped (missing subtype), format=%s", loadedCount, droppedCount, format)
 
     -- Migration pass for pre-v1.1.3 saves: seed typeIds counters and repair duplicates.
     -- Bridge animal types (RABBIT, QUAIL, etc.) got rawId=1 for every animal prior to v1.1.3,
@@ -409,6 +427,12 @@ function RealisticLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
         if animalsToAdd.numAnimals ~= nil then
             local subType = g_currentMission.animalSystem:getSubTypeByIndex(animalsToAdd.subTypeIndex)
+            if subType == nil then
+                Log:warning("addAnimals: subTypeIndex=%d has no matching subtype - will crash", animalsToAdd.subTypeIndex)
+            else
+                Log:debug("addAnimals: subTypeIndex=%d -> subType=%s gender=%s breed=%s",
+                    animalsToAdd.subTypeIndex, subType.name, subType.gender or "?", subType.breed or "?")
+            end
             for i=1, animalsToAdd.numAnimals do
                 local animal = Animal.new({
                     age = animalsToAdd.age,
@@ -451,6 +475,12 @@ function RealisticLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
             else
                 local subType = g_currentMission.animalSystem:getSubTypeByIndex(animalToAdd.subTypeIndex)
+                if subType == nil then
+                    Log:warning("addAnimals: subTypeIndex=%d has no matching subtype - will crash", animalToAdd.subTypeIndex)
+                else
+                    Log:debug("addAnimals: subTypeIndex=%d -> subType=%s gender=%s breed=%s",
+                        animalToAdd.subTypeIndex, subType.name, subType.gender or "?", subType.breed or "?")
+                end
                 for i=1, animalToAdd.numAnimals do
                     local animal = Animal.new({
                         age = animalToAdd.age,

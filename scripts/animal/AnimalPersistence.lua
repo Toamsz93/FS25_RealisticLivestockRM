@@ -38,12 +38,23 @@ function AnimalPersistence.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy
 
     if isLegacy then
         subTypeIndex = xmlFile:getInt(key .. "#subType", 3)
+        local st = g_currentMission.animalSystem:getSubTypeByIndex(subTypeIndex)
+        Log:debug("loadAnimal: legacy int subType=%d -> resolved name=%s", subTypeIndex, st and st.name or "nil")
     else
         local subTypeName = xmlFile:getString(key .. "#subType", "COW_HOLSTEIN")
         subTypeIndex = g_currentMission.animalSystem:getSubTypeIndexByName(subTypeName)
+        Log:debug("loadAnimal: saved subType='%s' -> resolved index=%s", subTypeName, tostring(subTypeIndex))
     end
 
-    if subTypeIndex == nil then return nil end
+    if subTypeIndex == nil then
+        if isLegacy then
+            Log:warning("loadAnimal: legacy subTypeIndex %s not found in registry - animal will be dropped", tostring(subTypeIndex))
+        else
+            local rawName = xmlFile:getString(key .. "#subType", "?")
+            Log:warning("loadAnimal: subType '%s' not found in registry - animal will be dropped (key=%s)", rawName, key)
+        end
+        return nil
+    end
 
     local age = xmlFile:getInt(key .. "#age")
     local health = xmlFile:getFloat(key .. "#health")

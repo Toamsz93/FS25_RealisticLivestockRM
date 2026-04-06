@@ -557,7 +557,9 @@ function RLMapBridge.loadBridgeAnimals(animalSystem)
     end
 
     for _, bridge in ipairs(RLMapBridge.activeBridges) do
-        Log:info("MapBridge: Loading bridge animals for '%s'...", bridge.name)
+        local beforeSubtypeCount = #animalSystem.subTypes
+        Log:info("MapBridge: --- Bridge '%s' START (mod=%s, isPack=%s, types=%d subtypes=%d) ---",
+            bridge.name, bridge.modName or "?", tostring(bridge.isPack), #animalSystem.types, #animalSystem.subTypes)
 
         -- Resolve mod directory and animals path depending on bridge type
         local mapModDir, animalsPath
@@ -656,6 +658,20 @@ function RLMapBridge.loadBridgeAnimals(animalSystem)
             xmlFile:delete()
             Log:info("MapBridge: Bridge loading complete for '%s': %d subtypes added, %d type entries with no new subtypes",
                 bridge.name, subtypesAdded, subtypesSkipped)
+        end
+
+        local afterCount = #animalSystem.subTypes
+        local delta = afterCount - beforeSubtypeCount
+        Log:info("MapBridge: --- Bridge '%s' END (subtypes=%d +%d new) ---", bridge.name, afterCount, delta)
+        if delta > 0 then
+            for i = beforeSubtypeCount + 1, afterCount do
+                local st = animalSystem.subTypes[i]
+                if st ~= nil then
+                    local typeName = animalSystem.typeIndexToName[st.typeIndex] or "?"
+                    Log:debug("MapBridge:   New: [%d] %-28s type=%-8s(%d)  gender=%-6s  breed=%s",
+                        i, st.name, typeName, st.typeIndex, st.gender or "?", st.breed or "?")
+                end
+            end
         end
     end
 end
