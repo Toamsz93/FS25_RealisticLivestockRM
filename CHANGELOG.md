@@ -1,10 +1,10 @@
 # Changelog
 
-## v1.1.3.0-dev
-- HB14: Fixed bridge animals (rabbits, quail, etc.) getting duplicate IDs in multiplayer, causing animals to disappear on clients
-- HB14: Fixed bridge animal ID counter always returning 1, now tracks per-type counters with savegame persistence
-- HB14: Existing saves with duplicate IDs are automatically repaired on load
+## v1.1.3.0
+- Fixed bridge animals (rabbits, quail, etc.) getting duplicate IDs in multiplayer, causing animals to disappear on clients
+- Fixed bridge animal ID counter, now tracks per-type counters with savegame persistence
 - Fixed bulk buy silently failing when map husbandries reject animal breeds (e.g. Hereford in Hof Bergmann filtered pens)
+- Existing saves with duplicate bridge animal IDs are automatically repaired on load
 - Added pre-validation for bulk buy: shows which animals can't be purchased and why before confirming
 - Added diagnostic logging for animal loading, breeding, and pack compatibility troubleshooting
 - Added warnings when animals are lost due to removed packs or breed mismatches
