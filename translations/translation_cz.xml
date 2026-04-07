@@ -1,720 +1,715 @@
 <l10n>
 	<texts>
-		<!-- COWS -->
+        <!-- COWS -->
 
-		<text name="fillType_bull" text="Býk"//>
-		<text name="fillType_bull_swiss_brown" text="Býk švýcarské hnědé"//>
-		<text name="fillType_bull_holstein" text="Býk holštýnský"//>
-		<text name="fillType_bull_angus" text="Býk angus"//>
-		<text name="fillType_bull_limousin" text="Býk limousine"//>
-		<text name="fillType_cow_hereford" text="Hereford"//>
-		<text name="fillType_bull_hereford" text="Býk hereford"//>
-		<text name="fillType_cow_highland_cattle" text="Skotský náhorní skot"//>
-		<text name="fillType_bull_highland_cattle" text="Býk skotského náhorního skotu"//>
-		<text name="animal_descriptionBullFeed" text="Býci jedí trávu, seno a TMR."//>
-		<text name="animal_descriptionBullYoung" text="Toto je samec telete."//>
-		<text name="animal_descriptionBullReproduction" text="Býci starší 12 měsíců se mohou rozmnožovat, pokud jsou zdraví."//>
-		<text name="rl_descriptionCowReproduction" text="Krávy starší 12 měsíců se mohou rozmnožovat, pokud jsou zdravé."//>
+        <text name="fillType_bull" text="Býk"/>
+        <text name="fillType_bull_swiss_brown" text="Býk hnědý švýcarský"/>
+        <text name="fillType_bull_holstein" text="Býk holštýnský"/>
+        <text name="fillType_bull_angus" text="Býk angus"/>
+        <text name="fillType_bull_limousin" text="Býk limousinský"/>
+        <text name="fillType_cow_hereford" text="Hereford"/>
+        <text name="fillType_bull_hereford" text="Herefordský býk"/>
+        <text name="fillType_cow_highland_cattle" text="Vysokohorský skot"/>
+        <text name="fillType_bull_highland_cattle" text="Býk vysokohorského skotu"/>
+        <text name="animal_descriptionBullFeed" text="Býci mají rádi trávu, seno a TMR."/>
+        <text name="animal_descriptionBullYoung" text="Toto je býčí tele."/>
+        <text name="animal_descriptionBullReproduction" text="Zdraví býci starší 12 měsíců se mohou rozmnožovat."/>
+        <text name="rl_descriptionCowReproduction" text="Zdravé krávy starší 12 měsíců se mohou rozmnožovat."/>
 
-		<!-- WATER BUFFALOS -->
+        <!-- WATER BUFFALOS -->
 
-		<text name="fillType_bull_waterbuffalo" text="Býk vodního buvola"//>
+        <text name="fillType_bull_waterbuffalo" text="Býk vodního buvola"/>
 
-		<!-- PIGS -->
+        <!-- PIGS -->
 
-		<text name="fillType_boar" text="Kanec"//>
-		<text name="fillType_boar_landrace" text="Kanec landrace"//>
-		<text name="fillType_boar_black_pied" text="Kanec strakatý"//>
-		<text name="fillType_boar_berkshire" text="Kanec berkshire"//>
-		<text name="animal_descriptionBoarReproduction" text="Kanci starší 8 měsíců se mohou rozmnožovat, pokud jsou zdraví."//>
-		<text name="rl_descriptionPigReproduction" text="Prasnice starší 6 měsíců se mohou rozmnožovat, pokud jsou zdravé."//>
-		<text name="animal_descriptionBoarFeed" text="Kanci sní téměř cokoliv. Můžete je krmit kukuřicí, pšenicí, ječmenem, řepkou, slunečnicí, sójou, brambory, čirokem a cukrovou řepou."//>
-		<text name="animal_descriptionBoarYoung" text="Toto je samec selete."//>
+        <text name="fillType_boar" text="Kanec"/>
+        <text name="fillType_boar_landrace" text="Kanec landrace"/>
+        <text name="fillType_boar_black_pied" text="Černostrakatý kanec"/>
+        <text name="fillType_boar_berkshire" text="Berkshirský kanec"/>
+        <text name="animal_descriptionBoarReproduction" text="Zdraví kanci starší 8 měsíců se mohou rozmnožovat."/>
+        <text name="rl_descriptionPigReproduction" text="Zdravé prasnice starší 6 měsíců se mohou rozmnožovat."/>
+        <text name="animal_descriptionBoarFeed" text="Kanci sežerou téměř cokoli. Můžete je krmit kukuřicí, pšenicí, ječmenem, řepkou, slunečnicí, sójou, bramborami, čirokem a cukrovou řepou."/>
+        <text name="animal_descriptionBoarYoung" text="Toto je selátko – samec."/>
 
-		<!-- SHEEP -->
+        <!-- SHEEP -->
 
-		<text name="fillType_ram" text="Beran"//>
-		<text name="fillType_ram_landrace" text="Beran benthejmský"//>
-		<text name="fillType_ram_steinschaf" text="Beran steinschaf"//>
-		<text name="fillType_ram_black_welsh" text="Beran welšský černý"//>
-		<text name="fillType_ram_swiss_mountain" text="Beran švýcarský horský"//>
-		<text name="animal_descriptionRamFeed" text="Berani jedí trávu a seno."//>
-		<text name="animal_descriptionRamYoung" text="Toto je samec jehněte."//>
-		<text name="animal_descriptionRamReproduction" text="Berani starší 5 měsíců se mohou rozmnožovat, pokud jsou zdraví."//>
-		<text name="rl_descriptionSheepReproduction" text="Ovce starší 8 měsíců se mohou rozmnožovat, pokud jsou zdravé."//>
+        <text name="fillType_ram" text="Beran"/>
+        <text name="fillType_ram_landrace" text="Beran landrace bentheimský"/>
+        <text name="fillType_ram_steinschaf" text="Beran steinschaf"/>
+        <text name="fillType_ram_black_welsh" text="Beran černý velšský horský"/>
+        <text name="fillType_ram_swiss_mountain" text="Beran švýcarský černohnědý horský"/>
+        <text name="animal_descriptionRamFeed" text="Berani se živí trávou a senem."/>
+        <text name="animal_descriptionRamYoung" text="Toto je beránčí samec."/>
+        <text name="animal_descriptionRamReproduction" text="Zdraví berani starší 5 měsíců se mohou rozmnožovat."/>
+        <text name="rl_descriptionSheepReproduction" text="Zdravé bahnice starší 8 měsíců se mohou rozmnožovat."/>
 
-		<!-- GOATS -->
+        <!-- GOATS -->
 
-		<text name="fillType_ram_goat" text="Kozel"//>
-		<text name="rl_descriptionGoatReproduction" text="Kozy starší 16 měsíců se mohou rozmnožovat, pokud jsou zdravé."//>
+        <text name="fillType_ram_goat" text="Kozel"/>
+        <text name="rl_descriptionGoatReproduction" text="Zdravé kozy starší 16 měsíců se mohou rozmnožovat."/>
 
-		<!-- HORSES -->
+        <!-- HORSES -->
 
-		<text name="fillType_stallion" text="Hřebec"//>
-		<text name="fillType_stallion_gray" text="Hřebec šedý"//>
-		<text name="fillType_stallion_pinto" text="Hřebec pinto"//>
-		<text name="fillType_stallion_palomino" text="Hřebec palomino"//>
-		<text name="fillType_stallion_chestnut" text="Hřebec hnědák"//>
-		<text name="fillType_stallion_bay" text="Hřebec vraník"//>
-		<text name="fillType_stallion_black" text="Hřebec černý"//>
-		<text name="fillType_stallion_seal_brown" text="Hřebec tmavohnědý"//>
-		<text name="fillType_stallion_dun" text="Hřebec isabela"//>
-		<text name="animal_descriptionStallionFeed" text="Hřebci jedí seno, oves a čirok."//>
-		<text name="animal_descriptionStallionProfit" text="Hřebce lze prodat se ziskem."//>
-		<text name="animal_descriptionStallionReproduction" text="Hřebci starší 36 měsíců se mohou rozmnožovat, pokud jsou zdraví."//>
-		<text name="rl_descriptionHorseReproduction" text="Klisny starší 22 měsíců se mohou rozmnožovat, pokud jsou zdravé."//>
+        <text name="fillType_stallion" text="Hřebec"/>
+        <text name="fillType_stallion_gray" text="Šedý hřebec"/>
+        <text name="fillType_stallion_pinto" text="Strakatý hřebec"/>
+        <text name="fillType_stallion_palomino" text="Palomino hřebec"/>
+        <text name="fillType_stallion_chestnut" text="Ryzý hřebec"/>
+        <text name="fillType_stallion_bay" text="Hnědý hřebec"/>
+        <text name="fillType_stallion_black" text="Černý hřebec"/>
+        <text name="fillType_stallion_seal_brown" text="Tmavohnědý hřebec"/>
+        <text name="fillType_stallion_dun" text="Plavý hřebec"/>
+        <text name="animal_descriptionStallionFeed" text="Hřebci mají rádi seno, oves a čirok."/>
+        <text name="animal_descriptionStallionProfit" text="Hřebce lze prodat se ziskem."/>
+        <text name="animal_descriptionStallionReproduction" text="Zdraví hřebci starší 36 měsíců se mohou rozmnožovat."/>
+        <text name="rl_descriptionHorseReproduction" text="Zdravé klisny starší 22 měsíců se mohou rozmnožovat."/>
 
-		<!-- CHICKENS -->
+        <!-- CHICKENS -->
 
-		<text name="rl_descriptionChickenReproduction" text="Slepice starší 6 měsíců se mohou rozmnožovat, pokud jsou zdravé."//>
-
-
-		<!-- UI -->
+        <text name="rl_descriptionChickenReproduction" text="Zdravé slepice starší 6 měsíců se mohou rozmnožovat."/>
 
 
-		<text name="input_VisualAnimalsDialog" text="Změnit množství vizuálních zvířat"//>
-		<text name="input_RL_OPEN_ANIMAL_SCREEN" text="Otevřít obrazovku zvířat"//>
-		<text name="input_RL_MARK" text="Označit/Odznačit zvíře"//>
-		<text name="input_RL_MONITOR" text="Připojit/Odebrat monitor"//>
-		<text name="input_RL_AI" text="Umělé oplodnění"//>
-		<text name="input_RL_CASTRATE" text="Kastrovat zvíře"//>
-		<text name="input_RL_DISEASES" text="Nemoci zvířat"//>
-		<text name="input_RL_SELECT" text="Vybrat/Zrušit výběr zvířete"//>
-		<text name="rl_ui_openAnimalScreen" text="Spravovat zvířata"//>
-		<text name="rl_button_apply" text="Použít"//>
-		<text name="rl_button_confirm" text="Potvrdit"//>
-		<text name="rl_button_recommended" text="Doporučeno"//>
-		<text name="rl_button_cancel" text="Zrušit"//>
-		<text name="rl_button_random" text="Náhodně"//>
-		<text name="rl_dialog_title" text="Nastavit maximální počet vizuálních zvířat"//>
-
-		<text name="rl_ui_unhealthy" text="Příliš nezdravé"//>
-		<text name="rl_ui_unhealthyBracketed" text="Ne (příliš nezdravé)"//>
-		<text name="rl_ui_noMaleAnimal" text="Žádný vhodný samec"//>
-		<text name="rl_ui_noMaleAnimalBracketed" text="Ne (žádný vhodný samec)"//>
-		<text name="rl_ui_recoveringLastBirth" text="Zotavuje se z posledního porodu"//>
-		<text name="rl_ui_recoveringLastBirthBracketed" text="Ne (zotavuje se z posledního porodu)"//>
-		<text name="rl_ui_tooYoung" text="Příliš mladé"//>
-		<text name="rl_ui_tooYoungBracketed" text="Ne (příliš mladé)"//>
-		<text name="rl_ui_pregnant" text="Březí"//>
-		<text name="rl_ui_lactating" text="Dojící"//>
-		<text name="rl_ui_canReproduce" text="Může se rozmnožovat"//>
-		<text name="rl_ui_impregnatedBy" text="Oplodněno"//>
-		<text name="rl_ui_unknown" text="Neznámé"//>
-		<text name="rl_ui_yes" text="Ano"//>
-		<text name="rl_ui_no" text="Ne"//>
-		<text name="rl_ui_mother" text="Matka"//>
-		<text name="rl_ui_father" text="Otec"//>
-		<text name="rl_ui_uniqueId" text="Jedinečné ID"//>
-		<text name="rl_ui_farmId" text="ID farmy"//>
-		<text name="rl_ui_gender" text="Pohlaví"//>
-		<text name="rl_ui_male" text="Samec"//>
-		<text name="rl_ui_female" text="Samice"//>
-		<text name="rl_ui_weight" text="Hmotnost"//>
-		<text name="rl_ui_targetWeight" text="Cílová hmotnost"//>
-		<text name="rl_ui_value" text="Hodnota"//>
-		<text name="rl_ui_valuePerKilo" text="Hodnota za kg"//>
-		<text name="rl_ui_genetics" text="Genetika"//>
-		<text name="rl_ui_overall" text="Celkově"//>
-		<text name="rl_ui_rename" text="Změnit jméno"//>
-		<text name="rl_ui_cantFindAnimal" text="Nelze najít zvíře"//>
-		<text name="rl_ui_maleNumImpregnatable" text="Oplodnitelná zvířata v kotci"//>
-
-		<text name="rl_ui_breederQuality" text="Kvalita chovného zvířete"//>
-		<text name="rl_ui_birthday" text="Datum narození"//>
-		<text name="rl_ui_pregnancyExpected" text="Očekáváno"//>
-		<text name="rl_ui_pregnancyExpecting" text="Čekáme"//>
-		<text name="rl_ui_pregnancyBaby" text="mládě"//>
-		<text name="rl_ui_pregnancyBabies" text="mláďat"//>
-		<text name="rl_ui_animalOrigin" text="Původ"//>
-		<text name="rl_ui_months" text="měsíců"//>
-		<text name="rl_ui_month" text="měsíc"//>
-		<text name="rl_ui_years" text="let"//>
-		<text name="rl_ui_year" text="rok"//>
-
-		<text name="rl_ui_milk" text="Produkce mléka"//>
-		<text name="rl_ui_wool" text="Produkce vlny"//>
-		<text name="rl_ui_eggs" text="Produkce vajec"//>
-		<text name="rl_ui_metabolism" text="Metabolismus"//>
-		<text name="rl_ui_meat" text="Quality"//>
-		<text name="rl_ui_meat_github" text="Meat Quality"//>
-		<text name="rl_ui_quality" text="Kvalita"//>
-		<text name="rl_ui_quality_github" text="Meat Quality"//>
-		<text name="rl_ui_health" text="Zdraví"//>
-		<text name="rl_ui_fertility" text="Plodnost"//>
-
-		<text name="rl_ui_genetics_infertile" text="Infertile"//>
-		<text name="rl_ui_genetics_extremelyLow" text="Extremely low"//>
-		<text name="rl_ui_genetics_veryLow" text="Very low"//>
-		<text name="rl_ui_genetics_low" text="Low"//>
-		<text name="rl_ui_genetics_average" text="Average"//>
-		<text name="rl_ui_genetics_high" text="High"//>
-		<text name="rl_ui_genetics_veryHigh" text="Very high"//>
-		<text name="rl_ui_genetics_extremelyHigh" text="Extremely high"//>
-		<text name="rl_ui_genetics_highest" text="Highest"//>
-
-		<text name="rl_ui_genetics_extremelyBad" text="Extremely bad"//>
-		<text name="rl_ui_genetics_veryBad" text="Very bad"//>
-		<text name="rl_ui_genetics_bad" text="Bad"//>
-		<text name="rl_ui_genetics_good" text="Good"//>
-		<text name="rl_ui_genetics_veryGood" text="Very good"//>
-		<text name="rl_ui_genetics_extremelyGood" text="Extremely good"//>
-
-		<text name="rl_ui_buySelected" text="Buy selected"//>
-		<text name="rl_ui_sellSelected" text="Sell selected"//>
-		<text name="rl_ui_moveSelected" text="Move selected"//>
-		<text name="rl_ui_buyConfirmation" text="Are you sure you want to buy %s animals for %s?" tag="format"//>
-		<text name="rl_ui_buyPartialConfirmation" text="Buy %d of %d selected animals for %s?" tag="format"//>
-		<text name="rl_ui_buySkippedNotSupported" text="%d animal(s) not supported by this husbandry" tag="format"//>
-		<text name="rl_ui_buyAllRejected" text="None of the selected animals can be purchased in this husbandry."//>
-		<text name="rl_ui_sellConfirmation" text="Are you sure you want to sell %s animals for %s?" tag="format"//>
-		<text name="rl_ui_moveConfirmation" text="Are you sure you want to move %s animals?" tag="format"//>
-		<text name="rl_ui_buyBulkResult" text="%s animals bought for %s" tag="format"//>
-		<text name="rl_ui_sellBulkResult" text="%s animals sold for %s" tag="format"//>
-		<text name="rl_ui_moveBulkResult" text="%s animals moved" tag="format"//>
-		<text name="rl_ui_moveTab" text="Move"//>
-		<text name="rl_ui_moveSingle" text="Move"//>
-		<text name="rl_ui_moveSelectDestination" text="Select Destination"//>
-		<text name="rl_ui_moveNoDestinations" text="No destinations available for this animal type."//>
-		<text name="rl_ui_moveEPPAgeFormat" text="ages %d-%d mo" tag="format"//>
-		<text name="rl_ui_moveValidSummary" text="%d animal(s) will be moved" tag="format"//>
-		<text name="rl_ui_moveRejectedAge" text="%d animal(s) skipped: does not meet age requirement (%d-%d months)" tag="format"//>
-		<text name="rl_ui_moveRejectedCapacity" text="%d animal(s) skipped: not enough space at destination" tag="format"//>
-		<text name="rl_ui_moveAllRejected" text="No animals can be moved to this destination."//>
-		<text name="rl_ui_moveBulkConfirmTitle" text="Move Animals"//>
-		<text name="rl_ui_moveErrorNoPermission" text="You don't have permission to move animals here."//>
-		<text name="rl_ui_moveErrorNotSupported" text="This destination doesn't support this animal type."//>
-		<text name="rl_ui_moveErrorNoSpace" text="Not enough space at the destination."//>
-
-		<text name="rl_ui_monitor" text="Monitor"//>
-		<text name="rl_ui_monitorSubscriptions" text="Monitor Subscriptions"//>
-		<text name="finance_monitorSubscriptions" text="Monitor Subscriptions"//>
-		<text name="rl_ui_monitorFee" text="Monitor fee"//>
-		<text name="rl_ui_applyMonitor" text="Apply Monitor"//>
-		<text name="rl_ui_removeMonitor" text="Remove Monitor"//>
-		<text name="rl_ui_removingMonitor" text="Removing..."//>
-		<text name="rl_ui_input_food" text="Food"//>
-		<text name="rl_ui_input_water" text="Water"//>
-		<text name="rl_ui_input_straw" text="Straw"//>
-		<text name="rl_ui_output_milk" text="Milk"//>
-		<text name="rl_ui_output_manure" text="Manure"//>
-		<text name="rl_ui_output_liquidManure" text="Liquid manure"//>
-		<text name="rl_ui_output_pallets_eggs" text="Eggs"//>
-		<text name="rl_ui_output_pallets_wool" text="Wool"//>
-		<text name="rl_ui_output_pallets_goatMilk" text="Goat milk"//>
-		<text name="rl_ui_amountPerDay" text="%.0fL / day" tag="format"//>
-		<text name="rl_ui_feePerMonth" text="%s / month" tag="format"//>
-
-		<text name="rl_ui_animalType" text="Type"//>
-		<text name="rl_ui_amountMonitored" text="Monitored"//>
-		<text name="rl_ui_production" text="Produkce"//>
-		<text name="rl_ui_applyAllMonitor" text="Apply All Monitors"//>
-		<text name="rl_ui_removeAllMonitor" text="Remove All Monitors"//>
-		<text name="rl_ui_removingAllMonitor" text="Removing All..."//>
-		<text name="rl_ui_fee" text="Fee"//>
-
-		<text name="rl_ui_leftEarTag" text="Left Ear Tag"//>
-		<text name="rl_ui_rightEarTag" text="Right Ear Tag"//>
-		<text name="rl_ui_backgroundColour" text="Background Colour"//>
-		<text name="rl_ui_backgroundHue" text="Background Hue"//>
-		<text name="rl_ui_backgroundRgb" text="Background RGB"//>
-		<text name="rl_ui_textColour" text="Text Colour"//>
-		<text name="rl_ui_textHue" text="Text Hue"//>
-		<text name="rl_ui_textRgb" text="Text RGB"//>
-
-		<text name="rl_ui_formatMonths" text="%s months"//>
-		<text name="rl_ui_formatMonth" text="%s month"//>
-		<text name="rl_ui_notPregnant" text="Not Pregnant"//>
-		<text name="rl_ui_any" text="Any"//>
-		<text name="rl_ui_pregnancy" text="Pregnancy"//>
-		<text name="rl_ui_productivity" text="Productivity"//>
-		<text name="rl_ui_selectAll" text="Select All"//>
-		<text name="rl_ui_selectNone" text="Select None"//>
-		<text name="rl_ui_filters" text="Filters"//>
-		<text name="rl_ui_doesntHaveName" text="No Name"//>
-		<text name="rl_ui_doesHaveName" text="Has Name"//>
+        <!-- UI -->
 
 
+        <text name="input_VisualAnimalsDialog" text="Změnit počet vizuálních zvířat"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Otevřít obrazovku zvířat"/>
+        <text name="input_RL_MARK" text="Označit/Odznačit zvíře"/>
+        <text name="input_RL_MONITOR" text="Přidat/Odebrat monitor"/>
+        <text name="input_RL_AI" text="Umělá inseminace"/>
+        <text name="input_RL_CASTRATE" text="Kastrovat zvíře"/>
+        <text name="input_RL_DISEASES" text="Nemoci zvířat"/>
+        <text name="input_RL_SELECT" text="Vybrat/Zrušit výběr zvířete"/>
+        <text name="rl_ui_openAnimalScreen" text="Spravovat zvířata"/>
+        <text name="rl_button_apply" text="Použít"/>
+        <text name="rl_button_confirm" text="Potvrdit"/>
+        <text name="rl_button_recommended" text="Doporučené"/>
+        <text name="rl_button_cancel" text="Zrušit"/>
+        <text name="rl_button_random" text="Náhodně"/>
+        <text name="rl_dialog_title" text="Nastavit maximální počet vizuálních zvířat"/>
 
-		<text name="rl_ui_castrated" text="Kastrované"//>
-		<text name="rl_ui_castrate" text="Castrate"//>
+        <text name="rl_ui_unhealthy" text="Příliš nezdravé"/>
+        <text name="rl_ui_unhealthyBracketed" text="Ne (příliš nezdravé)"/>
+        <text name="rl_ui_noMaleAnimal" text="Žádné vhodné samčí zvíře"/>
+        <text name="rl_ui_noMaleAnimalBracketed" text="Ne (žádné vhodné samčí zvíře)"/>
+        <text name="rl_ui_recoveringLastBirth" text="Zotavuje se po posledním porodu"/>
+        <text name="rl_ui_recoveringLastBirthBracketed" text="Ne (zotavuje se po posledním porodu)"/>
+        <text name="rl_ui_tooYoung" text="Příliš mladé"/>
+        <text name="rl_ui_tooYoungBracketed" text="Ne (příliš mladé)"/>
+        <text name="rl_ui_pregnant" text="Březí"/>
+        <text name="rl_ui_lactating" text="V laktaci"/>
+        <text name="rl_ui_canReproduce" text="Může se rozmnožovat"/>
+        <text name="rl_ui_impregnatedBy" text="Oplodněno"/>
+        <text name="rl_ui_unknown" text="Neznámé"/>
+        <text name="rl_ui_yes" text="Ano"/>
+        <text name="rl_ui_no" text="Ne"/>
+        <text name="rl_ui_mother" text="Matka"/>
+        <text name="rl_ui_father" text="Otec"/>
+        <text name="rl_ui_uniqueId" text="Jedinečné ID"/>
+        <text name="rl_ui_farmId" text="ID farmy"/>
+        <text name="rl_ui_gender" text="Pohlaví"/>
+        <text name="rl_ui_male" text="Samec"/>
+        <text name="rl_ui_female" text="Samice"/>
+        <text name="rl_ui_weight" text="Váha"/>
+        <text name="rl_ui_targetWeight" text="Cílová váha"/>
+        <text name="rl_ui_value" text="Hodnota"/>
+        <text name="rl_ui_valuePerKilo" text="Hodnota za kg"/>
+        <text name="rl_ui_genetics" text="Genetika"/>
+        <text name="rl_ui_overall" text="Celkově"/>
+        <text name="rl_ui_rename" text="Změnit jméno"/>
+        <text name="rl_ui_cantFindAnimal" text="Zvíře nebylo nalezeno"/>
+        <text name="rl_ui_maleNumImpregnatable" text="Zvířata schopná oplodnění v ohradě"/>
 
-		<text name="rl_ui_importance" text="Importance"//>
-		<text name="rl_ui_type" text="Type"//>
-		<text name="rl_ui_date" text="Date"//>
-		<text name="rl_ui_message" text="Message"//>
-		<text name="rl_ui_messages" text="Messages"//>
-		<text name="rl_ui_unknownCauses" text="unknown causes"//>
-		<text name="rl_ui_messageNumber" text="%s-%s of %s"//>
-		<text name="rl_ui_deleteMessage" text="Delete Message"//>
-		<text name="rl_ui_unreadMessages" text="Husbandry '%s' has unread messages!"//>
-		<text name="rl_ui_herdsman" text="Herdsman"//>
-		<text name="rl_ui_budget" text="Budget"//>
-		<text name="rl_ui_budgetType" text="Budget Type"//>
-		<text name="rl_ui_fixed" text="Fixed"//>
-		<text name="rl_ui_percentage" text="Percentage"//>
-		<text name="rl_ui_maxAnimals" text="Max Animals"//>
-		<text name="rl_ui_infinite" text="Infinite"//>
-		<text name="rl_ui_herdsmanRecentlyBought" text="Recent Herdsman Purchase"//>
-		<text name="rl_ui_previousWage" text="Previous Wage"//>
-		<text name="rl_ui_herdsmanWages" text="Herdsman Wages"//>
-		<text name="finance_herdsmanWages" text="Herdsman Wages"//>
-		<text name="rl_ui_medicine" text="Medicine"//>
-		<text name="finance_medicine" text="Medicine"//>
-		<text name="rl_ui_semenPurchase" text="Inseminant Purchase"//>
-		<text name="rl_ui_semenPurchase_github" text="Semen Purchase"//>
-		<text name="finance_semenPurchase" text="Inseminant Purchase"//>
-		<text name="finance_semenPurchase_github" text="Semen Purchase"//>
-		<text name="rl_ui_noDiseases" text="No Diseases"//>
-		<text name="rl_ui_onlyDiseases" text="Only Diseases"//>
-		<text name="rl_ui_naming" text="Naming"//>
-		<text name="rl_ui_alphabetical" text="Alphabetical"//>
-		<text name="rl_ui_breed" text="Plemeno"//>
-		<text name="rl_ui_dontMark" text="Don't Mark"//>
-		<text name="rl_ui_mark" text="Mark"//>
-		<text name="rl_ui_unmark" text="Unmark"//>
-		<text name="rl_ui_favourite" text="Favourite"//>
-		<text name="rl_ui_unFavourite" text="Unfavourite"//>
-		<text name="rl_ui_quantity" text="Quantity"//>
-		<text name="rl_ui_dewar" text="Dewarova nádoba"//>
-		<text name="rl_ui_semenPurchase_successful" text="Artificial inseminant successfully purchased. You can pick it up at the store"//>
-		<text name="rl_ui_semenPurchase_successful_github" text="Semen successfully purchased. You can pick it up at the store"//>
-		<text name="rl_ui_semenPurchase_unsuccessful" text="Artificial inseminant could not be purchased"//>
-		<text name="rl_ui_semenPurchase_unsuccessful_github" text="Semen could not be purchased"//>
-		<text name="rl_ui_earTag" text="Ear Tag"//>
-		<text name="rl_ui_species" text="Species"//>
-		<text name="rl_ui_strawSingle" text="Straw"//>
-		<text name="rl_ui_strawMultiple" text="Straws"//>
-		<text name="rl_ui_artificialInsemination" text="Artificial Insemination"//>
-		<text name="rl_ui_semenPurchaseNoPermission" text="You don't have to permission to trade animals or purchase inseminant."//>
-		<text name="rl_ui_semenPurchaseNoPermission_github" text="You don't have to permission to trade animals or purchase semen."//>
-		<text name="rl_ui_semenPurchaseNoMoney" text="You don't have enough money to purchase this inseminant."//>
-		<text name="rl_ui_semenPurchaseNoMoney_github" text="You don't have enough money to purchase this semen."//>
-		<text name="rl_ui_takeStraw" text="Take Straw"//>
-		<text name="rl_ui_inseminateAnimal" text="Inseminate %s"//>
-		<text name="rl_ui_inseminate" text="Inseminate"//>
-		<text name="rl_ui_strawEmpty" text="This straw is empty"//>
-		<text name="rl_ui_averageSuccessColon" text="Average Success: "//>
-		<text name="rl_ui_averageSuccess" text="Average Success"//>
-		<text name="rl_ui_success" text="Success"//>
-		<text name="rl_ui_save" text="Save"//>
-		<text name="rl_ui_load" text="Load"//>
-		<text name="rl_ui_saveProfile" text="Save Profile"//>
-		<text name="rl_ui_loadProfile" text="Load Profile"//>
+        <text name="rl_ui_breederQuality" text="Kvalita chovatele"/>
+        <text name="rl_ui_birthday" text="Datum narození"/>
+        <text name="rl_ui_pregnancyExpected" text="Očekáváno"/>
+        <text name="rl_ui_pregnancyExpecting" text="Očekává"/>
+        <text name="rl_ui_pregnancyBaby" text="mládě"/>
+        <text name="rl_ui_pregnancyBabies" text="mláďata"/>
+        <text name="rl_ui_animalOrigin" text="Původ"/>
+        <text name="rl_ui_months" text="měsíců"/>
+        <text name="rl_ui_month" text="měsíc"/>
+        <text name="rl_ui_years" text="let"/>
+        <text name="rl_ui_year" text="rok"/>
 
-		<text name="rl_ui_healthy" text="Healthy"//>
-		<text name="rl_ui_hasDisease" text="Has Disease"//>
-		<text name="rl_ui_diseasedAnimals" text="Diseased Animals"//>
+        <text name="rl_ui_milk" text="Produkce mléka"/>
+        <text name="rl_ui_wool" text="Produkce vlny"/>
+        <text name="rl_ui_eggs" text="Produkce vajec"/>
+        <text name="rl_ui_metabolism" text="Metabolismus"/>
+        <text name="rl_ui_meat" text="Kvalita"/>
+        <text name="rl_ui_meat_github" text="Kvalita masa"/>
+        <text name="rl_ui_quality" text="Kvalita"/>
+        <text name="rl_ui_quality_github" text="Kvalita masa"/>
+        <text name="rl_ui_health" text="Zdraví"/>
+        <text name="rl_ui_fertility" text="Plodnost"/>
+
+        <text name="rl_ui_genetics_infertile" text="Neplodné"/>
+        <text name="rl_ui_genetics_extremelyLow" text="Extrémně nízká"/>
+        <text name="rl_ui_genetics_veryLow" text="Velmi nízká"/>
+        <text name="rl_ui_genetics_low" text="Nízká"/>
+        <text name="rl_ui_genetics_average" text="Průměrná"/>
+        <text name="rl_ui_genetics_high" text="Vysoká"/>
+        <text name="rl_ui_genetics_veryHigh" text="Velmi vysoká"/>
+        <text name="rl_ui_genetics_extremelyHigh" text="Extrémně vysoká"/>
+        <text name="rl_ui_genetics_highest" text="Nejvyšší"/>
+
+        <text name="rl_ui_genetics_extremelyBad" text="Extrémně špatná"/>
+        <text name="rl_ui_genetics_veryBad" text="Velmi špatná"/>
+        <text name="rl_ui_genetics_bad" text="Špatná"/>
+        <text name="rl_ui_genetics_good" text="Dobrá"/>
+        <text name="rl_ui_genetics_veryGood" text="Velmi dobrá"/>
+        <text name="rl_ui_genetics_extremelyGood" text="Extrémně dobrá"/>
+
+        <text name="rl_ui_buySelected" text="Koupit vybrané"/>
+        <text name="rl_ui_sellSelected" text="Prodat vybrané"/>
+        <text name="rl_ui_moveSelected" text="Přesunout vybrané"/>
+        <text name="rl_ui_buyConfirmation" text="Opravdu chcete koupit %s zvířat za %s?" tag="format"/>
+        <text name="rl_ui_buyPartialConfirmation" text="Koupit %d z %d vybraných zvířat za %s?" tag="format"/>
+        <text name="rl_ui_buySkippedNotSupported" text="%d zvíře(ta) není podporováno tímto chovem" tag="format"/>
+        <text name="rl_ui_buyAllRejected" text="Žádné z vybraných zvířat nelze v tomto chovu zakoupit."/>
+        <text name="rl_ui_sellConfirmation" text="Opravdu chcete prodat %s zvířat za %s?" tag="format"/>
+        <text name="rl_ui_moveConfirmation" text="Opravdu chcete přesunout %s zvířat?" tag="format"/>
+        <text name="rl_ui_buyBulkResult" text="Koupeno %s zvířat za %s" tag="format"/>
+        <text name="rl_ui_sellBulkResult" text="Prodáno %s zvířat za %s" tag="format"/>
+        <text name="rl_ui_moveBulkResult" text="Přesunuto %s zvířat" tag="format"/>
+        <text name="rl_ui_moveTab" text="Přesunout"/>
+        <text name="rl_ui_moveSingle" text="Přesunout"/>
+        <text name="rl_ui_moveSelectDestination" text="Vyberte cíl"/>
+        <text name="rl_ui_moveNoDestinations" text="Pro tento typ zvířete nejsou dostupné žádné cíle."/>
+        <text name="rl_ui_moveEPPAgeFormat" text="věk %d-%d měs." tag="format"/>
+        <text name="rl_ui_moveValidSummary" text="%d zvíře(ta) bude přesunuto" tag="format"/>
+        <text name="rl_ui_moveRejectedAge" text="%d zvíře(ta) přeskočeno: nesplňuje věkové požadavky (%d-%d měsíců)" tag="format"/>
+        <text name="rl_ui_moveRejectedCapacity" text="%d zvíře(ta) přeskočeno: na cílovém místě není dost místa" tag="format"/>
+        <text name="rl_ui_moveAllRejected" text="Žádná zvířata nelze přesunout na toto cílové místo."/>
+        <text name="rl_ui_moveBulkConfirmTitle" text="Přesunout zvířata"/>
+        <text name="rl_ui_moveErrorNoPermission" text="Nemáte oprávnění přesouvat zvířata sem."/>
+        <text name="rl_ui_moveErrorNotSupported" text="Toto cílové místo nepodporuje tento typ zvířete."/>
+        <text name="rl_ui_moveErrorNoSpace" text="Na cílovém místě není dostatek místa."/>
+
+        <text name="rl_ui_monitor" text="Monitor"/>
+        <text name="rl_ui_monitorSubscriptions" text="Předplatné monitorů"/>
+        <text name="finance_monitorSubscriptions" text="Předplatné monitorů"/>
+        <text name="rl_ui_monitorFee" text="Poplatek za monitor"/>
+        <text name="rl_ui_applyMonitor" text="Přidat monitor"/>
+        <text name="rl_ui_removeMonitor" text="Odebrat monitor"/>
+        <text name="rl_ui_removingMonitor" text="Odebírání..."/>
+        <text name="rl_ui_input_food" text="Krmivo"/>
+        <text name="rl_ui_input_water" text="Voda"/>
+        <text name="rl_ui_input_straw" text="Sláma"/>
+        <text name="rl_ui_output_milk" text="Mléko"/>
+        <text name="rl_ui_output_manure" text="Hnoj"/>
+        <text name="rl_ui_output_liquidManure" text="Tekuté hnojivo"/>
+        <text name="rl_ui_output_pallets_eggs" text="Vajíčka"/>
+        <text name="rl_ui_output_pallets_wool" text="Vlna"/>
+        <text name="rl_ui_output_pallets_goatMilk" text="Kozí mléko"/>
+        <text name="rl_ui_amountPerDay" text="%.0f l / den" tag="format"/>
+        <text name="rl_ui_feePerMonth" text="%s / měsíc" tag="format"/>
+
+        <text name="rl_ui_animalType" text="Typ"/>
+        <text name="rl_ui_amountMonitored" text="Monitorováno"/>
+        <text name="rl_ui_production" text="Produkty"/>
+        <text name="rl_ui_applyAllMonitor" text="Přidat všechny monitory"/>
+        <text name="rl_ui_removeAllMonitor" text="Odebrat všechny monitory"/>
+        <text name="rl_ui_removingAllMonitor" text="Odebírání všech..."/>
+        <text name="rl_ui_fee" text="Poplatek"/>
+
+        <text name="rl_ui_leftEarTag" text="Levý ušní štítek"/>
+        <text name="rl_ui_rightEarTag" text="Pravý ušní štítek"/>
+        <text name="rl_ui_backgroundColour" text="Barva pozadí"/>
+        <text name="rl_ui_backgroundHue" text="Odstín pozadí"/>
+        <text name="rl_ui_backgroundRgb" text="RGB pozadí"/>
+        <text name="rl_ui_textColour" text="Barva textu"/>
+        <text name="rl_ui_textHue" text="Odstín textu"/>
+        <text name="rl_ui_textRgb" text="RGB textu"/>
+
+        <text name="rl_ui_formatMonths" text="%s měsíců"/>
+        <text name="rl_ui_formatMonth" text="%s měsíc"/>
+        <text name="rl_ui_notPregnant" text="Není březí"/>
+        <text name="rl_ui_any" text="Libovolné"/>
+        <text name="rl_ui_pregnancy" text="Březost"/>
+        <text name="rl_ui_productivity" text="Produktivita"/>
+        <text name="rl_ui_selectAll" text="Vybrat vše"/>
+        <text name="rl_ui_selectNone" text="Nevybrat nic"/>
+        <text name="rl_ui_filters" text="Filtry"/>
+        <text name="rl_ui_doesntHaveName" text="Bez jména"/>
+        <text name="rl_ui_doesHaveName" text="Má jméno"/>
 
 
-		<text name="rl_insemination_male" text="Only females can be artificially inseminated"//>
-		<text name="rl_insemination_pregnant" text="This animal is already pregnant"//>
-		<text name="rl_insemination_animalType" text="Animal must be of the same species as the father"//>
-		<text name="rl_insemination_inseminated" text="This animal has already been artificially inseminated"//>
-		<text name="rl_insemination_recovering" text="This animal is still recovering from its previous pregnancy"//>
-		<text name="rl_insemination_father" text="Inbreeding is not permitted"//>
-		<text name="rl_insemination_young" text="This animal is too young to be artificially inseminated"//>
+
+        <text name="rl_ui_castrated" text="Kastrovaný"/>
+        <text name="rl_ui_castrate" text="Kastrovat"/>
+
+        <text name="rl_ui_importance" text="Důležitost"/>
+        <text name="rl_ui_type" text="Typ"/>
+        <text name="rl_ui_date" text="Datum"/>
+        <text name="rl_ui_message" text="Zpráva"/>
+        <text name="rl_ui_messages" text="Zprávy"/>
+        <text name="rl_ui_unknownCauses" text="neznámé příčiny"/>
+        <text name="rl_ui_messageNumber" text="%s-%s z %s"/>
+        <text name="rl_ui_deleteMessage" text="Smazat zprávu"/>
+        <text name="rl_ui_unreadMessages" text="Chov '%s' má nepřečtené zprávy!"/>
+        <text name="rl_ui_herdsman" text="Pastýř"/>
+        <text name="rl_ui_budget" text="Rozpočet"/>
+        <text name="rl_ui_budgetType" text="Typ rozpočtu"/>
+        <text name="rl_ui_fixed" text="Pevný"/>
+        <text name="rl_ui_percentage" text="Procentuální"/>
+        <text name="rl_ui_maxAnimals" text="Max. zvířat"/>
+        <text name="rl_ui_infinite" text="Neomezený"/>
+        <text name="rl_ui_herdsmanRecentlyBought" text="Nedávný nákup pastýře"/>
+        <text name="rl_ui_previousWage" text="Předchozí mzda"/>
+        <text name="rl_ui_herdsmanWages" text="Mzdy pastýře"/>
+        <text name="finance_herdsmanWages" text="Mzdy pastýře"/>
+        <text name="rl_ui_medicine" text="Léky"/>
+        <text name="finance_medicine" text="Léky"/>
+        <text name="rl_ui_semenPurchase" text="Nákup inseminantu"/>
+        <text name="rl_ui_semenPurchase_github" text="Nákup semene"/>
+        <text name="finance_semenPurchase" text="Nákup inseminantu"/>
+        <text name="finance_semenPurchase_github" text="Nákup semene"/>
+        <text name="rl_ui_noDiseases" text="Žádné nemoci"/>
+        <text name="rl_ui_onlyDiseases" text="Pouze nemoci"/>
+        <text name="rl_ui_naming" text="Pojmenování"/>
+        <text name="rl_ui_alphabetical" text="Abecedně"/>
+        <text name="rl_ui_breed" text="Plemeno"/>
+        <text name="rl_ui_dontMark" text="Neoznačovat"/>
+        <text name="rl_ui_mark" text="Označit"/>
+        <text name="rl_ui_unmark" text="Odznačit"/>
+        <text name="rl_ui_favourite" text="Oblíbené"/>
+        <text name="rl_ui_unFavourite" text="Odebrat z oblíbených"/>
+        <text name="rl_ui_quantity" text="Množství"/>
+        <text name="rl_ui_dewar" text="Dewar"/>
+        <text name="rl_ui_semenPurchase_successful" text="Umělý inseminant byl úspěšně zakoupen. Můžete si ho vyzvednout v obchodě"/>
+        <text name="rl_ui_semenPurchase_successful_github" text="Semen bylo úspěšně zakoupeno. Můžete si ho vyzvednout v obchodě"/>
+        <text name="rl_ui_semenPurchase_unsuccessful" text="Umělý inseminant nebylo možné zakoupit"/>
+        <text name="rl_ui_semenPurchase_unsuccessful_github" text="Semen nebylo možné zakoupit"/>
+        <text name="rl_ui_earTag" text="Ušní štítek"/>
+        <text name="rl_ui_species" text="Druh"/>
+        <text name="rl_ui_strawSingle" text="Sláma"/>
+        <text name="rl_ui_strawMultiple" text="Slámy"/>
+        <text name="rl_ui_artificialInsemination" text="Umělá inseminace"/>
+        <text name="rl_ui_semenPurchaseNoPermission" text="Nemáte oprávnění obchodovat se zvířaty ani kupovat inseminant."/>
+        <text name="rl_ui_semenPurchaseNoPermission_github" text="Nemáte oprávnění obchodovat se zvířaty ani kupovat semen."/>
+        <text name="rl_ui_semenPurchaseNoMoney" text="Nemáte dostatek peněz na nákup tohoto inseminantu."/>
+        <text name="rl_ui_semenPurchaseNoMoney_github" text="Nemáte dostatek peněz na nákup tohoto semene."/>
+        <text name="rl_ui_takeStraw" text="Vzít slámu"/>
+        <text name="rl_ui_inseminateAnimal" text="Inseminovat %s"/>
+        <text name="rl_ui_inseminate" text="Inseminovat"/>
+        <text name="rl_ui_strawEmpty" text="Tato sláma je prázdná"/>
+        <text name="rl_ui_averageSuccessColon" text="Průměrný úspěch: "/>
+        <text name="rl_ui_averageSuccess" text="Průměrný úspěch"/>
+        <text name="rl_ui_success" text="Úspěch"/>
+        <text name="rl_ui_save" text="Uložit"/>
+        <text name="rl_ui_load" text="Načíst"/>
+        <text name="rl_ui_saveProfile" text="Uložit profil"/>
+        <text name="rl_ui_loadProfile" text="Načíst profil"/>
+
+        <text name="rl_ui_healthy" text="Zdravé"/>
+        <text name="rl_ui_hasDisease" text="Má nemoc"/>
+        <text name="rl_ui_diseasedAnimals" text="Nemocná zvířata"/>
 
 
-		<text name="rl_mark_aiManager_sell" text="Herdsman marked for selling"//>
-		<text name="rl_mark_aiManager_castrate" text="Herdsman marked for castrating"//>
-		<text name="rl_mark_aiManager_disease" text="Herdsman marked for treating"//>
-		<text name="rl_mark_aiManager_ai" text="Herdsman marked for artificial insemination"//>
-		<text name="rl_mark_player" text="Marked by player"//>
+        <text name="rl_insemination_male" text="Uměle lze inseminovat pouze samice"/>
+        <text name="rl_insemination_pregnant" text="Toto zvíře je již březí"/>
+        <text name="rl_insemination_animalType" text="Zvíře musí být stejného druhu jako otec"/>
+        <text name="rl_insemination_inseminated" text="Toto zvíře již bylo uměle inseminováno"/>
+        <text name="rl_insemination_recovering" text="Toto zvíře se stále zotavuje z předchozí březosti"/>
+        <text name="rl_insemination_father" text="Příbuzenská plemenitba není povolena"/>
+        <text name="rl_insemination_young" text="Toto zvíře je příliš mladé na umělou inseminaci"/>
+
+
+        <text name="rl_mark_aiManager_sell" text="Pastýř označil pro prodej"/>
+        <text name="rl_mark_aiManager_castrate" text="Pastýř označil pro kastraci"/>
+        <text name="rl_mark_aiManager_disease" text="Pastýř označil pro léčení"/>
+        <text name="rl_mark_aiManager_ai" text="Pastýř označil pro umělou inseminaci"/>
+        <text name="rl_mark_player" text="Označeno hráčem"/>
 
 
 		<!-- AI - BUYING -->
 
 
-		<text name="rl_ui_herdsmanTooltip_buy_enabled_1" text="Pastýř nebude nakupovat zvířata"//>
-		<text name="rl_ui_herdsmanTooltip_buy_enabled_2" text="Pastýř bude nakupovat zvířata"//>
+        <text name="rl_ui_herdsmanTooltip_buy_enabled_1" text="Pastýř nebude nakupovat zvířata"/>
+        <text name="rl_ui_herdsmanTooltip_buy_enabled_2" text="Pastýř bude nakupovat zvířata"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_budget|type_1" text="Rozpočet pro nákup je pevná částka"//>
-		<text name="rl_ui_herdsmanTooltip_buy_budget|type_2" text="Rozpočet pro nákup je procento z peněz vaší farmy"//>
+        <text name="rl_ui_herdsmanTooltip_buy_budget|type_1" text="Rozpočet na nákup je pevná částka"/>
+        <text name="rl_ui_herdsmanTooltip_buy_budget|type_2" text="Rozpočet na nákup je procentuální část z peněz farmy"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_budget|fixed" text="Pastýř utratí maximálně %s denně"//>
-		<text name="rl_ui_herdsmanTooltip_buy_budget|percentage" text="Pastýř utratí maximálně %s z peněz vaší farmy denně"//>
+        <text name="rl_ui_herdsmanTooltip_buy_budget|fixed" text="Pastýř utratí maximálně %s za den"/>
+        <text name="rl_ui_herdsmanTooltip_buy_budget|percentage" text="Pastýř utratí maximálně %s z peněz farmy za den"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_maxAnimals" text="Pastýř koupí maximálně %s zvířat denně"//>
+        <text name="rl_ui_herdsmanTooltip_buy_maxAnimals" text="Pastýř nakoupí maximálně %s zvířat za den"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_breed" text="Pastýř bude kupovat pouze zvířata %s"//>
-		<text name="rl_ui_herdsmanTooltip_buy_breed_any" text="Pastýř bude kupovat jakékoliv plemeno"//>
+        <text name="rl_ui_herdsmanTooltip_buy_breed" text="Pastýř bude nakupovat pouze zvířata plemene %s"/>
+        <text name="rl_ui_herdsmanTooltip_buy_breed_any" text="Pastýř bude nakupovat zvířata jakéhokoli plemene"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_diseases_1" text="Pastýř bude kupovat pouze zvířata bez nemocí"//>
-		<text name="rl_ui_herdsmanTooltip_buy_diseases_2" text="Pastýř bude kupovat zvířata bez ohledu na nemoci"//>
+        <text name="rl_ui_herdsmanTooltip_buy_diseases_1" text="Pastýř bude nakupovat pouze zdravá zvířata bez nemocí"/>
+        <text name="rl_ui_herdsmanTooltip_buy_diseases_2" text="Pastýř bude nakupovat zvířata bez ohledu na nemoci"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_gender_1" text="Pastýř bude kupovat pouze samice"//>
-		<text name="rl_ui_herdsmanTooltip_buy_gender_2" text="Pastýř bude kupovat samice i samce"//>
-		<text name="rl_ui_herdsmanTooltip_buy_gender_3" text="Pastýř bude kupovat pouze samce"//>
+        <text name="rl_ui_herdsmanTooltip_buy_gender_1" text="Pastýř bude nakupovat pouze samice"/>
+        <text name="rl_ui_herdsmanTooltip_buy_gender_2" text="Pastýř bude nakupovat samice i samce"/>
+        <text name="rl_ui_herdsmanTooltip_buy_gender_3" text="Pastýř bude nakupovat pouze samce"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_age_equal" text="Pastýř bude kupovat pouze zvířata stará %s"//>
-		<text name="rl_ui_herdsmanTooltip_buy_age_range" text="Pastýř bude kupovat pouze zvířata stará mezi %s a %s"//>
+        <text name="rl_ui_herdsmanTooltip_buy_age_equal" text="Pastýř bude nakupovat pouze zvířata ve věku %s"/>
+        <text name="rl_ui_herdsmanTooltip_buy_age_range" text="Pastýř bude nakupovat pouze zvířata ve věku od %s do %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_quality_equal" text="Pastýř bude kupovat pouze zvířata s kvalitou %s"//>
-		<text name="rl_ui_herdsmanTooltip_buy_quality_range" text="Pastýř bude kupovat pouze zvířata s kvalitou mezi %s a %s"//>
+        <text name="rl_ui_herdsmanTooltip_buy_quality_equal" text="Pastýř bude nakupovat pouze zvířata s kvalitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_buy_quality_range" text="Pastýř bude nakupovat pouze zvířata s kvalitou mezi %s a %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_fertility_equal" text="Pastýř bude kupovat pouze zvířata s plodností %s"//>
-		<text name="rl_ui_herdsmanTooltip_buy_fertility_range" text="Pastýř bude kupovat pouze zvířata s plodností mezi %s a %s"//>
+        <text name="rl_ui_herdsmanTooltip_buy_fertility_equal" text="Pastýř bude nakupovat pouze zvířata s plodností %s"/>
+        <text name="rl_ui_herdsmanTooltip_buy_fertility_range" text="Pastýř bude nakupovat pouze zvířata s plodností mezi %s a %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_health_equal" text="Pastýř bude kupovat pouze zvířata se zdravím %s"//>
-		<text name="rl_ui_herdsmanTooltip_buy_health_range" text="Pastýř bude kupovat pouze zvířata se zdravím mezi %s a %s"//>
+        <text name="rl_ui_herdsmanTooltip_buy_health_equal" text="Pastýř bude nakupovat pouze zvířata se zdravím %s"/>
+        <text name="rl_ui_herdsmanTooltip_buy_health_range" text="Pastýř bude nakupovat pouze zvířata se zdravím mezi %s a %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_productivity_equal" text="Pastýř bude kupovat pouze zvířata s produktivitou %s"//>
-		<text name="rl_ui_herdsmanTooltip_buy_productivity_range" text="Pastýř bude kupovat pouze zvířata s produktivitou mezi %s a %s"//>
+        <text name="rl_ui_herdsmanTooltip_buy_productivity_equal" text="Pastýř bude nakupovat pouze zvířata s produktivitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_buy_productivity_range" text="Pastýř bude nakupovat pouze zvířata s produktivitou mezi %s a %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_buy_metabolism_equal" text="Pastýř bude kupovat pouze zvířata s metabolismem %s"//>
-		<text name="rl_ui_herdsmanTooltip_buy_metabolism_range" text="Pastýř bude kupovat pouze zvířata s metabolismem mezi %s a %s"//>
-
-
-		<!-- AI - SELLING -->
+        <text name="rl_ui_herdsmanTooltip_buy_metabolism_equal" text="Pastýř bude nakupovat pouze zvířata s metabolismem %s"/>
+        <text name="rl_ui_herdsmanTooltip_buy_metabolism_range" text="Pastýř bude nakupovat pouze zvířata s metabolismem mezi %s a %s"/>
 
 
-		<text name="rl_ui_herdsmanTooltip_sell_enabled_1" text="Pastýř nebude prodávat zvířata"//>
-		<text name="rl_ui_herdsmanTooltip_sell_enabled_2" text="Pastýř bude prodávat zvířata"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_maxAnimals" text="Pastýř prodá maximálně %s zvířat denně"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_mark_1" text="Pastýř nebude označovat zvířata k prodeji"//>
-		<text name="rl_ui_herdsmanTooltip_sell_mark_2" text="Pastýř bude označovat zvířata k prodeji"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Pastýř bude prodávat zvířata bez ohledu na nemoci"//>
-		<text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Pastýř bude prodávat pouze zvířata s nemocí"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_gender_1" text="Pastýř bude prodávat pouze samice"//>
-		<text name="rl_ui_herdsmanTooltip_sell_gender_2" text="Pastýř bude prodávat samice i samce"//>
-		<text name="rl_ui_herdsmanTooltip_sell_gender_3" text="Pastýř bude prodávat pouze samce"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_age_equal" text="Pastýř bude prodávat pouze zvířata stará %s"//>
-		<text name="rl_ui_herdsmanTooltip_sell_age_range" text="Pastýř bude prodávat pouze zvířata stará mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_quality_equal" text="Pastýř bude prodávat pouze zvířata s kvalitou %s"//>
-		<text name="rl_ui_herdsmanTooltip_sell_quality_range" text="Pastýř bude prodávat pouze zvířata s kvalitou mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_fertility_equal" text="Pastýř bude prodávat pouze zvířata s plodností %s"//>
-		<text name="rl_ui_herdsmanTooltip_sell_fertility_range" text="Pastýř bude prodávat pouze zvířata s plodností mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_health_equal" text="Pastýř bude prodávat pouze zvířata se zdravím %s"//>
-		<text name="rl_ui_herdsmanTooltip_sell_health_range" text="Pastýř bude prodávat pouze zvířata se zdravím mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_productivity_equal" text="Pastýř bude prodávat pouze zvířata s produktivitou %s"//>
-		<text name="rl_ui_herdsmanTooltip_sell_productivity_range" text="Pastýř bude prodávat pouze zvířata s produktivitou mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_sell_metabolism_equal" text="Pastýř bude prodávat pouze zvířata s metabolismem %s"//>
-		<text name="rl_ui_herdsmanTooltip_sell_metabolism_range" text="Pastýř bude prodávat pouze zvířata s metabolismem mezi %s a %s"//>
+        <!-- AI - SELLING -->
 
 
-		<!-- AI - CASTRATING -->
+        <text name="rl_ui_herdsmanTooltip_sell_enabled_1" text="Pastýř nebude prodávat zvířata"/>
+        <text name="rl_ui_herdsmanTooltip_sell_enabled_2" text="Pastýř bude prodávat zvířata"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_maxAnimals" text="Pastýř prodá maximálně %s zvířat za den"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_mark_1" text="Pastýř nebude označovat zvířata k prodeji"/>
+        <text name="rl_ui_herdsmanTooltip_sell_mark_2" text="Pastýř bude označovat zvířata k prodeji"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Pastýř bude prodávat zvířata bez ohledu na nemoci"/>
+        <text name="rl_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Pastýř bude prodávat pouze zvířata s nemocí"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_gender_1" text="Pastýř bude prodávat pouze samice"/>
+        <text name="rl_ui_herdsmanTooltip_sell_gender_2" text="Pastýř bude prodávat samice i samce"/>
+        <text name="rl_ui_herdsmanTooltip_sell_gender_3" text="Pastýř bude prodávat pouze samce"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_age_equal" text="Pastýř bude prodávat pouze zvířata ve věku %s"/>
+        <text name="rl_ui_herdsmanTooltip_sell_age_range" text="Pastýř bude prodávat pouze zvířata ve věku od %s do %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_quality_equal" text="Pastýř bude prodávat pouze zvířata s kvalitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_sell_quality_range" text="Pastýř bude prodávat pouze zvířata s kvalitou mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_fertility_equal" text="Pastýř bude prodávat pouze zvířata s plodností %s"/>
+        <text name="rl_ui_herdsmanTooltip_sell_fertility_range" text="Pastýř bude prodávat pouze zvířata s plodností mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_health_equal" text="Pastýř bude prodávat pouze zvířata se zdravím %s"/>
+        <text name="rl_ui_herdsmanTooltip_sell_health_range" text="Pastýř bude prodávat pouze zvířata se zdravím mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_productivity_equal" text="Pastýř bude prodávat pouze zvířata s produktivitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_sell_productivity_range" text="Pastýř bude prodávat pouze zvířata s produktivitou mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_sell_metabolism_equal" text="Pastýř bude prodávat pouze zvířata s metabolismem %s"/>
+        <text name="rl_ui_herdsmanTooltip_sell_metabolism_range" text="Pastýř bude prodávat pouze zvířata s metabolismem mezi %s a %s"/>
 
 
-		<text name="rl_ui_herdsmanTooltip_castrate_enabled_1" text="Pastýř nebude kastrovat zvířata"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_enabled_2" text="Pastýř bude kastrovat zvířata"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_mark_1" text="Pastýř nebude označovat zvířata ke kastraci"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_mark_2" text="Pastýř bude označovat zvířata ke kastraci"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Pastýř bude kastrovat zvířata bez ohledu na nemoci"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Pastýř bude kastrovat pouze zvířata s nemocí"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_age_equal" text="Pastýř bude kastrovat pouze zvířata stará %s"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_age_range" text="Pastýř bude kastrovat pouze zvířata stará mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_quality_equal" text="Pastýř bude kastrovat pouze zvířata s kvalitou %s"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_quality_range" text="Pastýř bude kastrovat pouze zvířata s kvalitou mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_fertility_equal" text="Pastýř bude kastrovat pouze zvířata s plodností %s"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_fertility_range" text="Pastýř bude kastrovat pouze zvířata s plodností mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_health_equal" text="Pastýř bude kastrovat pouze zvířata se zdravím %s"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_health_range" text="Pastýř bude kastrovat pouze zvířata se zdravím mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_productivity_equal" text="Pastýř bude kastrovat pouze zvířata s produktivitou %s"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_productivity_range" text="Pastýř bude kastrovat pouze zvířata s produktivitou mezi %s a %s"//>
-
-		<text name="rl_ui_herdsmanTooltip_castrate_metabolism_equal" text="Pastýř bude kastrovat pouze zvířata s metabolismem %s"//>
-		<text name="rl_ui_herdsmanTooltip_castrate_metabolism_range" text="Pastýř bude kastrovat pouze zvířata s metabolismem mezi %s a %s"//>
+        <!-- AI - CASTRATING -->
 
 
-		<!-- AI - NAMING -->
+        <text name="rl_ui_herdsmanTooltip_castrate_enabled_1" text="Pastýř nebude kastrovat zvířata"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_enabled_2" text="Pastýř bude kastrovat zvířata"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_mark_1" text="Pastýř nebude označovat zvířata ke kastraci"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_mark_2" text="Pastýř bude označovat zvířata ke kastraci"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Pastýř bude kastrovat zvířata bez ohledu na nemoci"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Pastýř bude kastrovat pouze zvířata s nemocí"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_age_equal" text="Pastýř bude kastrovat pouze zvířata ve věku %s"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_age_range" text="Pastýř bude kastrovat pouze zvířata ve věku od %s do %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_quality_equal" text="Pastýř bude kastrovat pouze zvířata s kvalitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_quality_range" text="Pastýř bude kastrovat pouze zvířata s kvalitou mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_fertility_equal" text="Pastýř bude kastrovat pouze zvířata s plodností %s"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_fertility_range" text="Pastýř bude kastrovat pouze zvířata s plodností mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_health_equal" text="Pastýř bude kastrovat pouze zvířata se zdravím %s"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_health_range" text="Pastýř bude kastrovat pouze zvířata se zdravím mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_productivity_equal" text="Pastýř bude kastrovat pouze zvířata s produktivitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_productivity_range" text="Pastýř bude kastrovat pouze zvířata s produktivitou mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_castrate_metabolism_equal" text="Pastýř bude kastrovat pouze zvířata s metabolismem %s"/>
+        <text name="rl_ui_herdsmanTooltip_castrate_metabolism_range" text="Pastýř bude kastrovat pouze zvířata s metabolismem mezi %s a %s"/>
 
 
-		<text name="rl_ui_herdsmanTooltip_naming_enabled_1" text="Pastýř nebude pojmenovávat zvířata"//>
-		<text name="rl_ui_herdsmanTooltip_naming_enabled_2" text="Pastýř bude pojmenovávat zvířata"//>
-
-		<text name="rl_ui_herdsmanTooltip_naming_convention_1" text="The herdsman will name animals randomly"//>
-		<text name="rl_ui_herdsmanTooltip_naming_convention_2" text="The herdsman will name animals alphabetically"//>
+        <!-- AI - NAMING -->
 
 
-		<!-- AI - AI -->
+        <text name="rl_ui_herdsmanTooltip_naming_enabled_1" text="Pastýř nebude pojmenovávat zvířata"/>
+        <text name="rl_ui_herdsmanTooltip_naming_enabled_2" text="Pastýř bude pojmenovávat zvířata"/>
+
+        <text name="rl_ui_herdsmanTooltip_naming_convention_1" text="Pastýř bude pojmenovávat zvířata náhodně"/>
+        <text name="rl_ui_herdsmanTooltip_naming_convention_2" text="Pastýř bude pojmenovávat zvířata abecedně"/>
 
 
-		<text name="rl_ui_herdsmanTooltip_ai_enabled_1" text="Pastýř nebude umělě oplodňovat zvířata"//>
-		<text name="rl_ui_herdsmanTooltip_ai_enabled_2" text="Pastýř bude umělě oplodňovat zvířata"//>
+        <!-- AI - AI -->
 
-		<text name="rl_ui_herdsmanTooltip_ai_maxAnimals" text="The herdsman will AI up to %s animals per day"//>
 
-		<text name="rl_ui_herdsmanTooltip_ai_mark_1" text="The herdsman will not mark animals to be inseminated"//>
-		<text name="rl_ui_herdsmanTooltip_ai_mark_2" text="The herdsman will mark animals to be inseminated"//>
+        <text name="rl_ui_herdsmanTooltip_ai_enabled_1" text="Pastýř nebude uměle inseminovat zvířata"/>
+        <text name="rl_ui_herdsmanTooltip_ai_enabled_2" text="Pastýř bude uměle inseminovat zvířata"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="The herdsman will AI animals regardless of diseases"//>
-		<text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="The herdsman will only AI animals with a disease"//>
+        <text name="rl_ui_herdsmanTooltip_ai_maxAnimals" text="Pastýř uměle inseminuje maximálně %s zvířat za den"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_semen" text="The herdsman will use inseminant from %s"//>
-		<text name="rl_ui_herdsmanTooltip_ai_semen_github" text="The herdsman will use semen from %s"//>
-		<text name="rl_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable inseminant"//>
-		<text name="rl_ui_herdsmanTooltip_ai_semen_any_github" text="The herdsman will use any viable semen"//>
+        <text name="rl_ui_herdsmanTooltip_ai_mark_1" text="Pastýř nebude označovat zvířata k inseminaci"/>
+        <text name="rl_ui_herdsmanTooltip_ai_mark_2" text="Pastýř bude označovat zvířata k inseminaci"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_age_equal" text="The herdsman will only AI animals that are %s old"//>
-		<text name="rl_ui_herdsmanTooltip_ai_age_range" text="The herdsman will only AI animals that are between %s and %s old"//>
+        <text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Pastýř bude uměle inseminovat zvířata bez ohledu na nemoci"/>
+        <text name="rl_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Pastýř bude uměle inseminovat pouze zvířata s nemocí"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_quality_equal" text="The herdsman will only AI animals with %s quality"//>
-		<text name="rl_ui_herdsmanTooltip_ai_quality_range" text="The herdsman will only AI animals with quality between %s and %s"//>
+        <text name="rl_ui_herdsmanTooltip_ai_semen" text="Pastýř bude používat inseminant z %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_semen_github" text="Pastýř bude používat semen z %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_semen_any" text="Pastýř bude používat jakýkoli vhodný inseminant"/>
+        <text name="rl_ui_herdsmanTooltip_ai_semen_any_github" text="Pastýř bude používat jakékoli vhodné semen"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_fertility_equal" text="The herdsman will only AI animals with %s fertility"//>
-		<text name="rl_ui_herdsmanTooltip_ai_fertility_range" text="The herdsman will only AI animals with fertility between %s and %s"//>
+        <text name="rl_ui_herdsmanTooltip_ai_age_equal" text="Pastýř bude uměle inseminovat pouze zvířata ve věku %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_age_range" text="Pastýř bude uměle inseminovat pouze zvířata ve věku od %s do %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_health_equal" text="The herdsman will only AI animals with %s health"//>
-		<text name="rl_ui_herdsmanTooltip_ai_health_range" text="The herdsman will only AI animals with health between %s and %s"//>
+        <text name="rl_ui_herdsmanTooltip_ai_quality_equal" text="Pastýř bude uměle inseminovat pouze zvířata s kvalitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_quality_range" text="Pastýř bude uměle inseminovat pouze zvířata s kvalitou mezi %s a %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_productivity_equal" text="The herdsman will only AI animals with %s productivity"//>
-		<text name="rl_ui_herdsmanTooltip_ai_productivity_range" text="The herdsman will only AI animals with productivity between %s and %s"//>
+        <text name="rl_ui_herdsmanTooltip_ai_fertility_equal" text="Pastýř bude uměle inseminovat pouze zvířata s plodností %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_fertility_range" text="Pastýř bude uměle inseminovat pouze zvířata s plodností mezi %s a %s"/>
 
-		<text name="rl_ui_herdsmanTooltip_ai_metabolism_equal" text="The herdsman will only AI animals with %s metabolism"//>
-		<text name="rl_ui_herdsmanTooltip_ai_metabolism_range" text="The herdsman will only AI animals with metabolism between %s and %s"//>
+        <text name="rl_ui_herdsmanTooltip_ai_health_equal" text="Pastýř bude uměle inseminovat pouze zvířata se zdravím %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_health_range" text="Pastýř bude uměle inseminovat pouze zvířata se zdravím mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_ai_productivity_equal" text="Pastýř bude uměle inseminovat pouze zvířata s produktivitou %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_productivity_range" text="Pastýř bude uměle inseminovat pouze zvířata s produktivitou mezi %s a %s"/>
+
+        <text name="rl_ui_herdsmanTooltip_ai_metabolism_equal" text="Pastýř bude uměle inseminovat pouze zvířata s metabolismem %s"/>
+        <text name="rl_ui_herdsmanTooltip_ai_metabolism_range" text="Pastýř bude uměle inseminovat pouze zvířata s metabolismem mezi %s a %s"/>
 
 
 
 		<!--  SETTINGS  -->
 
 
-		<text name="rl_settings" text="Realistic Livestock"//>
+        <text name="rl_settings" text="Realistický chov zvířat"/>
 
-		<text name="rl_settings_off" text="Off"//>
-		<text name="rl_settings_on" text="On"//>
+        <text name="rl_settings_off" text="Vypnuto"/>
+        <text name="rl_settings_on" text="Zapnuto"/>
 
-		<text name="rl_settings_deathEnabled_label" text="Animal Removal"//>
-		<text name="rl_settings_deathEnabled_label_github" text="Animal Death"//>
-		<text name="rl_settings_deathEnabled_tooltip_1" text="Animals will not be removed due to pregnancy, health, age or accidents"//>
-		<text name="rl_settings_deathEnabled_tooltip_1_github" text="Animals will not die due to pregnancy, health, age or accidents"//>
-		<text name="rl_settings_deathEnabled_tooltip_2" text="Animals will be removed due to pregnancy, health, age or accidents"//>
-		<text name="rl_settings_deathEnabled_tooltip_2_github" text="Animals will die due to pregnancy, health, age or accidents"//>
+        <text name="rl_settings_deathEnabled_label" text="Odstranění zvířat"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Úhyn zvířat"/>
+        <text name="rl_settings_deathEnabled_tooltip_1" text="Zvířata nebudou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Zvířata nebudou umírat kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="rl_settings_deathEnabled_tooltip_2" text="Zvířata budou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Zvířata budou umírat kvůli březosti, zdraví, věku nebo nehodám"/>
 
-		<text name="rl_settings_accidentsChance_label" text="Accident Chance"//>
-		<text name="rl_settings_accidentsChance_tooltip" text="Change the likelihood of animals being removed due to random accidents"//>
-		<text name="rl_settings_accidentsChance_tooltip_github" text="Change the likelihood of animals dying due to random accidents"//>
+        <text name="rl_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
+        <text name="rl_settings_accidentsChance_tooltip" text="Změní pravděpodobnost odstranění zvířat kvůli náhodným nehodám"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Změní pravděpodobnost úhynu zvířat kvůli náhodným nehodám"/>
 
-		<text name="rl_settings_foodScale_label" text="Food Scale"//>
-		<text name="rl_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"//>
+        <text name="rl_settings_foodScale_label" text="Množství krmiva"/>
+        <text name="rl_settings_foodScale_tooltip" text="Změní množství krmiva, které zvířata spotřebují"/>
 
-		<text name="rl_settings_maxDealerAnimals_label" text="Max Dealer Animals"//>
-		<text name="rl_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"//>
+        <text name="rl_settings_maxDealerAnimals_label" text="Maximální počet zvířat u obchodníka"/>
+        <text name="rl_settings_maxDealerAnimals_tooltip" text="Změní maximální počet zvířat, která bude mít obchodník se zvířaty skladem pro každý druh"/>
 
-		<text name="rl_settings_resetDealer_label" text="Reset Animal Dealer"//>
-		<text name="rl_settings_resetDealer_tooltip" text="Remove all the dealer's animals and replenish the stock with new animals"//>
-		<text name="rl_settings_resetDealer_text" text="Reset Animal Dealer"//>
+        <text name="rl_settings_resetDealer_label" text="Resetovat obchodníka se zvířaty"/>
+        <text name="rl_settings_resetDealer_tooltip" text="Odstraní všechna zvířata u obchodníka a doplní sklad novými zvířaty"/>
+        <text name="rl_settings_resetDealer_text" text="Resetovat obchodníka se zvířaty"/>
 
-		<text name="rl_settings_resetAIAnimals_label" text="Reset AI Animals"//>
-		<text name="rl_settings_resetAIAnimals_tooltip" text="Remove all AI animals available for artificial insemination and replenish with new randomly generated animals"//>
-		<text name="rl_settings_resetAIAnimals_text" text="Reset AI Animals"//>
+        <text name="rl_settings_resetAIAnimals_label" text="Resetovat zvířata pro AI"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Odstraní všechna zvířata dostupná pro umělou inseminaci a doplní je novými náhodně generovanými zvířaty"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Resetovat zvířata pro AI"/>
 
-		<text name="rl_settings_tagColour_label" text="Change Tag Colour"//>
-		<text name="rl_settings_tagColour_tooltip" text="Change the colour of ear tags"//>
-		<text name="rl_settings_tagColour_text" text="Change Tag Colour"//>
+        <text name="rl_settings_tagColour_label" text="Změnit barvu štítků"/>
+        <text name="rl_settings_tagColour_tooltip" text="Změní barvu ušních štítků"/>
+        <text name="rl_settings_tagColour_text" text="Změnit barvu štítků"/>
 
-		<text name="rl_settings_exportCSV_label" text="Export To CSV"//>
-		<text name="rl_settings_exportCSV_tooltip" text="Export stats to CSV"//>
-		<text name="rl_settings_exportCSV_text" text="Export To CSV"//>
+        <text name="rl_settings_exportCSV_label" text="Exportovat do CSV"/>
+        <text name="rl_settings_exportCSV_tooltip" text="Exportovat statistiky do CSV"/>
+        <text name="rl_settings_exportCSV_text" text="Exportovat do CSV"/>
 
-		<text name="rl_settings_maxNumMessages_label" text="Maximum Amount of Messages"//>
-		<text name="rl_settings_maxNumMessages_tooltip" text="A higher amount will result in your save folder taking up more space. After this limit is reached, the earliest messages will be deleted."//>
+        <text name="rl_settings_maxNumMessages_label" text="Maximální počet zpráv"/>
+        <text name="rl_settings_maxNumMessages_tooltip" text="Vyšší hodnota způsobí, že složka uložené hry zabere více místa. Po dosažení tohoto limitu budou nejstarší zprávy mazány."/>
 
-		<text name="rl_settings_messageSummary_label" text="Message Log Summaries"//>
-		<text name="rl_settings_messageSummary_tooltip_1" text="Off: Individual messages for each event"//>
-		<text name="rl_settings_messageSummary_tooltip_2" text="On: Daily summaries per husbandry (reduces log noise)"//>
+        <text name="rl_settings_messageSummary_label" text="Shrnutí zpráv"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Vypnuto: Jednotlivé zprávy pro každou událost"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Zapnuto: Denní shrnutí podle chovu (snižuje zahlcení logu)"/>
 
-		<text name="rl_settings_diseasesEnabled_label" text="Nemoci zapnuty"//>
-		<text name="rl_settings_diseasesEnabled_tooltip_1" text="Zvířata nemohou chytit ani zdědit nemoci"//>
-		<text name="rl_settings_diseasesEnabled_tooltip_2" text="Zvířata mohou chytit nebo zdědit nemoci"//>
+        <text name="rl_settings_diseasesEnabled_label" text="Nemoci zapnuty"/>
+        <text name="rl_settings_diseasesEnabled_tooltip_1" text="Zvířata nemohou onemocnět ani zdědit nemoci"/>
+        <text name="rl_settings_diseasesEnabled_tooltip_2" text="Zvířata mohou onemocnět i zdědit nemoci"/>
 
-		<text name="rl_settings_diseasesChance_label" text="Šance na nemoc"//>
-		<text name="rl_settings_diseasesChance_tooltip" text="Změnit pravděpodobnost, že zvířata dostanou nemoc"//>
+        <text name="rl_settings_diseasesChance_label" text="Pravděpodobnost nemoci"/>
+        <text name="rl_settings_diseasesChance_tooltip" text="Změní pravděpodobnost, že zvířata onemocní"/>
 
-		<text name="rl_settings_useCustomAnimals_label" text="Použít vlastní zvířata"//>
-		<text name="rl_settings_useCustomAnimals_tooltip_1" text="Použít modely zvířat z RealisticLivestock (vyžaduje restart)"//>
-		<text name="rl_settings_useCustomAnimals_tooltip_2" text="Použít vlastní modely zvířat (vyžaduje restart, musí být rozbalené)"//>
+        <text name="rl_settings_useCustomAnimals_label" text="Použít vlastní zvířata"/>
+        <text name="rl_settings_useCustomAnimals_tooltip_1" text="Použít modely zvířat z RealisticLivestock (vyžaduje restart)"/>
+        <text name="rl_settings_useCustomAnimals_tooltip_2" text="Použít vlastní modely zvířat (vyžaduje restart, musí být rozbalené)"/>
 
-		<text name="rl_settings_animalsXML_label" text="Nastavit cestu k XML zvířat"//>
-		<text name="rl_settings_animalsXML_tooltip" text="Nastavit cestu k vlastnímu XML souboru zvířat"//>
-		<text name="rl_settings_animalsXML_text" text="Nastavit cestu k XML zvířat"//>
+        <text name="rl_settings_animalsXML_label" text="Nastavit cestu k Animals XML"/>
+        <text name="rl_settings_animalsXML_tooltip" text="Nastaví cestu k vlastnímu souboru animals.xml"/>
+        <text name="rl_settings_animalsXML_text" text="Nastavit cestu k Animals XML"/>
 
-		<text name="rl_settings_geneticsDisplay_label" text="Zobrazení genetiky"//>
-		<text name="rl_settings_geneticsDisplay_tooltip" text="Zobrazit číselné hodnoty genetiky ve jménech zvířat"//>
-		<text name="rl_settings_geneticsDisplay_texts_1" text="Vypnuto"//>
-		<text name="rl_settings_geneticsDisplay_texts_2" text="Krátké"//>
-		<text name="rl_settings_geneticsDisplay_texts_3" text="Dlouhé"//>
-		<text name="rl_settings_geneticsPosition_label" text="Pozice genetiky"//>
-		<text name="rl_settings_geneticsPosition_tooltip" text="Kde zobrazit genetiku ve jménu"//>
-		<text name="rl_settings_geneticsPosition_texts_1" text="Prefix"//>
-		<text name="rl_settings_geneticsPosition_texts_2" text="Postfix"//>
-		<text name="rl_settings_sortByGenetics_label" text="Řadit podle genetiky"//>
-		<text name="rl_settings_sortByGenetics_tooltip_1" text="Zvířata jsou řazena podle typu a věku"//>
-		<text name="rl_settings_sortByGenetics_tooltip_2" text="Zvířata jsou řazena podle genetiky (nejvyšší jako první)"//>
-
-
-
-		<!--  HELP  -->
-
-
-		<text name="rl_help_monitors_title" text="Monitory"//>
-		<text name="rl_help_monitors_1" text="Abyste mohli vidět většinu statistik zvířete, musíte na něj připevnit monitor, což lze udělat prostřednictvím menu zvířat (kde kupujete a prodáváte zvířata). Monitory jsou také vizuálně zobrazeny na zvířeti, na jejich levém uchu vedle ID známky."//>
-		<text name="rl_help_monitors_2" text="Monitory vám zobrazí důležité informace, včetně zdraví, hmotnosti, laktace, produkce a požadavků na slámu, krmivo a vodu."//>
-		<text name="rl_help_monitors_3" text="Připojení monitoru ke zvířeti vás bude stát malé měsíční předplatné na základě druhu zvířete. Pokud se rozhodnete monitor odebrat, monitor bude odebrán na začátku příštího měsíce."//>
-
-		<text name="rl_help_pregnancy_title" text="Těhotenství"//>
-		<text name="rl_help_pregnancy_1" text="Všechna samice zvířat vyžadují alespoň 1 samce, aby mohla potenciálně otěhotnět. Obě zvířata musí mít správný věk a zdraví a musí být ze stejného druhu. Křížení mezi různými plemeny (např. holštýnská kráva a angus býk) je povoleno."//>
-		<text name="rl_help_pregnancy_2" text="Příbuzenské křížení není povoleno. Pokud jsou samec a samice přímo příbuzní, nebudou se spolu rozmnožovat."//>
-		<text name="rl_help_pregnancy_3" text="Šance, že samice otěhotní, závisí na plodnosti jak jí, tak samce. Samice s vyšší plodností má také významně vyšší šanci vyprodukovat více potomků najednou."//>
-		<text name="rl_help_pregnancy_4" text="Jakmile samice otěhotní, začne nosit svého potomka. Můžete zobrazit očekávané datum porodu a počet potomků tím, že se podíváte na zvíře v kotci, nebo kliknutím na něj v menu zvířat."//>
-		<text name="rl_help_pregnancy_5" text="Když dosáhne termínu porodu, porodí svá mláďata. Novorozenci však mají určitou šanci, že budou odstraněni, stejně jako matka, pokud těhotenství proběhne špatně. Novorozenci, kteří se narodí v přeplněném kotci, budou automaticky prodáni."//>
-
-		<text name="rl_help_production_title" text="Produkce"//>
-		<text name="rl_help_production_1" text="Krávy jakéhokoli plemene začnou produkovat mléko teprve po porodu. Jakmile porodí, kráva bude produkovat mléko exponenciálně po dobu 3 měsíců, pak její produkce pomalu klesá po dobu dalších 6 měsíců. 10 měsíců po těhotenství kráva přestane produkovat mléko až do dalšího těhotenství."//>
-		<text name="rl_help_production_2" text="Ovce budou produkovat vlnu v teplých měsících. Ve studených měsících, pod 12°C, nebudou produkovat vlnu."//>
-		<text name="rl_help_production_3" text="Produkce mléka, vlny a vajec je dále ovlivněna genetikou zvířete. Zvíře s dobrou produkční genetikou bude produkovat více, zatímco zvíře se špatnou genetikou nebude produkovat téměř nic."//>
-
-		<text name="rl_help_weight_title" text="Hmotnost"//>
-		<text name="rl_help_weight_1" text="Zvířata mají určitou hmotnost, která je ovlivněna tím, kolik jedí a pijí. Každý druh a plemeno má svou průměrnou hmotnost, která ovlivňuje hmotnost každého zvířete."//>
-		<text name="rl_help_weight_2" text="Hmotnost zvyšuje hodnotu zvířete a nízká hmotnost ovlivňuje jeho šanci na odstranění každý měsíc."//>
-
-		<text name="rl_help_genetics_title" text="Genetika"//>
-		<text name="rl_help_genetics_1" text="Každé zvíře má 4 různé genetické hodnoty: metabolismus, plodnost, zdraví a kvalitu. Genetika se míchá mezi matkou a otcem a následně se předává jejich potomkům."//>
-		<text name="rl_help_genetics_2" text="Metabolismus ovlivňuje schopnost zvířete přeměňovat potravu na hmotnost a ovlivňuje množství potravy, kterou sní."//>
-		<text name="rl_help_genetics_3" text="Plodnost ovlivňuje šanci zvířete otěhotnět nebo oplodnit samici a počet potomků, které vyprodukuje."//>
-		<text name="rl_help_genetics_4" text="Zdraví ovlivňuje zdraví zvířete a jeho šanci na odstranění každý měsíc. Zvíře s vyšším zdravím má také delší život."//>
-		<text name="rl_help_genetics_5" text="Kvalita ovlivňuje hodnotu samotného zvířete, zvíře s vyšší kvalitou se prodá za mnohem více."//>
-		<text name="rl_help_genetics_6" text="Skot, ovce a slepice mají rovněž produkční genetiku, která ovlivňuje, kolik mléka/vajec/vlny vyprodukují."//>
+        <text name="rl_settings_geneticsDisplay_label" text="Zobrazení genetiky"/>
+        <text name="rl_settings_geneticsDisplay_tooltip" text="Zobrazí číselné hodnoty genetiky v názvech zvířat"/>
+        <text name="rl_settings_geneticsDisplay_texts_1" text="Vypnuto"/>
+        <text name="rl_settings_geneticsDisplay_texts_2" text="Krátké"/>
+        <text name="rl_settings_geneticsDisplay_texts_3" text="Dlouhé"/>
+        <text name="rl_settings_geneticsPosition_label" text="Pozice genetiky"/>
+        <text name="rl_settings_geneticsPosition_tooltip" text="Kde se má genetika zobrazovat v názvu"/>
+        <text name="rl_settings_geneticsPosition_texts_1" text="Předpona"/>
+        <text name="rl_settings_geneticsPosition_texts_2" text="Přípona"/>
+        <text name="rl_settings_sortByGenetics_label" text="Řadit podle genetiky"/>
+        <text name="rl_settings_sortByGenetics_tooltip_1" text="Zvířata jsou řazena podle typu a věku"/>
+        <text name="rl_settings_sortByGenetics_tooltip_2" text="Zvířata jsou řazena podle genetiky (nejvyšší první)"/>
 
 
 
-		<!--  DISEASES  -->
+        <!--  HELP  -->
 
 
-		<text name="rl_ui_immune" text="Imunní"//>
-		<text name="rl_ui_startTreatment" text="Zahájit léčbu"//>
-		<text name="rl_ui_resumeTreatment" text="Pokračovat v léčbě"//>
-		<text name="rl_ui_stopTreatment" text="Zastavit léčbu"//>
-		<text name="rl_ui_duration" text="Délka"//>
-		<text name="rl_ui_beingTreated" text="Léčeno"//>
-		<text name="rl_ui_notTreated" text="Neléčeno"//>
-		<text name="rl_ui_carrier" text="Přenašeč"//>
+        <text name="rl_help_monitors_title" text="Monitory"/>
+        <text name="rl_help_monitors_1" text="Abyste viděli většinu statistik zvířete, musíte mu přidat monitorovací štítek. Lze to provést v menu zvířat (kde kupujete a prodáváte). Monitorovací štítek je také viditelný na zvířeti – na levém uchu vedle identifikačního štítku."/>
+        <text name="rl_help_monitors_2" text="Monitorovací štítky vám zobrazí důležité informace včetně zdraví, váhy, laktace, produkce a požadavků na slámu, krmivo a vodu."/>
+        <text name="rl_help_monitors_3" text="Přidání štítku zvířeti stojí malý měsíční poplatek podle druhu zvířete. Pokud štítek odstraníte, bude odebrán na začátku příštího měsíce."/>
 
-		<text name="rl_diseases" text="Nemoci"//>
-		<text name="rl_disease" text="Nemoc"//>
+        <text name="rl_help_pregnancy_title" text="Březost"/>
+        <text name="rl_help_pregnancy_1" text="Samice potřebují k možnému zabřeznutí alespoň jednoho samce. Oba musí mít správný věk a zdraví a musí patřit ke stejnému druhu. Křížení různých plemen (např. holštýnská kráva a angus býk) je povoleno."/>
+        <text name="rl_help_pregnancy_2" text="Příbuzenská plemenitba není povolena. Pokud jsou samec a samice přímo příbuzní, nebudou se pářit."/>
+        <text name="rl_help_pregnancy_3" text="Šance na zabřeznutí samice závisí na plodnosti samice i samce. Samice s vyšší plodností má výrazně vyšší šanci na více mláďat najednou."/>
+        <text name="rl_help_pregnancy_4" text="Jakmile samice zabřezne, začne nosit mláďata. Očekávané datum a počet mláďat uvidíte buď přímo v ohradě, nebo po kliknutí na zvíře v menu."/>
+        <text name="rl_help_pregnancy_5" text="V den porodu samice porodí. Novorozená mláďata i matka však mají určitou šanci na odstranění, pokud porod proběhne špatně. Novorozenata narozená v přeplněné ohradě budou automaticky prodána."/>
 
-		<text name="rl_disease_mastitis" text="Zánět mléčné žlázy"//>
+        <text name="rl_help_production_title" text="Produkce"/>
+        <text name="rl_help_production_1" text="Krávy všech plemen začnou produkovat mléko až po porodu. Po porodu produkce mléka prudce stoupá po dobu 3 měsíců, poté pomalu klesá dalších 6 měsíců. Deset měsíců po zabřeznutí kráva mléko přestane produkovat až do další březosti."/>
+        <text name="rl_help_production_2" text="Ovce produkují vlnu v teplých měsících. Při teplotách pod 12 °C vlnu neprodukují."/>
+        <text name="rl_help_production_3" text="Produkce mléka, vlny a vajec je dále ovlivněna genetikou zvířete. Zvíře s dobrou produkční genetikou produkuje výrazně více, zatímco zvíře se špatnou genetikou téměř nic."/>
 
-		<text name="rl_disease_cvm" text="CVM"//>
+        <text name="rl_help_weight_title" text="Váha"/>
+        <text name="rl_help_weight_1" text="Každé zvíře má váhu, která se mění podle množství přijatého krmiva a vody. Každý druh a plemeno má svou průměrnou váhu, která ovlivňuje váhu jednotlivých zvířat."/>
+        <text name="rl_help_weight_2" text="Vyšší váha zvyšuje hodnotu zvířete. Nízká váha naopak zvyšuje šanci na odstranění zvířete každý měsíc."/>
 
-		<text name="rl_disease_footAndMouth" text="Slintavka a kulhavka"//>
-
-		<text name="rl_disease_ped" text="Prasečí epidemický průjem"//>
-
-		<text name="rl_disease_avianFlu" text="Ptačí chřipka"//>
-
-
-
-		<!--  MESSAGES  -->
+        <text name="rl_help_genetics_title" text="Genetika"/>
+        <text name="rl_help_genetics_1" text="Každé zvíře má čtyři genetické hodnoty: metabolismus, plodnost, zdraví a kvalita. Genetika se mísí mezi matkou a otcem a předává se potomkům."/>
+        <text name="rl_help_genetics_2" text="Metabolismus ovlivňuje, jak zvíře přeměňuje krmivo na váhu a kolik krmiva spotřebuje."/>
+        <text name="rl_help_genetics_3" text="Plodnost ovlivňuje šanci na zabřeznutí (u samic) nebo oplodnění (u samců) a počet mláďat."/>
+        <text name="rl_help_genetics_4" text="Zdraví ovlivňuje zdravotní stav zvířete a šanci na odstranění každý měsíc. Vyšší genetika zdraví prodlužuje život zvířete."/>
+        <text name="rl_help_genetics_5" text="Kvalita ovlivňuje prodejní hodnotu zvířete – čím vyšší kvalita, tím vyšší cena při prodeji."/>
+        <text name="rl_help_genetics_6" text="Skot, ovce a slepice mají navíc produkční genetiku, která ovlivňuje množství produkovaného mléka, vajec nebo vlny."/>
 
 
-		<text name="rl_messageTitle_pregnancy" text="Těhotenství"//>
-		<text name="rl_messageTitle_death" text="Odstranění"//>
-		<text name="rl_messageTitle_death_github" text="Smrt"//>
-		<text name="rl_messageTitle_disease" text="Nemoc"//>
-		<text name="rl_messageTitle_name" text="Jméno"//>
-		<text name="rl_messageTitle_movement" text="Přesun"//>
-		<text name="rl_messageTitle_aiManager" text="Pastýř"//>
-		<text name="rl_messageTitle_insemination" text="Umělé oplodnění"//>
+        <!--  DISEASES  -->
 
-		<text name="rl_message_pregnancySingle" text="Porodilo 1 mládě"//>
-		<text name="rl_message_pregnancyMultiple" text="Porodilo %s mláďat"//>
-		<text name="rl_message_pregnancySold" text="%s mláďat bylo prodáno za %s kvůli přeplnění"//>
-		<text name="rl_message_pregnancyDied" text="%s mláďat bylo odstraněno při porodu"//>
-		<text name="rl_message_pregnancyDied_github" text="%s mláďat zemřelo při porodu"//>
-		<text name="rl_message_death" text="Odstraněno kvůli %s"//>
-		<text name="rl_message_death_github" text="Zemřelo kvůli %s"//>
-		<text name="rl_message_diseaseContracted" text="Nakazilo se %s"//>
-		<text name="rl_message_diseaseCured" text="Vyléčeno z %s"//>
-		<text name="rl_message_diseaseTreatment_start" text="Zahájena léčba %s za %s"//>
-		<text name="rl_message_diseaseTreatment_resume" text="Pokračování léčby %s za %s"//>
-		<text name="rl_message_diseaseTreatment_stop" text="Zastavena léčba %s"//>
-		<text name="rl_message_nameChange" text="Jméno změněno z '%s' na '%s'"//>
-		<text name="rl_message_nameAdded" text="Přidáno jméno '%s'"//>
-		<text name="rl_message_nameDeleted" text="Jméno '%s' bylo odebráno"//>
-		<text name="rl_message_boughtAnimals_single" text="1 zvíře bylo zakoupeno za %s"//>
-		<text name="rl_message_boughtAnimals_multiple" text="%s zvířat bylo zakoupeno za %s"//>
-		<text name="rl_message_soldAnimals_single" text="1 zvíře bylo prodáno za %s"//>
-		<text name="rl_message_soldAnimals_multiple" text="%s zvířat bylo prodáno za %s"//>
-		<text name="rl_message_movedAnimalsTo_single" text="1 zvíře bylo přesunuto do %s"//>
-		<text name="rl_message_movedAnimalsTo_multiple" text="%s zvířat bylo přesunuto do %s"//>
-		<text name="rl_message_movedAnimalsFrom_single" text="1 zvíře bylo přesunuto z %s"//>
-		<text name="rl_message_movedAnimalsFrom_multiple" text="%s zvířat bylo přesunuto z %s"//>
-		<text name="rl_message_aiManager_boughtAnimals_single" text="Pastýř zakoupil 1 zvíře za %s"//>
-		<text name="rl_message_aiManager_boughtAnimals_multiple" text="Pastýř zakoupil %s zvířat za %s"//>
-		<text name="rl_message_aiManager_soldAnimals_single" text="Pastýř prodal 1 zvíře za %s"//>
-		<text name="rl_message_aiManager_soldAnimals_multiple" text="Pastýř prodal %s zvířat za %s"//>
-		<text name="rl_message_aiManager_castrated_single" text="Pastýř kastroval 1 zvíře"//>
-		<text name="rl_message_aiManager_castrated_multiple" text="Pastýř kastroval %s zvířat"//>
-		<text name="rl_message_aiManager_named_single" text="Pastýř pojmenoval 1 zvíře"//>
-		<text name="rl_message_aiManager_named_multiple" text="Pastýř pojmenoval %s zvířat"//>
-		<text name="rl_message_aiManager_mark_sell_single" text="Pastýř označil 1 zvíře k prodeji"//>
-		<text name="rl_message_aiManager_mark_sell_multiple" text="Pastýř označil %s zvířat k prodeji"//>
-		<text name="rl_message_aiManager_mark_castrate_single" text="Pastýř označil 1 zvíře ke kastraci"//>
-		<text name="rl_message_aiManager_mark_castrate_multiple" text="Pastýř označil %s zvířat ke kastraci"//>
-		<text name="rl_message_aiManager_mark_disease_single" text="Pastýř označil 1 zvíře k léčbě"//>
-		<text name="rl_message_aiManager_mark_disease_multiple" text="Pastýř označil %s zvířat k léčbě"//>
-		<text name="rl_message_insemination_success" text="Oplodnění bylo úspěšné"//>
-		<text name="rl_message_insemination_fail" text="Oplodnění nebylo úspěšné"//>
-		<text name="rl_message_aiManager_mark_ai_single" text="Pastýř označil 1 zvíře k umělému oplodnění"//>
-		<text name="rl_message_aiManager_mark_ai_multiple" text="Pastýř označil %s zvířat k umělému oplodnění"//>
-		<text name="rl_message_aiManager_ai_single" text="Pastýř oplodnil 1 zvíře"//>
-		<text name="rl_message_aiManager_ai_multiple" text="Pastýř oplodnil %s zvířat"//>
 
-		<!-- Daily summary messages -->
-		<text name="rl_message_dailyBirthsSummary" text="%s zvířat se narodilo v %s"//>
-		<text name="rl_message_dailyDeathsSummary" text="%s zvířat zemřelo v %s - %s"//>
-		<text name="rl_message_dailySalesSummary" text="Prodáno %s zvířat v %s za %s"//>
-		<text name="rl_message_dailyOvercrowdingSummary" text="Přeplnění: prodáno %s novorozenců v %s za %s"//>
-		<text name="rl_message_dailyPurchasesSummary" text="Zakoupeno %s zvířat v %s za %s"//>
+        <text name="rl_ui_immune" text="Imunní"/>
+        <text name="rl_ui_startTreatment" text="Začít léčbu"/>
+        <text name="rl_ui_resumeTreatment" text="Obnovit léčbu"/>
+        <text name="rl_ui_stopTreatment" text="Ukončit léčbu"/>
+        <text name="rl_ui_duration" text="Trvání"/>
+        <text name="rl_ui_beingTreated" text="Probíhá léčba"/>
+        <text name="rl_ui_notTreated" text="Neléčeno"/>
+        <text name="rl_ui_carrier" text="Přenašeč"/>
+
+        <text name="rl_diseases" text="Nemoci"/>
+        <text name="rl_disease" text="Nemoc"/>
+
+        <text name="rl_disease_mastitis" text="Mastitida"/>
+
+        <text name="rl_disease_cvm" text="CVM"/>
+
+        <text name="rl_disease_footAndMouth" text="Slintavka a kulhavka"/>
+
+        <text name="rl_disease_ped" text="Prasatčí epidemická průjem"/>
+
+        <text name="rl_disease_avianFlu" text="Ptačí chřipka"/>
+
+
+
+        <!--  MESSAGES  -->
+
+
+        <text name="rl_messageTitle_pregnancy" text="Březost"/>
+        <text name="rl_messageTitle_death" text="Odstranění"/>
+        <text name="rl_messageTitle_death_github" text="Úhyn"/>
+        <text name="rl_messageTitle_disease" text="Nemoc"/>
+        <text name="rl_messageTitle_name" text="Jméno"/>
+        <text name="rl_messageTitle_movement" text="Přesun"/>
+        <text name="rl_messageTitle_aiManager" text="Pastýř"/>
+        <text name="rl_messageTitle_insemination" text="Umělá inseminace"/>
+
+        <text name="rl_message_pregnancySingle" text="Porodila 1 mládě"/>
+        <text name="rl_message_pregnancyMultiple" text="Porodila %s mláďat"/>
+        <text name="rl_message_pregnancySold" text="%s mláďat bylo prodáno za %s kvůli přeplnění"/>
+        <text name="rl_message_pregnancyDied" text="%s mláďat bylo při porodu odstraněno"/>
+        <text name="rl_message_pregnancyDied_github" text="%s mláďat uhynulo při porodu"/>
+        <text name="rl_message_death" text="Odstraněno z důvodu %s"/>
+        <text name="rl_message_death_github" text="Uhynulo z důvodu %s"/>
+        <text name="rl_message_diseaseContracted" text="Onemocnělo %s"/>
+        <text name="rl_message_diseaseCured" text="Vyléčeno z %s"/>
+        <text name="rl_message_diseaseTreatment_start" text="Zahájena léčba %s za %s"/>
+        <text name="rl_message_diseaseTreatment_resume" text="Obnovena léčba %s za %s"/>
+        <text name="rl_message_diseaseTreatment_stop" text="Ukončena léčba %s"/>
+        <text name="rl_message_nameChange" text="Jméno změněno z „%s“ na „%s“"/>
+        <text name="rl_message_nameAdded" text="Přiděleno jméno „%s“"/>
+        <text name="rl_message_nameDeleted" text="Jméno „%s“ bylo odebráno"/>
+        <text name="rl_message_boughtAnimals_single" text="Koupeno 1 zvíře za %s"/>
+        <text name="rl_message_boughtAnimals_multiple" text="Koupeno %s zvířat za %s"/>
+        <text name="rl_message_soldAnimals_single" text="Prodáno 1 zvíře za %s"/>
+        <text name="rl_message_soldAnimals_multiple" text="Prodáno %s zvířat za %s"/>
+        <text name="rl_message_movedAnimalsTo_single" text="1 zvíře přesunuto do %s"/>
+        <text name="rl_message_movedAnimalsTo_multiple" text="%s zvířat přesunuto do %s"/>
+        <text name="rl_message_movedAnimalsFrom_single" text="1 zvíře přesunuto z %s"/>
+        <text name="rl_message_movedAnimalsFrom_multiple" text="%s zvířat přesunuto z %s"/>
+        <text name="rl_message_aiManager_boughtAnimals_single" text="Pastýř koupil 1 zvíře za %s"/>
+        <text name="rl_message_aiManager_boughtAnimals_multiple" text="Pastýř koupil %s zvířat za %s"/>
+        <text name="rl_message_aiManager_soldAnimals_single" text="Pastýř prodal 1 zvíře za %s"/>
+        <text name="rl_message_aiManager_soldAnimals_multiple" text="Pastýř prodal %s zvířat za %s"/>
+        <text name="rl_message_aiManager_castrated_single" text="Pastýř kastroval 1 zvíře"/>
+        <text name="rl_message_aiManager_castrated_multiple" text="Pastýř kastroval %s zvířat"/>
+        <text name="rl_message_aiManager_named_single" text="Pastýř pojmenoval 1 zvíře"/>
+        <text name="rl_message_aiManager_named_multiple" text="Pastýř pojmenoval %s zvířat"/>
+        <text name="rl_message_aiManager_mark_sell_single" text="Pastýř označil 1 zvíře k prodeji"/>
+        <text name="rl_message_aiManager_mark_sell_multiple" text="Pastýř označil %s zvířat k prodeji"/>
+        <text name="rl_message_aiManager_mark_castrate_single" text="Pastýř označil 1 zvíře ke kastraci"/>
+        <text name="rl_message_aiManager_mark_castrate_multiple" text="Pastýř označil %s zvířat ke kastraci"/>
+        <text name="rl_message_aiManager_mark_disease_single" text="Pastýř označil 1 zvíře k léčbě"/>
+        <text name="rl_message_aiManager_mark_disease_multiple" text="Pastýř označil %s zvířat k léčbě"/>
+        <text name="rl_message_insemination_success" text="Inseminace byla úspěšná"/>
+        <text name="rl_message_insemination_fail" text="Inseminace nebyla úspěšná"/>
+        <text name="rl_message_aiManager_mark_ai_single" text="Pastýř označil 1 zvíře k inseminaci"/>
+        <text name="rl_message_aiManager_mark_ai_multiple" text="Pastýř označil %s zvířat k inseminaci"/>
+        <text name="rl_message_aiManager_ai_single" text="Pastýř inseminoval 1 zvíře"/>
+        <text name="rl_message_aiManager_ai_multiple" text="Pastýř inseminoval %s zvířat"/>
+
+        <!-- Daily summary messages -->
+        <text name="rl_message_dailyBirthsSummary" text="V %s se narodilo %s zvířat"/>
+        <text name="rl_message_dailyDeathsSummary" text="V %s uhynulo %s zvířat – %s"/>
+        <text name="rl_message_dailySalesSummary" text="Prodáno %s zvířat v %s za %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Přeplnění: prodáno %s novorozenat v %s za %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Koupeno %s zvířat v %s za %s"/>
 
 
 
 		<!--  DEATHS  -->
 
 
-		<text name="rl_death_pregnancy" text="špatné těhotenství"//>
-		<text name="rl_death_health" text="nízké zdraví"//>
-		<text name="rl_death_age" text="stáří"//>
-		<text name="rl_death_accident" text="nehoda"//>
+		<text name="rl_death_pregnancy" text="komplikace při březosti"/>
+		<text name="rl_death_health" text="nízké zdraví"/>
+		<text name="rl_death_age" text="stáří"/>
+		<text name="rl_death_accident" text="nehoda"/>
 
-
-
-		<text name="rl_ui_dependencies_missing" text="RealisticLivestock vyžaduje následující závislosti:"//>
-		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Není nainstalováno)"//>
-		<text name="rl_ui_dependency_missing_installed" text="- %s (Nainstalováno: %s, Minimálně vyžadováno: %s)"//>
-
+		<text name="rl_ui_dependencies_missing" text="Realistic Livestock vyžaduje následující závislosti:"/>
+		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (není nainstalováno)"/>
+		<text name="rl_ui_dependency_missing_installed" text="- %s (nainstalováno: %s, minimálně požadováno: %s)"/>
 
 		<!-- MIGRATION -->
 
-		<text name="rm_rl_conflict_title" text="Detekován konflikt modů"//>
-		<text name="rm_rl_mod_conflict_message" text="Následující mod(y) jsou v konfliktu s 'Realistic Livestock - Ritter verze' a nemohou být použity společně: %s &#10;&#10;Prosím vypněte konfliktní mod(y) a restartujte hru."//>
+		<text name="rm_rl_conflict_title" text="Zjištěn konflikt modů"/>
+		<text name="rm_rl_mod_conflict_message" text="Následující mod(y) jsou v konfliktu s 'Realistic Livestock - Ritter version' a nelze je používat současně: %s &#10;&#10;Vypněte konfliktní mod(y) a restartujte hru."/>
 
-		<text name="rm_rl_migration_title" text="Upozornění na migraci dat"//>
-		<text name="rm_rl_migration_message" text="V této uložené hře byla nalezena předchozí data Realistic Livestock. Vaše nastavení, data zvířat, Dewarovy nádoby a AI nástroje na slámu budou automaticky migrovány na Realistic Livestock - RitterMod verzi při uložení hry."//>
-		<text name="rm_rl_migration_files_found" text="Nalezené datové soubory:"//>
-		<text name="rm_rl_migration_continue" text="Pokračovat"//>
-		<text name="rm_rl_migration_quit" text="Ukončit"//>
+		<text name="rm_rl_migration_title" text="Upozornění na migraci dat"/>
+		<text name="rm_rl_migration_message" text="V této uložené hře byla nalezena předchozí data Realistic Livestock. Vaše nastavení, data zvířat, Dewary a ruční nástroje AI Straw budou automaticky převedeny do verze Realistic Livestock - RitterMod při uložení hry."/>
+		<text name="rm_rl_migration_files_found" text="Nalezené datové soubory:"/>
+		<text name="rm_rl_migration_continue" text="Pokračovat"/>
+		<text name="rm_rl_migration_quit" text="Ukončit"/>
 
-		<text name="rl_bridge_version_unknown" text="Realistic Livestock: %s verze %s nebyla testována s verzí %s Realistic Livestock. Používá se konfigurace '%s'. Pokud zaznamenáte problémy s exotickými zvířaty, prosím nahlaste je na %s."//>
-
+		<text name="rl_bridge_version_unknown" text="Realistic Livestock: %s verze %s nebyla testována s verzí %s modifikace Realistic Livestock. Používá se konfigurace '%s'. Pokud narazíte na problémy s exotickými zvířaty, nahlaste je na %s."/>
 
 	</texts>
 </l10n>
