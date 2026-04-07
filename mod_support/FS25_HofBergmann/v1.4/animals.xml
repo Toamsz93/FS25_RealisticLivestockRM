@@ -22,13 +22,15 @@
         Bridge remaps indices to HB 1.4 layout and adds the young stage (minAge=3).
     -->
     <animal type="CHICKEN">
-        <!-- Override: remap CHICKEN (hen) visual indices + add young stage -->
+        <!-- Override: remap CHICKEN (hen) visual indices + add young stage.
+             Output remap: RLRM uses EGG, HB stables use EGG_HB in palletSpawner. -->
         <subType subType="CHICKEN">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" image="character/animals/domesticated/chicken/store_chick.png" canBeBought="false"/>
                 <visual minAge="3" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/chicken/store_chickenChick.png" canBeBought="true"/>
                 <visual minAge="6" visualAnimalIndex="3" image="$dataS/character/animals/domesticated/chicken/store_chickenHen.png"/>
             </visuals>
+            <output><pallets fillType="EGG_HB"/></output>
         </subType>
 
         <!-- Override: remap CHICKEN_ROOSTER visual indices + add young stage -->

@@ -234,9 +234,20 @@ PlaceableHusbandryAnimals.updateVisualAnimals = Utils.overwrittenFunction(Placea
 
 
 
-function RealisticLivestock_PlaceableHusbandryAnimals:addAnimals(_, animals)
+--- Handle both RLRM internal calls (table of Animal objects) and base game API calls
+--- (subTypeIndex, numAnimals, age) used by external mods like HB's CFTA incubator system.
+function RealisticLivestock_PlaceableHusbandryAnimals:addAnimals(superFunc, animals, ...)
 
-    for _, animal in pairs(animals) do self:addCluster(animal) end
+    if type(animals) == "table" then
+        Log:trace("addAnimals: RLRM path - %d animal(s) in table", #animals)
+        for _, animal in pairs(animals) do self:addCluster(animal) end
+    else
+        -- Base game signature: addAnimals(subTypeIndex, numAnimals, age)
+        local numAnimals, age = ...
+        Log:trace("addAnimals: base game path - subTypeIndex=%s numAnimals=%s age=%s",
+            tostring(animals), tostring(numAnimals), tostring(age))
+        superFunc(self, animals, numAnimals, age)
+    end
 
 end
 

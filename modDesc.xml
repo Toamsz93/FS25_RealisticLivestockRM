@@ -1,6 +1,6 @@
 <modDesc descVersion="107">
     <author>Ritter</author>
-    <version>1.1.4.0-dev.1</version>
+    <version>1.1.4.0-dev.2</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -24,15 +24,15 @@ Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivest
 
 Changelog
 
-v1.1.4.0-dev.1:
-Hof Begmann 1.4 support and bug fixes:
+v1.1.4.0-dev.2:
+Hof Bergmann 1.4 support and bug fixes:
 - Fixed horse breed visuals on Hof Bergmann: adult horses no longer display as foals, breed colors now match correctly, foal-to-adult model transition now works
 - Fixed horse riding and equipment on Hof Bergmann v1.4: saddles, carriages, and tools from the Horse Addon Pack now attach correctly
 - Disabled four horse breeds not natively supported by Hof Bergmann (Pinto, Chestnut, Bay, Dun) from the dealer - existing savegame horses of those breeds are unaffected
 - Fixed dealer generating sale animals for breeds marked as not purchasable on the current map
-- Fixed wool not spawning on Hof Bergmann v1.4: bridge now remaps WOOL to SHEEPWOOL_SHEARED to match HB's husbandry buildings
+- Fixed wool and chicken eggs not spawning on Hof Bergmann v1.4: bridge now remaps fillTypes to match HB's husbandry buildings
 - Fixed crash when animal output curve returns nil, which could silently stop all production in a building
-- Fixed bridge output overrides replacing valid production curves with empty ones when only the fillType needed remapping
+- Fixed HB egg incubator failing to add hatched chicks to husbandry when RLRM is active
 
 v1.1.3.0:
 - Fixed bridge animals (rabbits, quail, etc.) getting duplicate IDs in multiplayer, causing animals to disappear on clients

@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.4.0-dev.2
+- Fixed chicken eggs not spawning on Hof Bergmann v1.4: bridge now remaps EGG to EGG_HB to match HB's husbandry buildings
+- Fixed HB egg incubator failing to add hatched chicks to husbandry when RLRM is active
+- Fixed Hof Bergmann user guide with horse breed availability, riding notes, and wild duck clarification
+
 ## v1.1.4.0-dev.1
 - Fixed horse breed visuals on Hof Bergmann: adult horses no longer display as foals, breed colors now match correctly, foal-to-adult model transition now works
 - Fixed horse riding and equipment on Hof Bergmann v1.4: saddles, carriages, and tools from the Horse Addon Pack now attach correctly
