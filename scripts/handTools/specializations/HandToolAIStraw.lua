@@ -268,7 +268,7 @@ function HandToolAIStraw:updateStraw(dT)
 
 		local object = g_currentMission:getNodeObject(node)
 
-        if object ~= nil and object:isa(Dewar) then
+        if object ~= nil and object.isDewar == true then
 
 			if self:getBelongsToDewar(object) then
 				

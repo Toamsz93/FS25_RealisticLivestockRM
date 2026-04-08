@@ -54,7 +54,7 @@ function RealisticLivestock_PlayerHUDUpdater:updateRaycastObject()
 
             end
 
-        elseif object:isa(Dewar) then
+        elseif object.isDewar == true then
 
             self.isDewar = true
 

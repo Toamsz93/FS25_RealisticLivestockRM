@@ -12,7 +12,7 @@ local modDirectory = g_currentModDirectory
 -- SECTION 0: Logging
 source(modDirectory .. "scripts/rmlib/RmLogging.lua")
 Log = RmLogging.getLogger("RLRM")
-Log:setLevel(RmLogging.LOG_LEVEL.INFO)
+Log:setLevel(RmLogging.LOG_LEVEL.DEBUG)
 
 -- SECTION 1: Font Library
 source(modDirectory .. "scripts/fontlib/RmFontCharacter.lua")
@@ -76,7 +76,6 @@ source(modDirectory .. "scripts/animals/shop/AnimalItemNew.lua")
 source(modDirectory .. "scripts/animals/shop/RealisticLivestock_AnimalItemStock.lua")
 
 -- SECTION 9: Events (General)
-source(modDirectory .. "scripts/events/DewarManagerStateEvent.lua")
 source(modDirectory .. "scripts/events/HusbandryMessageStateEvent.lua")
 source(modDirectory .. "scripts/events/ReturnStrawEvent.lua")
 source(modDirectory .. "scripts/events/DiseaseTreatmentToggleEvent.lua")
@@ -141,8 +140,8 @@ source(modDirectory .. "scripts/handTools/HandTool.lua")
 source(modDirectory .. "scripts/handTools/HandToolSystem.lua")
 source(modDirectory .. "scripts/handTools/RLHandTools.lua")
 
--- SECTION 16: Insemination - Dewar
-source(modDirectory .. "scripts/insemination/Dewar.lua")
+-- SECTION 16: Insemination - Dewar (DewarData specialization registered via modDesc.xml)
+source(modDirectory .. "scripts/insemination/DewarMigration.lua")
 
 -- SECTION 17: Placeables
 source(modDirectory .. "scripts/placeables/RealisticLivestock_PlaceableSystem.lua")

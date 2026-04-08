@@ -1,7 +1,16 @@
+--[[
+    DewarManager.lua
+
+    Tracks all dewar vehicles by farm and animal type index.
+    Network sync is handled by the Vehicle system (DewarData specialization)
+    - no readStream/writeStream needed here.
+]]
+
+local Log = RmLogging.getLogger("RLRM")
+
 DewarManager = {}
 
 local DewarManager_mt = Class(DewarManager)
-local modDirectory = g_currentModDirectory
 
 
 function DewarManager.new()
@@ -26,10 +35,15 @@ function DewarManager:addDewar(farmId, dewar)
 
 	table.insert(farm[typeIndex], dewar)
 
+	Log:debug("DewarManager:addDewar farmId=%d typeIndex=%d uniqueId=%s count=%d",
+		farmId, typeIndex, tostring(dewar:getUniqueId()), #farm[typeIndex])
+
 end
 
 
 function DewarManager:removeDewar(farmId, dewar)
+
+	if dewar.animal == nil then return end
 
 	local typeIndex = dewar.animal.typeIndex
 
@@ -41,6 +55,7 @@ function DewarManager:removeDewar(farmId, dewar)
 
 		if object:getUniqueId() == id then
 			table.remove(self.farms[farmId][typeIndex], i)
+			Log:debug("DewarManager:removeDewar farmId=%d typeIndex=%d uniqueId=%s", farmId, typeIndex, tostring(id))
 			return
 		end
 
@@ -56,72 +71,15 @@ function DewarManager:getDewarsByFarm(farmId)
 end
 
 
-function DewarManager:readStream(streamId, connection)
+function DewarManager:hasAnyDewars()
 
-	local numFarms = streamReadUInt8(streamId)
-	self.farms = {}
-
-	for farmIndex = 1, numFarms do
-
-		local farmId = streamReadUInt8(streamId)
-		local numAnimalTypes = streamReadUInt8(streamId)
-		local farm = {}
-
-		for animalIndex = 1, numAnimalTypes do
-
-			local animalTypeIndex = streamReadUInt8(streamId)
-			local numDewars = streamReadUInt8(streamId)
-			local dewars = {}
-
-			for dewarIndex = 1, numDewars do
-
-				local dewar = Dewar.new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
-				dewar:createNode(modDirectory .. "objects/dewar/dewar.i3d")
-				dewar:readStream(streamId, connection)
-				dewar:register()
-
-				table.insert(dewars, dewar)
-
-			end
-
-			farm[animalTypeIndex] = dewars
-
+	for _, farm in pairs(self.farms) do
+		for _, dewars in pairs(farm) do
+			if #dewars > 0 then return true end
 		end
-
-		self.farms[farmId] = farm
-
 	end
 
-end
-
-
-function DewarManager:writeStream(streamId, connection)
-
-	local numFarms = 0
-
-	for farmId, animalTypes in pairs(self.farms) do numFarms = numFarms + 1 end
-
-	streamWriteUInt8(streamId, numFarms)
-
-	for farmId, animalTypes in pairs(self.farms) do
-
-		local numAnimalTypes = 0
-
-		for animalTypeIndex, dewars in pairs(animalTypes) do numAnimalTypes = numAnimalTypes + 1 end
-
-		streamWriteUInt8(streamId, farmId)
-		streamWriteUInt8(streamId, numAnimalTypes)
-
-		for animalTypeIndex, dewars in pairs(animalTypes) do
-		
-			streamWriteUInt8(streamId, animalTypeIndex)
-			streamWriteUInt8(streamId, #dewars)
-
-			for _, dewar in pairs(dewars) do dewar:writeStream(streamId, connection) end
-		
-		end
-
-	end
+	return false
 
 end
 

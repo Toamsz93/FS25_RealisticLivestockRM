@@ -53,7 +53,7 @@ function RealisticLivestock_PlayerInputComponent:update(_)
 
                     local object = g_currentMission:getNodeObject(closestNode)
 
-                    if object ~= nil and object:isa(Dewar) and object.straws > 0 then
+                    if object ~= nil and object.isDewar == true and object.straws > 0 then
 
                         self.dewar = object
 

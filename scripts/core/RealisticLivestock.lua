@@ -133,6 +133,9 @@ function RealisticLivestock.loadMap()
 
     MoneyType.MEDICINE = MoneyType.register("medicine", "rl_ui_medicine")
     MoneyType.LAST_ID = MoneyType.LAST_ID + 1
+
+    -- Migrate old PhysicsObject dewars from items.xml to Vehicle dewars
+    DewarMigration.run()
 end
 
 addModEventListener(RealisticLivestock)

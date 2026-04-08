@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="rlDewar">
+    <storeData>
+        <name>$l10n_rl_ui_dewar</name>
+        <functions>
+            <function>$l10n_rl_ui_dewar</function>
+        </functions>
+        <specs>
+            <weight ignore="true"/>
+        </specs>
+        <allowLeasing>false</allowLeasing>
+        <price>0</price>
+        <rotation>0</rotation>
+        <category>pallets</category>
+        <brand>NONE</brand>
+        <showInStore>false</showInStore>
+        <canBeSold>false</canBeSold>
+        <financeCategory>OTHER</financeCategory>
+        <shopHeight>0.5</shopHeight>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_rl_ui_dewar</typeDesc>
+        <filename>objects/dewar/dewar.i3d</filename>
+        <size width="0.3" length="0.3" height="0.5" />
+        <canBeReset>false</canBeReset>
+        <supportsPickUp>true</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.15 0" solverIterationCount="10" mass="10"/>
+        </components>
+        <showInVehicleMenu>false</showInVehicleMenu>
+        <mapHotspot available="false" />
+    </base>
+
+    <tensionBeltObject>
+        <meshNodes>
+            <meshNode node="dewarMesh"/>
+        </meshNodes>
+    </tensionBeltObject>
+
+    <i3dMappings>
+        <i3dMapping id="dewar_main_component1" node="0>" />
+        <i3dMapping id="dewarMesh" node="0>0" />
+        <i3dMapping id="stickyNote_animal" node="0>0|0" />
+        <i3dMapping id="stickyNote_straws" node="0>0|1" />
+    </i3dMappings>
+</vehicle>

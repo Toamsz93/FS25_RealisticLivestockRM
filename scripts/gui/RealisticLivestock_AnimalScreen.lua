@@ -544,7 +544,7 @@ function AnimalScreen:onClickBuyAI()
     local farmId = g_localPlayer.farmId
     
     local quantity = AnimalScreen.DEWAR_QUANTITIES[self.aiQuantitySelector:getState()]
-    local price = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * quantity * Dewar.PRICE_PER_STRAW * animal.success * 2.25
+    local price = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * quantity * DewarData.PRICE_PER_STRAW * animal.success * 2.25
 
     for _, value in pairs(animal.genetics) do price = price * value end
 
@@ -700,7 +700,7 @@ function AnimalScreen:onClickChangeAIQuantity(state)
 
     for _, value in pairs(animal.genetics) do price = price * value end
 
-    self.aiQuantityPrice:setText(g_i18n:formatMoney(price * Dewar.PRICE_PER_STRAW, 2, true, true))
+    self.aiQuantityPrice:setText(g_i18n:formatMoney(price * DewarData.PRICE_PER_STRAW, 2, true, true))
 
 end
 

@@ -154,7 +154,6 @@ function RealisticLivestock_FSBaseMission:sendInitialClientState(connection, _, 
 
     connection:sendEvent(RL_BroadcastSettingsEvent.new())
     connection:sendEvent(AnimalSystemStateEvent.new(animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals))
-    connection:sendEvent(DewarManagerStateEvent.new())
     connection:sendEvent(HusbandryMessageStateEvent.new(g_currentMission.husbandrySystem.placeables))
 
 end

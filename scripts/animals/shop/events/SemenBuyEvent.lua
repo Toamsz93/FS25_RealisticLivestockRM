@@ -1,3 +1,14 @@
+--[[
+    SemenBuyEvent.lua
+
+    Client sends purchase request to server. Server creates Vehicle dewar via
+    VehicleLoadingData and charges money in the async callback. The Vehicle
+    system automatically syncs the new dewar to all clients - no broadcast needed.
+]]
+
+local Log = RmLogging.getLogger("RLRM")
+local modDirectory = g_currentModDirectory
+
 SemenBuyEvent = {}
 
 local SemenBuyEvent_mt = Class(SemenBuyEvent, Event)
@@ -28,17 +39,6 @@ function SemenBuyEvent.new(animal, quantity, price, farmId, position, rotation)
 end
 
 
-function SemenBuyEvent.newServerToClient(errorCode)
-
-	local event = SemenBuyEvent.emptyNew()
-
-	event.errorCode = errorCode
-
-	return event
-
-end
-
-
 function SemenBuyEvent:readStream(streamId, connection)
 
 	self.animal = Animal.new()
@@ -56,7 +56,7 @@ function SemenBuyEvent:readStream(streamId, connection)
 	local rx = streamReadFloat32(streamId)
 	local ry = streamReadFloat32(streamId)
 	local rz = streamReadFloat32(streamId)
-		
+
 	self.position = { x, y, z }
 	self.rotation = { rx, ry, rz }
 
@@ -88,19 +88,61 @@ end
 
 function SemenBuyEvent:run(connection)
 
-	if not connection:getIsServer() then
-		g_server:broadcastEvent(SemenBuyEvent.new(self.animal, self.quantity, self.price, self.farmId, self.position, self.rotation))
+	-- Server only - create the dewar Vehicle
+	if g_server == nil then return end
+
+	Log:info("SemenBuyEvent:run farmId=%d quantity=%d price=%.2f animalType=%s",
+		self.farmId, self.quantity, self.price, tostring(self.animal.animalTypeIndex))
+
+	local storeItem = g_storeManager:getItemByXMLFilename(modDirectory .. "objects/dewar/dewar.xml")
+	if storeItem == nil then
+		Log:error("SemenBuyEvent: could not find dewar store item")
+		return
 	end
 
-	local dewar = Dewar.new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
+	local data = VehicleLoadingData.new()
+	data:setStoreItem(storeItem)
+	data:setPropertyState(VehiclePropertyState.OWNED)
+	data:setOwnerFarmId(self.farmId)
+	data:setPosition(self.position[1], self.position[2], self.position[3])
+	data:setRotation(self.rotation[1], self.rotation[2], self.rotation[3])
 
-    dewar:setOwnerFarmId(self.farmId)
-    dewar:register(self.position, self.rotation, self.animal, self.quantity)
+	Log:debug("SemenBuyEvent: VehicleLoadingData configured, starting async load")
 
-	if g_server ~= nil then
-		g_currentMission:addMoney(self.price, self.farmId, MoneyType.SEMEN_PURCHASE, true, true)
+	-- Store event data for callback access
+	self.pendingAnimal = self.animal
+	self.pendingQuantity = self.quantity
+	self.pendingPrice = self.price
+	self.pendingFarmId = self.farmId
+
+	data:load(SemenBuyEvent.onDewarLoaded, self)
+
+end
+
+
+function SemenBuyEvent:onDewarLoaded(vehicles, loadingState)
+
+	if loadingState ~= VehicleLoadingState.OK then
+		Log:error("SemenBuyEvent: failed to create dewar vehicle, loadingState=%s", tostring(loadingState))
+		return
 	end
 
-	Log:trace("SemenBuyEvent:run dewar registered farm=%s qty=%s", tostring(self.farmId), tostring(self.quantity))
+	local vehicle = vehicles[1]
+	if vehicle == nil then
+		Log:error("SemenBuyEvent: vehicle list is empty after successful load")
+		return
+	end
+
+	-- Generate unique ID for this dewar
+	local uniqueId = string.format("dw-%d-%d", math.random(100000, 999999), g_updateLoopIndex or 0)
+	vehicle:setUniqueId(uniqueId)
+	vehicle:setAnimal(self.pendingAnimal)
+	vehicle:setStraws(self.pendingQuantity)
+
+	-- Charge money only on successful creation
+	g_currentMission:addMoney(self.pendingPrice, self.pendingFarmId, MoneyType.SEMEN_PURCHASE, true, true)
+
+	Log:info("SemenBuyEvent: dewar created uniqueId=%s farmId=%d straws=%d",
+		uniqueId, self.pendingFarmId, self.pendingQuantity)
 
 end
