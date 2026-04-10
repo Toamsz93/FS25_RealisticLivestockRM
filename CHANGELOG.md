@@ -1,10 +1,11 @@
 # Changelog
 
-## v1.2.0.0-dev.1
+## v1.2.0.0-dev.2
 - Rewrote semen dewar as a vehicle/pallet - should fix game freeze when looking at dewar, multiplayer pickup failures, and invisible dewars after mid-game purchase
 - Dewar state (straws, bull genetics) now persists through save/load cycles via the vehicle system
 - Multiplayer: dewars automatically sync to all clients including late joiners - no more invisible or duplicated dewars
 - Added automatic migration from old dewar format - existing saves with semen dewars are converted on first load
+- Dewars placed in object storage (barns, sheds) now retain their assigned bull and straw count when taken back out
 
 ## v1.1.4.0
 - Fixed horse breed visuals on Hof Bergmann: adult horses no longer display as foals, breed colors now match correctly, foal-to-adult model transition now works
