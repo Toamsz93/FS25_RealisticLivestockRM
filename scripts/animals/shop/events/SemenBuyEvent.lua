@@ -133,9 +133,7 @@ function SemenBuyEvent:onDewarLoaded(vehicles, loadingState)
 		return
 	end
 
-	-- Generate unique ID for this dewar
-	local uniqueId = string.format("dw-%d-%d", math.random(100000, 999999), g_updateLoopIndex or 0)
-	vehicle:setUniqueId(uniqueId)
+	-- uniqueId is assigned by the Vehicle base class during load.
 	vehicle:setAnimal(self.pendingAnimal)
 	vehicle:setStraws(self.pendingQuantity)
 
@@ -143,6 +141,6 @@ function SemenBuyEvent:onDewarLoaded(vehicles, loadingState)
 	g_currentMission:addMoney(self.pendingPrice, self.pendingFarmId, MoneyType.SEMEN_PURCHASE, true, true)
 
 	Log:info("SemenBuyEvent: dewar created uniqueId=%s farmId=%d straws=%d",
-		uniqueId, self.pendingFarmId, self.pendingQuantity)
+		tostring(vehicle:getUniqueId()), self.pendingFarmId, self.pendingQuantity)
 
 end
