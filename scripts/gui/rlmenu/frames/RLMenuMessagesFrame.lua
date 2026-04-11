@@ -1,24 +1,12 @@
 --[[
     RLMenuMessagesFrame.lua
-    RL Tabbed Menu - Messages tab.
-
-    Phase 1 (read-only display):
-      - Pure-presentation frame: model touches are g_currentMission:getFarmId()
-        and getHasPlayerPermission; all formatting/query lives in the service.
-      - SmoothList driven by RLMessageService.getMessagesForFarm rows.
-
-    Phase 1.1 (delete support):
-      - Footer buttons Delete (MENU_CANCEL, base-game "buttonDelete" profile
-        in spirit; default Backspace) and Delete All (MENU_EXTRA_1, rebindable
-        in Settings -> Controls). Buttons hidden when list is empty OR the
-        local player lacks the `updateFarm` permission on their own farm.
-      - Single delete fires immediately (no confirmation). Delete All opens
-        a YesNoDialog with the total count. Both go through
-        RLMessageService.deleteMessages which mutates local state and
-        dispatches HusbandryMessageDeleteEvent (Pattern A).
-      - Server-side validation in HusbandryMessageDeleteEvent is the
-        authoritative security boundary; the frame's permission check is a
-        UX helper only.
+    RL Tabbed Menu Messages tab. Read-only SmoothList of messages pulled
+    from RLMessageService, with Delete (Backspace) and Delete All
+    (rebindable) footer buttons. Buttons are hidden when the list is
+    empty or the local player lacks the `updateFarm` permission on their
+    own farm; server-side validation in HusbandryMessageDeleteEvent is
+    the authoritative security boundary, the frame's permission check is
+    only a UX helper.
 ]]
 
 RLMenuMessagesFrame = {}

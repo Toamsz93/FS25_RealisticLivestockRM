@@ -1,16 +1,14 @@
 --[[
     RLMessageService.lua
-    First service for the RL Tabbed Menu (Phase 1).
+    Query + delete service for the RL Tabbed Menu Messages tab.
 
-    Builds a unioned, display-ready, newest-first list of husbandry messages
-    for a given farm. Read-only: never mutates model state, never sends events.
-    Safe on both server and client (clients receive messages via the existing
-    HusbandryMessageStateEvent sync).
+    getMessagesForFarm builds a unioned, newest-first, display-ready list
+    of husbandry messages for a farm; it's read-only and safe on both
+    server and client (clients receive messages via HusbandryMessageStateEvent).
 
-    The frame layer is pure presentation; it calls getMessagesForFarm and
-    renders the returned row tables directly via setText/setImageSlice.
-
-    Substitution parity: scripts/gui/RealisticLivestock_AnimalScreen.lua:2250-2278
+    deleteMessages is the Phase 1.1 mutation path, using Pattern A
+    (caller mutates local state first, then dispatches
+    HusbandryMessageDeleteEvent for rebroadcast).
 ]]
 
 RLMessageService = {}
@@ -43,11 +41,11 @@ end
 --- Substitute %s and '%s' tokens in a localized message template with values
 --- from message.args, resolving any rl_*-prefixed arg via g_i18n first.
 ---
---- This is a verbatim port of the legacy RealisticLivestock_AnimalScreen
---- substitution at lines 2250-2278. The space-split approach is fragile for
---- punctuation-heavy templates but every existing rl_message_* translation
---- in 17 language files was authored against this exact behavior. Diverging
---- now would silently break translated text. Cleanup is deferred to Phase 8.
+--- This is a verbatim port of the legacy substitution logic. The space-split
+--- approach is fragile for punctuation-heavy templates but every existing
+--- rl_message_* translation in 17 language files was authored against this
+--- exact behavior. Diverging now would silently break translated text.
+--- Cleanup is deferred to Phase 8.
 --- @param template string Localized template string (output of g_i18n:getText)
 --- @param args table|nil Argument list from the raw message record
 --- @return string Substituted text

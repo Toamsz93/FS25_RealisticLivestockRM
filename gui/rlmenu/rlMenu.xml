@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--
     rlMenu.xml
-    Root GUI for the RL Tabbed Menu (standalone full-screen menu).
-    Structure mirrors Fresh mod's freshMenu.xml and base-game InGameMenu.xml.
-    Phase 1: Messages tab. Frames are added in Phase 2+ by registering
-    additional <FrameReference> entries inside <Paging> and calling
-    registerPage/addPageTab in RLMenu:setupMenuPages.
+    Root GUI for the RL Tabbed Menu - standalone full-screen TabbedMenu.
+    Tabs are added by registering additional <FrameReference> entries
+    inside <Paging> and calling registerPage/addPageTab in
+    RLMenu:setupMenuPages.
 -->
 <GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
 
@@ -18,6 +17,7 @@
             onPageUpdate="onPageUpdate"
             id="pagingElement">
         <FrameReference ref="RLMenuMessagesFrame" name="messagesFrame" id="messagesFrame"/>
+        <FrameReference ref="RLMenuInfoFrame" name="infoFrame" id="infoFrame"/>
     </Paging>
 
     <!-- Tab header bar -->

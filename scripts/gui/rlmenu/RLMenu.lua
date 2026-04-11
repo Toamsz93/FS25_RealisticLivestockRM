@@ -21,9 +21,10 @@ local modDirectory = g_currentModDirectory
 -- Input action name for opening the menu. Declared in modDesc.xml, unbound by default.
 RLMenu.ACTION_NAME = "RL_MENU"
 
---- Construct a new RLMenu instance.
---- Called once from setupGui() during mod load.
---- @return table self The new menu instance
+--- Construct a new RLMenu instance. Called once from setupGui() during mod load.
+--- @param target table|nil
+--- @param custom_mt table|nil
+--- @return table self
 function RLMenu.new(target, custom_mt)
     local self = TabbedMenu.new(target, custom_mt or RLMenu_mt)
     self.isOpen = false
@@ -43,8 +44,9 @@ function RLMenu.setupGui()
     -- 1. Load RL menu profiles (separate file from gui/guiProfiles.xml)
     g_gui:loadProfiles(Utils.getFilename("gui/rlmenu/rlMenuProfiles.xml", modDirectory))
 
-    -- 2. Register frames (Phase 1: Messages tab)
+    -- 2. Register frames (Phase 1: Messages tab; Phase 2a: Info tab)
     RLMenuMessagesFrame.setupGui()
+    RLMenuInfoFrame.setupGui()
 
     -- 3. Create the menu instance and load its XML
     g_rlMenu = RLMenu.new()
@@ -66,17 +68,29 @@ function RLMenu:onGuiSetupFinished()
     self:setupMenuPages()
 end
 
---- Register each tab with the TabbedMenu Paging system.
---- Phase 1: Messages tab. Phase 2+ adds tabs by appending registerPage
---- and addPageTab calls here (and matching FrameReference entries in rlMenu.xml).
+--- Register each tab with the TabbedMenu Paging system and run its
+--- per-instance initialize() on the clone. At this point
+--- `self.messagesFrame` / `self.infoFrame` are the live clones produced
+--- by Gui:resolveFrameReference. initialize() is optional on frames and
+--- no-op when not overridden.
 function RLMenu:setupMenuPages()
     local basePredicate = function() return g_currentMission ~= nil end
 
     -- Phase 1 Messages tab
     self:registerPage(self.messagesFrame, 1, basePredicate)
     self:addPageTab(self.messagesFrame, nil, nil, "rlExtra.notify_animal")
+    if self.messagesFrame ~= nil and self.messagesFrame.initialize ~= nil then
+        self.messagesFrame:initialize()
+    end
 
-    Log:debug("RLMenu:setupMenuPages: 1 page registered (messages)")
+    -- Phase 2a Info tab
+    self:registerPage(self.infoFrame, 2, basePredicate)
+    self:addPageTab(self.infoFrame, nil, nil, "rlExtra.info_animal")
+    if self.infoFrame ~= nil and self.infoFrame.initialize ~= nil then
+        self.infoFrame:initialize()
+    end
+
+    Log:debug("RLMenu:setupMenuPages: 2 pages registered (messages, info)")
 end
 
 --- Configure the bottom button bar.
@@ -185,12 +199,12 @@ end
 ---   1. PlayerInputComponent.registerGlobalPlayerActionEvents - so `RL_MENU` is
 ---      registered whenever a player input context is created.
 ---   2. RealisticLivestock.loadMap - defers `RLMenu.setupGui()` until AFTER
----      RealisticLivestock.loadMap has registered the `rlExtra` texture config
----      (see RealisticLivestock.lua:121-124). Without this hook ordering, setupGui
----      parses rlMenu.xml's `imageSliceId="rlExtra.buy_animal"` before the texture
----      namespace exists, emitting `Warning: No texture config with prefix 'rlExtra' found`
----      at mod load. The warning was harmless in practice but noisy. Hooking
----      into loadMap resolves the ordering cleanly.
+---      RealisticLivestock.loadMap has registered the `rlExtra` texture
+---      config. Without this hook ordering, setupGui parses rlMenu.xml's
+---      `imageSliceId="rlExtra.buy_animal"` before the texture namespace
+---      exists, emitting `Warning: No texture config with prefix 'rlExtra'
+---      found` at mod load. The warning was harmless in practice but noisy.
+---      Hooking into loadMap resolves the ordering cleanly.
 ---
 --- Idempotency: main.lua sources this file exactly once, so install() runs exactly once;
 --- re-entry is not a supported scenario and would double-append both hooks.

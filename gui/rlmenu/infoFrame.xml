@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+    infoFrame.xml
+    RL Tabbed Menu Phase 2a - Info tab (husbandry selector + animal list).
+
+    Structure: fs25_subCategoryContainerBg (ThreePartBitmap background)
+    and fs25_subCategoryContainer (Bitmap content) are SIBLINGS at the GUI
+    root - the content is NOT nested inside the background. The content
+    container holds the husbandry selector, dot box, dot template, and the
+    list container with its SmoothList.
+
+    The SmoothList uses the multi-section data source API: `listSectionHeader`
+    attribute points to a dedicated `section` ListItem template, data rows
+    use a single `defaultCell` template, and sections are rebuilt on every
+    reload via the frame's getNumberOfSections / getTitleForSectionHeader /
+    getNumberOfItemsInSection / populateCellForItemInSection methods.
+
+    Empty states: noAnimalsText (list container, shown when the selected
+    husbandry has no animals), noHusbandriesText (right-side container,
+    shown when the farm has no husbandries at all).
+
+    Animal card fields: icon / idNoName / id / name / price / herdsmanPurchase.
+    idNoName is shown when the animal has no custom name, id + name otherwise.
+    Cell tint (disease red, marked orange) applied by populateCellForItemInSection.
+-->
+<GUI name="RLMenuInfoFrame">
+
+    <!-- Left sidebar background (ThreePartBitmap) -->
+    <ThreePartBitmap profile="fs25_subCategoryContainerBg">
+        <Bitmap profile="fs25_subCategoryContainerArrow"/>
+    </ThreePartBitmap>
+
+    <!-- Left sidebar content (sibling to the background, not nested inside it) -->
+    <Bitmap profile="fs25_subCategoryContainer">
+
+        <!-- Husbandry picker: centered label with left/right arrows -->
+        <MultiTextOption profile="fs25_subCategorySelector"
+                         id="subCategorySelector"
+                         onClick="onHusbandryChanged"/>
+
+        <!-- Dot indicators below the picker. Dot template is cloned at runtime
+             by refreshHusbandries, one clone per husbandry. -->
+        <BoxLayout profile="fs25_subCategorySelectorBox" id="subCategoryDotBox"/>
+        <RoundCorner profile="fs25_subCategorySelectorDot" id="subCategoryDotTemplate"/>
+
+        <!-- Animal list container -->
+        <GuiElement profile="fs25_subCategoryListContainer" id="animalListContainer">
+            <Bitmap profile="fs25_subCategoryStartClipper" name="startClipper"/>
+            <Bitmap profile="fs25_subCategoryStopClipper" name="endClipper"/>
+
+            <SmoothList profile="fs25_subCategoryList"
+                        id="animalList"
+                        startClipperElementName="startClipper"
+                        endClipperElementName="endClipper"
+                        listSectionHeader="section">
+
+                <!-- Section header cell (auto-populated via getTitleForSectionHeader) -->
+                <ListItem profile="fs25_subCategoryListSectionHeader" name="section">
+                    <Text profile="fs25_subCategoryListSectionHeaderTitle" name="title"/>
+                </ListItem>
+
+                <!-- Data row -->
+                <ListItem profile="fs25_subCategoryListItem" name="defaultCell">
+                    <Bitmap profile="fs25_subCategoryListItemIcon" name="icon"/>
+                    <Text profile="fs25_subCategoryListItemName" name="idNoName"/>
+                    <Text profile="fs25_subCategoryListItemName" name="id"   position="100px -10px"/>
+                    <Text profile="fs25_subCategoryListItemName" name="name" position="100px -30px"/>
+                    <Text profile="fs25_animalSourceListItemPrice" name="price" position="100px -50px"/>
+                    <Text profile="rlMenu_animalCardBadge" name="herdsmanPurchase"/>
+                </ListItem>
+            </SmoothList>
+
+            <Text profile="fs25_animalListEmptyText"
+                  id="noAnimalsText"
+                  text="$l10n_rl_menu_info_empty_no_animals"/>
+
+            <ThreePartBitmap profile="fs25_subCategoryListSliderBox">
+                <Slider profile="fs25_listSlider" dataElementId="animalList"/>
+            </ThreePartBitmap>
+        </GuiElement>
+
+    </Bitmap>
+
+    <!-- Right side: header only in Phase 2a. Detail pane added in Phase 2b. -->
+    <GuiElement profile="fs25_menuContentContainer" id="detailsBox">
+        <GuiElement profile="fs25_menuHeaderPanel" position="0px 74px">
+            <Bitmap profile="fs25_menuHeaderIconBg">
+                <Bitmap profile="fs25_menuHeaderIcon" imageSliceId="rlExtra.info_animal"/>
+            </Bitmap>
+            <Text profile="fs25_menuHeaderTitle" text="$l10n_rl_menu_info_title"/>
+        </GuiElement>
+    </GuiElement>
+
+    <!-- Empty state when the farm owns zero husbandries. -->
+    <GuiElement profile="fs25_menuContentContainer">
+        <Text profile="fs25_animalListEmptyText"
+              id="noHusbandriesText"
+              text="$l10n_rl_menu_info_empty_no_husbandries"
+              position="0px 60px"/>
+    </GuiElement>
+
+</GUI>

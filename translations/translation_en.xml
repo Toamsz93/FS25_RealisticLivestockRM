@@ -732,6 +732,11 @@
 		<text name="rl_menu_messages_delete_button" text="Delete"/>
 		<text name="rl_menu_messages_delete_all_button" text="Delete all"/>
 		<text name="rl_menu_messages_confirm_delete_all" text="Delete all %s messages? This cannot be undone."/>
+		<!-- Phase 2a: Info tab -->
+		<text name="rl_menu_info_title" text="Info"/>
+		<text name="rl_menu_info_empty_no_husbandries" text="You need at least one husbandry to view animals"/>
+		<text name="rl_menu_info_empty_no_animals" text="No animals in this husbandry"/>
+		<text name="rl_menu_info_filter_button" text="Filter"/>
 
 	</texts>
 </l10n>

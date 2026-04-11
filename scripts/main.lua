@@ -134,7 +134,9 @@ source(modDirectory .. "scripts/gui/RealisticLivestock_InGameMenuAnimalsFrame.lu
 -- Services must be sourced before frames that call them; frames must be
 -- sourced before the menu so FrameReference refs resolve.
 source(modDirectory .. "scripts/gui/rlmenu/services/RLMessageService.lua")
+source(modDirectory .. "scripts/gui/rlmenu/services/RLAnimalQuery.lua")
 source(modDirectory .. "scripts/gui/rlmenu/frames/RLMenuMessagesFrame.lua")
+source(modDirectory .. "scripts/gui/rlmenu/frames/RLMenuInfoFrame.lua")
 source(modDirectory .. "scripts/gui/rlmenu/RLMenu.lua")
 
 -- SECTION 14: Migration System

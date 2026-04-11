@@ -78,4 +78,11 @@
         <imageSelectedColor value="1 1 1 1"/>
     </Profile>
 
+    <!-- Herdsman/mark descriptor badge on Info tab animal cards. -->
+    <Profile name="rlMenu_animalCardBadge" extends="fs25_animalSourceListItemAmount" with="anchorBottomRight">
+        <width value="200px"/>
+        <position value="-30px 17px"/>
+        <textSize value="13px"/>
+    </Profile>
+
 </GUIProfiles>
