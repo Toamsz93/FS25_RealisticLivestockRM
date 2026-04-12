@@ -1,11 +1,15 @@
 --[[
     RLAnimalInfoService.lua
-    Display service for the RL Tabbed Menu Info tab detail pane.
+    Display and mutation service for the RL Tabbed Menu Info tab.
 
-    Public methods:
+    Read-only:
       * getHusbandryDisplay(husbandry, farmId) -> pen column payload
       * getAnimalDisplay(animal, husbandry)    -> animal column payload
       * getFarmBalance(farmId)                 -> integer money or nil
+
+    Mutations:
+      * toggleMonitor(animal)         -> active, removed
+      * renameAnimal(animal, newName) -> nil
 ]]
 
 RLAnimalInfoService = {}
@@ -373,4 +377,83 @@ function RLAnimalInfoService.getFarmBalance(farmId)
     Log:debug("RLAnimalInfoService.getFarmBalance: farmId=%s money=%s",
         tostring(farmId), tostring(farm.money))
     return farm.money
+end
+
+-- =============================================================================
+-- Mutations
+-- =============================================================================
+
+--- Toggle monitor state. Same code path as AnimalScreen:onClickMonitor.
+--- @param animal table
+--- @return boolean|nil active  New monitor.active, or nil if animal was nil
+--- @return boolean|nil removed New monitor.removed
+function RLAnimalInfoService.toggleMonitor(animal)
+    if animal == nil then
+        Log:trace("RLAnimalInfoService.toggleMonitor: nil animal, skipping")
+        return nil, nil
+    end
+
+    local monitor = animal.monitor
+    if monitor == nil then
+        Log:trace("RLAnimalInfoService.toggleMonitor: nil monitor, skipping")
+        return nil, nil
+    end
+
+    monitor.active = not monitor.active
+    monitor.removed = not monitor.active
+
+    if animal.updateVisualMonitor ~= nil then
+        animal:updateVisualMonitor()
+    end
+
+    local owner = animal.clusterSystem and animal.clusterSystem.owner
+    if owner ~= nil then
+        AnimalMonitorEvent.sendEvent(owner, animal, monitor.active, monitor.removed)
+    else
+        Log:trace("RLAnimalInfoService.toggleMonitor: no clusterSystem.owner, event skipped")
+    end
+
+    Log:debug("RLAnimalInfoService.toggleMonitor: farmId=%s uniqueId=%s active=%s removed=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId),
+        tostring(monitor.active), tostring(monitor.removed))
+    return monitor.active, monitor.removed
+end
+
+--- Rename an animal (or clear its name). Same code path as AnimalScreen:changeName.
+--- Empty string is treated as nil (deletes the name).
+--- @param animal table
+--- @param newName string|nil
+function RLAnimalInfoService.renameAnimal(animal, newName)
+    if animal == nil then
+        Log:trace("RLAnimalInfoService.renameAnimal: nil animal, skipping")
+        return
+    end
+
+    local text = (newName ~= nil and newName ~= "") and newName or nil
+
+    if text ~= nil or animal.name ~= nil then
+        if text == nil then
+            animal:addMessage("NAME_DELETED", { animal.name })
+        elseif animal.name == nil then
+            animal:addMessage("NAME_ADDED", { text })
+        elseif animal.name ~= text then
+            animal:addMessage("NAME_CHANGE", { animal.name, text })
+        end
+    end
+
+    animal.name = text
+
+    if animal.updateVisualRightEarTag ~= nil then
+        animal:updateVisualRightEarTag()
+    end
+
+    local owner = animal.clusterSystem and animal.clusterSystem.owner
+    if owner ~= nil then
+        AnimalNameChangeEvent.sendEvent(owner, animal, text)
+    else
+        Log:trace("RLAnimalInfoService.renameAnimal: no clusterSystem.owner, event skipped")
+    end
+
+    Log:debug("RLAnimalInfoService.renameAnimal: farmId=%s uniqueId=%s name=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId), tostring(text))
 end

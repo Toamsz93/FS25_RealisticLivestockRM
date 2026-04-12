@@ -110,6 +110,9 @@ Codice sorgente e tracciamento issue: https://github.com/rittermod/FS25_Realisti
         <actionBinding action="RL_DISEASES">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_d" index="1"/>
         </actionBinding>
+        <actionBinding action="RL_RENAME">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_n" index="1"/>
+        </actionBinding>
         <actionBinding action="RL_SELECT">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_a" index="1"/>
         </actionBinding>
@@ -123,6 +126,7 @@ Codice sorgente e tracciamento issue: https://github.com/rittermod/FS25_Realisti
         <action name="RL_AI"/>
         <action name="RL_CASTRATE"/>
         <action name="RL_DISEASES"/>
+        <action name="RL_RENAME"/>
         <action name="RL_SELECT"/>
         <action name="RL_MENU"/>
     </actions>

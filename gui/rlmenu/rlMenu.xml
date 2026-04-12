@@ -38,7 +38,7 @@
         </SmoothList>
     </Bitmap>
 
-    <!-- Bottom button bar - 6 slots for dynamic menu buttons (Back, etc.) -->
+    <!-- Bottom button bar - 9 slots for dynamic menu buttons (Back + Filter + up to 6 mutations + headroom) -->
     <BoxLayout profile="fs25_buttonBox" id="buttonsPanel">
         <Button profile="buttonBack" onClick="onClickBack" id="menuButton[1]">
             <Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
@@ -56,6 +56,15 @@
             <Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
         </Button>
         <Button profile="buttonBack" onClick="onClickBack" id="menuButton[6]">
+            <Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+        </Button>
+        <Button profile="buttonBack" onClick="onClickBack" id="menuButton[7]">
+            <Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+        </Button>
+        <Button profile="buttonBack" onClick="onClickBack" id="menuButton[8]">
+            <Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+        </Button>
+        <Button profile="buttonBack" onClick="onClickBack" id="menuButton[9]">
             <Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
         </Button>
     </BoxLayout>

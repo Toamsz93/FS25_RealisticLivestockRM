@@ -43,6 +43,10 @@ RLMenuInfoFrame.NUM_DISEASE_ROWS   = 5
 RLMenuInfoFrame.NUM_INPUT_ROWS     = 3
 RLMenuInfoFrame.NUM_OUTPUT_ROWS    = 5
 
+-- Mark uses MENU_EXTRA_1 (X), Castrate uses MENU_EXTRA_2 (C) to avoid
+-- key conflicts with the TabbedMenu defaults on those same keys.
+-- Other mutations use custom RL_* actions.
+
 ---Construct a new RLMenuInfoFrame instance. Called once by setupGui.
 ---@return table self
 function RLMenuInfoFrame.new()
@@ -73,6 +77,36 @@ function RLMenuInfoFrame.new()
         inputAction = InputAction.MENU_CANCEL,
         text = g_i18n:getText("rl_menu_info_filter_button"),
         callback = function() self:onClickFilter() end,
+    }
+    self.markButtonInfo = {
+        inputAction = InputAction.MENU_EXTRA_1,
+        text = g_i18n:getText("rl_ui_mark"),
+        callback = function() self:onClickMark() end,
+    }
+    self.monitorButtonInfo = {
+        inputAction = InputAction.RL_MONITOR,
+        text = g_i18n:getText("rl_ui_applyMonitor"),
+        callback = function() self:onClickMonitor() end,
+    }
+    self.renameButtonInfo = {
+        inputAction = InputAction.RL_RENAME,
+        text = g_i18n:getText("rl_ui_rename"),
+        callback = function() self:onClickRename() end,
+    }
+    self.diseasesButtonInfo = {
+        inputAction = InputAction.RL_DISEASES,
+        text = g_i18n:getText("rl_diseases"),
+        callback = function() self:onClickDiseases() end,
+    }
+    self.castrateButtonInfo = {
+        inputAction = InputAction.MENU_EXTRA_2,
+        text = g_i18n:getText("rl_ui_castrate"),
+        callback = function() self:onClickCastrate() end,
+    }
+    self.inseminateButtonInfo = {
+        inputAction = InputAction.RL_AI,
+        text = g_i18n:getText("rl_ui_artificialInsemination"),
+        callback = function() self:onClickInseminate() end,
     }
     self.menuButtonInfo = { self.backButtonInfo }
 
@@ -127,6 +161,7 @@ end
 function RLMenuInfoFrame:onFrameOpen()
     RLMenuInfoFrame:superClass().onFrameOpen(self)
     self.isFrameOpen = true
+
     -- refreshHusbandries owns chrome state for both populated and empty
     -- husbandry cases. Do NOT clearDetail here: refreshHusbandries auto-
     -- selects state 1, which fires onHusbandryChanged -> updatePenDisplay,
@@ -267,6 +302,7 @@ function RLMenuInfoFrame:onListSelectionChanged(list, section, index)
     end
 
     self:updateAnimalDisplay(item.cluster)
+    self:updateButtonVisibility()
 end
 
 -- =============================================================================
@@ -385,14 +421,105 @@ function RLMenuInfoFrame:updateEmptyState()
     end
 end
 
+---Resolve the currently selected animal from the list on demand.
+---@return table|nil
+function RLMenuInfoFrame:getSelectedAnimal()
+    if self.animalList == nil then return nil end
+    local section = self.animalList.selectedSectionIndex
+    local index   = self.animalList.selectedIndex
+    if section == nil or index == nil then return nil end
+
+    local key = self.sectionOrder[section]
+    if key == nil then return nil end
+    local items = self.itemsBySection[key]
+    if items == nil then return nil end
+    local item = items[index]
+    if item == nil then return nil end
+    return item.cluster
+end
+
 ---Rebuild the footer button info. Back is always shown; Filter only when
----at least one husbandry is available to filter.
+---at least one husbandry is available to filter. Mutation buttons are
+---added conditionally based on the currently selected animal.
 function RLMenuInfoFrame:updateButtonVisibility()
     self.menuButtonInfo = { self.backButtonInfo }
     if #self.sortedHusbandries > 0 then
         table.insert(self.menuButtonInfo, self.filterButtonInfo)
     end
+
+    local animal = self:getSelectedAnimal()
+    if animal ~= nil then
+        -- Mark — always shown, text toggles (mirrors AnimalScreen.lua:1852-1854)
+        local isMarked = animal.getMarked ~= nil and animal:getMarked()
+        self.markButtonInfo.text = g_i18n:getText(isMarked and "rl_ui_unmark" or "rl_ui_mark")
+        table.insert(self.menuButtonInfo, self.markButtonInfo)
+
+        -- Monitor — always shown, 3-state text + disabled (mirrors AnimalScreen.lua:1871-1873)
+        local monitor = animal.monitor
+        if monitor ~= nil then
+            local monitorText = monitor.removed and "removing" or (monitor.active and "remove" or "apply")
+            self.monitorButtonInfo.text = g_i18n:getText("rl_ui_" .. monitorText .. "Monitor")
+            self.monitorButtonInfo.disabled = monitor.removed
+        else
+            self.monitorButtonInfo.text = g_i18n:getText("rl_ui_applyMonitor")
+            self.monitorButtonInfo.disabled = false
+        end
+        table.insert(self.menuButtonInfo, self.monitorButtonInfo)
+
+        -- Rename — always shown (mirrors AnimalScreen.lua:2044)
+        table.insert(self.menuButtonInfo, self.renameButtonInfo)
+
+        -- Diseases — always shown (mirrors AnimalScreen.lua:1614)
+        table.insert(self.menuButtonInfo, self.diseasesButtonInfo)
+
+        -- Castrate — males only, not chickens (mirrors AnimalScreen.lua:1856-1858)
+        if animal.gender == "male" and animal.animalTypeIndex ~= AnimalType.CHICKEN then
+            self.castrateButtonInfo.disabled = animal.isCastrated
+            table.insert(self.menuButtonInfo, self.castrateButtonInfo)
+        end
+
+        -- Inseminate — females only, disabled per conditions (mirrors AnimalScreen.lua:1861-1868)
+        if animal.gender == "female" then
+            local cannotInseminate = animal.pregnancy ~= nil
+                or animal.isPregnant
+                or animal.insemination ~= nil
+                or (animal.getSubType ~= nil
+                    and animal.age < animal:getSubType().reproductionMinAgeMonth)
+                or (animal.isParent and animal.monthsSinceLastBirth ~= nil
+                    and animal.monthsSinceLastBirth <= 2)
+            self.inseminateButtonInfo.disabled = cannotInseminate
+            table.insert(self.menuButtonInfo, self.inseminateButtonInfo)
+        end
+    end
+
+    -- DEBUG: log button count and each action for keybinding diagnosis
+    Log:debug("RLMenuInfoFrame:updateButtonVisibility: %d buttons in menuButtonInfo", #self.menuButtonInfo)
+    for i, info in ipairs(self.menuButtonInfo) do
+        Log:trace("  button[%d]: action=%s text=%s disabled=%s",
+            i, tostring(info.inputAction), tostring(info.text), tostring(info.disabled))
+    end
+
     self:setMenuButtonInfoDirty()
+end
+
+---Refresh list rows, detail pane, and button bar after a mutation.
+---Called by mutation handlers to ensure the UI reflects the new state.
+function RLMenuInfoFrame:refreshAfterMutation()
+    -- Reload list rows (mark tint, name text may have changed)
+    if self.animalList ~= nil then
+        self.animalList:reloadData()
+    end
+    -- Re-render the animal detail pane
+    local animal = self:getSelectedAnimal()
+    if animal ~= nil then
+        Log:trace("RLMenuInfoFrame:refreshAfterMutation: re-rendering detail for farmId=%s uniqueId=%s",
+            tostring(animal.farmId), tostring(animal.uniqueId))
+        self:updateAnimalDisplay(animal)
+    else
+        Log:trace("RLMenuInfoFrame:refreshAfterMutation: no animal selected after reload")
+    end
+    -- Rebuild button bar (text, disabled states)
+    self:updateButtonVisibility()
 end
 
 -- =============================================================================
@@ -937,4 +1064,152 @@ end
 function RLMenuInfoFrame:clearAnimalDetail()
     Log:trace("RLMenuInfoFrame:clearAnimalDetail")
     if self.animalBox ~= nil then self.animalBox:setVisible(false) end
+end
+
+-- =============================================================================
+-- Mutation handlers
+-- =============================================================================
+
+---Toggle player mark. Local-only (RLRM-145 tracks MP fix).
+function RLMenuInfoFrame:onClickMark()
+    local animal = self:getSelectedAnimal()
+    if animal == nil then
+        Log:trace("RLMenuInfoFrame:onClickMark: no animal selected, early return")
+        return
+    end
+
+    local wasMarked = animal.getMarked ~= nil and animal:getMarked()
+    local isMarked = not wasMarked
+    Log:trace("RLMenuInfoFrame:onClickMark: farmId=%s uniqueId=%s wasMarked=%s -> isMarked=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId), tostring(wasMarked), tostring(isMarked))
+
+    if isMarked then
+        Log:trace("  branch: setMarked('PLAYER', true)")
+        animal:setMarked("PLAYER", true)
+    else
+        -- Clears ALL marks including AI Manager (RLRM-146 tracks fix)
+        Log:trace("  branch: setMarked(nil, false)")
+        animal:setMarked(nil, false)
+    end
+
+    Log:debug("RLMenuInfoFrame:onClickMark: farmId=%s uniqueId=%s marked=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId), tostring(isMarked))
+    self:refreshAfterMutation()
+end
+
+---Toggle monitor. Delegates to RLAnimalInfoService.
+function RLMenuInfoFrame:onClickMonitor()
+    local animal = self:getSelectedAnimal()
+    if animal == nil then
+        Log:trace("RLMenuInfoFrame:onClickMonitor: no animal selected, early return")
+        return
+    end
+
+    Log:trace("RLMenuInfoFrame:onClickMonitor: farmId=%s uniqueId=%s monitor.active=%s monitor.removed=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId),
+        tostring(animal.monitor and animal.monitor.active), tostring(animal.monitor and animal.monitor.removed))
+
+    local active, removed = RLAnimalInfoService.toggleMonitor(animal)
+
+    Log:debug("RLMenuInfoFrame:onClickMonitor: farmId=%s uniqueId=%s -> active=%s removed=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId), tostring(active), tostring(removed))
+    self:refreshAfterMutation()
+end
+
+---Open rename dialog. Pre-fills with current name or a random one.
+function RLMenuInfoFrame:onClickRename()
+    local animal = self:getSelectedAnimal()
+    if animal == nil then
+        Log:trace("RLMenuInfoFrame:onClickRename: no animal selected, early return")
+        return
+    end
+
+    local name = animal.name
+    if name == nil and g_currentMission ~= nil
+        and g_currentMission.animalNameSystem ~= nil then
+        name = g_currentMission.animalNameSystem:getRandomName(animal.gender)
+        Log:trace("RLMenuInfoFrame:onClickRename: no existing name, generated random: %s", tostring(name))
+    else
+        Log:trace("RLMenuInfoFrame:onClickRename: existing name: %s", tostring(name))
+    end
+
+    Log:debug("RLMenuInfoFrame:onClickRename: farmId=%s uniqueId=%s opening dialog, prefill=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId), tostring(name))
+    NameInputDialog.show(self.onRenameDone, self, name, nil, 30, nil, animal.gender)
+end
+
+---NameInputDialog callback. Delegates to RLAnimalInfoService.
+---@param text string
+---@param clickOk boolean
+function RLMenuInfoFrame:onRenameDone(text, clickOk)
+    if not clickOk then
+        Log:trace("RLMenuInfoFrame:onRenameDone: user cancelled dialog")
+        return
+    end
+
+    local animal = self:getSelectedAnimal()
+    if animal == nil then
+        Log:trace("RLMenuInfoFrame:onRenameDone: no animal selected, early return")
+        return
+    end
+
+    Log:debug("RLMenuInfoFrame:onRenameDone: farmId=%s uniqueId=%s newName=%s",
+        tostring(animal.farmId), tostring(animal.uniqueId), tostring(text))
+    RLAnimalInfoService.renameAnimal(animal, text)
+    self:refreshAfterMutation()
+end
+
+---Open disease treatment dialog.
+function RLMenuInfoFrame:onClickDiseases()
+    local animal = self:getSelectedAnimal()
+    if animal == nil then
+        Log:trace("RLMenuInfoFrame:onClickDiseases: no animal selected, early return")
+        return
+    end
+    if DiseaseDialog == nil or DiseaseDialog.show == nil then
+        Log:warning("RLMenuInfoFrame:onClickDiseases: DiseaseDialog unavailable")
+        return
+    end
+
+    Log:debug("RLMenuInfoFrame:onClickDiseases: farmId=%s uniqueId=%s opening dialog",
+        tostring(animal.farmId), tostring(animal.uniqueId))
+    DiseaseDialog.show(animal)
+end
+
+---Open insemination dialog.
+function RLMenuInfoFrame:onClickInseminate()
+    local animal = self:getSelectedAnimal()
+    if animal == nil then
+        Log:trace("RLMenuInfoFrame:onClickInseminate: no animal selected, early return")
+        return
+    end
+    if g_localPlayer == nil then
+        Log:trace("RLMenuInfoFrame:onClickInseminate: g_localPlayer nil, early return")
+        return
+    end
+
+    Log:debug("RLMenuInfoFrame:onClickInseminate: farmId=%s uniqueId=%s typeIndex=%s opening dialog",
+        tostring(animal.farmId), tostring(animal.uniqueId), tostring(animal.animalTypeIndex))
+    AnimalAIDialog.show(self.selectedHusbandry, g_localPlayer.farmId,
+        animal.animalTypeIndex, animal)
+end
+
+---Castrate the selected animal. Local-only (RLRM-145 tracks MP fix).
+function RLMenuInfoFrame:onClickCastrate()
+    local animal = self:getSelectedAnimal()
+    if animal == nil then
+        Log:trace("RLMenuInfoFrame:onClickCastrate: no animal selected, early return")
+        return
+    end
+
+    Log:trace("RLMenuInfoFrame:onClickCastrate: farmId=%s uniqueId=%s isCastrated=%s fertility=%.2f",
+        tostring(animal.farmId), tostring(animal.uniqueId),
+        tostring(animal.isCastrated), animal.genetics and animal.genetics.fertility or -1)
+
+    animal.isCastrated = true
+    animal.genetics.fertility = 0
+
+    Log:debug("RLMenuInfoFrame:onClickCastrate: farmId=%s uniqueId=%s castrated, fertility=0",
+        tostring(animal.farmId), tostring(animal.uniqueId))
+    self:refreshAfterMutation()
 end
