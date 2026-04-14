@@ -1,6 +1,6 @@
 <modDesc descVersion="107">
     <author>Ritter</author>
-    <version>1.2.0.0</version>
+    <version>1.2.0.1</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -23,6 +23,9 @@ Documentation: https://rittermod.github.io/FS25_RealisticLivestockRM
 Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivestockRM
 
 Changelog
+
+1.2.0.1:
+- Fixed deprecated fillUnit warning in game log for semen dewar
 
 v1.2.0.0:
 - Rewrote semen dewar as a vehicle/pallet - fixes game freeze when looking at dewar, multiplayer pickup failures, and invisible dewars after mid-game purchase

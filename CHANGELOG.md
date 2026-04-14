@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.0.1
+- Fixed deprecated fillUnit warning in game log for semen dewar
+
 ## v1.2.0.0
 - Rewrote semen dewar as a vehicle/pallet - fixes game freeze when looking at dewar, multiplayer pickup failures, and invisible dewars after mid-game purchase
 - Dewar state (straws, bull genetics) now persists through save/load and object storage cycles

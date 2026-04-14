@@ -53,7 +53,7 @@
         <fillUnitConfigurations>
             <fillUnitConfiguration name="$l10n_configuration_valueDefault" price="0">
                 <fillUnits>
-                    <fillUnit fillTypes="UNKNOWN" capacity="0" unit="$l10n_unit_literShort"
+                    <fillUnit fillTypes="UNKNOWN" capacity="0" unitTextOverride="$l10n_unit_literShort"
                               showInShop="false" showCapacityInShop="false"
                               updateMass="false" canBeUnloaded="false" />
                 </fillUnits>
