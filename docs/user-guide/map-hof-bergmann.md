@@ -31,7 +31,7 @@ Hof Bergmann adds several animal types beyond the base game. The mod gives most 
 
 ### What the Bridge Adds
 
-For each exotic animal type, the mod adds **male subtypes** so that natural breeding is possible. Without the bridge, these types only have females that spontaniously reproduce.
+For each exotic animal type, the mod adds **male subtypes** so that natural breeding is possible. Without the bridge, these types only have females that spontaneously reproduce.
 
 | Animal Type | Subtypes Added | Breeding |
 |-------------|---------------|----------|

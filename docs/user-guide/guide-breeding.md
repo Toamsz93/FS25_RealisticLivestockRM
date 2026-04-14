@@ -247,8 +247,6 @@ If you don't want to keep males, artificial insemination (AI) is available throu
 - Same health and age requirements apply
 - The insemination button is automatically disabled when the female is ineligible (pregnant, too young, or recovering from birth)
 
-> **Multiplayer note:** Semen dewars (AI canisters) cannot be physically picked up by clients. The dewar interaction menu works, but moving dewars only works in singleplayer or as the host.
-
 ---
 
 ## Breeding Calendar

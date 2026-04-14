@@ -1,26 +1,22 @@
 # Changelog
 
-## v1.2.0.0-dev.5
-- Added Info tab to the new RL Menu with husbandry selector, animal list, and read-only detail pane (pedigree, genetics, diseases, inputs/outputs, children)
-- Added action buttons to the RL Menu Info tab: Mark (X), Monitor (M), Rename (N), Diseases (D), Inseminate (I), and Castrate (C) - all work via keyboard shortcut and mouse click
-- Added new RL_RENAME key binding (N) for the rename action in Settings -> Controls
+## v1.2.0.0
+- Rewrote semen dewar as a vehicle/pallet - fixes game freeze when looking at dewar, multiplayer pickup failures, and invisible dewars after mid-game purchase
+- Dewar state (straws, bull genetics) now persists through save/load and object storage cycles
+- Fixed crash in third-party mods that inspect stored pallets (e.g. Time Saving Stock Check) when a semen dewar is placed in object storage
+- Fixed multiplayer desync: mark, castrate, monitor toggle, rename, and disease treatment changes from a client now sync to all other connected players
+- Fixed all pre-existing animals getting the same identity (e.g. "UK 1 1") when installing RL on an existing save for the first time - also self-heals saves already affected
+- Added Czech translation update (community contribution by Kynuska)
+- Added Hungarian translation (community contribution by Toamsz93)
+- Added missing translation keys across all 16 languages
+- Fixed fillType errors in log when third-party selling station mods reference the ANIMAL category
 
-## v1.2.0.0-dev.4
-- Fixed crash in third-party mods that inspect stored pallets (e.g. Time Saving Stock Check) when a semen dewar is placed in an object storage - dewars now expose the standard pallet fill attributes expected by other mods
-
-## v1.2.0.0-dev.3
-- Added new "Open RL Menu (new)" action - assign a key in Settings -> Controls to open the new tabbed menu. The legacy animal screen (R key) and the ESC menu page still work unchanged; the new menu will gain features over the coming releases as the migration progresses
-- Added Messages tab as the first real tab in the new RL Menu: shows all husbandry messages from the local player's farm in a single chronological feed sorted newest-first, with columns for date, type, animal, message, and husbandry
-- Added single and bulk delete support in the Messages tab: press Backspace (or click Delete) to remove the focused message, press X (or click Delete all) to remove all visible messages after a confirmation dialog. Delete buttons are only shown when the local player has the Update Farm permission
-- Multiplayer: message delete works across client, server, and other connected clients via a new network event that follows the client-to-server-to-all-clients sync pattern
-- The legacy R-key animal screen Messages tab is unchanged and still has its own (pre-existing) delete button
-
-## v1.2.0.0-dev.2
-- Rewrote semen dewar as a vehicle/pallet - should fix game freeze when looking at dewar, multiplayer pickup failures, and invisible dewars after mid-game purchase
-- Dewar state (straws, bull genetics) now persists through save/load cycles via the vehicle system
-- Multiplayer: dewars automatically sync to all clients including late joiners - no more invisible or duplicated dewars
-- Added automatic migration from old dewar format - existing saves with semen dewars are converted on first load
-- Dewars placed in object storage (barns, sheds) now retain their assigned bull and straw count when taken back out
+### New RL Menu (preview - work in progress):
+- Added new RL Menu (assign key in Settings -> Controls): a standalone tabbed menu. The legacy animal screen (R key) still works unchanged
+- Messages tab: chronological message feed with single and bulk delete
+- Info tab: husbandry selector, animal list with detail pane (pedigree, genetics, diseases, inputs/outputs), and action buttons (Mark, Monitor, Rename, Diseases, Inseminate, Castrate)
+- Move tab: move animals between husbandries or to butchers with single-move and bulk-move using checkbox multi-select
+- Status icons on animal list cards showing pregnancy, recovering, infertile/castrated, lactating, producing wool, and laying eggs at a glance
 
 ## v1.1.4.0
 - Fixed horse breed visuals on Hof Bergmann: adult horses no longer display as foals, breed colors now match correctly, foal-to-adult model transition now works

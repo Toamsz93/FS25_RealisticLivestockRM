@@ -1,7 +1,10 @@
+[![Read User Guide](https://img.shields.io/badge/Read-User_Guide-blue?style=for-the-badge&logo=materialformkdocs&logoColor=white)](https://rittermod.github.io/FS25_RealisticLivestockRM/)
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest_Release-orange?style=for-the-badge&logo=github)](https://github.com/rittermod/FS25_RealisticLivestockRM/releases/latest/download/FS25_RealisticLivestockRM.zip)
+
+
+
 > [!NOTE]
 > My version of the awesome [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb).
->
-> Proudly cooperating with [FS25_EnhancedLivestock](https://github.com/renfordt/FS25_EnhancedLivestock) mod by [Renfordt](https://github.com/renfordt).
 
 # FS25 Realistic Livestock - Ritter version
 
@@ -53,10 +56,6 @@ This is a maintained version of the original mod by Arrow-kb, who has discontinu
 Place `FS25_RealisticLivestockRM.zip` in your mods folder.
 
 **Migrating from Arrow-kb's version:** Remove `FS25_RealisticLivestock.zip` and `FS25_FontLibrary.zip`. Back up your savegame first, then load it - data migrates automatically.
-
-## Known Issues
-
-- **Multiplayer: Dewars (AI semen canisters) cannot be picked up by clients.** The dewar interaction menu works (taking straws), but physically picking up and moving dewars does not work for connected clients. Works in singleplayer.
 
 ## Changelog
 See the [CHANGELOG](CHANGELOG.md) for a detailed list of changes, fixes, and improvements in this version.
