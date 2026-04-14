@@ -220,7 +220,8 @@
 
 
 		<text name="rl_ui_castrated" text="Castrated"/>
-		<text name="rl_ui_castrate" text="Castrate"/><text name="rl_ui_importance" text="Importance"/>
+		<text name="rl_ui_castrate" text="Castrate"/>
+		<text name="rl_ui_importance" text="Importance"/>
 	<text name="rl_ui_type" text="Type"/>
 	<text name="rl_ui_date" text="Date"/>
 	<text name="rl_ui_message" text="Message"/>
@@ -651,7 +652,6 @@
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
         <!-- Added missing translations -->
-        <text name="rl_ui_castrate" text="Castrar"/>
         <text name="input_RL_AI" text="Inseminação Artificial"/>
         <text name="input_RL_CASTRATE" text="Castrar Animal"/>
         <text name="input_RL_DISEASES" text="Doenças dos Animais"/>
@@ -690,5 +690,51 @@
         <text name="rm_rl_mod_conflict_message" text="O(s) seguinte(s) mod(s) estão em conflito com 'Realistic Livestock - Ritter version' e não podem ser usados em conjunto: %s &#10;&#10;Por favor, desative o(s) mod(s) em conflito e reinicie o jogo."/>
 
 		
+
+        <!-- Missing keys (English fallback) -->
+        <text name="input_RL_MENU" text="Open RL Menu (new)"/>
+        <text name="input_RL_RENAME" text="Rename"/>
+        <text name="rl_bridge_version_unknown" text="Realistic Livestock: %s version %s has not been tested with version %s of Realistic Livestock. Using config '%s'. If you experience issues with exotic animals, please report them at %s."/>
+        <text name="rl_menu_info_children" text="Children"/>
+        <text name="rl_menu_info_diseases_header" text="Diseases"/>
+        <text name="rl_menu_info_empty_no_animals" text="No animals in this husbandry"/>
+        <text name="rl_menu_info_empty_no_husbandries" text="You need at least one husbandry to view animals"/>
+        <text name="rl_menu_info_filter_button" text="Filter"/>
+        <text name="rl_menu_info_genetics_header" text="Genetics"/>
+        <text name="rl_menu_info_input_header" text="Input (monitored)"/>
+        <text name="rl_menu_info_output_header" text="Output (monitored)"/>
+        <text name="rl_menu_info_pedigree_header" text="Pedigree"/>
+        <text name="rl_menu_info_pen_information" text="Pen Information"/>
+        <text name="rl_menu_info_title" text="Info"/>
+        <text name="rl_menu_messages_col_animal" text="Animal"/>
+        <text name="rl_menu_messages_col_date" text="Date"/>
+        <text name="rl_menu_messages_col_husbandry" text="Husbandry"/>
+        <text name="rl_menu_messages_col_message" text="Message"/>
+        <text name="rl_menu_messages_col_type" text="Type"/>
+        <text name="rl_menu_messages_confirm_delete_all" text="Delete all %s messages? This cannot be undone."/>
+        <text name="rl_menu_messages_delete_all_button" text="Delete all"/>
+        <text name="rl_menu_messages_delete_button" text="Delete"/>
+        <text name="rl_menu_messages_empty" text="No messages yet"/>
+        <text name="rl_menu_messages_no_farm" text="You need to own a farm to view messages"/>
+        <text name="rl_menu_messages_summary" text="%s messages"/>
+        <text name="rl_menu_messages_title" text="Messages"/>
+        <text name="rl_menu_messages_unknown" text="Unknown: %s"/>
+        <text name="rl_menu_move_summary" text="%d animals" tag="format"/>
+        <text name="rl_menu_move_title" text="Move"/>
+        <text name="rl_settings_geneticsDisplay_label" text="Genetics Display"/>
+        <text name="rl_settings_geneticsDisplay_texts_1" text="Off"/>
+        <text name="rl_settings_geneticsDisplay_texts_2" text="Short"/>
+        <text name="rl_settings_geneticsDisplay_texts_3" text="Long"/>
+        <text name="rl_settings_geneticsDisplay_tooltip" text="Show numeric genetics values in animal names"/>
+        <text name="rl_settings_geneticsPosition_label" text="Genetics Position"/>
+        <text name="rl_settings_geneticsPosition_texts_1" text="Prefix"/>
+        <text name="rl_settings_geneticsPosition_texts_2" text="Postfix"/>
+        <text name="rl_settings_geneticsPosition_tooltip" text="Where to show genetics in the name"/>
+        <text name="rl_settings_sortByGenetics_label" text="Sort by Genetics"/>
+        <text name="rl_settings_sortByGenetics_tooltip_1" text="Animals are sorted by type and age"/>
+        <text name="rl_settings_sortByGenetics_tooltip_2" text="Animals are sorted by genetics (highest first)"/>
+        <text name="rl_ui_buyAllRejected" text="None of the selected animals can be purchased in this husbandry."/>
+        <text name="rl_ui_buyPartialConfirmation" text="Buy %d of %d selected animals for %s?" tag="format"/>
+        <text name="rl_ui_buySkippedNotSupported" text="%d animal(s) not supported by this husbandry" tag="format"/>
 	</texts>
 </l10n>

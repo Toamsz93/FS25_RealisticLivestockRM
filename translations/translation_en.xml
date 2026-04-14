@@ -751,5 +751,8 @@
 		<text name="rl_menu_move_title" text="Move"/>
 		<text name="rl_menu_move_summary" text="%d animals" tag="format"/>
 
+
+		<!-- Missing keys (English fallback) -->
+		<text name="input_RL_RENAME" text="Rename"/>
 	</texts>
 </l10n>
